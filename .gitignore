@@ -1,0 +1,48 @@
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Folder config file
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Mac 
+.DS_Store
+
+# Sublime
+*.sublime-project
+*.sublime-workspace
+
+# Dropbox
+.dropbox
+.dropbox.attr
+
+# SASS
+/.sass-cache/
+
+# PhpStorm
+/.idea/
+
+# Eclipse
+*.pydevproject
+.project
+.metadata
+/build/
+/tmp/
+tests/clover.xml
+
+# NPM / Composer
+composer.lock
+/node_modules/
+/vendor/
+npm-debug.log
+
+# Grunt
+package.json
+Grunt.js
+
+# Misc
+wp-phptidy.php
+notes.txt

@@ -1,0 +1,102 @@
+
+  a.menu-icon-piklist_demo img {
+    width: 18px;
+    height: 16px;
+  }
+
+  .piklist-demo-help-source {
+    clear: both;
+  }
+
+    .inside .piklist-demo-help-source {
+      width: 100%;
+      padding: 0 12px 1px 12px;
+      border-top: 1px solid #eeeeee;
+      background: #fafafa;
+      margin: 12px 0 -12px -12px;
+    }
+
+    .piklist-demo-help-source code {
+      max-width: 100%;
+    }
+
+  .piklist-demo-highlight {
+    background: #ffffff;
+    border-left: 4px solid #ffc733;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
+    margin: 15px 0 10px 0;
+    padding: 10px 12px;
+    clear: both;
+  }
+
+    .piklist-demo-highlight:after {
+      content: '';
+      display: table;
+      clear: both;
+    }
+
+    .piklist-demo-highlight h3 {
+      padding: 0 !important;
+      margin: 0 !important;
+      font-size: 14px;
+      line-height: 1.4;
+    }
+
+    .piklist-demo-highlight p:last-child {
+      margin-bottom: 0 !important;
+    }
+
+    .inside .piklist-demo-highlight {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      border-left: none;
+      border-top: 1px solid #eeeeee;
+      border-bottom: 1px solid #eeeeee;
+      background: #f5f5f5;
+      margin: 12px 0 -12px -12px;
+      -webkit-box-shadow: none;
+      -moz-box-shadow: none;
+      box-shadow: none;
+    }
+
+      .inside .piklist-demo-highlight:first-child {
+        margin: 0 0 12px -12px;
+        top: -7px;
+        position: relative;
+      }
+
+    .piklist-meta-box-none .piklist-demo-highlight {
+      background: #ffffff;
+    }
+
+  pre.piklist-demo-pre  {
+    padding: 10px 0;
+    margin: 10px 0;
+    overflow: auto;
+  }
+
+    pre.piklist-demo-pre {
+    }
+
+    * html .piklist-demo-pre  {
+      padding-bottom: 10px;
+      overflow: visible;
+      overflow-x: auto;
+    }
+
+  .piklist-demo-field-value {
+    display: block;
+  }
+
+  body .wp-filter .button {
+    margin-top: 12px;
+  }
+
+  .demo-tab-bar .piklist-tooltip:after {
+    bottom: 0;
+    right: 0;
+    left: initial;
+    margin-top: 25px;
+    height: 70px;
+  }

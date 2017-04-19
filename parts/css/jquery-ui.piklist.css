@@ -1,0 +1,402 @@
+/* --------------------------------------------------------------------------------
+  Customizations to jQuery UI elements to make them generic and wp-admin friendly.
+--------------------------------------------------------------------------------- */
+
+  /* General */
+
+  .ui-corner-all,
+  .ui-corner-top,
+  .ui-corner-left,
+  .ui-corner-tl {
+    border-top-left-radius: 3px;
+  }
+  .ui-corner-all,
+  .ui-corner-top,
+  .ui-corner-right,
+  .ui-corner-tr {
+    border-top-right-radius: 3px;
+  }
+  .ui-corner-all,
+  .ui-corner-bottom,
+  .ui-corner-left,
+  .ui-corner-bl {
+    border-bottom-left-radius: 3px;
+  }
+  
+  .ui-corner-all,
+  .ui-corner-bottom,
+  .ui-corner-right,
+  .ui-corner-br {
+    border-bottom-right-radius: 3px;
+  }
+
+  .ui-widget-header {
+    background: #f4f4f4;
+  }
+
+  .ui-widget-content {
+    border-color: #cccccc;
+  }
+
+  .ui-state-default,
+  .ui-widget-content .ui-state-default,
+  .ui-widget-header .ui-state-default {
+    background: #e5e5e5;
+  }
+
+  /* Slider */
+
+  .ui-slider-handle {
+    border-color: #cccccc;
+  }
+
+    .ui-slider-handle:hover {
+      border-color: #aaaaaa;
+      -webkit-box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.1);
+      box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.1);
+    }
+
+    .ui-slider-handle:focus {
+      border-color: #aaaaaa;
+    }
+
+  /* Datepicker */
+
+  .ui-datepicker {
+    z-index: 500050 !important;
+    padding: 0;
+    border: none;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+    .ui-datepicker * {
+      padding: 0;
+      font-family: "Open Sans", sans-serif;
+      -webkit-border-radius: 0;
+      -moz-border-radius: 0;
+      border-radius: 0;
+    }
+
+  .ui-datepicker .ui-datepicker-header,
+  .ui-datepicker .ui-datepicker-header a {
+    border: none;
+    color: #555555;
+    font-weight: normal;
+    padding: 0;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+    .ui-datepicker .ui-datepicker-header .ui-state-hover {
+      background: none;
+      border-color: transparent;
+      cursor: pointer;
+      -webkit-border-radius: 0;
+      -moz-border-radius: 0;
+      border-radius: 0;
+      height: 36px;
+      width: 36px;
+    }
+
+  .ui-datepicker .ui-datepicker-title {
+    font-weight: normal;
+    padding: 12px 0;
+    line-height: 1;
+  }
+
+  .ui-datepicker .ui-datepicker-prev,
+  .ui-datepicker .ui-datepicker-next {
+    height: 36px;
+    width: 36px;
+    top: 1px;
+  }
+
+    .ui-datepicker .ui-datepicker-prev {
+      left: 1px;
+    }
+    
+    .ui-datepicker .ui-datepicker-next {
+      right: 1px;
+    }
+    
+    .ui-datepicker .ui-datepicker-next span,
+    .ui-datepicker .ui-datepicker-prev span {
+      display: none;
+    }
+
+  .ui-datepicker .ui-datepicker-prev:before,
+  .ui-datepicker .ui-datepicker-next:before {
+    display: block;
+    font-weight: bold;
+    line-height: 30px;
+    font-size: 30px;
+    text-align: center;
+    height: 36px;
+    width: 36px;
+    speak: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .ui-datepicker .ui-datepicker-prev:before {
+    content: '\2039';
+  }
+
+  .ui-datepicker .ui-datepicker-next:before {
+    content: '\203A';
+  }
+  
+  .ui-datepicker .ui-datepicker-prev-hover:before,
+  .ui-datepicker .ui-datepicker-next-hover:before {
+    opacity: 0.5;
+  }
+  
+  .ui-datepicker table {
+    font-size: 13px;
+    margin: 0;
+  }
+
+    .ui-datepicker thead {
+      background: #888888;
+      color: #ffffff;
+    }
+
+      .ui-datepicker th {
+        padding: 0.75em 0;
+        font-weight: normal;
+        border: none;
+      }
+      
+    .ui-datepicker td {
+      border: 1px solid #f4f4f4;
+      padding: 0;
+    } 
+    
+      .ui-datepicker tbody tr:first-child td {
+        border-top: none;
+      }
+
+      .ui-datepicker td .ui-state-default {
+        background: transparent;
+        border: none;
+        text-align: center;
+        padding: 0.5em;
+        margin: 0;
+        font-weight: normal;
+      }
+      
+      .ui-datepicker td.ui-datepicker-week-end {
+        background: #f4f4f4;
+      }
+      
+      .ui-datepicker td.ui-datepicker-today {
+        background: #ffffbe;
+      }
+
+      .ui-datepicker td.ui-datepicker-current-day,
+      .ui-datepicker td .ui-state-hover {
+        background: #d5d5d5;
+      }
+
+      .ui-datepicker td.ui-state-disabled,
+      .ui-datepicker td.ui-state-disabled .ui-state-default {
+        opacity: 0.5;
+      }
+      
+
+
+/* --------------------------------------------------------------------------------
+  Theme - Fresh
+--------------------------------------------------------------------------------- */
+
+  .admin-color-fresh .ui-datepicker .ui-datepicker-header {
+    background: #00a0d2;
+  }
+
+  .admin-color-fresh .ui-datepicker thead {
+    background: #32373c;
+  }
+
+  .admin-color-fresh .ui-datepicker td .ui-state-hover,
+  .admin-color-fresh .ui-datepicker td.ui-datepicker-current-day a {
+    color: #ffffff;
+    background: #00a0d2;
+  }
+
+  .admin-color-fresh .ui-datepicker .ui-datepicker-header,
+  .admin-color-fresh .ui-datepicker .ui-datepicker-header a {
+    color: #ffffff;
+  }
+  
+  
+
+/* --------------------------------------------------------------------------------
+  Theme - Blue
+--------------------------------------------------------------------------------- */
+
+  .admin-color-blue .ui-datepicker .ui-datepicker-header {
+    background: #52accc;
+  }
+
+  .admin-color-blue .ui-datepicker thead {
+    background: #4796b3;
+  }
+
+  .admin-color-blue .ui-datepicker td .ui-state-hover,
+  .admin-color-blue .ui-datepicker td.ui-datepicker-current-day a {
+    color: #ffffff;
+    background: #e1a948;
+  }
+
+  .admin-color-blue .ui-datepicker .ui-datepicker-header,
+  .admin-color-blue .ui-datepicker .ui-datepicker-header a {
+    color: #ffffff;
+  }
+
+
+
+/* --------------------------------------------------------------------------------
+  Theme - Coffee
+--------------------------------------------------------------------------------- */
+
+  .admin-color-coffee .ui-datepicker .ui-datepicker-header {
+    background: #59524c;
+  }
+
+  .admin-color-coffee .ui-datepicker thead {
+    background: #46403c;
+  }
+
+  .admin-color-coffee .ui-datepicker td .ui-state-hover,
+  .admin-color-coffee .ui-datepicker td.ui-datepicker-current-day a {
+    background: #c7a589;
+    color: #ffffff;
+  }
+
+  .admin-color-coffee .ui-datepicker .ui-datepicker-header,
+  .admin-color-coffee .ui-datepicker .ui-datepicker-header a {
+    color: #ffffff;
+  }
+  
+  
+
+/* --------------------------------------------------------------------------------
+  Theme - Ectoplasm
+--------------------------------------------------------------------------------- */
+
+  .admin-color-ectoplasm .ui-datepicker .ui-datepicker-header {
+    background: #523f6d;
+  }
+
+  .admin-color-ectoplasm .ui-datepicker thead {
+    background: #413256;
+  }
+
+  .admin-color-ectoplasm .ui-datepicker td .ui-state-hover,
+  .admin-color-ectoplasm .ui-datepicker td.ui-datepicker-current-day a {
+    background: #a3b745;
+    color: #ffffff;
+  }
+
+  .admin-color-ectoplasm .ui-datepicker .ui-datepicker-header,
+  .admin-color-ectoplasm .ui-datepicker .ui-datepicker-header a {
+    color: #ffffff;
+  }
+  
+
+
+/* --------------------------------------------------------------------------------
+  Theme - Midnight
+--------------------------------------------------------------------------------- */
+
+  .admin-color-midnight .ui-datepicker .ui-datepicker-header {
+    background: #363b3f;
+  }
+
+  .admin-color-midnight .ui-datepicker thead {
+    background: #26292c;
+  }
+
+  .admin-color-midnight .ui-datepicker td .ui-state-hover,
+  .admin-color-midnight .ui-datepicker td.ui-datepicker-current-day a {
+    background: #e14d43;
+    color: #ffffff;
+  }
+
+  .admin-color-midnight .ui-datepicker .ui-datepicker-header,
+  .admin-color-midnight .ui-datepicker .ui-datepicker-header a {
+    color: #ffffff;
+  }
+
+
+
+/* --------------------------------------------------------------------------------
+  Theme - Ocean
+--------------------------------------------------------------------------------- */
+
+  .admin-color-ocean .ui-datepicker .ui-datepicker-header {
+    background: #738e96;
+  }
+
+  .admin-color-ocean .ui-datepicker thead {
+    background: #627c83;
+  }
+
+  .admin-color-ocean .ui-datepicker td .ui-state-hover,
+  .admin-color-ocean .ui-datepicker td.ui-datepicker-current-day a {
+    background: #9ebaa0;
+    color: #ffffff;
+  }
+  
+  .admin-color-ocean .ui-datepicker .ui-datepicker-header,
+  .admin-color-ocean .ui-datepicker .ui-datepicker-header a {
+    color: #ffffff;
+  }
+
+
+
+/* --------------------------------------------------------------------------------
+  Theme - Sunrise
+--------------------------------------------------------------------------------- */
+
+  .admin-color-sunrise .ui-datepicker .ui-datepicker-header,
+  .admin-color-sunrise .ui-datepicker .ui-datepicker-header .ui-state-hover {
+    background: #cf4944;
+  }
+
+  .admin-color-sunrise .ui-datepicker th {
+    border-color: #be3631;
+    background: #be3631;
+  }
+
+  .admin-color-sunrise .ui-datepicker td .ui-state-hover,
+  .admin-color-sunrise .ui-datepicker td.ui-datepicker-current-day a {
+    background: #dd823b;
+    color: #ffffff;
+  }
+
+  .admin-color-sunrise .ui-datepicker .ui-datepicker-header,
+  .admin-color-sunrise .ui-datepicker .ui-datepicker-header a {
+    color: #ffffff;
+  }
+  
+  
+  
+/* --------------------------------------------------------------------------------
+  Theme - Sunrise
+--------------------------------------------------------------------------------- */
+
+  .admin-color-light .ui-datepicker td .ui-state-hover,
+  .admin-color-light .ui-datepicker td.ui-datepicker-current-day a {
+    background: #04a4cc;
+    color: #ffffff;
+  }
+  

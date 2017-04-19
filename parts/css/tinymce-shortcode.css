@@ -1,0 +1,94 @@
+
+/* --------------------------------------------------------------------------------
+  Shortcode Embed Style
+--------------------------------------------------------------------------------- */  
+
+  .piklist-shortcode {
+    position: relative;
+    clear: both;
+    display: block;
+    box-shadow: none;
+    cursor: pointer;
+    padding: 14px 0;
+
+    background-color: #ffffff;
+    border: 1px solid #dedede;
+    font-family: "Open Sans", sans-serif;
+    font-size: 13px;
+    color: #2b2b2b;
+    line-height: 19px;
+    text-align: left;
+    
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+    .piklist-shortcode::selection,
+    .wpview-wrap[data-mce-selected] .piklist-shortcode {
+      background-color: transparent !important;
+    } 
+    
+    .piklist-shortcode strong,
+    .piklist-shortcode em {
+      margin-right: 10px;
+      margin-left: 10px;
+      display: block;
+    }
+
+    .piklist-shortcode .dashicons {
+      display: block;
+      font-size: 64px;
+      width: 64px;
+      height: 64px;
+      position: absolute;
+      top: 6px;
+      left: 6px;
+    }
+    
+    .piklist-shortcode-dashicon {
+      min-height: 76px;
+    }
+    
+    .piklist-shortcode-dashicon strong,
+    .piklist-shortcode-dashicon em {
+      margin-left: 76px;
+    }
+    
+  .piklist-shortcode-preview {
+    border: 1px dashed #dedede;
+  }
+  
+  .wpview-wrap {
+    padding-right: 2px;
+  }
+  
+    .wpview-wrap.wpview-wrap-inline {
+      background-color: #e8e8e8;
+      padding: 2px 4px 2px 0;
+      border-color: #e8e8e8;
+      box-shadow: none;
+      cursor: pointer;
+      padding-right: 0;
+    
+      font-family: Inconsolata, monospace;
+      color: #1a1a1a;
+      text-align: left;
+    
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+    
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    
+      .wpview-wrap.wpview-wrap-inline .piklist-shortcode-inline-label {
+        font-weight: bold;
+      }

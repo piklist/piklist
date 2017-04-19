@@ -1,0 +1,913 @@
+/* --------------------------------------------------------------------------------
+  Styles for Piklist
+--------------------------------------------------------------------------------- */
+
+  .piklist-notice-error,
+  .piklist-notice-update {
+    padding: 1em;
+    margin-bottom: 1em;
+  }
+
+  .piklist-notice-error ul,
+  .piklist-notice-update ul {
+    list-style-position: inside;
+    margin-top: 13px;
+    margin-bottom: 13px;
+  }
+
+    .piklist-notice-error {
+      background-color: #ffe7e7;
+    }
+
+    .piklist-notice-update {
+      background-color: #dff0d8;
+    }
+
+    .form-table td .piklist-notice p,
+    .form-table td .piklist-notice-error p,
+    .form-table td .piklist-notice-update p {
+      margin: 0.5em 0;
+      padding: 2px;
+    }
+
+  .piklist-required {
+    color: #c00;
+    margin: 0 0 0 0.25em;
+  }
+
+  .piklist-error {
+    background-color: #ffe7e7 !important;
+    outline: 1px solid #c00 !important;
+  }
+
+    .piklist-error-text {
+      color: #c00 !important;
+    }
+
+  .piklist-form {
+    display: block;
+  }
+
+  .piklist-field-container {
+    padding-right: 240px;
+    position: relative;
+    clear: both;
+  }
+
+    .piklist-field-preview {
+      clear: both;
+      position: relative;
+      width: 100%;
+    }
+
+      .piklist-field-container:before,
+      .piklist-field-container:after,
+      .piklist-field-preview:before,
+      .piklist-field-preview:after,
+      .piklist-field-container-row:before,
+      .piklist-field-container-row:after
+      .piklist-field:before,
+      .piklist-field:after,
+      .piklist-error:before,
+      .piklist-error:after {
+        content: "";
+        display: table;
+      }
+
+        .piklist-field-container:after,
+        .piklist-field-preview:after,
+        .piklist-field:after,
+        .piklist-error:after {
+          clear: both;
+        }
+
+      .piklist-field-preview .attachment {
+        margin-right: 7px;
+      }
+
+      .wp-core-ui table.form-table .piklist-field-preview .selected.attachment {
+        -webkit-box-shadow: inset 0 0 0 5px #f1f1f1, inset 0 0 0 7px #ccc;
+        box-shadow: inset 0 0 0 5px #f1f1f1, inset 0 0 0 7px #ccc;
+      }
+
+  .piklist-field-display {
+    padding-top: 1%;
+    margin-bottom: 1em;
+  }
+
+  .piklist-label-container {
+    width: 200px;
+    float: left;
+    padding: 10px 10px 10px 0;
+  }
+
+    .piklist-label-container .description {
+      font-size: 13px;
+    }
+
+  .piklist-field {
+    width: 100%;
+    float: right;
+    margin: 0 -230px 0 auto;
+    padding: 10px 10px 15px 10px;
+  }
+
+    .postbox .piklist-field {
+      padding-right: 0px;
+      margin-right: -240px;
+    }
+
+    .piklist-field input[type="text"],
+    .piklist-field input[type="number"],
+    .piklist-field input[type="password"],
+    .piklist-field select,
+    .piklist-field textarea {
+      margin: 0;
+      padding: 3px 4px;
+      min-height: 1.9em;
+      max-width: 100%;
+      line-height: 1.3em;
+      vertical-align: middle !important;
+    }
+
+    .piklist-field .large-text {
+      width: 100%;
+    }
+
+  .piklist-label,
+  .piklist-child-label {
+    font-weight: 600;
+    vertical-align: middle;
+    line-height: 1.4em;
+  }
+
+    .piklist-form-table .piklist-label,
+    .piklist-form-table .piklist-child-label {
+      line-height: 1.3;
+      color: inherit;
+    }
+
+    .piklist-form-table .piklist-label-container .description {
+      font-size: 14px;
+    }
+
+    .piklist-label-inline {
+      display: inline;
+      margin-right: 7px;
+    }
+
+    /* Slight position adjustment for child labels */
+
+   .piklist-child-label {
+      display: block;
+      margin-right: 0.25%;
+      margin-left: 0.25%;
+      padding-right: 1em;
+      line-height: 2em;
+    }
+
+    .form-wrap .piklist-form-field {
+      margin: 0 0 10px 0;
+      padding: 8px 0;
+      clear: left;
+    }
+
+      .form-wrap .piklist-form-field p {
+        clear: both;
+      }
+
+  .piklist-field-container ul {
+     list-style: inside;
+  }
+
+  /* Adjustment to style checkboxes and radio buttons better */
+
+  ul.piklist-field-list {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+  }
+
+    ul.piklist-field-list li {
+      vertical-align: middle;
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+      background: none;
+    }
+
+    .piklist-field-list-item {
+      display: inline-block;
+      font-weight: normal;
+      padding-right: 1em;
+    }
+
+      .piklist-field-list-item input[type="checkbox"],
+      .piklist-field-list-item input[type="radio"] {
+        vertical-align: middle;
+        position: relative;
+      }
+
+  /* Conditions */
+
+  .piklist-field-condition-toggle {
+    position: absolute;
+    left: -9999999px;
+    visibility: hidden;
+  }
+
+    table.form-table tr td .piklist-field-condition-toggle {
+      position: relative;
+      left: auto;
+      visibility: visible;
+    }
+
+  /* Additional Field Adjustmnets */
+
+  .piklist-field-column input[type="email"],
+  .piklist-field-column input[type="number"],
+  .piklist-field-column input[type="password"],
+  .piklist-field-column input[type="search"],
+  .piklist-field-column input[type="tel"],
+  .piklist-field-column input[type="text"],
+  .piklist-field-column input[type="url"],
+  .piklist-field-column input[type="color"],
+  .piklist-field-column input[type="date"],
+  .piklist-field-column input[type="datetime"],
+  .piklist-field-column input[type="datetime-local"],
+  .piklist-field-column input[type="month"],
+  .piklist-field-column input[type="time"],
+  .piklist-field-column input[type="week"],
+  .piklist-field-column select,
+  .piklist-field-column option,
+  .piklist-field-column textarea {
+    vertical-align: top;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+
+    .piklist-field-column .wp-picker-container,
+    .piklist-field-column .wp-picker-container:active {
+      display: block;
+    }
+
+  .wp-picker-container input[type=text].wp-color-picker {
+    width: 65px !important;
+  }
+
+  /* Add Mores & Sortables */
+
+  .piklist-field-sortable {
+    padding-right: 7px !important;
+  }
+
+  .piklist-field-addmore-wrapper {
+    position: relative;
+    border: 1px solid #dfdfdf;
+    padding: 7px;
+    margin-bottom: 7px;
+    clear: left;
+    background: #fcfcfc;
+    padding-right: 82px;
+    float: left;
+    zoom: 1;
+    min-height: 28px;
+  }
+
+    .piklist-field-addmore-wrapper.ui-sortable,
+    .piklist-field-addmore-wrapper.ui-sortable-handle,
+    .piklist-field-addmore-wrapper .wp-editor-container {
+      cursor: default;
+    }
+
+    .piklist-field-addmore-wrapper.piklist-field-sortable-active,
+    .piklist-field-addmore-wrapper.piklist-field-sortable-active label {
+      cursor: move;
+    }
+
+    .piklist-field-addmore-wrapper:before,
+    .piklist-field-addmore-wrapper:after {
+      content: "";
+      display: table;
+    }
+
+    .piklist-field-addmore-wrapper:after {
+      clear: both;
+    }
+
+    .piklist-field-addmore-wrapper > input[type="email"],
+    .piklist-field-addmore-wrapper > input[type="number"],
+    .piklist-field-addmore-wrapper > input[type="password"],
+    .piklist-field-addmore-wrapper > input[type="search"],
+    .piklist-field-addmore-wrapper > input[type="tel"],
+    .piklist-field-addmore-wrapper > input[type="text"],
+    .piklist-field-addmore-wrapper > input[type="url"],
+    .piklist-field-addmore-wrapper > input[type="color"],
+    .piklist-field-addmore-wrapper > input[type="date"],
+    .piklist-field-addmore-wrapper > input[type="datetime"],
+    .piklist-field-addmore-wrapper > input[type="datetime-local"],
+    .piklist-field-addmore-wrapper > input[type="month"],
+    .piklist-field-addmore-wrapper > input[type="time"],
+    .piklist-field-addmore-wrapper > input[type="week"],
+    .piklist-field-addmore-wrapper > select,
+    .piklist-field-addmore-wrapper > textarea {
+      margin: 0;
+    }
+
+    .piklist-addmore-placeholder {
+      margin-bottom: 7px;
+      background: #444444;
+      border: 1px solid #444444;
+      float: left;
+      clear: left;
+      opacity: 0.07;
+      filter: alpha(opacity=7);
+    }
+
+      .piklist-field-addmore-wrapper div.piklist-addmore-placeholder {
+        margin-top: 7px;
+      }
+
+        .piklist-field-addmore-wrapper > div.piklist-addmore-placeholder:nth-last-child(2) {
+          margin-bottom: 0px;
+        }
+
+      .attachments .piklist-addmore-placeholder {
+        clear: none;
+      }
+
+      table.form-table .piklist-addmore-placeholder {
+        background: #eaeaea;
+      }
+
+    .piklist-field-addmore-wrapper-vertical {
+      padding-right: 45px;
+      min-height: 63px;
+    }
+
+    .piklist-field-addmore-wrapper-full {
+      float: none;
+    }
+
+    .piklist-field-addmore-wrapper-wide {
+      float: none;
+    }
+
+    .piklist-field-addmore-wrapper-actions {
+      width: 70px;
+      margin: 0;
+      position: absolute;
+      bottom: 7px;
+      right: 7px;
+      text-align: right;
+    }
+
+      .piklist-field-addmore-wrapper-actions .piklist-addmore-button {
+        display: inline-block;
+        text-decoration: none;
+        font-size: 16px;
+        height: 28px;
+        width: 28px;
+        line-height: 28px;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+        cursor: pointer;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+      }
+
+        a.piklist-addmore-button span {
+          font: normal 24px/28px Arial, 'Helvetica Neue', Helvetica, sans-serif;
+          position: relative;
+          left: 0;
+          top: 0;
+          display: block;
+          vertical-align: middle;
+          height: 28px;
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
+        }
+
+          a.piklist-addmore-remove span {
+            top: -2px;
+          }
+
+        body.wp-admin a.piklist-addmore-button span {
+          display: none;
+        }
+
+          body.wp-admin a.piklist-addmore-button:before {
+            display: inline-block;
+            position: relative;
+            left: 0;
+            top: -1px;
+            font: normal 20px/1 'dashicons';
+            vertical-align: middle;
+            -webkit-transition: all 0.2s;
+            transition: all 0.2s;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+          }
+
+            noindex:-o-prefocus, body.wp-admin a.piklist-addmore-button:before {
+              line-height: 38px;
+            }
+
+          body.wp-admin a.piklist-addmore-add:before {
+            content: '\f132';
+          }
+
+          body.wp-admin a.piklist-addmore-remove:before {
+            content: '\f460';
+            top: -2px;
+          }
+
+        a.piklist-addmore-add,
+        a.piklist-addmore-remove {
+          margin: 0 0 0 7px !important;
+          font-weight: bold;
+          background-image: none;
+          text-shadow: none;
+          -webkit-border-radius: 2px;
+          border-radius: 2px;
+          -webkit-box-shadow: none;
+          box-shadow: none;
+        }
+
+          a.piklist-addmore-add,
+          a.piklist-addmore-remove {
+            border: 1px solid #dfdfdf;
+            color: #333333;
+            background-color: #ffffff;
+          }
+
+            a.piklist-addmore-add:hover,
+            a.piklist-addmore-remove:hover {
+              background-image: none;
+              -webkit-box-shadow: none;
+              box-shadow: none;
+              border: 1px solid #adadad;
+              background-color: #e6e6e6;
+              color: #333333;
+              text-decoration: none;
+            }
+
+    .piklist-field-addmore-wrapper .piklist-field-addmore-wrapper {
+      padding-top: 7px;
+      padding-left: 7px;
+      padding-bottom: 7px;
+      border-left: 7px solid #dfdfdf;
+      margin-bottom: 0;
+      float: none;
+    }
+
+      .piklist-field-addmore-wrapper-actions-vertical {
+        width: 30px;
+      }
+
+        .piklist-field-addmore-wrapper-actions-vertical.piklist-field-addmore-wrapper-actions {
+          margin-top: 0;
+          bottom: 7px;
+          top: auto;
+        }
+
+      .piklist-field-addmore-wrapper .piklist-field-addmore-wrapper {
+        margin-top: 7px;
+      }
+
+      .piklist-field-addmore-wrapper:hover {
+        background: #f6f6f6;
+      }
+
+        .piklist-field-addmore-wrapper .piklist-field-addmore-wrapper:hover {
+          border-left-color: #cccccc;
+        }
+
+      .piklist-field-addmore-wrapper .piklist-field-column {
+        display: inline-block !important;
+        float: none !important;
+        vertical-align: top !important;
+      }
+
+      .piklist-field-addmore-wrapper-actions-vertical .piklist-addmore-add,
+      .piklist-field-addmore-wrapper-actions-vertical .piklist-addmore-remove {
+        margin: 7px 0 0 0 !important;
+      }
+
+      .ui-sortable-helper {
+        box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
+        -webkit-box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
+        -moz-box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
+
+        opacity: 0.85;
+        filter: alpha(opacity=85);
+      }
+
+      .ui-sortable .description {
+        display: block;
+        clear: both;
+      }
+
+    .piklist-field-addmore-wrapper .wp-color-result {
+      top: 4px;
+    }
+
+    .piklist-field-addmore-wrapper .wp-picker-input-wrap {
+      margin-top: 4px;
+    }
+
+    .piklist-field-addmore-wrapper .mceResize{
+      display: none !important;
+    }
+
+    .piklist-field-addmore-wrapper .wp-editor-wrap {
+      margin-top: 7px;
+    }
+
+  ul.piklist-field-list,
+  ol.piklist-field-list {
+    margin-bottom: 0;
+    list-style-type: none;
+  }
+
+    ul.piklist-field-list li,
+    ol.piklist-field-list li {
+      list-style-type: none;
+    }
+
+  .piklist-field-description {
+    clear: both;
+    display: block;
+    color: #666666;
+  }
+
+    #widgets-right .widgets-holder-wrap .piklist-field-description {
+      margin-top: 4px;
+      padding: 0;
+      font-style: italic;
+    }
+
+
+
+/* --------------------------------------------------------------------------------
+  Piklist Tooltips
+--------------------------------------------------------------------------------- */
+
+  /* Needed for frontend tooltips */
+  .dashicons-editor-help:before {
+    content: "\f223";
+  }
+
+  .piklist-tooltip {
+    position: relative;
+    cursor: default;
+    display: inline-block;
+    margin: 0;
+    font-size: 18px;
+    line-height: 20px;
+    width: 20px;
+    height: 20px;
+    top: -2px;
+    left: 4px;
+    text-align: left;
+  }
+
+    body.plugins-php .piklist-tooltip {
+      float: none;
+    }
+
+    .button .piklist-tooltip {
+      margin: 0;
+    }
+
+  .piklist-tooltip:before {
+    color: #737373;
+  }
+
+    .piklist-tooltip:hover:before,
+    .piklist-tooltip:hover:after,
+    .piklist-tooltip:focus:before,
+    .piklist-tooltip:focus:after {
+      visibility: visible;
+      opacity: 1;
+      z-index: 999999999;
+    }
+
+    .piklist-tooltip:after {
+      font-family: open sans;
+      border: 1px solid #737373;
+      background-color: #737373;
+      color: #fff;
+      font-weight: bold;
+      text-align: left;
+      text-shadow: none;
+      content: attr(data-piklist-tooltip);
+      padding: 8px 16px;
+      font-size: 13px;
+      line-height: 18px;
+      white-space: normal;
+      position: absolute;
+      top: 0;
+      left: 0;
+      margin-left: 22px;
+      visibility: hidden;
+      opacity: 0;
+      z-index: 2147483646;
+      pointer-events: none;
+      min-width: 250px;
+      max-width: 330px;
+      -webkit-border-radius: 3px;
+      -moz-border-radius: 3px;
+      border-radius: 3px;
+      -webkit-transform: translate3d(0, 0, 0);
+      -moz-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+      -webkit-transition: 0.3s ease;
+      -moz-transition: 0.3s ease;
+      transition: 0.3s ease;
+    }
+
+      .piklist-tooltip:hover:before {
+        cursor: pointer;
+      }
+
+    .piklist-tooltip.dashicons {
+      vertical-align: middle;
+    }
+
+    body.plugins-php .plugins #piklist .plugin-title {
+      overflow: visible;
+    }
+
+
+
+/* --------------------------------------------------------------------------------
+  WordPress Updates
+--------------------------------------------------------------------------------- */
+
+  /* WP Color Picker */
+
+  .wp-picker-container {
+    margin: 0;
+  }
+
+  a.wp-color-result,
+  a.wp-color-result:visited,
+  a.wp-color-result:hover,
+  a.wp-color-result:focus,
+  a.wp-color-result:active {
+    text-decoration: none;
+    overflow: hidden;
+    font-weight: normal;
+  }
+
+  a.wp-color-result {
+    vertical-align: top;
+  }
+
+  input[type="text"].wp-color-picker {
+    display: inline-block;
+  }
+
+
+  /* WP Editor */
+
+  .mce-btn button:hover {
+    background: #fafafa !important;
+  }
+
+  a.wp-switch-editor {
+    text-decoration: none;
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+  }
+
+  .wp-editor-tabs {
+    margin: 0;
+  }
+
+  .wp-editor-container,
+  .mce-tinymce {
+    border: 1px solid #dfdfdf;
+  }
+
+  .wp-editor-container .mce-tinymce {
+    border: none;
+  }
+
+  .wp-editor-wrap,
+  .mce-tinymce {
+    overflow: hidden;
+    width: 99.9%;
+  }
+
+
+
+/* --------------------------------------------------------------------------------
+  Basic Front-end Field Template
+--------------------------------------------------------------------------------- */
+
+  .piklist-theme-field-container {
+    margin-bottom: 1em;
+    clear: both;
+    position: relative;
+    width: 99%;
+  }
+
+    .piklist-theme-field-container:before,
+    .piklist-theme-field-container:after {
+      content: "";
+      display: table;
+    }
+
+      .piklist-theme-field-container:after {
+        clear: both;
+      }
+
+    .piklist-theme-field-container .piklist-field-list-item input[type="checkbox"],
+    .piklist-theme-field-container .piklist-field-list-item input[type="radio"] {
+      vertical-align: top;
+      margin-top: 0;
+    }
+
+    .piklist-theme-field-container .piklist-theme-field-description {
+      font-size: .9em;
+      font-style: italic;
+      clear: left;
+      display: block;
+    }
+
+    .piklist-theme-field-container input[type="email"],
+    .piklist-theme-field-container input[type="number"],
+    .piklist-theme-field-container input[type="password"],
+    .piklist-theme-field-container input[type="search"],
+    .piklist-theme-field-container input[type="tel"],
+    .piklist-theme-field-container input[type="text"],
+    .piklist-theme-field-container input[type="url"],
+    .piklist-theme-field-container input[type="color"],
+    .piklist-theme-field-container input[type="date"],
+    .piklist-theme-field-container input[type="datetime"],
+    .piklist-theme-field-container input[type="datetime-local"],
+    .piklist-theme-field-container input[type="month"],
+    .piklist-theme-field-container input[type="time"],
+    .piklist-theme-field-container input[type="week"],
+    .piklist-theme-field-container select,
+    .piklist-theme-field-container option,
+    .piklist-theme-field-container textarea {
+      height: auto;
+      vertical-align: top;
+    }
+
+    .piklist-theme-field-container select {
+      -webkit-appearance: menulist-button;
+      appearance: menulist-button;
+    }
+
+    .piklist-theme-field-container input[type="file"] {
+      line-height: 1;
+      border: none;
+    }
+
+    .piklist-theme-field-container select[multiple] {
+      height: auto;
+    }
+
+    .piklist-theme-field-container label {
+      padding: 0.25em 0.25em 0.25em 0;
+      line-height: 1;
+    }
+
+    .piklist-theme-field-container ul.piklist-field-list,
+    .piklist-theme-field-container ul.piklist-field-list li,
+    .piklist-theme-field-container ol.piklist-field-list,
+    .piklist-theme-field-container ol.piklist-field-list li {
+      margin-left: 0;
+      padding-left: 0;
+    }
+
+  .piklist-theme-field-container .piklist-field-addmore-wrapper {
+    padding: 10px 82px 10px 10px;
+  }
+
+  .piklist-theme-field-container .attachments {
+    list-style-type: none;
+    margin: 10px 0;
+  }
+
+    .piklist-theme-field-container .attachments > * {
+      list-style-type: none;
+    }
+
+    .piklist-theme-field-container .attachments button {
+      width: 100%;
+      margin: 0;
+    }
+
+      .piklist-theme-field-container .attachments button span {
+        width: 100%;
+        clip: auto;
+        height: auto;
+        overflow: inherit;
+        position: relative !important;
+      }
+
+
+
+/* --------------------------------------------------------------------------------
+  Mobile Updates
+--------------------------------------------------------------------------------- */
+
+  @media screen and (max-width: 782px) {
+
+    .piklist-field-list-item {
+      margin-bottom: 10px;
+    }
+
+      .piklist-field-list-item input[type="checkbox"],
+      .piklist-field-list-item input[type="radio"] {
+        margin: 2px 1px;
+      }
+
+    .piklist-tooltip:after {
+      margin-left: -25px;
+      width: 330px;
+      left: -330px;
+    }
+
+    .wp-media-buttons a {
+      font-size: 16px;
+      line-height: 37px;
+      height: 39px;
+      padding: 0 20px 0 15px;
+    }
+
+      .wp-media-buttons a span {
+        padding: 2px 0 0 5px;
+      }
+  }
+
+  @media only screen and (max-width: 600px) {
+
+    body .piklist-field-container {
+      padding-right: 10px;
+      margin-bottom: 10px;
+      display: block !important;
+    }
+
+      body .piklist-field-container select,
+      body .piklist-field-container input {
+        max-width: 100%;
+      }
+
+      body .piklist-label-container {
+        display: block;
+        position: static;
+        float: none;
+        width: auto;
+        padding: 1% 1.5% 1% 0;
+        margin: 0;
+        border: none;
+      }
+
+      body .piklist-field {
+        padding: 0.6667% 0 1% 0;
+        margin: 0;
+        width: 100%;
+        float: none;
+      }
+
+      body .piklist-field input[type="text"],
+      body .piklist-field input[type="email"],
+      body .piklist-field input[type="password"],
+      body .piklist-field select,
+      body .piklist-field textarea {
+        width: 100%;
+        font-size: 16px;
+        line-height: 1.5;
+        padding: 7px 10px;
+        display: block;
+        max-width: none;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+      }
+
+      body .piklist-field .description {
+        font-size: 14px;
+        line-height: 1.5;
+        padding: 0;
+      }
+
+    body .piklist-label-container .piklist-field-addmore-wrapper {
+      min-width: 0;
+    }
+
+    body .piklist-field-column {
+      width: 100% !important;
+      float: none !important;
+    }
+  }
