@@ -4,7 +4,7 @@ Version of Piklist:
 
 Server OS:
 
-### What was epxected to happen
+### What was expected to happen
 
 ### What happened instead
 
