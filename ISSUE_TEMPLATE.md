@@ -1,6 +1,8 @@
 ### Details
 
-Version of Piklist:
+Piklist Version:
+
+PHP Version:
 
 Server OS:
 
