@@ -2302,7 +2302,7 @@ class Piklist
    */
   public static function sort_by_args_order($a, $b)
   {
-    if (!isset($a['args']['order']) && !isset($b['args']['order']))
+    if (!isset($a['args']['order']) || !isset($b['args']['order']))
     {
       return 0;
     }
