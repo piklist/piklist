@@ -434,6 +434,20 @@ class Piklist_Validate
           {
             $paths = piklist::array_paths($field['request_value']);
 
+            // Do not attempt to process any previously present fields that have been removed from the submitted data
+            foreach( array_keys( $fields ) as $field_key )
+            {
+                // Make sure this is a key for a field in the current group
+                if ( substr( $field_key, 0, strlen( $field['field'] ) + 1 ) == $field['field'] . ':' )
+                {
+                    $_path = substr( $field_key, strlen( $field['field'] ) + 1 );
+                    if ( ! in_array( $_path, $paths ) )
+                    {
+                        unset( $fields[ $field_key ] );
+                    }
+                }
+            }
+
             foreach ($paths as $path)
             {
               $path = explode(':', $path);
