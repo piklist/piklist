@@ -1281,8 +1281,10 @@ class Piklist_CPT
     {
       $meta_keys = array();
 
-      foreach ($fields['post_meta'] as $meta_key => $field)
+      foreach ($fields['post_meta'] as $post_meta => $field)
       {
+      	$meta_key = $field['field'];
+
         if (!strstr($meta_key, ':') && !$field['display'] && $field['type'] != 'group')
         {
           array_push($meta_keys, $meta_key);
