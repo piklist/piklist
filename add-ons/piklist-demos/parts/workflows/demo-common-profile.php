@@ -5,6 +5,5 @@ Order: 1
 Flow: Demo Workflow
 Page: profile.php, user-edit.php
 Tab: Common
-Default: true
 Default Form: true
 */

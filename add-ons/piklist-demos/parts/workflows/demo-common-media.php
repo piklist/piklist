@@ -6,6 +6,5 @@ Flow: Demo Workflow
 Page: post.php
 Post Type: attachment
 Tab: Common
-Default: true
 Default Form: true
 */
