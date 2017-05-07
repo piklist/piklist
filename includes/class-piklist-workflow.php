@@ -567,7 +567,7 @@ class Piklist_Workflow
     {
       $is_active = esc_attr($_REQUEST[piklist::$prefix]['flow_page']) === $data['flow_page'] && esc_attr($_REQUEST[piklist::$prefix]['flow_sub_page']) === $data['flow_sub_page'];
     }
-    elseif (!$tab && $_REQUEST[piklist::$prefix]['flow_page'])
+    elseif (!$tab && isset($_REQUEST[piklist::$prefix]['flow_page']))
     {
       $is_active = esc_attr($_REQUEST[piklist::$prefix]['flow_page']) === $data['flow_page'];
     }
