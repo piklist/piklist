@@ -147,6 +147,10 @@ Thank you for wanting to contribute! It helps everyone out!
 
 == Changelog ==
 
+= 0.9.10 =
+* ENHANCED: major code refactor.
+* FIXED: index issue for non-Piklist metaboxes (props @donnamcmaster)
+
 = 0.9.9.13 =
 Release Date: April 19, 2017
 
