@@ -221,16 +221,16 @@ class Piklist_Add_On
     foreach ($backtrace as $trace)
     {
 	  $file = isset($trace['file']) ? $trace['file'] : '';
-	  $file = str_replace("\\","/", $file); // If running under Windows, replace with forward slash
-		
-      if (strstr($file, '/parts/'))
+	  $parts = DIRECTORY_SEPARATOR . "parts" . DIRECTORY_SEPARATOR;
+	  
+      if (strstr($file, $parts))
       {
-        $add_on = substr($file, 0, strpos($file, '/parts/'));
-        $add_on = substr($add_on, strrpos($add_on, '/') + 1);
+        $add_on = substr($file, 0, strpos($file, $parts));
+        $add_on = substr($add_on, strrpos($add_on, DIRECTORY_SEPARATOR) + 1);
 
         if (isset(piklist::$add_ons[$add_on]))
         {
-          return $add_on;
+          return str_replace(DIRECTORY_SEPARATOR, '/', $add_on);
         }
       }
     }
