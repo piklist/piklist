@@ -1502,24 +1502,17 @@ class Piklist
    */
   public static function post_type_labels($label)
   {
-    $locale = get_locale();
-
-    if (strtolower(substr($locale, 0, 3)) === 'en_')
-    {
-      $singular = self::singularize($label);
-      $plural = self::pluralize($label);
-    }
-    else
-    {
-      $singular = $label;
-      $plural = $label;
-    }
+      extract($label);
+	  
+      $singular = $name;
+      $plural = $s_name;
+    
 
     $labels = array(
       'name' => $plural
       ,'singular_name' => $singular
       ,'all_items' => sprintf(__('All %s', 'piklist'), $plural)
-      ,'add_new' => __('Add New', 'piklist')
+      ,'add_new' => sprintf(__( 'Add New %s', 'piklist' ), $plural)
       ,'add_new_item' => sprintf(__('Add New %s', 'piklist'), $singular)
       ,'edit_item' => sprintf(__('Edit %s', 'piklist'), $singular)
       ,'new_item' => sprintf(__('Add New %s', 'piklist'), $singular)
@@ -1543,7 +1536,7 @@ class Piklist
 		 *
 		 * @since 1.0
 		 */
-    return apply_filters('piklist_post_type_labels_locale', $labels, $locale);
+    return apply_filters('piklist_post_type_labels', $labels);
   }
 
   /**
