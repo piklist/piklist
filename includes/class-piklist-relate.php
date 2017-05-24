@@ -25,11 +25,11 @@ class Piklist_Relate
   public static function _construct()
   {
     add_action('init', array(__CLASS__, 'register_meta'));
+    add_action('rest_api_init', array(__CLASS__, 'rest_api_init'));
     add_action('deleted_post', array(__CLASS__, 'deleted_post'));
     add_action('deleted_user', array(__CLASS__, 'deleted_user'));
     add_action('deleted_comment', array(__CLASS__, 'deleted_comment'));
 
-    add_filter('rest_query_vars', array(__CLASS__, 'rest_query_vars'));
     add_filter('posts_where', array(__CLASS__, 'posts_where'), 10, 2);
     add_filter('pre_user_query', array(__CLASS__, 'pre_user_query'));
     add_filter('comments_clauses', array(__CLASS__, 'comments_clauses'), 10, 2);
@@ -164,26 +164,43 @@ class Piklist_Relate
   }
 
   /**
-   * rest_query_vars.
-   * Filter rest_query_vars to include custom relate variables
-   *
-   * @param array $vars The public query vars.
-   *
-   * @access public
-   * @static
-   * @since 1.0
+   * rest_api_init.
+   * Applies various hooks that should only occur during a REST API request
    */
-  public static function rest_query_vars($vars)
+  public static function rest_api_init()
   {
-    // Legacy variables
-    foreach(array('post', 'comment', 'user') as $object_type)
+    // Add filters to allow relate parameters in post queries
+    $post_types = get_post_types(array('show_in_rest' => true));
+
+    foreach($post_types as $post_type)
     {
-      array_push($vars, $object_type . '_has', $object_type . '_belongs');
+      add_filter("rest_{$post_type}_query", array(__CLASS__, 'rest_post_query'), 10, 2);
     }
 
-    $vars[] = 'relate_query';
+    // Prepare query parameters
+    add_filter("rest_query_var-post_has", array(__CLASS__, 'absint_callback'));
+    add_filter("rest_query_var-post_belongs", array(__CLASS__, 'absint_callback'));
+  }
 
-    return $vars;
+  /**
+   * rest_query.
+   * Open up simple relate queries to the REST API
+   * @param  array $args    Arguments intended for post query
+   * @param  array $request The API request
+   * @return array          Resulting post query arguments
+   */
+  public static function rest_post_query($args, $request) {
+    if (isset($request['post_has']))
+    {
+      $args['post_has'] = $request['post_has'];
+    }
+
+    if (isset($request['post_belongs']))
+    {
+      $args['post_belongs'] = $request['post_belongs'];
+    }
+
+    return $args;
   }
 
   /**
