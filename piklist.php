@@ -9,6 +9,7 @@ Author URI: http://piklist.com
 Text Domain: piklist
 Domain Path: /languages
 License: GPLv2
+GitHub Plugin URI: https://github.com/piklist/piklist
 */
 
 /*
