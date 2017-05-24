@@ -238,16 +238,17 @@ class Piklist_Shortcode
   {
     if (self::$shortcodes[$tag])
     {
-	  if (!empty($attributes))	{
-		  
-		  foreach ($attributes as $attribute => $attribute_value)
-		  {
-			if (stristr($attribute_value, '%'))
-			{
-			  $attributes[$attribute] = stripslashes(rawurldecode($attribute_value));
-			}
-		  }
-	  }
+      if (!empty($attributes))
+      {
+          
+          foreach ($attributes as $attribute => $attribute_value)
+          {
+            if (stristr($attribute_value, '%'))
+            {
+              $attributes[$attribute] = stripslashes(rawurldecode($attribute_value));
+            }
+          }
+      }
 
       ob_start();
       
@@ -255,9 +256,10 @@ class Piklist_Shortcode
 
       if (self::$shortcodes[$tag]['render'])
       {
-		if (isset($attributes['content'])) {
-		  $attributes['content'] = $content;
-		}
+        if (isset($attributes['content'])) 
+        {
+          $attributes['content'] = $content;
+        }
         
         foreach (self::$shortcodes[$tag]['render'] as $render)
         {

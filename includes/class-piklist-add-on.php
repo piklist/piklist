@@ -220,12 +220,14 @@ class Piklist_Add_On
     $backtrace = debug_backtrace();
     foreach ($backtrace as $trace)
     {
-	  if (!isset($trace['file'])) {
-		  continue;
-	  }
-	  $file = $trace['file'];
-	  $parts = DIRECTORY_SEPARATOR . "parts" . DIRECTORY_SEPARATOR;
-	  
+      if (!isset($trace['file'])) 
+      {
+          continue;
+      }
+      
+      $file = $trace['file'];
+      $parts = DIRECTORY_SEPARATOR . "parts" . DIRECTORY_SEPARATOR;
+      
       if (strstr($file, $parts))
       {
         $add_on = substr($file, 0, strpos($file, $parts));
@@ -233,7 +235,7 @@ class Piklist_Add_On
 
         if (isset(piklist::$add_ons[$add_on]))
         {
-		  return $add_on;
+          return $add_on;
         }
       }
     }
