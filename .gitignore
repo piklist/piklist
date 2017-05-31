@@ -26,6 +26,8 @@ $RECYCLE.BIN/
 /.idea/
 
 # Eclipse
+.buildpath
+/.settings/
 *.pydevproject
 .project
 .metadata
