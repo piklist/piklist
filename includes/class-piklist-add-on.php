@@ -218,13 +218,20 @@ class Piklist_Add_On
   public static function current()
   {
     $backtrace = debug_backtrace();
-    
     foreach ($backtrace as $trace)
     {
-      if (strstr($trace['file'], '/parts/'))
+      if (!isset($trace['file'])) 
       {
-        $add_on = substr($trace['file'], 0, strpos($trace['file'], '/parts/'));
-        $add_on = substr($add_on, strrpos($add_on, '/') + 1);
+          continue;
+      }
+      
+      $file = $trace['file'];
+      $parts = DIRECTORY_SEPARATOR . "parts" . DIRECTORY_SEPARATOR;
+      
+      if (strstr($file, $parts))
+      {
+        $add_on = substr($file, 0, strpos($file, $parts));
+        $add_on = substr($add_on, strrpos($add_on, DIRECTORY_SEPARATOR) + 1);
 
         if (isset(piklist::$add_ons[$add_on]))
         {
