@@ -1089,8 +1089,11 @@
 
   .piklist-field .checkbox-tree-container ul {
     list-style: none;
-    padding-left: 25px;
   }
+  
+    .piklist-field .checkbox-tree-container ul ul {
+      padding-left: 25px;
+    }
 
 
 

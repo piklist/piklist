@@ -311,7 +311,7 @@ class Piklist_Workflow
     {
       return false;
     }
-
+    
     foreach (self::$workflows as $flow => $workflows)
     {
       uasort($workflows, array('piklist', 'sort_by_data_order'));
@@ -368,7 +368,7 @@ class Piklist_Workflow
               $tab = piklist::slug($workflow['data']['title'], 'UTF-8');
               $data = $workflow['data'];
             }
-
+            
             if (isset(self::$sub_workflows[$flow][$tab]))
             {
               $workflow['parts'] = self::$sub_workflows[$flow][$tab];
@@ -408,11 +408,11 @@ class Piklist_Workflow
               }
 
               $workflow['parts'] = array_values($workflow['parts']);
-
-              if ($workflow['data']['active'])
-              {
-                $active = $workflow;
-              }
+            }
+            
+            if ($workflow['data']['active'])
+            {
+              $active = $workflow;
             }
           }
         }
@@ -423,49 +423,51 @@ class Piklist_Workflow
 
         if (!$tab)
         {
-					if(!empty($default_workflow))
-					{
-		        $default_workflow['data']['active'] = true;
-		        $tab = piklist::slug($default_workflow['data']['title'], 'UTF-8');
-		        $data = $default_workflow['data'];
+          if(!empty($default_workflow))
+          {
+            $default_workflow['data']['active'] = true;
+            $tab = piklist::slug($default_workflow['data']['title'], 'UTF-8');
+            $data = $default_workflow['data'];
 
-		        if (!empty($default_workflow['parts']))
-		        {
-			        foreach ($default_workflow['parts'] as &$sub_workflow)
-			        {
-				        if ($sub_workflow['data']['default'] == true)
-				        {
-					        $sub_workflow['data']['active'] = true;
-					        $sub_tab = piklist::slug($sub_workflow['data']['title'], 'UTF-8');
-					        $data = $sub_workflow['data'];
+            if (!empty($default_workflow['parts']))
+            {
+              foreach ($default_workflow['parts'] as &$sub_workflow)
+              {
+                if ($sub_workflow['data']['default'] == true)
+                {
+                  $sub_workflow['data']['active'] = true;
+                  $sub_tab = piklist::slug($sub_workflow['data']['title'], 'UTF-8');
+                  $data = $sub_workflow['data'];
 
-					        break;
-				        }
-			        }
-			        unset($sub_workflow);
-		        }
-	        }
+                  break;
+                }
+              }
+              unset($sub_workflow);
+            }
+          }
         }
 
-        if(isset($data)) {
+        if (isset($data)) 
+        {
+          if (empty(self::$workflow['workflows'][0]['data']['layout'])) 
+          {
+            self::$workflow['layout'] = 'tab';
+          } 
+          else 
+          {
+            self::$workflow['layout'] = self::$workflow['workflows'][0]['data']['layout'];
+          }
 
-	        // Set Layout
-	        if ( empty( self::$workflow['workflows'][0]['data']['layout'] ) ) {
-		        self::$workflow['layout'] = 'tab';
-	        } else {
-		        self::$workflow['layout'] = self::$workflow['workflows'][0]['data']['layout'];
-	        }
-
-	        self::$workflow = array(
-		        'flow'      => $flow
-	        ,'tab'       => $tab
-	        ,'sub_tab'   => $sub_tab
-	        ,'data'      => $data
-	        ,'workflows' => $workflows
-	        ,'pages'     => $has_data['data']['page']
-	        ,'layout'    => empty( $has_data['data']['layout'] ) ? 'tab' : $has_data['data']['layout']
-	        ,'active'    => $active
-	        );
+          self::$workflow = array(
+            'flow' => $flow
+            ,'tab' => $tab
+            ,'sub_tab' => $sub_tab
+            ,'data' => $data
+            ,'workflows' => $workflows
+            ,'pages' => $has_data['data']['page']
+            ,'layout' => empty($has_data['data']['layout']) ? 'tab' : $has_data['data']['layout']
+            ,'active' => $active
+          );
         }
       }
     }
