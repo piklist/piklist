@@ -47,15 +47,7 @@ class Piklist_Revision
 
     if (($parent_id = wp_is_post_revision($post_id)) && !wp_is_post_autosave($post_id))
     {
-      $meta = $wpdb->get_results($wpdb->prepare("SELECT * FROM $wpdb->postmeta WHERE post_id = %d", $parent_id));
-
-      if ($meta)
-      {
-        foreach ($meta as $object)
-        {
-          add_metadata('post', $post_id, $object->meta_key, $object->meta_value);
-        }
-      }
+      $wpdb->get_results($wpdb->prepare("INSERT INTO $wpdb->postmeta (post_id, meta_key, meta_value) SELECT %d, meta_key, meta_value FROM $wpdb->postmeta WHERE post_id = %d", $post_id, $parent_id));
     }
   }
 
