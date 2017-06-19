@@ -525,7 +525,7 @@ class Piklist
     }
     else
     {
-      if (dirname($view) != str_replace('/.php', '', $view))
+      if (dirname($view) != str_replace('.php', '', $view))
       {
         trigger_error(sprintf(__('File does not exist%s', 'piklist'), ': ' . $view), E_USER_WARNING);
       }
