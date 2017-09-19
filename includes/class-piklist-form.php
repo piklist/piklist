@@ -265,6 +265,7 @@ class Piklist_Form
     add_action('init', array('piklist_form', 'register_forms'));
     add_action('wp_ajax_piklist_form', array('piklist_form', 'ajax'));
     add_action('wp_ajax_nopriv_piklist_form', array('piklist_form', 'ajax'));
+    add_action('admin_enqueue_scripts', array('piklist_form', 'wp_enqueue_media'));
     add_action('admin_footer', array('piklist_form', 'render_field_assets'));
     add_action('wp_footer', array('piklist_form', 'render_field_assets'));
     add_action('customize_controls_print_footer_scripts', array('piklist_form', 'render_field_assets'));
@@ -2898,38 +2899,41 @@ class Piklist_Form
         {
           $column['field'] = $field['field'] . ':' . ($group_add_more ? $index . ':' : null) . $column['field'];
         }
-
-        // Get values
-        if (piklist_validate::errors())
+        
+        if ($column['type'] != 'html')
         {
-          $column['errors'] = piklist_validate::get_errors($column);
-
-          $column['value'] = piklist_validate::get_request_value($column);
-
-          // Update cardinality if necessary
-          if (!$field['field'])
+          // Get values
+          if (piklist_validate::errors())
           {
-            $cardinality = !$column['multiple'] && count($column['value']) > $cardinality && (!is_array($field['value']) || (is_array($field['value']) && !piklist::is_associative($field['value']))) ? count($column['value']) : $cardinality;
+            $column['errors'] = piklist_validate::get_errors($column);
+
+            $column['value'] = piklist_validate::get_request_value($column);
+
+            // Update cardinality if necessary
+            if (!$field['field'])
+            {
+              $cardinality = !$column['multiple'] && count($column['value']) > $cardinality && (!is_array($field['value']) || (is_array($field['value']) && !piklist::is_associative($field['value']))) ? count($column['value']) : $cardinality;
+            }
+
+            if (is_array($column['value']) && (!$column['multiple'] || ($column['multiple'] && !piklist::is_flat($column['value']))))
+            {
+              $column['value'] = $column['value'][$column['index']];
+            }
           }
-
-          if (is_array($column['value']) && (!$column['multiple'] || ($column['multiple'] && !piklist::is_flat($column['value']))))
+          elseif (is_array($field['value']))
           {
-            $column['value'] = $column['value'][$column['index']];
+            $path = explode(':', str_replace($field['field'] . ':', '', $column['field']));
+
+            $column['value'] = piklist::array_path_get($field['value'], $path);
           }
-        }
-        elseif (is_array($field['value']))
-        {
-          $path = explode(':', str_replace($field['field'] . ':', '', $column['field']));
-
-          $column['value'] = piklist::array_path_get($field['value'], $path);
-        }
-        elseif (!$column['new'])
-        {
-          $column['value'] = self::get_field_value($column['scope'], $column, $column['scope'], $column['object_id'], false);
-
-          if (is_array($column['value']) && (!$column['multiple'] || ($column['multiple'] && !piklist::is_flat($column['value']))))
+          elseif (!$column['new'])
           {
-            $column['value'] = array_key_exists($column['index'], $column['value']) ? $column['value'][$column['index']] : null;
+            $column['value'] = self::get_field_value($column['scope'], $column, $column['scope'], $column['object_id'], false);
+
+            if (is_array($column['value']) && (!$column['multiple'] || ($column['multiple'] && !piklist::is_flat($column['value']))))
+            {
+              $column['value'] = array_key_exists($column['index'], $column['value']) ? $column['value'][$column['index']] : null;
+            }
           }
         }
 
@@ -3860,17 +3864,20 @@ class Piklist_Form
 
     $object = array();
 
-    foreach (self::$scopes[$type] as $allowed)
+    if (isset(self::$scopes[$type]))
     {
-      /**
-       * There used to be an && !empty($data[$allowed]) here, but it caused a bug
-       * that fields (e.g. post_content) could not be returned to an empty value.
-       * @see piklist_field::save same issue
-       * @TODO Determine why !empty($data[$allowed]) was introduced
-       */
-      if (isset($data[$allowed]))
+      foreach (self::$scopes[$type] as $allowed)
       {
-        $object[$allowed] = is_array($data[$allowed]) && count($data[$allowed]) == 1 ? current($data[$allowed]) : $data[$allowed];
+        /**
+         * There used to be an && !empty($data[$allowed]) here, but it caused a bug
+         * that fields (e.g. post_content) could not be returned to an empty value.
+         * @see piklist_field::save same issue
+         * @TODO Determine why !empty($data[$allowed]) was introduced
+         */
+        if (isset($data[$allowed]))
+        {
+          $object[$allowed] = is_array($data[$allowed]) && count($data[$allowed]) == 1 ? current($data[$allowed]) : $data[$allowed];
+        }
       }
     }
 
@@ -4338,10 +4345,17 @@ class Piklist_Form
     if ($editor_id != 'content' && substr($editor_id, 0, strlen($prefix)) !== $prefix)
     {
       $stylesheets = get_editor_stylesheets();
-
-      $content_css = explode(',', $mceInit['content_css']);
-      $content_css = array_diff($content_css, $stylesheets);
-
+      
+      if (isset($mceInit['content_css']))
+      {
+        $content_css = explode(',', $mceInit['content_css']);
+        $content_css = array_diff($content_css, $stylesheets);
+      }
+      else
+      {
+        $content_css = array();
+      }
+      
       array_push($content_css,  piklist::$add_ons['piklist']['url'] . '/parts/css/tinymce-piklist.css');
 
       $mceInit['content_css'] = implode(',', $content_css);
@@ -4389,6 +4403,26 @@ class Piklist_Form
         ,'notice_type' => 'update'
         ,'dismiss' => is_admin()
         ,'content' => self::$forms[self::$form_id]['data']['message']
+      ));
+    }
+  }
+
+  /**
+   * wp_enqueue_media
+   * Enqueues media if necessary.
+   *
+   * @access public
+   * @static
+   * @since 1.0
+   */
+  public static function wp_enqueue_media()
+  {
+    global $post_ID;
+    
+    if (is_admin())
+    {
+      wp_enqueue_media(array( 
+        'post' => $post_ID
       ));
     }
   }

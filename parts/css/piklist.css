@@ -94,6 +94,10 @@
     padding-top: 1%;
     margin-bottom: 1em;
   }
+  
+    .piklist-field-display.piklist-field-column {
+      margin-bottom: 0 !important;
+    }
 
   .piklist-label-container {
     width: 200px;

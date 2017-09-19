@@ -543,7 +543,12 @@ class Piklist_Taxonomy
 
         $wp_http_referer = 'edit-tags.php';
         $wp_http_referer = add_query_arg('taxonomy', $url_defaults['taxonomy'], $wp_http_referer);
-        $wp_http_referer = add_query_arg('post_type', $original_url_defaults['post_type'], $wp_http_referer);
+        
+        if (isset($original_url_defaults['post_type']))
+        {
+          $wp_http_referer = add_query_arg('post_type', $original_url_defaults['post_type'], $wp_http_referer);
+        }
+        
         $wp_http_referer = admin_url($wp_http_referer);
 
         $location = 'edit-tags.php';

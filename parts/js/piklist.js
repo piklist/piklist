@@ -801,11 +801,12 @@
 
       var form = $(this),
         submit = form.find(':input[type=submit]:focus'),
-        data = $.param(form.serializeArray());
+        data = $.param(form.serializeArray()),
+        target = event.originalEvent || event.originalTarget;
 
-      if (submit.length == 0)
+      if (submit.length == 0 && typeof target != 'undefined')
       {
-        submit = $(event.originalEvent.explicitOriginalTarget);
+        submit = $(target.srcElement || target.originalTarget);
       }
       
       if (submit)
@@ -949,7 +950,7 @@
     _init: function()
     {
       this.element
-        .find('[data-piklist-field-group]:not(:radio, :checkbox, :file)')
+        .find('[data-piklist-field-group]:not(:radio, :checkbox, :file, div)')
         .each(function()
         {
           var $element = $(this),
@@ -1719,19 +1720,26 @@
           {
             $parent.attr('data-piklist-field-columns', columns);
           }
-          else
+          else if (!$element.is('div[data-piklist-field-columns]'))
           {
             $element
               .siblings('.piklist-field-part:eq(0)')
               .addBack()
               .wrapAll('<div data-piklist-field-columns="' + columns + '" />');
           }
+          
+          var wrap = $element;
+          
+          if (!$element.is('div[data-piklist-field-columns]'))
+          {
+            wrap = wrap
+                     .css({
+                       'width': $element.attr('size') || $element.is(':button, :submit') ? 'auto' : '100%',
+                     })
+                     .parent('div[data-piklist-field-columns]');
+          }
 
-          $element
-            .css({
-              'width': $element.attr('size') || $element.is(':button, :submit') ? 'auto' : '100%',
-            })
-            .parent('div[data-piklist-field-columns]')
+          wrap
             .css({
               'display': 'block',
               'float': 'left',
@@ -1794,46 +1802,46 @@
             });
         });
 
-        this.element
-          .find('div[data-piklist-field-columns]')
-          .each(function(i)
+      this.element
+        .find('div[data-piklist-field-columns]')
+        .each(function(i)
+        {
+          var $element = $(this),
+            columns = $element.data('piklist-field-columns'),
+            group = $element.data('piklist-field-group');
+
+          $element.addClass('piklist-field-column');
+
+          if (typeof track.group == 'undefined' || track.group != group)
           {
-            var $element = $(this),
-              columns = $element.data('piklist-field-columns'),
-              group = $element.data('piklist-field-group');
-
-            $element.addClass('piklist-field-column');
-
-            if (typeof track.group == 'undefined' || track.group != group)
-            {
-              track = {
-                columns: 0,
-                gutters: 0,
-                group: group
-              };
-            }
-
             track = {
-              columns: track.columns + columns,
-              gutters: track.gutters + 1,
+              columns: 0,
+              gutters: 0,
               group: group
             };
+          }
 
-            if (track.columns >= total_columns)
-            {
-              $element
-                .addClass('piklist-field-column-last')
-                .css({
-                  'margin-right': '0'
-                });
+          track = {
+            columns: track.columns + columns,
+            gutters: track.gutters + 1,
+            group: group
+          };
 
-              track = {
-                columns: 0,
-                gutters: 0,
-                group: false
-              };
-            }
-          });
+          if (track.columns >= total_columns)
+          {
+            $element
+              .addClass('piklist-field-column-last')
+              .css({
+                'margin-right': '0'
+              });
+
+            track = {
+              columns: 0,
+              gutters: 0,
+              group: false
+            };
+          }
+        });
     }
   };
 
