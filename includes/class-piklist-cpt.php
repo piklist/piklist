@@ -885,6 +885,19 @@ class Piklist_CPT
    */
   public static function wp_insert_post_data($data, $post_array)
   {
+    /**
+     * piklist_post_title
+     * Filter the post title on save
+     *
+     * Primarily used when registering a post type and the 'supports' parameter does not contain 'title'.
+     * Allows you to dynamically change the post title based on other conditions.
+     *
+     * @param array $post_array
+     *
+     * @since 1.0
+     */
+    $data['post_title'] = apply_filters('piklist_post_title', $data['post_title'], $post_array);
+
     if (($data['post_status'] != 'auto-draft') && (($data['post_title'] == __('Auto Draft') || empty($data['post_title']))))
     {
       /**
