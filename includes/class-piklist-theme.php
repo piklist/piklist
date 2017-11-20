@@ -432,6 +432,6 @@ class Piklist_Theme
    */
   public static function piklist_love()
   {
-    echo "\n" . '<!-- This website is powered by Piklist. Learn more at http://piklist.com/ -->' . "\n";
+    echo "\n" . '<!-- This website is powered by Piklist. Learn more at https://piklist.com/ -->' . "\n";
   }
 }

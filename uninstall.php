@@ -22,7 +22,7 @@ Removes: Options, Demo Post Type, Piklist Tables
     ,'post_type' =>'piklist_demo'
     ,'post_status' => 'all'
   ));
-  
+
   if ($demos)
   {
     foreach ($demos as $post)

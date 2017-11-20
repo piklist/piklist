@@ -251,7 +251,7 @@ class Piklist_Admin
    */
   public static function admin_footer_text($footer_text)
   {
-    return str_replace('</a>.', sprintf(__('%1$s and %2$sPiklist%1$s.', 'piklist'), '</a>', '<a href="http://piklist.com">'), $footer_text);
+    return str_replace('</a>.', sprintf(__('%1$s and %2$sPiklist%1$s.', 'piklist'), '</a>', '<a href="https://piklist.com">'), $footer_text);
   }
 
   /**

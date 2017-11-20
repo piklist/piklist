@@ -29,11 +29,11 @@ Piklist is a rapid development framework for WordPress that will let you concent
 *   Conditionally show fields (or their values), based on Post Status and/or User Role.
 *   Define Custom Post Statuses
 *   Relate Post-to-Posts.
-*   <a href="http://piklist.com">and more...</a>
+*   <a href="https://piklist.com">and more...</a>
 
 
 = LEARN MORE =
-*   <a href="http://piklist.com/user-guide/">Piklist User Guide</a>
+*   <a href="http://piklist.com/learn/">Piklist User Guide</a>
 
 = Customize everything in WordPress =
 *   Post Types
@@ -146,10 +146,6 @@ Thank you for wanting to contribute! It helps everyone out!
 4. Ask questions on our <a href="https://piklist.com/support/">Support Forum</a>. (We love hearing from our users)
 
 == Changelog ==
-
-= 0.9.10 =
-* ENHANCED: major code refactor.
-* FIXED: index issue for non-Piklist metaboxes (props @donnamcmaster)
 
 = 0.9.9.13 =
 Release Date: April 19, 2017

@@ -1,11 +1,11 @@
 <?php
 /*
 Plugin Name: Piklist
-Plugin URI: http://piklist.com
+Plugin URI: https://piklist.com
 Description: The most powerful framework available for WordPress.
 Version: 0.10
 Author: Piklist
-Author URI: http://piklist.com
+Author URI: https://piklist.com
 Text Domain: piklist
 Domain Path: /languages
 License: GPLv2

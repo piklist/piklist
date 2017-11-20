@@ -213,7 +213,7 @@ Page: piklist
     <div class="col-2">
       <h2 class="about-headline-callout"><?php _e('Get Help','piklist');?></h2>
       <p class="about-description"><?php _e('Visit the Piklist community forums to get answers to your questions, and suggest new features.','piklist');?></p>
-      <a href="http://piklist.com/support/"><?php printf(__('Visit Forums %s','piklist'),'&#8594;');?></a>
+      <a href="https://piklist.com/support/"><?php printf(__('Visit Forums %s','piklist'),'&#8594;');?></a>
     </div>
     <div class="col-3 last-feature">
       <h2 class="about-headline-callout"><?php _e('Get News','piklist');?></h2>
