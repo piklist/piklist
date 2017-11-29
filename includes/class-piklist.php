@@ -145,6 +145,12 @@ class Piklist
   private static $render_captured = array();
 
   /**
+   * @var string The prefix used for custom error messages.
+   * @access private
+   */
+  private static $error_prefix = '<b>Piklist Debug</b>: ';
+  
+  /**
    * load
    * Load resources, classes and add-ons.
    *
@@ -154,6 +160,8 @@ class Piklist
    */
   public static function load()
   {
+    set_error_handler(array(__CLASS__, 'error_handler'));
+    
     self::add_plugin('piklist', dirname(dirname(__FILE__)));
 
     self::$version = current(self::get_file_data(self::$add_ons['piklist']['path'] . '/piklist.php', array('version' => 'Version')));
@@ -488,7 +496,7 @@ class Piklist
         {
           $trigger_error_message = sprintf(__('is a reserved WordPress global variable and cannot be passed as an argument to %s', 'piklist'), 'piklist::render()');
 
-          trigger_error('$' . $_key . " " . $trigger_error_message, E_USER_WARNING);
+          piklist::error('$' . $_key . " " . $trigger_error_message);
         }
         else
         {
@@ -527,7 +535,7 @@ class Piklist
     {
       if (dirname($view) != str_replace('/.php', '', $view))
       {
-        trigger_error(sprintf(__('File does not exist%s', 'piklist'), ': ' . $view), E_USER_WARNING);
+        piklist::error(sprintf(__('File does not exist %s', 'piklist'), ': ' . $view));
       }
     }
 
@@ -1729,6 +1737,26 @@ class Piklist
       }
     }
   }
+  
+  /**
+   * to_bool
+   * Convert a string into a boolean if applicable.
+   *
+   * @param $variable
+   *
+   * @access public
+   * @static
+   * @since 1.0
+   */
+  public static function to_bool($variable) 
+  {
+    if (!is_string($variable))
+    {
+      return (bool) $variable;
+    }
+    
+    return in_array(strtolower($variable), array('1', 'true', 'on', 'yes', 'y'));
+  }
 
   /**
    * array_paths
@@ -1865,9 +1893,9 @@ class Piklist
     {
       $value = $value + 0;
     }
-    elseif (in_array(self::strtolower($value), array('true', 'false')))
+    elseif (in_array(self::strtolower($value), array('0', '1', 'true', 'false', 'on', 'off', 'yes', 'no', 'y', 'n')))
     {
-      $value = self::strtolower($value) == 'true' ? true : false;
+      $value = self::to_bool($value);
     }
   }
 
@@ -2879,6 +2907,49 @@ class Piklist
     $url = esc_url_raw(home_url(strtok($_SERVER['REQUEST_URI'] , '?')));
 
     return $url;
+  }
+  
+  /**
+   * error_handler
+   * Custom error handler for our errors.
+   *
+   * @param string $key Key within addons to search through.
+   * @param mixed $value Value to search for.
+   * @param bool $return_data Whether to return the addon data or addon key.
+   * @param bool $return_data Whether to return the addon data or addon key.
+   *
+   * @access public
+   * @static
+   * @since 1.0
+   */
+  public static function error_handler($type, $string, $file, $line)
+  {
+    if (substr($string, 0, strlen(self::$error_prefix)) == self::$error_prefix)
+    {
+      _e("<br />{$string}<br />", 'piklist');
+      
+      return true;
+    }
+    
+    return false;
+  }
+  
+  /**
+   * error
+   * Custom trigger for our errors so they are formatted properly.
+   *
+   * @param string $error Error message.
+   *
+   * @access public
+   * @static
+   * @since 1.0
+   */
+  public static function error($error)
+  {
+    if (WP_DEBUG && WP_DEBUG_DISPLAY)
+    {
+      trigger_error(self::$error_prefix . $error);
+    }
   }
 }
 

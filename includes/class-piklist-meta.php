@@ -66,6 +66,8 @@ class Piklist_Meta
    */
   public static function _construct()
   {
+    self::register_arguments();
+    
     add_action('init', array('piklist_meta', 'meta_grouped'), 100);
     add_action('init', array('piklist_meta', 'meta_reset'));
     add_action('query', array('piklist_meta', 'meta_sort'));
@@ -143,6 +145,102 @@ class Piklist_Meta
   }
 
   /**
+   * register_arguments
+   * Register arguments for our helper methods
+   *
+   * @access public
+   * @static
+   * @since 1.0
+   */
+  public static function register_arguments()
+  {
+    piklist_arguments::register('meta-boxes', array(
+      // Basics
+      'title' => array(
+        'description' => __('The title of the meta box.', 'piklist')
+      )
+      ,'description' => array(
+        'description' => __('The description of what the meta box is for.', 'piklist')
+      )
+          
+      // Permissions
+      ,'capability' => array(
+        'description' => __('The user capability needed by the user to view the meta box.', 'piklist')
+      )
+      ,'role' => array(
+        'description' => __('The user role needed by the user to view the meta box.', 'piklist')
+      )
+          
+      // Display
+      ,'context' => array(
+        'description' => __('The context within the screen where the box should display.', 'piklist')
+        ,'default' => 'normal'
+        ,'allowed' => array(
+          'normal'
+          ,'side'
+          ,'advanced'
+        )
+      )
+      ,'priority' => array(
+        'description' => __('The priority within the context where the box should show.', 'piklist')
+        ,'default' => 'low'
+        ,'allowed' => array(
+          'default'
+          ,'high'
+          ,'low'
+          ,'sorted'
+          ,'core'
+        )
+      )
+      ,'order' => array(
+        'description' => __('The order within the context where the box should show, defined as an integer.', 'piklist')
+        ,'type' => 'integer'
+      )
+      ,'lock' => array(
+        'description' => __('Whether or not to allow the meta box to be re-positioned.', 'piklist')
+        ,'type' => 'boolean'
+        ,'default' => false
+      )
+      ,'collapse' => array(
+        'description' => __('Whether or not to collapse the meta-box by default.', 'piklist')
+        ,'type' => 'boolean'
+        ,'default' => false
+      )
+      ,'meta_box' => array(
+        'description' => __('Show the default UI Chrome for a meta box.', 'piklist')
+        ,'type' => 'boolean'
+        ,'default' => true
+      )
+            
+      // Display - Conditions
+      ,'new' => array(
+        'description' => __('Show the meta box for new post type content only.', 'piklist')
+        ,'type' => 'boolean'
+        ,'default' => false
+      )
+      ,'post_type' => array(
+        'description' => __('The post type the meta box should be show for.', 'piklist')
+      )
+      ,'post_status' => array(
+        'description' => __('The post status the meta box should be show for.', 'piklist')
+      )
+      ,'status' => array(
+        'description' => __('The post status the meta box should be show for.', 'piklist')
+      )
+      ,'post_format' => array(
+        'description' => __('The title of the meta box.', 'piklist')
+      )
+      ,'id' => array(
+        'description' => __('Show the meta box only for a specific id or list of ids\'.', 'piklist')
+        ,'type' => 'integer'
+      )
+      ,'template' => array(
+        'description' => __('Only show the meta box for a specified template.', 'piklist')
+      )
+    ));
+  }
+  
+  /**
    * register_meta_boxes
    * Register the meta-boxes parts folder
    *
@@ -152,27 +250,7 @@ class Piklist_Meta
    */
   public static function register_meta_boxes()
   {
-    $data = array(
-              'title' => 'Title'
-              ,'context' => 'Context'
-              ,'description' => 'Description'
-              ,'capability' => 'Capability'
-              ,'role' => 'Role'
-              ,'priority' => 'Priority'
-              ,'order' => 'Order'
-              ,'post_type' => 'Post Type'
-              ,'post_status' => 'Post Status'
-              ,'lock' => 'Lock'
-              ,'collapse' => 'Collapse'
-              ,'status' => 'Status'
-              ,'new' => 'New'
-              ,'id' => 'ID'
-              ,'template' => 'Template'
-              ,'meta_box' => 'Meta Box'
-              ,'post_format' => 'Post Format'
-            );
-
-    piklist::process_parts('meta-boxes', $data, array('piklist_meta', 'register_meta_boxes_callback'));
+    piklist::process_parts('meta-boxes', piklist_arguments::get('meta-boxes', 'part'), array('piklist_meta', 'register_meta_boxes_callback'));
   }
 
   /**
@@ -225,19 +303,26 @@ class Piklist_Meta
    */
   public static function register_meta_boxes_callback($arguments)
   {
+    list($valid, $arguments['data']) = piklist_arguments::validate('meta-boxes', $arguments['data']);
+    
+    if (!$valid)
+    {
+      piklist::error(sprintf(__('The meta-box <strong>%s</strong> was not rendered because of an invalid configuration. See above warnings for more information.'), count($arguments['render']) > 1 ? print_r($arguments['render'], true) : current($arguments['render'])));
+
+      return false;
+    }
+
     extract($arguments);
 
     $textdomain = isset(piklist_add_on::$available_add_ons[$add_on]['TextDomain']) ? piklist_add_on::$available_add_ons[$add_on]['TextDomain'] : null;
-    $title = !empty($data['title']) ? $data['title'] : $id;
-    $title = !empty($textdomain) ? __($title, $textdomain) : __($title);
-    $types = empty($data['post_type']) ? get_post_types() : $data['post_type'];
-    $context = empty($data['context']) ? 'normal' : $data['context'];
-    $priority = empty($data['priority']) ? 'low' : $data['priority'];
-
-    foreach ($types as $type)
+    
+    $data['title'] = !empty($data['title']) ? $data['title'] : $id;
+    $data['title'] = !empty($textdomain) ? __($data['title'], $textdomain) : __($data['title']);
+    
+    $data['post_type'] = empty($data['post_type']) ? get_post_types() : $data['post_type'];
+    
+    foreach ($data['post_type'] as $type)
     {
-      $type = trim($type);
-
       if ($data['extend'] && $data['extend_method'] == 'remove')
       {
         $original_order = self::update_meta_box($type, $data['extend'], 'remove');
@@ -248,11 +333,11 @@ class Piklist_Meta
 
         add_meta_box(
           $id
-          ,$title
+          ,$data['title']
           ,array('piklist_meta', 'meta_box')
           ,$type
-          ,$context
-          ,$priority
+          ,$data['context']
+          ,$data['priority']
           ,array(
             'render' => $render
             ,'add_on' => $add_on
@@ -260,7 +345,7 @@ class Piklist_Meta
             ,'data' => $data
           )
         );
-
+        
         if ($data['meta_box'] === false)
         {
           add_filter("postbox_classes_{$type}_{$id}", array('piklist_meta', 'lock_meta_boxes'));
@@ -279,7 +364,7 @@ class Piklist_Meta
           }
         }
 
-        if ($title == $id)
+        if ($data['title'] == $id)
         {
           add_filter("postbox_classes_{$type}_{$id}", array('piklist_meta', 'no_title_meta_boxes'));
         }

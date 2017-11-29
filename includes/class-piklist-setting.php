@@ -169,19 +169,20 @@ class Piklist_Setting
    */
   public static function register_setting($field)
   {
-    $field = piklist_form::setup_field($field);
-
-    add_settings_field(
-      isset($field['field']) ? $field['field'] : piklist::unique_id()
-      ,isset($field['label']) ? piklist_form::field_label($field) : null
-      ,array('piklist_setting', 'render_setting')
-      ,self::$active_section['data']['setting']
-      ,self::$active_section['id']
-      ,array(
-        'field' => $field
-        ,'section' => self::$active_section
-      )
-    );
+    if (($field = piklist_form::setup_field($field)) === true)
+    {
+      add_settings_field(
+        isset($field['field']) ? $field['field'] : piklist::unique_id()
+        ,isset($field['label']) ? piklist_form::field_label($field) : null
+        ,array('piklist_setting', 'render_setting')
+        ,self::$active_section['data']['setting']
+        ,self::$active_section['id']
+        ,array(
+          'field' => $field
+          ,'section' => self::$active_section
+        )
+      );
+    }
   }
 
   /**

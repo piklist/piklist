@@ -252,6 +252,8 @@ class Piklist_Form
    */
   public static function _construct()
   {
+    self::register_arguments();
+    
     add_action('wp_loaded', array('piklist_form', 'wp_loaded'), 100);
 
     add_action('post_edit_form_tag', array('piklist_form', 'add_enctype'));
@@ -341,6 +343,290 @@ class Piklist_Form
     self::check_nonce();
 
     self::process_form();
+  }
+
+  /**
+   * register_arguments
+   * Register arguments for our helper methods
+   *
+   * @access public
+   * @static
+   * @since 1.0
+   */
+  public static function register_arguments()
+  {
+    piklist_arguments::register('field', array(
+      // Basics
+      'field' => array(
+        'description' => __('The field name used to reference the value(s) stored.', 'piklist')
+        ,'default' => null
+      )
+      ,'scope' => array(
+        'description' => __('The namespace used for the field.', 'piklist')
+      )
+      ,'type' => array(
+        'description' => __('The type of field input to be rendered and used.', 'piklist')
+      )
+      ,'label' => array(
+        'description' => __('The label for the field', 'piklist')
+      )
+      ,'description' => array(
+        'description' => __('The description to include with the field when rendered.', 'piklist')
+      )
+      ,'help' => array(
+        'description' => __('The help text to include with the field when rendered.', 'piklist')
+      )
+      ,'choices' => array(
+        'description' => __('Choices for a multi-option field', 'piklist')
+        ,'type' => 'array'
+      )
+      ,'fields' => array(
+        'description' => __('A collection of field configurations used in a group type field.', 'piklist')
+        ,'type' => 'array'
+        ,'default' => array()
+      )
+          
+      // Display
+      ,'label_position' => array(
+        'description' => __('The position of the label.', 'piklist')
+        ,'default' => 'before'
+        ,'allowed' => array(
+          'before'
+          ,'after'
+        )
+      )
+      ,'label_tag' => array(
+        'description' => __('Whether to use the label tag or just the text.', 'piklist')
+        ,'type' => 'boolean'
+        ,'default' => true
+      )
+      ,'attributes' => array(
+        'description' => __('A collection of html attributes to apply to the field when rendered.', 'piklist')
+        ,'type' => 'array'
+        ,'default' => array(
+          'class' => array()
+        )
+      )
+      ,'display' => array(
+        'description' => __('Whether or not to render the field.', 'piklist')
+        ,'type' => 'boolean'
+        ,'default' => false
+        ,'_internal' => true
+      )
+      ,'embed' => array(
+        'description' => __('Whether this field is embeded into another field.', 'piklist')
+        ,'type' => 'boolean'
+        ,'default' => false
+        ,'_internal' => true
+      )
+      ,'child_field' => array(
+        'description' => __('Whether or not the field is a child of another field.', 'piklist')
+        ,'type' => 'boolean'
+        ,'default' => false
+        ,'_internal' => true
+      )
+      ,'group_field' => array(
+        'description' => __('Whether or not the field is a group field.', 'piklist')
+        ,'type' => 'boolean'
+        ,'default' => false
+        ,'_internal' => true
+      )
+
+      // Display - Conditions
+      ,'prefix' => array(
+        'description' => __('Whether or not to use the Piklist prefix on the field id and name.', 'piklist')
+        ,'type' => 'boolean'
+        ,'default' => false
+      )
+      ,'id' => array(
+        'description' => __('The html id attribute used for the field.', 'piklist')
+      )
+      ,'name' => array(
+        'description' => __('The html name attribute used for the field.', 'piklist')
+      )
+      ,'new' => array(
+        'description' => __('Whether to show this field for new data only.', 'piklist')
+        ,'type' => 'boolean'
+        ,'default' => false
+      )
+      ,'conditions' => array(
+        'description' => __('Conditions that effect the field render.', 'piklist')
+        ,'type' => 'array'
+        ,'default' => array()
+      )
+
+      // Display - Multi-select
+      ,'list' => array(
+        'description' => __('Whether to display a multple type field as a semantic list or just render the choices.', 'piklist')
+        ,'type' => 'boolean'
+        ,'default' => true
+      )
+      ,'list_type' => array(
+        'description' => __('The html tag to use for the wrapping container of the list items.', 'piklist')
+        ,'default' => 'ul'
+      )
+      ,'list_item_type' => array(
+        'description' => __('The html tag to use for the list items.', 'piklist')
+        ,'default' => 'li'
+      )
+
+      // Display - Template/Layout
+      ,'position' => array(
+        'description' => __('Set the position of a field within a field template. This is useful for complicated, wrapping field templates.', 'piklist')
+        ,'allowed' => array(
+          'start'
+          ,'end'
+          ,'wrap'
+        )
+      )
+      ,'columns' => array(
+        'description' => __('Render the field within a maxiumum of 12 even, responsive columns.', 'piklist')
+        ,'type' => 'integer'
+      )
+      ,'template' => array(
+        'description' => __('The name or markup for the html used for rendering anything around the field and the field itself. If not set, Piklist will try to choose the best one for the environment the field is being displayed.', 'piklist')
+      )
+      ,'wrapper' => array(
+        'description' => __('The wrapper pulled from the field template.', 'piklist')
+        ,'_internal' => true
+      )
+
+      // Display - Javascript
+      ,'options' => array(
+        'description' => __('Options sent to the Piklist Javascript for handling javascript field configurations.', 'piklist')
+        ,'type' => 'array'
+        ,'default' => array()
+      )
+      ,'add_more' => array(
+        'description' => __('Whether or not to make the field an add-more type.', 'piklist')
+        ,'type' => 'boolean'
+        ,'default' => false
+      )
+      ,'child_add_more' => array(
+        'description' => __('Whether or not the fields are add-more fields.', 'piklist')
+        ,'type' => 'boolean'
+        ,'default' => false
+        ,'_internal' => true
+      )
+      ,'sortable' => array(
+        'description' => __('If the field has add-more set to true then this will toggle whether or not the rows are sortable.', 'piklist')
+        ,'type' => 'boolean'
+        ,'default' => false
+      )
+
+      // Validation/Sanization
+      ,'validate' => array(
+        'description' => __('Validation rules for the values inputted.', 'piklist')
+        ,'type' => 'array'
+        ,'default' => array()
+      )
+      ,'sanitize' => array(
+        'description' => __('Sanitization rules for the values inputted.', 'piklist')
+        ,'type' => 'array'
+        ,'default' => array()
+      )
+      ,'required' => array(
+        'description' => __('Whether or not the field is required.', 'piklist')
+        ,'type' => array(
+          'string'
+          ,'boolean'
+        )
+        ,'default' => false
+      )
+      ,'valid' => array(
+        'description' => __('Whether or not the field passed the validation rules set.', 'piklist')
+        ,'type' => 'boolean'
+        ,'default' => true
+        ,'_internal' => true
+      )
+      ,'errors' => array(
+        'description' => __('A collections of errors from validation on the field, if they exist.', 'piklist')
+        ,'_internal' => true
+      )
+
+      // Permissions
+      ,'role' => array(
+        'description' => __('The role to show the field for.', 'piklist')
+      )
+      ,'capability' => array(
+        'description' => __('The capability to show the field for.', 'piklist')
+      )
+      ,'logged_in' => array(
+        'description' => __('Show based on logged in status.', 'piklist')
+        ,'type' => 'boolean'
+        ,'default' => false
+      )
+
+      // Posts
+      ,'on_post_status' => array(
+        'description' => __('Show the field for only a collection post statuses.', 'piklist')
+        ,'type' => 'array'
+        ,'default' => array()
+      )
+
+      // Form
+      ,'redirect' => array(
+        'description' => __('For rendering forms, whether or not to redirect to another url upon a successful submission.', 'piklist')
+      )
+      
+      // Queries
+      ,'query' => array(
+        'description' => __('Wordpress WP_Query variables to use in fetching data from the default WordPress scopes provided by Piklist.', 'piklist')
+        ,'type' => 'array'
+        ,'default' => array()
+      )
+      ,'meta_query' => array(
+        'description' => __('Wordpress WP_Meta_Query variables to use in fetching data from the default WordPress scopes provided by Piklist.', 'piklist')
+        ,'type' => 'array'
+        ,'default' => array()
+      )
+      ,'tax_query' => array(
+        'description' => __('Wordpress WP_Tax_Query variables to use in fetching data from the default WordPress scopes provided by Piklist.', 'piklist')
+        ,'type' => 'array'
+        ,'default' => array()
+      )
+      
+      // Data
+      ,'save_as' => array(
+        'description' => __('The field name to save the field as instead of field', 'piklist')
+      )
+      ,'save_id' => array(
+        'description' => __('The object id to save the data against.', 'piklist')
+        ,'type' => 'integer'
+      )
+      ,'data_id' => array(
+        'description' => __('The object id to pull the data from.', 'piklist')
+        ,'type' => 'integer'
+      )
+      ,'object_id' => array(
+        'description' => __('The object id to associate meta with.', 'piklist')
+        ,'type' => 'integer'
+      )
+      ,'index' => array(
+        'description' => __('The index of the field if there are mutliple instances.', 'piklist')
+        ,'type' => 'integer'
+        ,'_internal' => true
+      )
+      ,'relate' => array(
+        'description' => __('The configuration object to relate a field and the data to another object.', 'piklist')
+        ,'type' => 'array'
+        ,'default' => array()
+      )
+      ,'relate_to' => array(
+        'description' => __('The object id of the object to relate to.', 'piklist')
+        ,'type' => 'integer'
+        ,'_internal' => true
+      )
+      ,'request_value' => array(
+        'description' => __('The value that was pulled from the server request.', 'piklist')
+        ,'type' => 'integer'
+        ,'_internal' => true
+      )
+      ,'value' => array(
+        'description' => __('The final value after validationa and santization.', 'piklist')
+        ,'_internal' => true
+      )
+    ));
   }
 
   /**
@@ -1549,66 +1835,20 @@ class Piklist_Form
    */
   public static function setup_field($field)
   {
-    $field = wp_parse_args($field, array(
-      'field' => null
-      ,'scope' => isset($field['scope']) ? $field['scope'] : self::get_field_scope()
-      ,'type' => 'text'
-      ,'label' => null
-      ,'description' => null
-      ,'help' => null
-      ,'value' => null
-      ,'choices' => null
-      ,'id' => null
-      ,'name' => null
-      ,'attributes' => array(
-        'class' => array()
-      )
-      ,'list' => true
-      ,'list_type' => null
-      ,'list_item_type' => null
-      ,'label_position' => 'before'
-      ,'label_tag' => true
-      ,'position' => null
-      ,'columns' => null
-      ,'template' => null
-      ,'wrapper' => null
-      ,'options' => array()
-      ,'add_more' => false
-      ,'sortable' => isset($field['sortable']) ? $field['sortable'] : (isset($field['add_more']) && is_bool($field['add_more']) && $field['add_more'] ? true : false)
-      ,'save_as' => null
-      ,'save_id' => null
-      ,'conditions' => array()
-      ,'required' => false
-      ,'validate' => array()
-      ,'sanitize' => array()
-      ,'request_value' => null
-      ,'valid' => true
-      ,'new' => false
+    $default = piklist_arguments::get('field', 'default');
+    
+    if (!isset($field['scope']))
+    {
+      $default['scope'] = self::get_field_scope();
+    }
 
-      ,'capability' => null
-      ,'role' => null
-      ,'logged_in' => false
-      ,'on_post_status' => array()
-      ,'redirect' => null
-      ,'query' => array()
-      ,'tax_query' => array()
-      ,'meta_query' => array()
+    $default['sortable'] = isset($field['add_more']) && is_bool($field['add_more']) && $field['add_more'] ? true : $default['sortable'];
 
-      ,'prefix' => true
-      ,'index' => 0
-      ,'object_id' => null
-      ,'data_id' => null
-      ,'relate' => false
-      ,'relate_to' => null
-      ,'display' => false
-      ,'embed' => false
-      ,'group_field' => false
-      ,'child_field' => false
-      ,'child_add_more' => false
-      ,'multiple' => in_array($field['type'], self::$field_list_types['multiple_fields']) || (isset($field['attributes']) && is_array($field['attributes']) && in_array('multiple', $field['attributes']))
-      ,'errors' => false
-    ));
-
+    if (!isset($field['multiple']))
+    {
+      $default['multiple'] = in_array($field['type'], self::$field_list_types['multiple_fields']) || (isset($field['attributes']) && is_array($field['attributes']) && in_array('multiple', $field['attributes']));
+    }
+    
     foreach (array('class', 'wrapper_class') as $attribute)
     {
       if (!isset($field['attributes'][$attribute]))
@@ -1619,6 +1859,17 @@ class Piklist_Form
       {
         $field['attributes'][$attribute] = explode(' ', $field['attributes'][$attribute]);
       }
+    }
+    
+    $field = wp_parse_args($field, $default);
+    
+    list($valid, $field) = piklist_arguments::validate('field', $field);
+    
+    if (!$valid)
+    {
+      piklist::error(sprintf(__('The field <strong>%s</strong> (scope: <em>%s</em>) was not rendered because of an invalid configuration. See above warnings for more information.'), $field['field'], is_null($field['scope']) ? 'null' : $field['scope']));
+
+      return false;
     }
 
     return $field;
@@ -1642,7 +1893,10 @@ class Piklist_Form
     self::$field_rendering = &$field;
 
     // Setup the defaults
-    $field = self::setup_field($field);
+    if (($field = self::setup_field($field)) === false)
+    {
+      return false;
+    }
 
     /**
      * piklist_request_field
@@ -2753,7 +3007,10 @@ class Piklist_Form
         $column['scope'] = $field['scope'];
       }
 
-      $column = self::setup_field($column);
+      if (($column = self::setup_field($column)) === false)
+      {
+        return false;
+      }
 
       // Pass through common configuration options
       $column['prefix'] = $field['prefix'];
