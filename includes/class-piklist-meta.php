@@ -87,64 +87,6 @@ class Piklist_Meta
   }
 
   /**
-   * update_meta_box
-   * Check if a meta box exists and possible remove it.
-   *
-   * @param mixed $screen The current screen
-   * @param string $id The id of the meta box
-   * @param string $action Whether to search or remove the meta box
-   *
-   * @return mixed The position of the meta box if it was removed, otherwise the status of whether it was found.
-   *
-   * @access public
-   * @static
-   * @since 1.0
-   */
-  public static function update_meta_box($screen, $id, $action = 'search')
-  {
-    global $wp_meta_boxes;
-
-    $check = false;
-
-    if (empty($screen))
-    {
-      $screen = get_current_screen();
-    }
-    elseif (is_string($screen))
-    {
-      $screen = convert_to_screen($screen);
-    }
-
-    $page = $screen->id;
-
-    foreach (array('normal', 'advanced', 'side') as $context)
-    {
-      foreach (array('high', 'sorted', 'core', 'default', 'low') as $priority)
-      {
-        if (isset($wp_meta_boxes[$page][$context][$priority]))
-        {
-          foreach ($wp_meta_boxes[$page][$context][$priority] as $order => $meta_box)
-          {
-            if ($meta_box['id'] == $id)
-            {
-              if ($action == 'remove')
-              {
-                unset($wp_meta_boxes[$page][$context][$priority][$order]);
-
-                return $order;
-              }
-
-              $check = true;
-            }
-          }
-        }
-      }
-    }
-
-    return $check;
-  }
-
-  /**
    * register_arguments
    * Register arguments for our helper methods
    *
@@ -254,44 +196,6 @@ class Piklist_Meta
   }
 
   /**
-   * clear_screen
-   * Clear the screen of all meta-boxes
-   *
-   * @access public
-   * @static
-   * @since 1.0
-   */
-  public static function clear_screen()
-  {
-    global $wp_meta_boxes, $current_screen;
-
-    $workflow = piklist_workflow::get('workflow');
-
-    if ($workflow && !empty($workflow['data']['clear']) && $workflow['data']['clear'] == true && piklist_admin::is_post())
-    {
-      remove_post_type_support('post', 'editor');
-      remove_post_type_support('post', 'title');
-
-      foreach (array('normal', 'advanced', 'side') as $context)
-      {
-        foreach (array('high', 'sorted', 'core', 'default', 'low') as $priority)
-        {
-          if (isset($wp_meta_boxes[$current_screen->id][$context][$priority]))
-          {
-            foreach ($wp_meta_boxes[$current_screen->id][$context][$priority] as $meta_box)
-            {
-              if ($meta_box['id'] != 'submitdiv')
-              {
-                unset($wp_meta_boxes[$current_screen->id][$context][$priority][$meta_box['id']]);
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-
-  /**
    * register_meta_boxes_callback
    * Process the resulting parts from the registration of the meta-boxes part folder.
    *
@@ -307,7 +211,7 @@ class Piklist_Meta
     
     if (!$valid)
     {
-      piklist::error(sprintf(__('The meta-box <strong>%s</strong> was not rendered because of an invalid configuration. See above warnings for more information.'), count($arguments['render']) > 1 ? print_r($arguments['render'], true) : current($arguments['render'])));
+      piklist::error(sprintf(__('The meta-box <strong>%s</strong> was not rendered because of an invalid configuration. See the above errors for more information.'), count($arguments['render']) > 1 ? print_r($arguments['render'], true) : current($arguments['render'])));
 
       return false;
     }
@@ -469,6 +373,102 @@ class Piklist_Meta
     return $part;
   }
 
+  /**
+   * clear_screen
+   * Clear the screen of all meta-boxes
+   *
+   * @access public
+   * @static
+   * @since 1.0
+   */
+  public static function clear_screen()
+  {
+    global $wp_meta_boxes, $current_screen;
+
+    $workflow = piklist_workflow::get('workflow');
+
+    if ($workflow && !empty($workflow['data']['clear']) && $workflow['data']['clear'] == true && piklist_admin::is_post())
+    {
+      remove_post_type_support('post', 'editor');
+      remove_post_type_support('post', 'title');
+
+      foreach (array('normal', 'advanced', 'side') as $context)
+      {
+        foreach (array('high', 'sorted', 'core', 'default', 'low') as $priority)
+        {
+          if (isset($wp_meta_boxes[$current_screen->id][$context][$priority]))
+          {
+            foreach ($wp_meta_boxes[$current_screen->id][$context][$priority] as $meta_box)
+            {
+              if ($meta_box['id'] != 'submitdiv')
+              {
+                unset($wp_meta_boxes[$current_screen->id][$context][$priority][$meta_box['id']]);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  /**
+   * update_meta_box
+   * Check if a meta box exists and possible remove it.
+   *
+   * @param mixed $screen The current screen
+   * @param string $id The id of the meta box
+   * @param string $action Whether to search or remove the meta box
+   *
+   * @return mixed The position of the meta box if it was removed, otherwise the status of whether it was found.
+   *
+   * @access public
+   * @static
+   * @since 1.0
+   */
+  public static function update_meta_box($screen, $id, $action = 'search')
+  {
+    global $wp_meta_boxes;
+
+    $check = false;
+
+    if (empty($screen))
+    {
+      $screen = get_current_screen();
+    }
+    elseif (is_string($screen))
+    {
+      $screen = convert_to_screen($screen);
+    }
+
+    $page = $screen->id;
+
+    foreach (array('normal', 'advanced', 'side') as $context)
+    {
+      foreach (array('high', 'sorted', 'core', 'default', 'low') as $priority)
+      {
+        if (isset($wp_meta_boxes[$page][$context][$priority]))
+        {
+          foreach ($wp_meta_boxes[$page][$context][$priority] as $order => $meta_box)
+          {
+            if ($meta_box['id'] == $id)
+            {
+              if ($action == 'remove')
+              {
+                unset($wp_meta_boxes[$page][$context][$priority][$order]);
+
+                return $order;
+              }
+
+              $check = true;
+            }
+          }
+        }
+      }
+    }
+
+    return $check;
+  }
+  
   /**
    * sort_meta_boxes
    * Sort the meta boxes by the order parameter

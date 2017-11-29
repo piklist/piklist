@@ -148,7 +148,7 @@ class Piklist
    * @var string The prefix used for custom error messages.
    * @access private
    */
-  private static $error_prefix = '<b>Piklist Debug</b>: ';
+  private static $error_prefix = '<b>Piklist Error</b>: ';
   
   /**
    * load
@@ -2926,7 +2926,7 @@ class Piklist
   {
     if (substr($string, 0, strlen(self::$error_prefix)) == self::$error_prefix)
     {
-      _e("<br />{$string}<br />", 'piklist');
+      _e("{$string}<br />", 'piklist');
       
       return true;
     }

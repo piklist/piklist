@@ -1867,7 +1867,7 @@ class Piklist_Form
     
     if (!$valid)
     {
-      piklist::error(sprintf(__('The field <strong>%s</strong> (scope: <em>%s</em>) was not rendered because of an invalid configuration. See above warnings for more information.'), $field['field'], is_null($field['scope']) ? 'null' : $field['scope']));
+      piklist::error(sprintf(__('The field <strong>%s</strong> (scope: <em>%s</em>) was not rendered because of an invalid configuration. See the above errors for more information.'), $field['field'], is_null($field['scope']) ? 'null' : $field['scope']));
 
       return false;
     }

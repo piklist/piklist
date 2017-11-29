@@ -20,7 +20,7 @@ Flow: Demo Workflow
     'type' => 'text'
     ,'field' => 'text'
     ,'scope' => 'post_meta'
-    ,'label' => __('Text', 'piklist-demo')
+    ,'label' => true //__('Text', 'piklist-demo')
     ,'help' => __('You can easily add tooltips to your fields with the help parameter.', 'piklist-demo')
     ,'attributes' => array(
       'class' => 'regular-text'
