@@ -510,7 +510,7 @@
         filter: alpha(opacity=85);
       }
 
-      .ui-sortable .description {
+      .ui-sortable .piklist-field-description {
         display: block;
         clear: both;
       }
