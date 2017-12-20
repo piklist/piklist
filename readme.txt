@@ -147,6 +147,11 @@ Thank you for wanting to contribute! It helps everyone out!
 
 == Changelog ==
 
+= 0.9.9.14 =
+Release Date: December 13, 2017
+
+* UPDATE: CSS updates for WordPress 4.9
+
 = 0.9.9.13 =
 Release Date: April 19, 2017
 
