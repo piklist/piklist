@@ -349,6 +349,8 @@ class Piklist_Admin
         add_filter("option_page_capability_{$page['setting']}", array('piklist_admin', 'option_page_capability'));
       }
 
+      $page['capability'] = isset($page['capability']) ? $page['capability'] : 'manage_options';
+
       if (isset($page['sub_menu']))
       {
         add_submenu_page($page['sub_menu'], $page['page_title'], $page['menu_title'], $page['capability'], $page['menu_slug'], array('piklist_admin', 'admin_page'));
@@ -1014,7 +1016,7 @@ class Piklist_Admin
 /**
    * responsive_admin
    * Checks for WP 3.8 or above, which has a responsive admin.
-	 * TODO: deprecate
+     * TODO: depreciate
    *
    * @return bool Whether admin is responsive or not.
    *
