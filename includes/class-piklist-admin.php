@@ -83,7 +83,7 @@ class Piklist_Admin
 
     add_action('admin_head', array('piklist_admin', 'admin_head'));
     add_action('wp_head', array('piklist_admin', 'admin_head'));
-    add_action('admin_menu', array('piklist_admin', 'register_admin_pages'), -1);
+    add_action('admin_menu', array('piklist_admin', 'register_admin_pages'));
     add_action('redirect_post_location', array('piklist_admin', 'redirect_post_location'), 10, 2);
 
     add_filter('admin_footer_text', array('piklist_admin', 'admin_footer_text'));
