@@ -764,7 +764,7 @@ class Piklist_CPT
    */
   public static function post_updated_messages_filter($messages)
   {
-    global $post, $post_ID, $post_type_object;
+    global $post, $post_ID;
 
     $post_type = get_post_type($post_ID);
 
@@ -779,28 +779,15 @@ class Piklist_CPT
 
     $preview_post_link_html = $scheduled_post_link_html = $view_post_link_html = '';
 
-    $preview_url = get_preview_post_link($post);
+    if (is_post_type_viewable($post_type)) {
 
-    $viewable = is_post_type_viewable($post_type_object);
+      $preview_url = get_preview_post_link($post);
+      $preview_post_link_html = sprintf( ' <a target="_blank" href="%1$s">%2$s</a>', esc_url($preview_url), __('Preview ' . $singular));
 
-    if  ($viewable) {
-      // Preview post link.
-      $preview_post_link_html = sprintf( ' <a target="_blank" href="%1$s">%2$s</a>',
-        esc_url($preview_url),
-        __('Preview ' . $singular)
-      );
+      $scheduled_post_link_html = sprintf( ' <a target="_blank" href="%1$s">%2$s</a>', esc_url($permalink), __('Preview ' . $singular));
 
-      // Scheduled post preview link.
-      $scheduled_post_link_html = sprintf( ' <a target="_blank" href="%1$s">%2$s</a>',
-        esc_url($permalink),
-        __('Preview ' . $singular)
-      );
+      $view_post_link_html = sprintf( ' <a href="%1$s">%2$s</a>', esc_url($permalink), __('View '. $singular));
 
-      // View post link.
-      $view_post_link_html = sprintf( ' <a href="%1$s">%2$s</a>',
-        esc_url($permalink),
-        __('View '. $singular)
-      );
     }
 
     $scheduled_date = date_i18n(__( 'M j, Y @ H:i'), strtotime($post->post_date));
