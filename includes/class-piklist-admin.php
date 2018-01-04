@@ -15,10 +15,10 @@ if (!defined('ABSPATH')) exit; // Exit if accessed directly
 class Piklist_Admin
 {
   /**
-   * @var bool Whether a theme is Piklist dependent.
+   * @var bool Stores all dependent plugins and theme
    * @access public
    */
-  public static $piklist_dependent = false;
+  public static $piklist_dependent = array();
 
   /**
    * @var bool Whether Piklist is network activated.
@@ -602,7 +602,7 @@ class Piklist_Admin
   {
     unset($actions['deactivate']);
 
-    array_unshift($actions, sprintf(__('%1$sDependent plugins or theme are active.%2$s', 'piklist'), '<div style="color:#a00">', piklist_admin::replace_deactivation_link_help() .'</div>') . (is_network_admin() ? __('Network Deactivate', 'piklist') :  __('Deactivate', 'piklist')));
+    array_unshift($actions, sprintf(__('%1$sDependent plugins or theme are active.%2$s', 'piklist'), '<div style="color:#a00"><a href="admin.php?page=piklist">', piklist_admin::replace_deactivation_link_help() .'</a></div>') . (is_network_admin() ? __('Network Deactivate', 'piklist') :  __('Deactivate', 'piklist')));
 
     return $actions;
   }
