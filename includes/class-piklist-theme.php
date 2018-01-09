@@ -91,7 +91,7 @@ class Piklist_Theme
       $current_theme = wp_get_theme();
       if ( $current_theme->exists() )
       {
-          piklist_admin::$piklist_dependent[theme][] = $current_theme->get( 'Name' );	  
+          piklist_admin::$piklist_dependent['theme'][] = $current_theme->get( 'Name' );	  
       }
     }
 
