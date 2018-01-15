@@ -883,7 +883,10 @@
                     input.parents('.wp-editor-wrap:eq(0)').addClass('piklist-error');
                   }
 
-                  input.addClass('piklist-error');
+                  for (var idx = 0; idx < response.data.error_indexes_per_field[field_name].length; idx++) 
+                  {
+                    $(input[response.data.error_indexes_per_field[field_name][idx]]).addClass('piklist-error');
+                  }
                 }
               }
 

@@ -210,6 +210,7 @@ class Piklist_Validate
             else
             {
               $errors = array();
+              $error_indexes_per_field = array();
 
               self::$form_submission = $check['fields_data'];
 
@@ -220,12 +221,14 @@ class Piklist_Validate
                   if ($field['errors'])
                   {
                     array_push($errors, $field['name']);
+                    $error_indexes_per_field[$field['name']] = array_keys($field['errors']);
                   }
                 }
               }
 
               wp_send_json_error(array(
                 'errors' => $errors
+                ,'error_indexes_per_field' => $error_indexes_per_field
                 ,'notice' => self::notices(null, true)
               ));
             }
@@ -725,11 +728,13 @@ class Piklist_Validate
 
       foreach ($field['request_value'] as $request_value)
       {
-        $validation_result = call_user_func_array($validation['callback'], array($index, $request_value, $options, $field, $fields_data));
+        if ($field['request_value'][$index]) {
+          $validation_result = call_user_func_array($validation['callback'], array($index, $request_value, $options, $field, $fields_data));
 
-        if ($validation_result !== true)
-        {
-          $field = self::add_error($field, $index, !empty($validation['message']) ? $validation['message'] : (is_string($validation_result) ? $validation_result : __('is not valid input', 'piklist')));
+          if ($validation_result !== true)
+          {
+            $field = self::add_error($field, $index, !empty($validation['message']) ? $validation['message'] : (is_string($validation_result) ? $validation_result : __('is not valid input', 'piklist')));
+          }
         }
 
         $index++;
