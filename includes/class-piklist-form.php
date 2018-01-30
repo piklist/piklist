@@ -328,15 +328,6 @@ class Piklist_Form
     // Do not allow filter to overwrite default $field_alias
     self::$field_alias = array_merge($piklist_field_alias, self::$field_alias);
 
-
-    /**
-     * piklist_field_alias
-     * Add custom aliases to the default aliases.
-     *
-     * @since 1.0
-     */
-    self::$field_alias = apply_filters('piklist_field_alias', self::$field_alias);
-
     foreach (self::$template_shortcodes as $template_shortcode)
     {
       add_shortcode($template_shortcode, array('piklist_form', 'template_shortcode'));
