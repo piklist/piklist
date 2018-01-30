@@ -3,17 +3,17 @@
     "description": "The most powerful framework available for WordPress.",
     "type": "wordpress-plugin",
     "license":"GPL-2.0",
-    "keywords":[  
+    "keywords":[
         "wordpress",
         "plugin",
         "framework"
     ],
     "require": {
-        "composer/installers":"^1.4"
+        "composer/installers":"^1.4",
         "phpdocumentor/phpdocumentor": "2.8.x",
         "cvuorinen/phpdoc-markdown-public": "^0.1.2"
     },
-    "support":{  
+    "support":{
         "issues":"https://github.com/piklist/piklist/issues"
     },
     "scripts": {
