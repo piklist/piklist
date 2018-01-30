@@ -1,4 +1,3 @@
-
 <div class="wrap piklist-workflow <?php echo $position == 'header' ? 'piklist-workflow-position-header' : null; ?>">
 
   <?php 
@@ -65,7 +64,7 @@
       
         <?php foreach ($active['parts'] as $order => $part): ?>
         
-          <li class="nav-tab-sub"><a <?php echo $part['url'] ? 'href="' . esc_url($part['url']) . '"' : null; ?> class="<?php echo $part['data']['active'] ? 'current' : null; ?>"><?php _e($part['data']['title']); ?></a> <?php echo $part === end($part) ? null : '|'; ?></li>
+          <li class="nav-tab-sub"><a <?php echo $part['url'] ? 'href="' . esc_url($part['url']) . '"' : null; ?> class="<?php echo $part['data']['active'] ? 'current' : null; ?>"><?php _e($part['data']['title']); ?></a> <?php echo $part === end($active['parts']) ? null : '|'; ?></li>
 
         <?php endforeach; ?>
   

@@ -1,11 +1,11 @@
 <?php
 /*
 Plugin Name: Piklist Demos
-Plugin URI: http://piklist.com
+Plugin URI: https://piklist.com
 Description: Creates a Demo post type, Taxonomy, Settings Page, User fields, Dashboard widget, Help tabs and Widget, with Field Examples.
 Version: 0.3
 Author: Piklist
-Author URI: http://piklist.com/
+Author URI: https://piklist.com/
 Text Domain: piklist-demo
 Domain Path: /languages
 */

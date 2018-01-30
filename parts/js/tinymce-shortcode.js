@@ -72,8 +72,8 @@
       return {
         longname: 'Piklist Shortcode Plugin',
         author: 'Piklist',
-        authorurl: 'http://piklist.com',
-        infourl: 'http://piklist.com',
+        authorurl: 'https://piklist.com',
+        infourl: 'https://piklist.com',
         version: tinymce.majorVersion + '.' + tinymce.minorVersion
       };
     }

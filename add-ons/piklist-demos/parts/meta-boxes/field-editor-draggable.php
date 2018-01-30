@@ -13,7 +13,7 @@ Sub Tab: Editor
     ,'field' => 'post_content_full'
     ,'scope' => 'post_meta'
     ,'template' => 'field'
-    ,'value' => sprintf(__('You can remove the left label when displaying the editor by defining %1$s in the field parameters. This will make it look like the default WordPress editor. To learn about replacing the WordPress editor %2$sread our Tutorial%3$s.', 'piklist-demo'), '<code>\'template\'=>\'field\'</code>', '<a href="http://piklist.com/user-guide/tutorials/replacing-wordpress-post-editor/">', '</a>')
+    ,'value' => sprintf(__('You can remove the left label when displaying the editor by defining %1$s in the field parameters. This will make it look like the default WordPress editor. To learn about replacing the WordPress editor %2$sread our Tutorial%3$s.', 'piklist-demo'), '<code>\'template\'=>\'field\'</code>', '<a href="https://piklist.com/user-guide/tutorials/replacing-wordpress-post-editor/">', '</a>')
     ,'options' => array(
       'wpautop' => true
       ,'media_buttons' => true

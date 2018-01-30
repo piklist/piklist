@@ -611,17 +611,23 @@ class Piklist_Meta
 
     if (stristr($query, ', meta_key, meta_value FROM'))
     {
+      $default_meta_tables_sort = array(
+        'post_id' => $wpdb->postmeta
+        ,'comment_id' => $wpdb->commentmeta
+        ,'user_id' => $wpdb->usermeta
+      );
+
       /**
        * piklist_meta_tables_sort
        * The tables to re-order when running meta queries
        *
        * @since 1.0
        */
-      $meta_tables = array_merge(apply_filters('piklist_meta_tables_sort', array()), array(
-        'post_id' => $wpdb->postmeta
-        ,'comment_id' => $wpdb->commentmeta
-        ,'user_id' => $wpdb->usermeta
-      ));
+      $piklist_meta_tables_sort = apply_filters('piklist_meta_tables_sort', array());
+
+      // Do not allow filter to overwrite $default_meta_tables_sort
+      $meta_tables = array_merge($piklist_meta_tables_sort, $default_meta_tables_sort);
+
 
       foreach ($meta_tables as $id => $meta_table)
       {

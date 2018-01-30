@@ -772,22 +772,41 @@ class Piklist_CPT
 
     $singular = $obj->labels->singular_name;
 
+    $permalink = get_permalink($post_ID);
+    if (!$permalink) {
+      $permalink = '';
+    }
+
+    $preview_post_link_html = $scheduled_post_link_html = $view_post_link_html = '';
+
+    if (is_post_type_viewable($post_type)) {
+
+      $preview_url = get_preview_post_link($post);
+      $preview_post_link_html = sprintf( ' <a target="_blank" href="%1$s">%2$s</a>', esc_url($preview_url), __('Preview ' . $singular));
+
+      $scheduled_post_link_html = sprintf( ' <a target="_blank" href="%1$s">%2$s</a>', esc_url($permalink), __('Preview ' . $singular));
+
+      $view_post_link_html = sprintf( ' <a href="%1$s">%2$s</a>', esc_url($permalink), __('View '. $singular));
+
+    }
+
+    $scheduled_date = date_i18n(__( 'M j, Y @ H:i'), strtotime($post->post_date));
+
     $messages[$post_type] = array(
-      0 => false
-      ,1 => sprintf(__($singular . ' updated. <a href="%s">View ' . $singular . '</a>'), esc_url(get_permalink($post_ID)))
+      0 => false  // Unused. Messages start at index 1.
+      ,1 => __($singular . ' updated.') . $view_post_link_html
       ,2 => __('Custom field updated.')
       ,3 => __('Custom field deleted.')
-      ,4 => __($singular.' updated.')
+      ,4 => __($singular . ' updated.')
       ,5 => isset($_REQUEST['revision']) ? sprintf( __($singular . ' restored to revision from %s'), wp_post_revision_title((int) $_REQUEST['revision'], false )) : false
-      ,6 => sprintf(__($singular.' published. <a href="%s">View ' . $singular . '</a>'), esc_url(get_permalink($post_ID)))
+      ,6 => __($singular . ' published.') . $view_post_link_html
       ,7 => __('Page saved.')
-      ,8 => sprintf(__($singular . ' submitted. <a target="_blank" href="%s">Preview ' . $singular . '</a>'), esc_url(add_query_arg('preview', 'true', get_permalink($post_ID))))
-      ,9 => sprintf(__($singular.' scheduled for: <strong>%1$s</strong>. <a target="_blank" href="%2$s">Preview ' . $singular . '</a>'), date_i18n(__('M j, Y @ G:i'), strtotime($post->post_date)), esc_url(get_permalink($post_ID)))
-      ,10 => sprintf(__($singular . ' draft updated. <a target="_blank" href="%s">Preview ' . $singular . '</a>'), esc_url(add_query_arg('preview', 'true', get_permalink($post_ID))))
+      ,8 => __($singular . ' submitted.') . $preview_post_link_html
+      ,9 => sprintf( __($singular.' scheduled for: %s.'), '<strong>' . $scheduled_date . '</strong>') . $scheduled_post_link_html
+      ,10 => __($singular.' draft updated.' ) . $preview_post_link_html
     );
 
     return $messages;
-
   }
 
   /**

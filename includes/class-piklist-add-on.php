@@ -46,10 +46,10 @@ class Piklist_Add_On
     require_once ABSPATH . 'wp-admin/includes/plugin.php';
 
     $site_wide_plugins = get_site_option('active_sitewide_plugins');
-    
+
     $plugins = get_option('active_plugins');
     $plugins = $plugins ? $plugins : array();
-    
+
     if (!empty($site_wide_plugins))
     {
       $plugins = array_merge($plugins, array_keys($site_wide_plugins));
@@ -62,7 +62,8 @@ class Piklist_Add_On
       if (file_exists($path))
       {
         $data = piklist::get_file_data($path, array(
-                  'type' => 'Plugin Type'
+                   'name' => 'Plugin Name'
+                  ,'type' => 'Plugin Type'
                   ,'version' => 'Version'
                 ));
 
@@ -72,7 +73,7 @@ class Piklist_Add_On
 
           add_action('load-plugins.php', array('piklist_admin', 'deactivation_link'));
 
-          piklist_admin::$piklist_dependent = true;
+          piklist_admin::$piklist_dependent['plugins'][] = $data;
 
           if ($data['version'])
           {
