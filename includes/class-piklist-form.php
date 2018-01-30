@@ -2922,7 +2922,7 @@ class Piklist_Form
         {
           $column['field'] = $field['field'] . ':' . ($group_add_more ? $index . ':' : null) . $column['field'];
         }
-        
+
         if ($column['type'] != 'html')
         {
           // Get values
@@ -4368,7 +4368,7 @@ class Piklist_Form
     if ($editor_id != 'content' && substr($editor_id, 0, strlen($prefix)) !== $prefix)
     {
       $stylesheets = get_editor_stylesheets();
-      
+
       if (isset($mceInit['content_css']))
       {
         $content_css = explode(',', $mceInit['content_css']);
@@ -4378,7 +4378,7 @@ class Piklist_Form
       {
         $content_css = array();
       }
-      
+
       array_push($content_css,  piklist::$add_ons['piklist']['url'] . '/parts/css/tinymce-piklist.css');
 
       $mceInit['content_css'] = implode(',', $content_css);
@@ -4441,10 +4441,10 @@ class Piklist_Form
   public static function wp_enqueue_media()
   {
     global $post_ID;
-    
+
     if (is_admin())
     {
-      wp_enqueue_media(array( 
+      wp_enqueue_media(array(
         'post' => $post_ID
       ));
     }
