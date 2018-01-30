@@ -88,7 +88,11 @@ class Piklist_Theme
 
       add_action('load-plugins.php', array('piklist_admin', 'deactivation_link'));
 
-      piklist_admin::$piklist_dependent = true;
+      $current_theme = wp_get_theme();
+      if ( $current_theme->exists() )
+      {
+          piklist_admin::$piklist_dependent['theme'][] = $current_theme->get( 'Name' );	  
+      }
     }
 
     if (get_template_directory() != get_stylesheet_directory() && is_dir(get_template_directory() . '/piklist'))
@@ -97,7 +101,7 @@ class Piklist_Theme
         'path' => get_template_directory() . '/piklist'
         ,'url' => get_template_directory_uri() . '/piklist'
       );
-      
+
       piklist::$paths['parent-theme'] = &piklist::$add_ons['parent-theme']['path'];
     }
   }

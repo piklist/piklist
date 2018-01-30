@@ -15,6 +15,50 @@ Page: piklist
   <?php printf(__('Version %s', 'piklist'), piklist::$version); ?>
 </div>
 
+<?php if (!empty(piklist_admin::$piklist_dependent)): ?>
+
+    <div class="dependent-on-piklist">
+
+        <h3><?php _e('Currently Powered by Piklist on', 'piklist'); ?> <?php echo get_bloginfo('name');?></h2>
+
+            <?php $dependencies = piklist_admin::$piklist_dependent; ?>
+
+            <?php foreach ($dependencies as $type => $item): ?>
+
+                <?php if($type == 'theme') : ?>
+
+                    <p>
+
+                        <strong><?php _e('Active Theme', 'piklist');?></strong>: <?php echo ($item[0]);?>
+
+                    </p>
+
+                <?php endif;?>
+
+                <?php if($type == 'plugins') : ?>
+
+                    <p>
+
+                        <?php foreach ($item as $key => $value) : ?>
+
+                            <?php $plugin_list[] = $value['name']; ?>
+
+                        <?php endforeach;?>
+
+                        <strong><?php _e('Active Plugins', 'piklist');?></strong> : <?php echo implode(', ', $plugin_list); ?>
+
+                    </p>
+
+                <?php endif; ?>
+
+            <?php endforeach; ?>
+
+    </div>
+
+<?php endif; ?>
+
+
+
 <div class="piklist-social-links">
   <a class="facebook_link" href="http://facebook.com/piklist">
     <span class="dashicons dashicons-facebook-alt"></span>
@@ -27,11 +71,11 @@ Page: piklist
   </a>
 </div><!-- .piklist-social-links -->
 
-<div class="changelog">
+<div class="section">
   <h2 class="about-headline-callout"><?php _e('Now even more powerful than before.','piklist'); ?></h2>
 </div>
 
-<div class="changelog">
+<div class="section">
   <div class="feature-section col two-col">
     <div>
       <h3><?php _e('Post relationships', 'piklist');?></h3>
@@ -46,7 +90,7 @@ Page: piklist
 
 
 
-<div class="changelog">
+<div class="section">
   <div class="feature-section col two-col">
     <div class="alt-feature">
       <h3><?php _e('Add mores');?></h3>
@@ -61,7 +105,7 @@ Page: piklist
 
 
 
-<div class="changelog">
+<div class="section">
   <div class="feature-section col two-col">
     <div>
       <h3><?php _e('WorkFlows','piklist');?></h3>
@@ -76,7 +120,7 @@ Page: piklist
 
 
 
-<div class="changelog">
+<div class="section">
   <div class="feature-section col two-col">
     <div class="alt-feature">
       <h3><?php _e('Multiple user roles','piklist');?></h3>
@@ -91,7 +135,7 @@ Page: piklist
 
 
 
-<div class="changelog">
+<div class="section">
   <h2 class="about-headline-callout"><?php _e('Intelligent field system','piklist');?></h2>
   <p class="about-description"><?php _e('Easily create powerful fields just the way you want... and place them wherever you want.','piklist');?></p>
 
@@ -130,7 +174,7 @@ Page: piklist
 
 
 
-<div class="changelog">
+<div class="section">
   <h2 class="about-headline-callout"><?php _e('Customize everything in WordPress.','piklist');?></h2>
   <p class="about-description"><?php _e('Post Types, Taxonomies, User Profiles, Settings, Admin Pages, Widgets, Dashboard, Contextual Help, and more...','piklist');?></p>
 
@@ -203,7 +247,7 @@ Page: piklist
 
 
 
-<div class="changelog">
+<div class="section">
   <div class="feature-section col three-col">
     <div class="col-1">
       <h2 class="about-headline-callout"><?php _e('Get Started','piklist');?></h2>
@@ -328,7 +372,8 @@ var addthis_config = {"data_track_addressbar":false};</script>
 
 <style type="text/css">
 
-  html {
+  html,
+  #wpcontent {
     background-color: #fff;
   }
 
@@ -350,8 +395,13 @@ var addthis_config = {"data_track_addressbar":false};</script>
   }
 
   img.screenshot {
-    width: 95%;
+    width: 75%;
   }
+
+  .section {
+      padding: 10px 0;
+  }
+
 
   .icon16.icon-comments:before {
     font-size: 40px;
@@ -360,7 +410,7 @@ var addthis_config = {"data_track_addressbar":false};</script>
 
   .piklist-badge {
     color: #DD3726;
-    background: url('<?php echo piklist::$add_ons['piklist']['url']; ?>/parts/img/piklist-logo.png') no-repeat center 0px #fff !important;
+    background: url('<?php echo piklist::$add_ons['piklist']['url']; ?>/parts/img/piklist-logo.png') no-repeat center 0px transparent !important;
     margin-top: 0;
     padding-top: 85px;
     display: inline-block;
@@ -468,11 +518,27 @@ var addthis_config = {"data_track_addressbar":false};</script>
     font-size: 22px;
   }
 
+  .about-wrap .feature-section.col .last-feature {
+      margin-bottom: 0px;
+  }
+
+  .dependent-on-piklist {
+      text-align: center;
+      border-top: 1px solid #000;
+      border-bottom: 1px solid #000;
+      padding: 10px 0;
+      margin-bottom: 20px;
+  }
+
+  .dependent-on-piklist h3 {
+      margin: 0;
+  }
+
   @media (max-width: 782px) {
 
     html,
     #wpwrap {
-      background-color: #fff;
+      background-color: transparent;
     }
 
     .about-wrap .feature-section.two-col > div.alt-feature {
