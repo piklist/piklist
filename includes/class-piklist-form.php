@@ -312,7 +312,21 @@ class Piklist_Form
      *
      * @since 1.0
      */
-    self::$field_list_types = apply_filters('piklist_field_list_types', self::$field_list_types);
+    $piklist_field_list_types = apply_filters('piklist_field_list_types', array());
+
+    // Do not allow filter to overwrite default $field_list_types
+    self::$field_list_types = array_merge($piklist_field_list_types, self::$field_list_types);
+
+    /**
+     * piklist_field_alias
+     * Add custom aliases to the default aliases.
+     *
+     * @since 1.0
+     */
+    $piklist_field_alias = apply_filters('piklist_field_alias', array());
+
+    // Do not allow filter to overwrite default $field_alias
+    self::$field_alias = array_merge($piklist_field_alias, self::$field_alias);
 
     foreach (self::$template_shortcodes as $template_shortcode)
     {
@@ -2899,7 +2913,7 @@ class Piklist_Form
         {
           $column['field'] = $field['field'] . ':' . ($group_add_more ? $index . ':' : null) . $column['field'];
         }
-        
+
         if ($column['type'] != 'html')
         {
           // Get values
@@ -4345,7 +4359,7 @@ class Piklist_Form
     if ($editor_id != 'content' && substr($editor_id, 0, strlen($prefix)) !== $prefix)
     {
       $stylesheets = get_editor_stylesheets();
-      
+
       if (isset($mceInit['content_css']))
       {
         $content_css = explode(',', $mceInit['content_css']);
@@ -4355,7 +4369,7 @@ class Piklist_Form
       {
         $content_css = array();
       }
-      
+
       array_push($content_css,  piklist::$add_ons['piklist']['url'] . '/parts/css/tinymce-piklist.css');
 
       $mceInit['content_css'] = implode(',', $content_css);
@@ -4418,10 +4432,10 @@ class Piklist_Form
   public static function wp_enqueue_media()
   {
     global $post_ID;
-    
+
     if (is_admin())
     {
-      wp_enqueue_media(array( 
+      wp_enqueue_media(array(
         'post' => $post_ID
       ));
     }
