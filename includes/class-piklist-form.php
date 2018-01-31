@@ -314,14 +314,6 @@ class Piklist_Form
      */
     self::$field_list_types = apply_filters('piklist_field_list_types', self::$field_list_types);
 
-    /**
-     * piklist_field_alias
-     * Add custom fields to the list types object.
-     *
-     * @since 1.0
-     */
-    self::$field_alias = apply_filters('piklist_field_alias', self::$field_alias);
-
     foreach (self::$template_shortcodes as $template_shortcode)
     {
       add_shortcode($template_shortcode, array('piklist_form', 'template_shortcode'));
