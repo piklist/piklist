@@ -315,6 +315,13 @@ class Piklist_Form
     $piklist_field_list_types = apply_filters('piklist_field_list_types', array());
 
     // Do not allow filter to overwrite default $field_list_types
+    foreach (self::$field_list_types as $List_type => $fields)
+    {
+      if (isset($piklist_field_list_types[$List_type]))
+      {
+        self::$field_list_types[$List_type] = array_merge($piklist_field_list_types[$List_type], self::$field_list_types[$List_type]);
+      }
+    }
     self::$field_list_types = array_merge($piklist_field_list_types, self::$field_list_types);
 
     /**
