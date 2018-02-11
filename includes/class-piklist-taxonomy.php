@@ -171,6 +171,8 @@ class Piklist_Taxonomy
               ,'order' => 'Order'
               ,'taxonomy' => 'Taxonomy'
               ,'new' => 'New'
+              ,'id' => 'ID'
+              ,'slug' => 'Slug'
             );
 
     piklist::process_parts('terms', $data, array('piklist_taxonomy', 'register_meta_boxes_callback'));

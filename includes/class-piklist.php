@@ -1079,9 +1079,24 @@ class Piklist
   {
     global $post, $pagenow, $current_screen;
 
+    $validate_object = null;
+
     if (is_null($post) && isset($_GET['action']) && 'edit' === $_GET['action'] && !empty($_GET['post']))
     {
       $post = get_post($_GET['post']);
+      $validate_object = 'post';
+    }
+
+    if ( $pagenow == 'term.php' )
+    {
+      $term = get_term_by('id',$_GET['tag_ID'], $_GET['taxonomy']);
+      $validate_object = 'term';
+    }
+
+    if ( $pagenow == 'user-edit.php' )
+    {
+      $user = get_user_by('id',$_GET['user_id']);
+      $validate_object = 'user';
     }
 
     switch ($parameter)
@@ -1143,13 +1158,37 @@ class Piklist
 
       case 'id':
 
-        return $post && in_array($post->ID, $value);
+        switch ($validate_object) {
+          case 'post':
+            return $post && in_array($post->ID, $value);
+          break;
+
+          case 'term':
+            return $term && in_array($term->term_id, $value);
+          break;
+
+          case 'user':
+            return $user && in_array($user->ID, $value);
+          break;
+        }
 
       break;
 
       case 'slug':
 
-        return $post && in_array($post->post_name, $value);
+        switch ($validate_object) {
+          case 'post':
+            return $post && in_array($post->post_name, $value);
+          break;
+
+          case 'term':
+            return $term && in_array($term->slug, $value);
+          break;
+
+          case 'user':
+            return $user && in_array(strtolower($user->data->user_login), $value);
+          break;
+        }
 
       break;
 
