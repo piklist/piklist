@@ -144,6 +144,7 @@ class Piklist_Workflow
               ,'taxonomy' => 'Taxonomy'
               ,'template' => 'Template'
               ,'id' => 'ID'
+              ,'slug' => 'Slug'
               ,'role' => 'Role'
               ,'redirect' => 'Redirect'
               ,'header' => 'Header'
