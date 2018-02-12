@@ -1079,7 +1079,7 @@ class Piklist
   {
     global $post, $pagenow, $current_screen;
 
-    $validate_object = null;
+    $validate_object = 'post';
 
     if (is_null($post) && isset($_GET['action']) && 'edit' === $_GET['action'] && !empty($_GET['post']))
     {
@@ -1089,13 +1089,13 @@ class Piklist
 
     if ( $pagenow == 'term.php' )
     {
-      $term = get_term_by('id',$_GET['tag_ID'], $_GET['taxonomy']);
+      $term = get_term_by('id', $_GET['tag_ID'], $_GET['taxonomy']);
       $validate_object = 'term';
     }
 
     if ( $pagenow == 'user-edit.php' )
     {
-      $user = get_user_by('id',$_GET['user_id']);
+      $user = get_user_by('id', $_GET['user_id']);
       $validate_object = 'user';
     }
 
