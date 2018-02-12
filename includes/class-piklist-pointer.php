@@ -74,8 +74,10 @@ class Piklist_Pointer
               ,'anchor_id' => 'Anchor ID'
               ,'edge' => 'Edge'
               ,'align' => 'Align'
+              ,'id' => 'ID'
+              ,'slug' => 'Slug'
             );
-            
+
     piklist::process_parts('pointers', $data, array('piklist_pointer', 'register_pointer_callback'));
   }
 
