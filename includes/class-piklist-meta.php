@@ -167,6 +167,7 @@ class Piklist_Meta
               ,'status' => 'Status'
               ,'new' => 'New'
               ,'id' => 'ID'
+              ,'slug' => 'Slug'
               ,'template' => 'Template'
               ,'meta_box' => 'Meta Box'
               ,'post_format' => 'Post Format'
