@@ -1199,7 +1199,7 @@ class Piklist_Form
                 }
 
                 // Remove any booleans from the field as we don't need them anymore
-                self::$field_rendering[$variable_id] = array_filter(self::$field_rendering[$variable_id], create_function('$a', 'return $a !== true;'));
+                self::$field_rendering[$variable_id] = array_filter(self::$field_rendering[$variable_id], function($a) {return $a !== true;});
               }
             }
 
