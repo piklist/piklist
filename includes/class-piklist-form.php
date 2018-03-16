@@ -1759,6 +1759,7 @@ class Piklist_Form
 
     // Add default classes
     array_push($field['attributes']['class'], self::get_field_id(array_merge($field, array('index' => false))));
+    array_push($field['attributes']['class'], 'piklist-field-type-' . $field['type']);
     array_push($field['attributes']['class'], 'piklist-field-element');
 
     // Set Columns
