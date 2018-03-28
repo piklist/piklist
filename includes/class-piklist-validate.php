@@ -735,7 +735,7 @@ class Piklist_Validate
         $index++;
       }
     }
-    elseif ($field['request_value'])
+    else
     {
       $validation_result = call_user_func_array($validation['callback'], array(0, $field['request_value'], $options, $field, $fields_data));
 
