@@ -47,7 +47,20 @@ class Piklist_Revision
 
     if (($parent_id = wp_is_post_revision($post_id)) && !wp_is_post_autosave($post_id))
     {
-      $wpdb->get_results($wpdb->prepare("INSERT INTO $wpdb->postmeta (post_id, meta_key, meta_value) SELECT %d, meta_key, meta_value FROM $wpdb->postmeta WHERE post_id = %d", $post_id, $parent_id));
+      // build list of meta keys not to duplicate
+      $black_listed_keys = apply_filters('piklist_revision_meta_blacklist', array(
+        '_edit_lock',
+        '_edit_last'
+      ), $post);
+
+      // generate placeholders
+      $blacklist_placeholders = implode(',', array_fill(0, count($black_listed_keys), '%s'));
+
+      $sql = "INSERT INTO $wpdb->postmeta (post_id, meta_key, meta_value) SELECT %d, meta_key, meta_value FROM $wpdb->postmeta WHERE post_id = %d AND meta_key NOT IN ($blacklist_placeholders)";
+
+      $arguments = array_merge(array($sql, $post_id, $parent_id), $black_listed_keys);
+
+      $wpdb->get_results(call_user_func_array(array($wpdb, 'prepare'), $arguments));
     }
   }
 
