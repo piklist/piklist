@@ -736,7 +736,7 @@ class Piklist_Form
     $ungrouped_add_more = !$grouped && $child_add_more;
     $use_index = (($grouped_add_more || $add_more || $child_add_more) && !$grouped) && is_numeric($field['index']);
 
-    $field_choices = is_array($field['choices']) ? $field['choices'] : array($field['choices']);
+    $field_choices = isset($field['choices']) && is_array($field['choices']) ? $field['choices'] : array();
     $use_object = (($multiple && (count($field_choices) > 1 || !$field_choices)) || $ungrouped_add_more || $add_more) && $field['scope'] != piklist::$prefix;
 
     if (piklist_admin::is_widget() && (!$field['scope'] || ($field['scope'] && ($field['scope'] != piklist::$prefix && $field['field'] != 'fields'))))
