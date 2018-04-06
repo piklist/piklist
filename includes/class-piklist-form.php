@@ -2838,15 +2838,12 @@ class Piklist_Form
 
     if ($field['field'])
     {
-		if (empty($field['value']))
-		{
-
-			$cardinality = 1;
-
-		} else {
-
-			$cardinality = count($field['value']) > 1 && (!is_array($field['value']) || (is_array($field['value']) && !piklist::is_associative($field['value']))) ? count($field['value']) : 1;
-		}
+      if (empty($field['value']))
+      {
+        $cardinality = 1;
+      } else {
+        $cardinality = count($field['value']) > 1 && (!is_array($field['value']) || (is_array($field['value']) && !piklist::is_associative($field['value']))) ? count($field['value']) : 1;
+      }
     }
 
     $field_rendering = self::$field_rendering;
