@@ -30,6 +30,8 @@ Domain Path: /languages
       ,'title' => __('Enter a new Demo Title')
       ,'menu_icon' => piklist('url', 'piklist') . '/parts/img/piklist-menu-icon.svg'
       ,'page_icon' => piklist('url', 'piklist') . '/parts/img/piklist-page-icon-32.png'
+      ,'show_in_rest' => true
+      ,'rest_base' => 'piklist-demos'
       ,'supports' => array(
         'title'
         ,'post-formats'
@@ -53,7 +55,11 @@ Domain Path: /languages
         ,'author'
       )
       ,'status' => array(
-        'new' => array(
+        'publish' => array(
+          'label' => 'Publish'
+          ,'public' => true
+        )
+        ,'new' => array(
           'label' => 'New'
           ,'public' => false
         )
