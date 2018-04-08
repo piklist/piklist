@@ -192,23 +192,10 @@ class Piklist_CPT
           $status_data['label_count'] = _n_noop($status_data['label'] . ' <span class="count">(%s)</span>', $status_data['label'] . ' <span class="count">(%s)</span>');
           $status_data['capability_type'] = $post_type;
 
+		  // Use WordPress defaults for register_post_status
+		  // except 'show_in_admin_status_list' for backwards compatibility
           $status_data = wp_parse_args($status_data, array(
-            'label' => false
-            ,'label_count' => false
-            ,'exclude_from_search' => null
-            ,'capability_type' => 'post'
-            ,'hierarchical' => false
-            ,'public' => true
-            ,'internal' => null
-            ,'has_archive' => false
-            ,'protected' => true
-            ,'private' => null
-            ,'show_in_admin_all' => null
-            ,'publicly_queryable' => null
-            ,'show_in_admin_status_list' => true
-            ,'show_in_admin_all_list' => true
-            ,'single_view_cap' => null
-            ,'_builtin' => false
+			'show_in_admin_status_list' => true
           ));
 
           $status_data = (object) $status_data;
