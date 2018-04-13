@@ -61,8 +61,10 @@ class Piklist_Notice
               ,'role' => 'Role'
               ,'page' => 'Page'
               ,'dismiss' => 'Dismiss'
+              ,'id' => 'ID'
+              ,'slug' => 'Slug'
             );
-            
+
     piklist::process_parts('notices', $data, array('piklist_notice', 'register_notice_callback'));
   }
 

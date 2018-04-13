@@ -7,9 +7,9 @@ Tab Order: 0
 ?>
 
   <p>
-    <?php _e('Add-ons are Piklist plugins that are included with Piklist core, or another Piklist plugin. They allow you to turn on additional functionality.', 'piklist'); ?>
+    <?php printf(__('%1$sAdd-ons are Piklist plugins%2$s that are included with Piklist core, another Piklist plugin or your theme. They allow you to turn on additional functionality.', 'piklist'), '<a href="https://docs.piklist.com/getting-started/piklist-add-ons/">', '</a>');?>
   </p>
-  
+
 <?php
 
   piklist('field', array(

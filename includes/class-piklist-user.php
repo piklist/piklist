@@ -76,6 +76,8 @@ class Piklist_User
               ,'order' => 'Order'
               ,'role' => 'Role'
               ,'new' => 'New'
+              ,'id' => 'ID'
+              ,'slug' => 'Slug'
             );
 
     piklist::process_parts('users', $data, array('piklist_user', 'register_meta_boxes_callback'));

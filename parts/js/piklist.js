@@ -808,7 +808,7 @@
       {
         submit = $(target.srcElement || target.originalTarget);
       }
-      
+
       if (submit)
       {
         $.ajax({
@@ -883,7 +883,10 @@
                     input.parents('.wp-editor-wrap:eq(0)').addClass('piklist-error');
                   }
 
-                  input.addClass('piklist-error');
+                  for (var idx = 0; idx < response.data.error_indexes_per_field[field_name].length; idx++) 
+                  {
+                    $(input[response.data.error_indexes_per_field[field_name][idx]]).addClass('piklist-error');
+                  }
                 }
               }
 
@@ -1727,9 +1730,9 @@
               .addBack()
               .wrapAll('<div data-piklist-field-columns="' + columns + '" />');
           }
-          
+
           var wrap = $element;
-          
+
           if (!$element.is('div[data-piklist-field-columns]'))
           {
             wrap = wrap
@@ -1967,6 +1970,8 @@
           {
             $(':input[name="' + name + '"][type="hidden"]:eq(' + index + ')').val('');
           }
+          
+          $(this).closest('.piklist-upload-file-preview').trigger('piklist:file:remove', id);
 
           $(this)
             .parents('.attachment:first')
@@ -2128,6 +2133,8 @@
                 ).insertAfter($(':input[name="' + input_name + '"]:last'));
             }
           }
+
+          preview_container.trigger('piklist:file:add', [updates]);
 
           preview_container.find('li.attachment').addClass('selected');
         });
