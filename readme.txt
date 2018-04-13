@@ -1,6 +1,6 @@
 === PIKLIST | Rapid development framework ===
 Contributors: piklist, p51labs, sbruner, jason_the_adams
-Tested up to: 4.7
+Tested up to: 4.9
 Requires at least: 4.0
 Stable tag: 0.10
 Donate link: http://piklist.com/get-involved/
@@ -146,6 +146,40 @@ Thank you for wanting to contribute! It helps everyone out!
 4. Ask questions on our <a href="https://piklist.com/support/">Support Forum</a>. (We love hearing from our users)
 
 == Changelog ==
+
+= 0.10 =
+* ENHANCED: major code refactor.
+* ENHANCED: PHP 7.2 support.
+* ENHANCED: relate query now supports to WordPress 4.7 standards.
+* ENHANCED: changed revision meta to a single SQL update.
+* ENHANCED: added support for blacklisted revision keys.
+* ENHANCED: CSS updates for WordPress 4.9.
+* ENHANCED: Tooltip on plugins page.
+* ENHANCED: set default capability on admin pages.
+* ENHANCED: set admin_menu priority to default.
+* ENHANCED: update piklist_admin::$piklist_dependent to store dependent theme and plugins, so we can show them on the About page.
+* ENHANCED: if Piklist is locked, guide the user to the about page which shows them the dependent plugins and themes.
+* ENHANCED: allow filtering of $field_list_types and $field_alias. (props @manutiedra)
+* ENHANCED: added triggers to the file field javascript.
+* ENHANCED: add Packagist support. (props @lucalbert)
+* ENHANCED: "ID" parameter in the Piklist comment blocks extended to cover other parts in addition to a page.
+* ENHANCED: "Slug" parameter added for targeting of an individual page, term, user, help, media, notice or pointer. With user, the "slug" is the "user ID".
+* ENHANCED: update add-ons settings page with better description and link to docs.
+* ENHANCED: set default $validate_object = post.
+* ENHANCED: add piklist-field-type-{type} class to all field inputs.
+* ENHANCED: Use WordPress defaults for register_post_status except 'show_in_admin_status_list (for backwards compatibility).
+* ENHANCED: small updates to Piklist Demos.
+* FIXED: index issue for non-Piklist metaboxes (props @donnamcmaster)
+* FIXED: Updated the post_updated_messages_filter function to support CPT that are not publicly_queryable. (props @manutiedra)
+* FIXED: Fix validation with add more fields if empty. (props @manutiedra)
+* FIXED: Non-Piklist custom fields are missing from the dropdown in standard custom fields metabox.
+Code was saving the numeric array key, not the actual meta_key.
+IMPORTANT: users effected with this bug will need to delete the "piklist_post_meta_keys" field in their _options table.
+* FIXED: End() error on post and settings pages with Workflow tabs.
+* FIXED: empty shortcut editor when on Windows server.
+* FIXED: warnings due to shortcodes with no attributes or content.
+
+
 
 = 0.9.9.14 =
 Release Date: December 13, 2017
