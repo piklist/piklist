@@ -156,26 +156,30 @@ if (!class_exists('Piklist_Update_0_9_9'))
 
         case 'relate-update':
 
-          $related = $wpdb->get_results("SELECT post_id, has_post_id FROM {$wpdb->prefix}post_relationships", ARRAY_A);
-          $meta_key = '_' . piklist::$prefix . 'relate_post';
+			$relate_table = $wpdb->prefix . 'post_relationships';
 
-          foreach ($related as $relate)
-          {
-            $current_related = get_metadata('post', $relate['post_id'], $meta_key);
+			if($wpdb->get_var("SHOW TABLES LIKE '$relate_table'") == $relate_table)
+			{
+	          $related = $wpdb->get_results("SELECT post_id, has_post_id FROM $relate_table", ARRAY_A);
+	          $meta_key = '_' . piklist::$prefix . 'relate_post';
 
-            if (!$current_related || ($current_related && !in_array($relate['has_post_id'], $current_related)))
-            {
-              add_metadata('post', $relate['post_id'], $meta_key, $relate['has_post_id']);
-              add_metadata('post', $relate['has_post_id'], $meta_key, $relate['post_id']);
-            }
-          }
+	          foreach ($related as $relate)
+	          {
+	            $current_related = get_metadata('post', $relate['post_id'], $meta_key);
 
-          $output['message'] = 'Post Relationships Updated...';
+	            if (!$current_related || ($current_related && !in_array($relate['has_post_id'], $current_related)))
+	            {
+	              add_metadata('post', $relate['post_id'], $meta_key, $relate['has_post_id']);
+	              add_metadata('post', $relate['has_post_id'], $meta_key, $relate['post_id']);
+	            }
+	          }
 
-          $relate_table = $wpdb->prefix . 'post_relationships';
-          $wpdb->query("DROP TABLE IF EXISTS {$relate_table}");
+	          $output['message'] = 'Post Relationships Updated...';
 
-          $output['message'] = 'Legacy post_relationships Table Deleted...';
+	          $wpdb->query("DROP TABLE IF EXISTS {$relate_table}");
+
+	          $output['message'] = 'Legacy post_relationships Table Deleted...';
+		  	}
 
         break;
 
