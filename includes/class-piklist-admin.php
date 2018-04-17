@@ -113,7 +113,7 @@ class Piklist_Admin
    */
   public static function init()
   {
-    $data = piklist::get_file_data(piklist::$add_ons['piklist']['path'] . '/piklist.php', array(
+    $data = get_file_data(piklist::$add_ons['piklist']['path'] . '/piklist.php', array(
               'version' => 'Version'
             ));
 
