@@ -470,10 +470,18 @@
             else
             {
               element = '';
-              $(conditions[i].field.split(':')).each(function(index, part)
+
+              if (conditions[i].field.indexOf(':') > 0)
               {
-                element += '[name*="[' + part + ']"]';
-              });
+                $(conditions[i].field.split(':')).each(function(index, part)
+                {
+                  element += '[name*="[' + part + ']"]';
+                });
+              }
+              else
+              {
+                element = '[name="' + conditions[i].field + '"]';
+              }
             }
 
             element = $(':input' + element, context);
