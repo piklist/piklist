@@ -480,7 +480,7 @@
               }
               else
               {
-                element = '[name="' + conditions[i].field + '"]';
+                element = '[name="' + conditions[i].field + '[]"]';
               }
             }
 
