@@ -173,18 +173,6 @@
       margin-top: 0px;
     }
 
-    .piklist-field-add-on .piklist-field-add-on-button {
-      position: absolute;
-      bottom: 10px;
-      left: 10px;
-    }
-
-    .piklist-field-add-on .piklist-field-add-on-button-settings {
-      position: absolute;
-      bottom: 10px;
-      right: 10px;
-    }
-
   /* Additional style to show off extra information in meta box titles */
 
   .stuffbox h2 .piklist-title-right,
