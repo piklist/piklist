@@ -458,7 +458,7 @@ class Piklist_Workflow
           {
             self::$workflow['layout'] = self::$workflow['workflows'][0]['data']['layout'];
           }
-
+          
           self::$workflow = array(
             'flow' => $flow
             ,'tab' => $tab

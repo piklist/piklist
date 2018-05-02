@@ -3360,7 +3360,7 @@ class Piklist_Form
                 $id = isset($field['object_id']) ? $field['object_id'] : null;
               }
 
-              if ($id && !$field['relate'])
+              if ($id && !is_null($id) && !$field['relate'])
               {
                 $objects[$context][$index][$id_field] = $id;
               }
@@ -3369,7 +3369,7 @@ class Piklist_Form
               {
                 $field_name = strrpos($field['field'], ':') > 0 ? substr($field['field'], strrpos($field['field'], ':') + 1) : $field['field'];
 
-                if ($field_name != $id_field || ($field_name == $id_field))
+                if ($field_name != $id_field)
                 {
                   $objects[$context][$index][$field_name] = $values[$index];
                 }
@@ -3903,7 +3903,7 @@ class Piklist_Form
         }
       }
     }
-
+    
     switch ($type)
     {
       case 'post':

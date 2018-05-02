@@ -77,13 +77,37 @@
   <?php endif; ?>
   
   <?php
-    do_action('piklist_pre_render_workflow', $active);
+    $sub_page_active = false;
     
-    piklist::render($active['part'], array(
-      'data' => $active
-    ));
+    foreach ($active['parts'] as $order => $part):
+      if ($part['data']['active']):
+
+        do_action('piklist_pre_render_workflow', $part);
     
-    do_action('piklist_post_render_workflow', $active);
+        piklist::render($part['part'], array(
+          'data' => $part['data']
+        ));
+    
+        do_action('piklist_post_render_workflow', $part);
+        
+        $sub_page_active = true;
+        
+        break;
+        
+      endif;
+    endforeach;
+    
+    if (!$sub_page_active):
+      
+      do_action('piklist_pre_render_workflow', $active);
+    
+      piklist::render($active['part'], array(
+        'data' => $active
+      ));
+    
+      do_action('piklist_post_render_workflow', $active);
+    
+    endif;
   ?>
 
 </div>

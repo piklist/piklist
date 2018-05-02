@@ -103,6 +103,7 @@ class Piklist_WordPress
     add_action('piklist_pre_render_workflow', array('piklist_wordpress', 'pre_render_workflow'));
 
     add_filter('piklist_part_data', array('piklist_wordpress', 'part_data'), 10, 2);
+    add_filter('piklist_part_data_parameter', array('piklist_wordpress', 'piklist_part_data_parameter'), 10, 2);
     add_filter('get_meta_sql', array('piklist_wordpress', 'get_meta_sql'), 101, 6);
   }
 
@@ -681,7 +682,7 @@ class Piklist_WordPress
   public static function pre_render_workflow($active_tab)
   {
     global $pagenow, $typenow;
-
+    
     if (isset($active_tab['data']['default_form']) && !$active_tab['data']['default_form'])
     {
       $type = null;
@@ -729,5 +730,28 @@ class Piklist_WordPress
     }
 
     return $data;
+  }
+  
+  /**
+   * piklist_part_data_parameter
+   * Checks the default form variable and casts its value
+   *
+   * @param mixed $value The value.
+   * @param string $parameter The parameter name.
+   *
+   * @return mixed The value.
+   *
+   * @access public
+   * @static
+   * @since 1.0
+   */
+  public static function piklist_part_data_parameter($value, $parameter)
+  {
+    if ($parameter == 'default_form')
+    {
+      return $value === true;
+    }
+
+    return $value;
   }
 }
