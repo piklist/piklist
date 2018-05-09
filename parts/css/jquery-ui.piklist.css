@@ -387,11 +387,11 @@
   .admin-color-sunrise .ui-datepicker .ui-datepicker-header a {
     color: #ffffff;
   }
+
   
-  
-  
+
 /* --------------------------------------------------------------------------------
-  Theme - Sunrise
+  Theme - Light
 --------------------------------------------------------------------------------- */
 
   .admin-color-light .ui-datepicker td .ui-state-hover,
@@ -399,4 +399,3 @@
     background: #04a4cc;
     color: #ffffff;
   }
-  
