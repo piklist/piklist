@@ -2830,7 +2830,8 @@ class Piklist_Form
       {
         $column['value'] = self::get_field_value($column['scope'], $column, $column['scope'], $column['object_id']);
 
-        $cardinality = !$column['multiple'] && count($column['value']) > $cardinality && (!is_array($field['value']) || (is_array($field['value']) && !piklist::is_associative($field['value']))) ? count($column['value']) : $cardinality;
+		$column_value = is_array($column['value']) ? $column['value'] : array($column['value']);
+        $cardinality = !$column['multiple'] && count($column_value) > $cardinality && (!is_array($field['value']) || (is_array($field['value']) && !piklist::is_associative($field['value']))) ? count($column_value) : $cardinality;
       }
     }
 
@@ -3360,7 +3361,7 @@ class Piklist_Form
                 $id = isset($field['object_id']) ? $field['object_id'] : null;
               }
 
-              if ($id && !$field['relate'])
+              if ($id && !is_null($id) && !$field['relate'])
               {
                 $objects[$context][$index][$id_field] = $id;
               }
@@ -3369,7 +3370,7 @@ class Piklist_Form
               {
                 $field_name = strrpos($field['field'], ':') > 0 ? substr($field['field'], strrpos($field['field'], ':') + 1) : $field['field'];
 
-                if ($field_name != $id_field || ($field_name == $id_field))
+                if ($field_name != $id_field)
                 {
                   $objects[$context][$index][$field_name] = $values[$index];
                 }
@@ -3903,7 +3904,7 @@ class Piklist_Form
         }
       }
     }
-
+    
     switch ($type)
     {
       case 'post':
