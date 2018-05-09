@@ -235,8 +235,16 @@
   .admin-color-fresh .ui-datepicker .ui-datepicker-header a {
     color: #ffffff;
   }
-  
-  
+
+/* --------------------------------------------------------------------------------
+Theme - Light
+--------------------------------------------------------------------------------- */
+
+  .admin-color-light .ui-datepicker td .ui-state-hover,
+  .admin-color-light .ui-datepicker td.ui-datepicker-current-day a {
+	background: #04a4cc;
+	color: #ffffff;
+}
 
 /* --------------------------------------------------------------------------------
   Theme - Blue
@@ -387,16 +395,3 @@
   .admin-color-sunrise .ui-datepicker .ui-datepicker-header a {
     color: #ffffff;
   }
-  
-  
-  
-/* --------------------------------------------------------------------------------
-  Theme - Sunrise
---------------------------------------------------------------------------------- */
-
-  .admin-color-light .ui-datepicker td .ui-state-hover,
-  .admin-color-light .ui-datepicker td.ui-datepicker-current-day a {
-    background: #04a4cc;
-    color: #ffffff;
-  }
-  
