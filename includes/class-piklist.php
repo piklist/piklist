@@ -2712,7 +2712,10 @@ class Piklist
    */
   public static function explode($delimiter, $string, $map = false)
   {
-    if (empty(trim($string))) return array();
+	if (trim($string) == false)
+	{
+		return array();
+	}
 
     $output = array_map('trim', explode($delimiter, $string));
 

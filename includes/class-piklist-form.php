@@ -1199,14 +1199,9 @@ class Piklist_Form
                 }
 
                 // Remove any booleans from the field as we don't need them anymore
-                self::$field_rendering[$variable_id] = array_filter(self::$field_rendering[$variable_id], function($a) {return $a !== true;});
+                self::$field_rendering[$variable_id] = array_filter(self::$field_rendering[$variable_id], self::check_array_filter($a));
               }
             }
-
-            // if (strstr($key, ':'))
-            // {
-            //   $meta = isset($meta[$meta_key]) ? $meta[$meta_key] : null;
-            // }
 
             if (strstr($key, ':'))
             {
@@ -1272,7 +1267,7 @@ class Piklist_Form
       {
         if (is_array($request_value))
         {
-          array_walk_recursive($request_value, function(&$value, $key){ $value = urldecode($value); });
+          array_walk_recursive($request_value, self::check_array_walk_recursive($value, $key));
         }
         else
         {
@@ -1284,6 +1279,17 @@ class Piklist_Form
     }
 
     return isset($field['value']) ? $field['value'] : null;
+  }
+
+  public static function check_array_filter($a) {
+
+	  return $a !== true;
+  }
+
+  public static function check_array_walk_recursive(&$value, $key) {
+
+	 $value = urldecode($value);
+
   }
 
   /**
@@ -3904,7 +3910,7 @@ class Piklist_Form
         }
       }
     }
-    
+
     switch ($type)
     {
       case 'post':
