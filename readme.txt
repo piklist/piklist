@@ -2,7 +2,7 @@
 Contributors: piklist, p51labs, sbruner, jason_the_adams
 Tested up to: 4.9
 Requires at least: 4.0
-Stable tag: 0.11
+Stable tag: 0.11.1
 Requires PHP: 5.3
 Donate link: http://piklist.com/get-involved/
 License: GPLv2 or later
@@ -148,10 +148,19 @@ Thank you for wanting to contribute! It helps everyone out!
 
 == Changelog ==
 
+= 0.11.1 =
+Release Date: May 10, 2018
+
+* FIXED: Conditions work as expected.
+
 = 0.11 =
+Release Date: May 9, 2018
+
 * ENHANCED: Better support for PHP 5.3+.
 
 = 0.10 =
+Release Date: May 9, 2018
+
 * ENHANCED: major code refactor.
 * ENHANCED: PHP 7.2 support.
 * ENHANCED: relate query now supports to WordPress 4.7 standards.
@@ -182,7 +191,6 @@ IMPORTANT: users effected with this bug will need to delete the "piklist_post_me
 * FIXED: End() error on post and settings pages with Workflow tabs.
 * FIXED: empty shortcut editor when on Windows server.
 * FIXED: warnings due to shortcodes with no attributes or content.
-
 
 
 = 0.9.9.14 =
