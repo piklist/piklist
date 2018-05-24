@@ -195,7 +195,8 @@ class Piklist_CPT
 		  // Use WordPress defaults for register_post_status
 		  // except 'show_in_admin_status_list' for backwards compatibility
           $status_data = wp_parse_args($status_data, array(
-			'show_in_admin_status_list' => true
+						'show_in_admin_status_list' => true
+						,'public' => true
           ));
 
           $status_data = (object) $status_data;
