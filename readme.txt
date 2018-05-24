@@ -2,7 +2,8 @@
 Contributors: piklist, p51labs, sbruner, jason_the_adams
 Tested up to: 4.9
 Requires at least: 4.0
-Stable tag: 0.10
+Stable tag: 0.11
+Requires PHP: 5.3
 Donate link: http://piklist.com/get-involved/
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -146,6 +147,9 @@ Thank you for wanting to contribute! It helps everyone out!
 4. Ask questions on our <a href="https://piklist.com/support/">Support Forum</a>. (We love hearing from our users)
 
 == Changelog ==
+
+= 0.11 =
+* ENHANCED: Better support for PHP 5.3+.
 
 = 0.10 =
 * ENHANCED: major code refactor.
