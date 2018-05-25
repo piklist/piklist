@@ -151,7 +151,7 @@ Thank you for wanting to contribute! It helps everyone out!
 = 0.11.3 =
 Release Date:
 
-* FIXED: Multiple images can be removed normally.
+* FIXED: Multiple images can be removed normally. (prop @alasdaircr)
 
 = 0.11.2 =
 Release Date: May 24, 2018
