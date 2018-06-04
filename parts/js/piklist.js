@@ -471,17 +471,11 @@
             {
               element = '';
 
-              if (conditions[i].field.indexOf(':') > 0)
-              {
-                $(conditions[i].field.split(':')).each(function(index, part)
-                {
-                  element += '[name*="[' + part + ']"]';
-                });
-              }
-              else
-              {
-                element = '[name="' + conditions[i].field + '[]"]';
-              }
+			  	$(conditions[i].field.split(':')).each(function(index, part)
+	            {
+	              element += '[name*="[' + part + ']"]';
+	            });
+
             }
 
             element = $(':input' + element, context);
@@ -891,7 +885,7 @@
                     input.parents('.wp-editor-wrap:eq(0)').addClass('piklist-error');
                   }
 
-                  for (var idx = 0; idx < response.data.error_indexes_per_field[field_name].length; idx++) 
+                  for (var idx = 0; idx < response.data.error_indexes_per_field[field_name].length; idx++)
                   {
                     $(input[response.data.error_indexes_per_field[field_name][idx]]).addClass('piklist-error');
                   }
@@ -1978,8 +1972,8 @@
           {
             $(':input[name="' + name + '"][type="hidden"]:eq(' + index + ')').val('');
           }
-          
-          $(this).closest('.piklist-upload-file-preview').trigger('piklist:file:remove', id);
+
+          $(this).closest('.piklist-upload-file-preview').trigger('piklist:file:remove', index);
 
           $(this)
             .parents('.attachment:first')

@@ -48,6 +48,34 @@ Flow: Demo Workflow
   ));
 
   piklist('field', array(
+	'type' => 'editor'
+	,'field' => 'post_content'
+	,'scope' => 'post'
+	,'label' => __('Post Content (Set 1)', 'piklist-demo')
+	,'description' => __('This is a replacement for the post_content editor', 'piklist-demo')
+	,'value' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+	,'options' => array(
+	  'wpautop' => true
+	  ,'media_buttons' => true
+	  ,'shortcode_buttons' => true
+	  ,'teeny' => false
+	  ,'dfw' => false
+	  ,'tinymce' => array(
+		'resize' => false
+		,'wp_autoresize_on' => true
+	  )
+	  ,'quicktags' => true
+	  ,'drag_drop_upload' => true
+	)
+	,'conditions' => array(
+	  array(
+		'field' => 'show_hide_select'
+		,'value' => 'show1'
+	  )
+	)
+  ));
+
+  piklist('field', array(
     'type' => 'text'
     ,'field' => 'show_hide_field_select_set_2'
     ,'label' => __('Show/Hide Field (Set 2)', 'piklist-demo')
