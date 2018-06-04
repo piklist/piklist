@@ -1973,7 +1973,7 @@
             $(':input[name="' + name + '"][type="hidden"]:eq(' + index + ')').val('');
           }
 
-          $(this).closest('.piklist-upload-file-preview').trigger('piklist:file:remove', id);
+          $(this).closest('.piklist-upload-file-preview').trigger('piklist:file:remove', index);
 
           $(this)
             .parents('.attachment:first')
