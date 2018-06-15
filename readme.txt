@@ -2,7 +2,7 @@
 Contributors: piklist, p51labs, sbruner, jason_the_adams
 Tested up to: 4.9
 Requires at least: 4.0
-Stable tag: 0.11.3
+Stable tag: 0.11.4
 Requires PHP: 5.3
 Donate link: http://piklist.com/get-involved/
 License: GPLv2 or later
@@ -148,8 +148,13 @@ Thank you for wanting to contribute! It helps everyone out!
 
 == Changelog ==
 
+= 0.11.4 =
+Release Date: June 11, 2018
+
+* FIXED: Uploading multiple images no longer produces an notice.
+
 = 0.11.3 =
-Release Date:
+Release Date: June 4, 2018
 
 * FIXED: Multiple images can be removed normally. (prop @alasdaircr)
 
