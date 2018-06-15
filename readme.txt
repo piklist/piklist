@@ -151,7 +151,7 @@ Thank you for wanting to contribute! It helps everyone out!
 = 0.11.4 =
 Release Date: June 11, 2018
 
-* FIXED: Uploading multiple images no longer produces an notice.
+* FIXED: Uploading multiple images no longer produces a notice.
 
 = 0.11.3 =
 Release Date: June 4, 2018
