@@ -1199,7 +1199,7 @@ class Piklist_Form
                 }
 
                 // Remove any booleans from the field as we don't need them anymore
-                self::$field_rendering[$variable_id] = array_filter(self::$field_rendering[$variable_id], self::check_array_filter($a));
+                self::$field_rendering[$variable_id] = array_filter(self::$field_rendering[$variable_id], array(__CLASS__, 'remove_booleans_filter'));
               }
             }
 
@@ -1267,7 +1267,7 @@ class Piklist_Form
       {
         if (is_array($request_value))
         {
-          array_walk_recursive($request_value, self::check_array_walk_recursive($value, $key));
+          array_walk_recursive($request_value, array(__CLASS__, 'urldecode_array_values'));
         }
         else
         {
@@ -1281,15 +1281,12 @@ class Piklist_Form
     return isset($field['value']) ? $field['value'] : null;
   }
 
-  public static function check_array_filter($a) {
-
-	  return $a !== true;
+  public static function remove_booleans_filter($a) {
+      return !is_bool($a);
   }
 
-  public static function check_array_walk_recursive(&$value, $key) {
-
+  public static function urldecode_array_values(&$value, $key) {
 	 $value = urldecode($value);
-
   }
 
   /**
