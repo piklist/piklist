@@ -1604,7 +1604,7 @@ class Piklist_Form
       ,'valid' => true
       ,'new' => false
 
-      ,'capability' => null
+      ,'capability' => 'none'
       ,'role' => 'none'
       ,'logged_in' => false
       ,'on_post_status' => array()
@@ -2149,7 +2149,7 @@ class Piklist_Form
     {
       case 'capability':
 
-        return piklist_user::current_user_can($value);
+        return $value == 'none' ? true : piklist_user::current_user_can($value);
 
       break;
 
