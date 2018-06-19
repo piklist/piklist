@@ -1605,7 +1605,7 @@ class Piklist_Form
       ,'new' => false
 
       ,'capability' => null
-      ,'role' => null
+      ,'role' => 'none'
       ,'logged_in' => false
       ,'on_post_status' => array()
       ,'redirect' => null
@@ -2155,7 +2155,7 @@ class Piklist_Form
 
       case 'role':
 
-        return piklist_user::current_user_role($value);
+        return $value == 'none' ? true : piklist_user::current_user_role($value);
 
       break;
 
