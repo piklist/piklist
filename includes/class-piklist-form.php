@@ -2149,13 +2149,13 @@ class Piklist_Form
     {
       case 'capability':
 
-        return null === $value ? true : piklist_user::current_user_can($value);
+        return empty($value) || piklist_user::current_user_can($value);
 
       break;
 
       case 'role':
 
-        return null === $value ? true : piklist_user::current_user_role($value);
+        return empty($value) || piklist_user::current_user_role($value);
 
       break;
 
