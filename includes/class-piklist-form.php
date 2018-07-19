@@ -2149,13 +2149,13 @@ class Piklist_Form
     {
       case 'capability':
 
-        return piklist_user::current_user_can($value);
+        return empty($value) || piklist_user::current_user_can($value);
 
       break;
 
       case 'role':
 
-        return piklist_user::current_user_role($value);
+        return empty($value) || piklist_user::current_user_role($value);
 
       break;
 
@@ -3196,7 +3196,7 @@ class Piklist_Form
           {
             $paths = piklist::array_paths($_FILES[piklist::$prefix . $scope]['name'][$field['field']]);
 
-            $allowed = $field['role'] == 'none' || $field['capability'] == 'none' || current_user_can('upload_files');
+            $allowed = $field['role'] === null || $field['capability'] === null || current_user_can('upload_files');
 
             if (!$allowed)
             {
@@ -3277,7 +3277,7 @@ class Piklist_Form
         $objects = array();
         foreach ($fields as &$field)
         {
-          $allowed = $field['role'] == 'none' || $field['capability'] == 'none';
+          $allowed = $field['role'] === null || $field['capability'] === null;
           $context = self::get_field_context($field);
 
           if (!$allowed)
@@ -3464,7 +3464,7 @@ class Piklist_Form
             }
           }
 
-          $allowed = $field['role'] == 'none' || $field['capability'] == 'none';
+          $allowed = $field['role'] === null || $field['capability'] === null;
 
           if (!$allowed)
           {
@@ -3727,7 +3727,7 @@ class Piklist_Form
       {
         foreach ($fields as &$field)
         {
-          $allowed = $field['role'] == 'none' || $field['capability'] == 'none';
+          $allowed = $field['role'] === null || $field['capability'] === null;
 
           if (!$allowed)
           {

@@ -148,6 +148,10 @@ Thank you for wanting to contribute! It helps everyone out!
 
 == Changelog ==
 
+= 0.11.5 =
+
+* ENHANCED: Allow user with no role set to save
+
 = 0.11.4 =
 Release Date: June 11, 2018
 
