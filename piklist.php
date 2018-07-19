@@ -3,7 +3,7 @@
 Plugin Name: Piklist
 Plugin URI: https://piklist.com
 Description: The most powerful framework available for WordPress.
-Version: 0.11.4
+Version: 0.11.5
 Author: Piklist
 Author URI: https://piklist.com
 Text Domain: piklist
