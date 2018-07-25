@@ -49,6 +49,8 @@ class Piklist_Help
               ,'post_format' => 'Post Format'
               ,'setting' => 'Setting'
               ,'taxonomy' => 'Taxonomy'
+              ,'id' => 'ID'
+              ,'slug' => 'Slug'
             );
 
     piklist::process_parts('help', $data, array(__CLASS__, 'register_help_callback'));

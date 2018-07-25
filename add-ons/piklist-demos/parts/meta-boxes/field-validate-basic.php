@@ -133,7 +133,7 @@ Flow: Demo Workflow
     'type' => 'text'
     ,'field' => 'validate_image'
     ,'label' => __('Image')
-    ,'description' => sprintf(__('Test with: %s', 'piklist-demo'), 'http://piklist.com/wp-content/themes/piklistcom-base/images/piklist-logo@2x.png')
+    ,'description' => sprintf(__('Test with: %s', 'piklist-demo'), 'https://piklist.com/wp-content/themes/piklistcom-base/images/piklist-logo@2x.png')
     ,'attributes' => array(
       'class' => 'large-text'
     )

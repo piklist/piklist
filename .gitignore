@@ -8,7 +8,7 @@ Desktop.ini
 # Recycle Bin used on file shares
 $RECYCLE.BIN/
 
-# Mac 
+# Mac
 .DS_Store
 
 # Sublime
@@ -34,10 +34,12 @@ $RECYCLE.BIN/
 tests/clover.xml
 
 # NPM / Composer
-composer.lock
 /node_modules/
 /vendor/
 npm-debug.log
+
+# PHPDoc
+docs/
 
 # Grunt
 package.json

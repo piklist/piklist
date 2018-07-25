@@ -15,10 +15,10 @@ if (!defined('ABSPATH')) exit; // Exit if accessed directly
 class Piklist_Admin
 {
   /**
-   * @var bool Whether a theme is Piklist dependent.
+   * @var bool Stores all dependent plugins and theme
    * @access public
    */
-  public static $piklist_dependent = false;
+  public static $piklist_dependent = array();
 
   /**
    * @var bool Whether Piklist is network activated.
@@ -81,10 +81,10 @@ class Piklist_Admin
       add_action('init', array(__CLASS__, 'init'));
     }
 
-    add_action('admin_head', array(__CLASS__, 'admin_head'));
-    add_action('wp_head', array(__CLASS__, 'admin_head'));
-    add_action('admin_menu', array(__CLASS__, 'register_admin_pages'), -1);
-    add_action('redirect_post_location', array(__CLASS__, 'redirect_post_location'), 10, 2);
+    add_action('admin_head', array('piklist_admin', 'admin_head'));
+    add_action('wp_head', array('piklist_admin', 'admin_head'));
+    add_action('admin_menu', array('piklist_admin', 'register_admin_pages'));
+    add_action('redirect_post_location', array('piklist_admin', 'redirect_post_location'), 10, 2);
 
     add_filter('admin_footer_text', array(__CLASS__, 'admin_footer_text'));
     add_filter('admin_body_class', array(__CLASS__, 'admin_body_class'));
@@ -251,7 +251,7 @@ class Piklist_Admin
    */
   public static function admin_footer_text($footer_text)
   {
-    return str_replace('</a>.', sprintf(__('%1$s and %2$sPiklist%1$s.', 'piklist'), '</a>', '<a href="http://piklist.com">'), $footer_text);
+    return str_replace('</a>.', sprintf(__('%1$s and %2$sPiklist%1$s.', 'piklist'), '</a>', '<a href="https://piklist.com">'), $footer_text);
   }
 
   /**
@@ -348,6 +348,8 @@ class Piklist_Admin
 
         add_filter("option_page_capability_{$page['setting']}", array(__CLASS__, 'option_page_capability'));
       }
+
+      $page['capability'] = isset($page['capability']) ? $page['capability'] : 'manage_options';
 
       if (isset($page['sub_menu']))
       {
@@ -602,7 +604,7 @@ class Piklist_Admin
   {
     unset($actions['deactivate']);
 
-    array_unshift($actions, sprintf(__('%1$sDependent plugins or theme are active.%2$s', 'piklist'), '<div style="color:#a00">', piklist_admin::replace_deactivation_link_help() .'</div>') . (is_network_admin() ? __('Network Deactivate', 'piklist') :  __('Deactivate', 'piklist')));
+    array_unshift($actions, sprintf(__('%1$sDependent plugins or theme are active.%2$s', 'piklist'), '<div style="color:#a00"><a href="admin.php?page=piklist">', piklist_admin::replace_deactivation_link_help() .'</a></div>') . (is_network_admin() ? __('Network Deactivate', 'piklist') :  __('Deactivate', 'piklist')));
 
     return $actions;
   }
@@ -1014,7 +1016,7 @@ class Piklist_Admin
 /**
    * responsive_admin
    * Checks for WP 3.8 or above, which has a responsive admin.
-	 * TODO: deprecate
+     * TODO: depreciate
    *
    * @return bool Whether admin is responsive or not.
    *

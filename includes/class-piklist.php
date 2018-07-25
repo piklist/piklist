@@ -954,6 +954,7 @@ class Piklist
       {
         case 'capability':
         case 'id':
+        case 'slug':
         case 'page':
         case 'post_type':
         case 'role':
@@ -1078,9 +1079,24 @@ class Piklist
   {
     global $post, $pagenow, $current_screen;
 
+    $validate_object = 'post';
+
     if (is_null($post) && isset($_GET['action']) && 'edit' === $_GET['action'] && !empty($_GET['post']))
     {
       $post = get_post($_GET['post']);
+      $validate_object = 'post';
+    }
+
+    if ( $pagenow == 'term.php' )
+    {
+      $term = get_term_by('id', $_GET['tag_ID'], $_GET['taxonomy']);
+      $validate_object = 'term';
+    }
+
+    if ( $pagenow == 'user-edit.php' )
+    {
+      $user = get_user_by('id', $_GET['user_id']);
+      $validate_object = 'user';
     }
 
     switch ($parameter)
@@ -1142,7 +1158,37 @@ class Piklist
 
       case 'id':
 
-        return $post && in_array($post->ID, $value);
+        switch ($validate_object) {
+          case 'post':
+            return $post && in_array($post->ID, $value);
+          break;
+
+          case 'term':
+            return $term && in_array($term->term_id, $value);
+          break;
+
+          case 'user':
+            return $user && in_array($user->ID, $value);
+          break;
+        }
+
+      break;
+
+      case 'slug':
+
+        switch ($validate_object) {
+          case 'post':
+            return $post && in_array($post->post_name, $value);
+          break;
+
+          case 'term':
+            return $term && in_array($term->slug, $value);
+          break;
+
+          case 'user':
+            return $user && in_array(strtolower($user->data->user_login), $value);
+          break;
+        }
 
       break;
 
@@ -1228,12 +1274,12 @@ class Piklist
     return $folders;
   }
 
-	/**
+  /**
    * pre
    * Used for debugging to output information to the screen.
    *
    * @param mixed $output Information to output.
-	 * @param $display Output to screen or just source.
+   * @param $display Output to screen or just source.
    *
    * @access public
    * @static
@@ -1243,7 +1289,7 @@ class Piklist
   {
     $output = $output === '-' ? '--------------------------------------------------' : $output;
 
-		$display = $display === false ? 'style="display:none;"' : '';
+    $display = $display === false ? 'style="display:none;"' : '';
 
     echo "<pre $display>\r\n";
 
@@ -1531,18 +1577,18 @@ class Piklist
       ,'menu_name' => $plural
     );
 
-		/**
-		 * piklist_post_type_labels_locale
-		 * Pass an array of labels for a Post Type
-		 *
-		 * Allows you to create new labels for an already registered Post Type that uses piklist('post_type_labels')
-		 * Primarily used for non-Engish locales
-		 *
-		 * @param array $labels
-		 * @param array $locale
-		 *
-		 * @since 1.0
-		 */
+    /**
+     * piklist_post_type_labels_locale
+     * Pass an array of labels for a Post Type
+     *
+     * Allows you to create new labels for an already registered Post Type that uses piklist('post_type_labels')
+     * Primarily used for non-Engish locales
+     *
+     * @param array $labels
+     * @param array $locale
+     *
+     * @since 1.0
+     */
     return apply_filters('piklist_post_type_labels_locale', $labels, $locale);
   }
 
@@ -1594,18 +1640,18 @@ class Piklist
       ,'name_admin_bar' => $label
     );
 
-		/**
-		 * piklist_taxonomy_labels_locale
-		 * Pass an array of labels for a Taxonomy
-		 *
-		 * Allows you to create new labels for an already registered Taxonomy that uses piklist('taxoomy_labels')
-		 * Primarily used for non-Engish locales
-		 *
-		 * @param array $labels
-		 * @param array $locale
-		 *
-		 * @since 1.0
-		 */
+    /**
+     * piklist_taxonomy_labels_locale
+     * Pass an array of labels for a Taxonomy
+     *
+     * Allows you to create new labels for an already registered Taxonomy that uses piklist('taxoomy_labels')
+     * Primarily used for non-Engish locales
+     *
+     * @param array $labels
+     * @param array $locale
+     *
+     * @since 1.0
+     */
     return apply_filters('piklist_taxonomy_labels_locale', $labels, $locale);
   }
 

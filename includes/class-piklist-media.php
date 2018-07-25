@@ -109,6 +109,7 @@ class Piklist_Media
               ,'order' => 'Order'
               ,'new' => 'New'
               ,'id' => 'ID'
+              ,'slug' => 'Slug'
             );
 
     piklist::process_parts('media', $data, array(__CLASS__, 'register_meta_boxes_callback'));

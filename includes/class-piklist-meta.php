@@ -96,6 +96,41 @@ class Piklist_Meta
    */
   public static function register()
   {
+    $data = array(
+              'title' => 'Title'
+              ,'context' => 'Context'
+              ,'description' => 'Description'
+              ,'capability' => 'Capability'
+              ,'role' => 'Role'
+              ,'priority' => 'Priority'
+              ,'order' => 'Order'
+              ,'post_type' => 'Post Type'
+              ,'post_status' => 'Post Status'
+              ,'lock' => 'Lock'
+              ,'collapse' => 'Collapse'
+              ,'status' => 'Status'
+              ,'new' => 'New'
+              ,'id' => 'ID'
+              ,'slug' => 'Slug'
+              ,'template' => 'Template'
+              ,'meta_box' => 'Meta Box'
+              ,'post_format' => 'Post Format'
+            );
+
+    piklist::process_parts('meta-boxes', $data, array('piklist_meta', 'register_meta_boxes_callback'));
+  }
+
+  /**
+   * clear_screen
+   * Clear the screen of all meta-boxes
+   *
+   * @access public
+   * @static
+   * @since 1.0
+   */
+  public static function clear_screen()
+>>>>>>> b57b41d0898270669dc58e7664ce844e8f96dbc0
+  {
     piklist::process_parts('meta-boxes', piklist_arguments::get('meta-boxes', 'part'), array(__CLASS__, 'register_callback'));
   }
 
@@ -631,17 +666,23 @@ class Piklist_Meta
 
     if (stristr($query, ', meta_key, meta_value FROM'))
     {
+      $default_meta_tables_sort = array(
+        'post_id' => $wpdb->postmeta
+        ,'comment_id' => $wpdb->commentmeta
+        ,'user_id' => $wpdb->usermeta
+      );
+
       /**
        * piklist_meta_tables_sort
        * The tables to re-order when running meta queries
        *
        * @since 1.0
        */
-      $meta_tables = array_merge(apply_filters('piklist_meta_tables_sort', array()), array(
-        'post_id' => $wpdb->postmeta
-        ,'comment_id' => $wpdb->commentmeta
-        ,'user_id' => $wpdb->usermeta
-      ));
+      $piklist_meta_tables_sort = apply_filters('piklist_meta_tables_sort', array());
+
+      // Do not allow filter to overwrite $default_meta_tables_sort
+      $meta_tables = array_merge($piklist_meta_tables_sort, $default_meta_tables_sort);
+
 
       foreach ($meta_tables as $id => $meta_table)
       {

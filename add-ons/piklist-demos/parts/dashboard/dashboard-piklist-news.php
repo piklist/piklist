@@ -7,7 +7,7 @@ Network: only
 
 include_once ABSPATH . WPINC . '/feed.php';
 
-$rss = fetch_feed('http://piklist.com/feed/');
+$rss = fetch_feed('https://piklist.com/feed/');
 
 if (!is_wp_error($rss)):
   $maxitems = $rss->get_item_quantity(5); 

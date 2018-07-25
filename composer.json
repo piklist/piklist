@@ -1,0 +1,22 @@
+{
+    "name": "piklist/piklist",
+    "description": "The most powerful framework available for WordPress.",
+    "type": "wordpress-plugin",
+    "license":"GPL-2.0",
+    "keywords":[
+        "wordpress",
+        "plugin",
+        "framework"
+    ],
+    "require": {
+        "composer/installers":"^1.4",
+        "phpdocumentor/phpdocumentor": "2.8.x",
+        "cvuorinen/phpdoc-markdown-public": "^0.1.2"
+    },
+    "support":{
+        "issues":"https://github.com/piklist/piklist/issues"
+    },
+    "scripts": {
+      "build-docs": "./vendor/bin/phpdoc --directory=includes --target=docs/ --template=\"vendor/cvuorinen/phpdoc-markdown-public/data/templates/markdown-public\" --title=\"Piklist Documentation\""
+    }
+}

@@ -816,7 +816,7 @@
       {
         submit = $(target.srcElement || target.originalTarget);
       }
-      
+
       if (submit)
       {
         $.ajax({
@@ -1735,9 +1735,9 @@
               .addBack()
               .wrapAll('<div data-piklist-field-columns="' + columns + '" />');
           }
-          
+
           var wrap = $element;
-          
+
           if (!$element.is('div[data-piklist-field-columns]'))
           {
             wrap = wrap
@@ -1975,6 +1975,8 @@
           {
             $(':input[name="' + name + '"][type="hidden"]:eq(' + index + ')').val('');
           }
+          
+          $(this).closest('.piklist-upload-file-preview').trigger('piklist:file:remove', id);
 
           $(this)
             .parents('.attachment:first')
@@ -2136,6 +2138,8 @@
                 ).insertAfter($(':input[name="' + input_name + '"]:last'));
             }
           }
+
+          preview_container.trigger('piklist:file:add', [updates]);
 
           preview_container.find('li.attachment').addClass('selected');
         });
