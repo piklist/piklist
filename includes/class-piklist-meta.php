@@ -96,41 +96,6 @@ class Piklist_Meta
    */
   public static function register()
   {
-    $data = array(
-              'title' => 'Title'
-              ,'context' => 'Context'
-              ,'description' => 'Description'
-              ,'capability' => 'Capability'
-              ,'role' => 'Role'
-              ,'priority' => 'Priority'
-              ,'order' => 'Order'
-              ,'post_type' => 'Post Type'
-              ,'post_status' => 'Post Status'
-              ,'lock' => 'Lock'
-              ,'collapse' => 'Collapse'
-              ,'status' => 'Status'
-              ,'new' => 'New'
-              ,'id' => 'ID'
-              ,'slug' => 'Slug'
-              ,'template' => 'Template'
-              ,'meta_box' => 'Meta Box'
-              ,'post_format' => 'Post Format'
-            );
-
-    piklist::process_parts('meta-boxes', $data, array('piklist_meta', 'register_meta_boxes_callback'));
-  }
-
-  /**
-   * clear_screen
-   * Clear the screen of all meta-boxes
-   *
-   * @access public
-   * @static
-   * @since 1.0
-   */
-  public static function clear_screen()
->>>>>>> b57b41d0898270669dc58e7664ce844e8f96dbc0
-  {
     piklist::process_parts('meta-boxes', piklist_arguments::get('meta-boxes', 'part'), array(__CLASS__, 'register_callback'));
   }
 
