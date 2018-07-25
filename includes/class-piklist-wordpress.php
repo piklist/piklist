@@ -8,7 +8,7 @@ if (!defined('ABSPATH')) exit; // Exit if accessed directly
  *
  * @package     Piklist
  * @subpackage  WordPress
- * @copyright   Copyright (c) 2012-2016, Piklist, LLC.
+ * @copyright   Copyright (c) 2012-2018, Piklist, LLC.
  * @license     http://opensource.org/licenses/gpl-2.0.php GNU Public License
  * @since       1.0
  */
@@ -96,14 +96,14 @@ class Piklist_WordPress
    */
   public static function _construct()
   {
-    add_action('pre_user_query', array('piklist_wordpress', 'pre_user_query'));
-    add_action('posts_where', array('piklist_wordpress', 'relation_taxonomy'));
-    add_action('wp_scheduled_delete', array('piklist_wordpress', 'garbage_collection'));
-    add_action('pre_get_posts', array('piklist_wordpress', 'pre_get_posts'));
-    add_action('piklist_pre_render_workflow', array('piklist_wordpress', 'pre_render_workflow'));
+    add_action('pre_user_query', array(__CLASS__, 'pre_user_query'));
+    add_action('posts_where', array(__CLASS__, 'relation_taxonomy'));
+    add_action('wp_scheduled_delete', array(__CLASS__, 'garbage_collection'));
+    add_action('pre_get_posts', array(__CLASS__, 'pre_get_posts'));
+    add_action('piklist_pre_render_workflow', array(__CLASS__, 'pre_render_workflow'));
 
-    add_filter('piklist_part_data', array('piklist_wordpress', 'part_data'), 10, 2);
-    add_filter('get_meta_sql', array('piklist_wordpress', 'get_meta_sql'), 101, 6);
+    add_filter('piklist_part_data', array(__CLASS__, 'part_data'), 10, 2);
+    add_filter('get_meta_sql', array(__CLASS__, 'get_meta_sql'), 101, 6);
   }
 
   /**
@@ -250,11 +250,11 @@ class Piklist_WordPress
 
       $query->query_vars['role'] = null;
 
-      remove_action('pre_user_query', array('piklist_wordpress', 'pre_user_query'));
+      remove_action('pre_user_query', array(__CLASS__, 'pre_user_query'));
 
       $query->prepare_query();
 
-      add_action('pre_user_query', array('piklist_wordpress', 'pre_user_query'));
+      add_action('pre_user_query', array(__CLASS__, 'pre_user_query'));
     }
   }
 
@@ -417,10 +417,10 @@ class Piklist_WordPress
           {
             case 'post':
 
-              add_filter('posts_where', array('piklist_wordpress', 'where'), 10, 2);
-              add_filter('posts_where_request', array('piklist_wordpress', 'where'), 10, 2);
-              add_filter('posts_orderby', array('piklist_wordpress', 'orderby'), 10, 2);
-              add_filter('posts_orderby_request', array('piklist_wordpress', 'orderby'), 10, 2);
+              add_filter('posts_where', array(__CLASS__, 'where'), 10, 2);
+              add_filter('posts_where_request', array(__CLASS__, 'where'), 10, 2);
+              add_filter('posts_orderby', array(__CLASS__, 'orderby'), 10, 2);
+              add_filter('posts_orderby_request', array(__CLASS__, 'orderby'), 10, 2);
 
             break;
           }
@@ -506,8 +506,8 @@ class Piklist_WordPress
         {
           case 'post':
 
-            add_filter('posts_distinct', array('piklist_wordpress', 'distinct'), 10, 2);
-            add_filter('posts_distinct_request', array('piklist_wordpress', 'distinct'), 10, 2);
+            add_filter('posts_distinct', array(__CLASS__, 'distinct'), 10, 2);
+            add_filter('posts_distinct_request', array(__CLASS__, 'distinct'), 10, 2);
 
           break;
         }
@@ -532,8 +532,8 @@ class Piklist_WordPress
    */
   public static function where($where, &$query)
   {
-    remove_filter('posts_where', array('piklist_wordpress', 'where'), 10);
-    remove_filter('posts_where_request', array('piklist_wordpress', 'where'), 10);
+    remove_filter('posts_where', array(__CLASS__, 'where'), 10);
+    remove_filter('posts_where_request', array(__CLASS__, 'where'), 10);
 
     if (!empty(self::$meta_orderby) && (!isset($query->query_vars['orderby']) || (in_array($query->query_vars['orderby'], array('meta_value', 'meta_value_num')))))
     {
@@ -558,8 +558,8 @@ class Piklist_WordPress
    */
   public static function orderby($orderby, &$query)
   {
-    remove_filter('posts_orderby', array('piklist_wordpress', 'orderby'), 10);
-    remove_filter('posts_orderby_request', array('piklist_wordpress', 'orderby'), 10);
+    remove_filter('posts_orderby', array(__CLASS__, 'orderby'), 10);
+    remove_filter('posts_orderby_request', array(__CLASS__, 'orderby'), 10);
 
     if (isset($query->query_vars['orderby']) && !isset($query->query_vars['meta_type']) && in_array($query->query_vars['orderby'], array('meta_value', 'meta_value_num')))
     {
@@ -584,8 +584,8 @@ class Piklist_WordPress
    */
   public static function distinct($distinct, &$query)
   {
-    remove_filter('posts_distinct', array('piklist_wordpress', 'distinct'), 10);
-    remove_filter('posts_distinct_request', array('piklist_wordpress', 'distinct'), 10);
+    remove_filter('posts_distinct', array(__CLASS__, 'distinct'), 10);
+    remove_filter('posts_distinct_request', array(__CLASS__, 'distinct'), 10);
 
     return 'DISTINCT';
   }

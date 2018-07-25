@@ -13,7 +13,7 @@ if (!is_admin())
  *
  * @package     Piklist
  * @subpackage  Setting
- * @copyright   Copyright (c) 2012-2016, Piklist, LLC.
+ * @copyright   Copyright (c) 2012-2018, Piklist, LLC.
  * @license     http://opensource.org/licenses/gpl-2.0.php GNU Public License
  * @since       1.0
  */
@@ -55,14 +55,15 @@ class Piklist_Setting
   {
     if (is_admin())
     {
-      add_action('admin_init', array('piklist_setting', 'register_settings'));
-      add_action('current_screen', array('piklist_setting', 'add_meta_boxes'));
-      add_action('admin_enqueue_scripts', array('piklist_setting', 'admin_enqueue_scripts'));
-      add_action('piklist_parts_processed-settings', array('piklist_setting', 'parts_processed'));
+      add_action('init', array(__CLASS__, 'register_arguments'));
+      add_action('admin_init', array(__CLASS__, 'register'));
+      add_action('current_screen', array(__CLASS__, 'add_meta_boxes'));
+      add_action('admin_enqueue_scripts', array(__CLASS__, 'admin_enqueue_scripts'));
+      add_action('piklist_parts_processed-settings', array(__CLASS__, 'parts_processed'));
 
-      add_filter('piklist_admin_pages', array('piklist_setting', 'admin_pages'));
-      add_filter('piklist_part_add-workflows', array('piklist_setting', 'part_add'), 10, 2);
-      add_filter('piklist_part_process-settings', array('piklist_setting', 'part_process'), 10, 2);
+      add_filter('piklist_admin_pages', array(__CLASS__, 'admin_pages'));
+      add_filter('piklist_part_add-workflows', array(__CLASS__, 'part_add'), 10, 2);
+      add_filter('piklist_part_process-settings', array(__CLASS__, 'part_process'), 10, 2);
     }
   }
 
@@ -135,26 +136,62 @@ class Piklist_Setting
   }
 
   /**
-   * register_settings
+   * register_arguments
+   * Register arguments for our helper methods
+   *
+   * @access public
+   * @static
+   * @since 1.0
+   */
+  public static function register_arguments()
+  {
+    piklist_arguments::register('settings', array(
+      // Basics
+      'title' => array(
+        'description' => __('The title of the meta box.', 'piklist')
+      )
+      ,'description' => array(
+        'description' => __('The description of what the meta box is for.', 'piklist')
+      )
+          
+      // Permissions
+      ,'capability' => array(
+        'description' => __('The user capability needed by the user to view the meta box.', 'piklist')
+        ,'type' => 'array'
+        ,'validate' => 'capability'
+      )
+      ,'role' => array(
+        'description' => __('The user role needed by the user to view the meta box.', 'piklist')
+        ,'type' => 'array'
+        ,'validate' => 'role'
+      )
+        
+      ,'setting' => array(
+        'description' => __('', 'piklist')
+      )
+      ,'tab' => array(
+        'description' => __('', 'piklist')
+      )  
+      ,'tab_order' => array(
+        'description' => __('', 'piklist')
+      )
+      ,'order' => array(
+        'description' => __('', 'piklist')
+      )
+    ));
+  }
+  
+  /**
+   * register
    * Register any settings sections available. Uses the WordPress settings api.
    *
    * @access public
    * @static
    * @since 1.0
    */
-  public static function register_settings()
+  public static function register()
   {
-    global $current_screen;
-
-    $data = array(
-              'title' => 'Title'
-              ,'setting' => 'Setting'
-              ,'tab' => 'Tab'
-              ,'tab_order' => 'Tab Order'
-              ,'order' => 'Order'
-            );
-
-    piklist::process_parts('settings', $data, array('piklist_setting', 'register_settings_callback'));
+    piklist::process_parts('settings', piklist_arguments::get('settings', 'part'), array(__CLASS__, 'register_callback'));
   }
 
   /**
@@ -174,7 +211,7 @@ class Piklist_Setting
       add_settings_field(
         isset($field['field']) ? $field['field'] : piklist::unique_id()
         ,isset($field['label']) ? piklist_form::field_label($field) : null
-        ,array('piklist_setting', 'render_setting')
+        ,array(__CLASS__, 'render_setting')
         ,self::$active_section['data']['setting']
         ,self::$active_section['id']
         ,array(
@@ -186,7 +223,7 @@ class Piklist_Setting
   }
 
   /**
-   * register_settings_callback
+   * register_callback
    * Process successfully registered settings parts.
    *
    * @param array $arguments The part object.
@@ -195,7 +232,7 @@ class Piklist_Setting
    * @static
    * @since 1.0
    */
-  public static function register_settings_callback($arguments)
+  public static function register_callback($arguments)
   {
     extract($arguments);
 
@@ -208,7 +245,7 @@ class Piklist_Setting
   }
 
   /**
-   * register_settings_section_callback
+   * register_section_callback
    * Register settings sections.
    *
    * @param array $arguments The part object.
@@ -217,7 +254,7 @@ class Piklist_Setting
    * @static
    * @since 1.0
    */
-  public static function register_settings_section_callback($arguments)
+  public static function register_section_callback($arguments)
   {
     extract($arguments);
 
@@ -286,7 +323,7 @@ class Piklist_Setting
 
     $arguments['args']['meta_box'] = true;
 
-    self::register_settings_section_callback($arguments['args']);
+    self::register_section_callback($arguments['args']);
 
     do_settings_fields($setting, $arguments['args']['id']);
 
@@ -618,7 +655,7 @@ class Piklist_Setting
     {
       if ((isset($_REQUEST['page']) && $_REQUEST['page'] == $setting) || (isset($_REQUEST['option_page']) && $_REQUEST['option_page'] == $setting))
       {
-        add_filter('pre_update_option_' . $setting, array('piklist_setting', 'pre_update_option'), 10, 2);
+        add_filter('pre_update_option_' . $setting, array(__CLASS__, 'pre_update_option'), 10, 2);
       }
 
       register_setting($setting, $setting);
@@ -668,7 +705,7 @@ class Piklist_Setting
           array_push(self::$meta_boxes, array(
             $section['id']
             ,$title
-            ,array('piklist_setting', 'add_meta_box_callback')
+            ,array(__CLASS__, 'add_meta_box_callback')
             ,null
             ,$context
             ,$priority
@@ -680,7 +717,7 @@ class Piklist_Setting
         }
         else
         {
-          add_settings_section($section['id'], $title, array('piklist_setting', 'register_settings_section_callback'), $setting);
+          add_settings_section($section['id'], $title, array(__CLASS__, 'register_section_callback'), $setting);
         }
       }
     }

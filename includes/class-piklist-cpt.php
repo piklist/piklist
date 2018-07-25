@@ -8,7 +8,7 @@ if (!defined('ABSPATH')) exit; // Exit if accessed directly
  *
  * @package     Piklist
  * @subpackage  CPT
- * @copyright   Copyright (c) 2012-2016, Piklist, LLC.
+ * @copyright   Copyright (c) 2012-2018, Piklist, LLC.
  * @license     http://opensource.org/licenses/gpl-2.0.php GNU Public License
  * @since       1.0
  */
@@ -80,23 +80,23 @@ class Piklist_CPT
    */
   public static function _construct()
   {
-    add_action('init', array('piklist_cpt', 'init'));
-    add_action('pre_get_posts', array('piklist_cpt', 'pre_get_posts'), 100);
-    add_action('edit_page_form', array('piklist_cpt', 'edit_form'));
-    add_action('edit_form_advanced', array('piklist_cpt', 'edit_form'));
-    add_action('restrict_manage_posts', array('piklist_cpt', 'taxonomy_filters_list_table'));
-    add_action('admin_footer', array('piklist_cpt', 'quick_edit_post_statuses'));
-    add_action('piklist_save_fields', array('piklist_cpt', 'save_fields'));
+    add_action('init', array(__CLASS__, 'init'));
+    add_action('pre_get_posts', array(__CLASS__, 'pre_get_posts'), 100);
+    add_action('edit_page_form', array(__CLASS__, 'edit_form'));
+    add_action('edit_form_advanced', array(__CLASS__, 'edit_form'));
+    add_action('restrict_manage_posts', array(__CLASS__, 'taxonomy_filters_list_table'));
+    add_action('admin_footer', array(__CLASS__, 'quick_edit_post_statuses'));
+    add_action('piklist_save_fields', array(__CLASS__, 'save_fields'));
 
-    add_filter('post_row_actions', array('piklist_cpt', 'post_row_actions'), 10, 2);
-    add_filter('page_row_actions', array('piklist_cpt', 'post_row_actions'), 10, 2);
-    add_filter('wp_insert_post_data', array('piklist_cpt', 'wp_insert_post_data'), 100, 2);
-    add_filter('display_post_states', array('piklist_cpt', 'display_post_states'));
-    add_filter('piklist_assets_localize', array('piklist_cpt', 'assets_localize'));
+    add_filter('post_row_actions', array(__CLASS__, 'post_row_actions'), 10, 2);
+    add_filter('page_row_actions', array(__CLASS__, 'post_row_actions'), 10, 2);
+    add_filter('wp_insert_post_data', array(__CLASS__, 'wp_insert_post_data'), 100, 2);
+    add_filter('display_post_states', array(__CLASS__, 'display_post_states'));
+    add_filter('piklist_assets_localize', array(__CLASS__, 'assets_localize'));
 
     if (piklist_admin::is_post())
     {
-      add_filter('is_protected_meta', array('piklist_cpt', 'is_protected_meta'), 100, 3);
+      add_filter('is_protected_meta', array(__CLASS__, 'is_protected_meta'), 100, 3);
     }
   }
 
@@ -232,11 +232,11 @@ class Piklist_CPT
         }
       }
 
-      add_action('admin_head', array('piklist_cpt', 'hide_meta_boxes'), 100);
+      add_action('admin_head', array(__CLASS__, 'hide_meta_boxes'), 100);
 
       if (!empty($configuration['title']))
       {
-        add_filter('enter_title_here', array('piklist_cpt', 'enter_title_here'));
+        add_filter('enter_title_here', array(__CLASS__, 'enter_title_here'));
       }
 
       if (!empty($configuration['page_icon']))
@@ -254,20 +254,20 @@ class Piklist_CPT
 
       if (!empty($configuration['hide_screen_options']))
       {
-        add_filter('screen_options_show_screen', array('piklist_cpt', 'hide_screen_options'));
+        add_filter('screen_options_show_screen', array(__CLASS__, 'hide_screen_options'));
       }
 
       if (!empty($configuration['edit_columns']))
       {
-        add_filter('manage_edit-' . $post_type . '_columns', array('piklist_cpt', 'manage_edit_columns'));
+        add_filter('manage_edit-' . $post_type . '_columns', array(__CLASS__, 'manage_edit_columns'));
       }
 
       if (!empty($configuration['admin_body_class']))
       {
-        add_filter('admin_body_class', array('piklist_cpt', 'admin_body_class'), 10000);
+        add_filter('admin_body_class', array(__CLASS__, 'admin_body_class'), 10000);
       }
 
-      add_filter('post_updated_messages', array('piklist_cpt', 'post_updated_messages_filter'));
+      add_filter('post_updated_messages', array(__CLASS__, 'post_updated_messages_filter'));
 
     }
 
@@ -332,7 +332,7 @@ class Piklist_CPT
         }
       }
 
-      add_action('admin_head', array('piklist_cpt', 'hide_meta_boxes'), 100);
+      add_action('admin_head', array(__CLASS__, 'hide_meta_boxes'), 100);
 
       if (isset($taxonomy['configuration']['page_icon']) && !empty($taxonomy['configuration']['page_icon']))
       {
@@ -351,8 +351,8 @@ class Piklist_CPT
         {
           piklist_cpt::$taxonomy = $taxonomy;
 
-          add_filter('manage_users_columns', array('piklist_cpt', 'user_column_header'), 10);
-          add_action('manage_users_custom_column', array('piklist_cpt', 'user_column_data'), 10, 3);
+          add_filter('manage_users_columns', array(__CLASS__, 'user_column_header'), 10);
+          add_action('manage_users_custom_column', array(__CLASS__, 'user_column_data'), 10, 3);
         }
       }
 
@@ -362,7 +362,7 @@ class Piklist_CPT
         {
           array_push(self::$taxonomy_filter_meta_box, $taxonomy);
 
-          add_action('admin_head', array('piklist_cpt', 'taxonomy_filter_meta_box'));
+          add_action('admin_head', array(__CLASS__, 'taxonomy_filter_meta_box'));
         }
       }
     }
@@ -1127,7 +1127,7 @@ class Piklist_CPT
 
       if (isset(self::$search_data[piklist::$prefix . 'post']))
       {
-        add_filter('posts_search', array('piklist_cpt', 'posts_search'), 10, 2);
+        add_filter('posts_search', array(__CLASS__, 'posts_search'), 10, 2);
       }
     }
   }

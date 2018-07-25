@@ -8,7 +8,7 @@ if (!defined('ABSPATH')) exit; // Exit if accessed directly
  *
  * @package     Piklist
  * @subpackage  Form
- * @copyright   Copyright (c) 2012-2016, Piklist, LLC.
+ * @copyright   Copyright (c) 2012-2018, Piklist, LLC.
  * @license     http://opensource.org/licenses/gpl-2.0.php GNU Public License
  * @since       1.0
  */
@@ -153,7 +153,7 @@ class Piklist_Form
    */
   private static $field_assets = array(
     'colorpicker' => array(
-      'callback' => array('piklist_form', 'render_field_custom_assets')
+      'callback' => array(__CLASS__, 'render_field_custom_assets')
     )
     ,'datepicker' => array(
       'scripts' => array(
@@ -254,38 +254,38 @@ class Piklist_Form
   {
     self::register_arguments();
     
-    add_action('wp_loaded', array('piklist_form', 'wp_loaded'), 100);
+    add_action('wp_loaded', array(__CLASS__, 'wp_loaded'), 100);
 
-    add_action('post_edit_form_tag', array('piklist_form', 'add_enctype'));
-    add_action('user_edit_form_tag', array('piklist_form', 'add_enctype'));
-    add_action('edit_category_form_pre', array('piklist_form', 'setup_add_enctype'));
-    add_action('edit_link_category_form_pre', array('piklist_form', 'setup_add_enctype'));
-    add_action('edit_tag_form_pre', array('piklist_form', 'setup_add_enctype'));
-    add_action('created_term', array('piklist_form', 'created_term'), 10000, 3);
+    add_action('post_edit_form_tag', array(__CLASS__, 'add_enctype'));
+    add_action('user_edit_form_tag', array(__CLASS__, 'add_enctype'));
+    add_action('edit_category_form_pre', array(__CLASS__, 'setup_add_enctype'));
+    add_action('edit_link_category_form_pre', array(__CLASS__, 'setup_add_enctype'));
+    add_action('edit_tag_form_pre', array(__CLASS__, 'setup_add_enctype'));
+    add_action('created_term', array(__CLASS__, 'created_term'), 10000, 3);
 
-    add_action('init', array('piklist_form', 'save_fields_actions'), 100);
-    add_action('init', array('piklist_form', 'register_forms'));
-    add_action('wp_ajax_piklist_form', array('piklist_form', 'ajax'));
-    add_action('wp_ajax_nopriv_piklist_form', array('piklist_form', 'ajax'));
-    add_action('admin_enqueue_scripts', array('piklist_form', 'wp_enqueue_media'));
-    add_action('admin_footer', array('piklist_form', 'render_field_assets'));
-    add_action('wp_footer', array('piklist_form', 'render_field_assets'));
-    add_action('customize_controls_print_footer_scripts', array('piklist_form', 'render_field_assets'));
+    add_action('init', array(__CLASS__, 'save_fields_actions'), 100);
+    add_action('init', array(__CLASS__, 'register'), 11);
+    add_action('wp_ajax_piklist_form', array(__CLASS__, 'ajax'));
+    add_action('wp_ajax_nopriv_piklist_form', array(__CLASS__, 'ajax'));
+    add_action('admin_enqueue_scripts', array(__CLASS__, 'wp_enqueue_media'));
+    add_action('admin_footer', array(__CLASS__, 'render_field_assets'));
+    add_action('wp_footer', array(__CLASS__, 'render_field_assets'));
+    add_action('customize_controls_print_footer_scripts', array(__CLASS__, 'render_field_assets'));
 
-    add_action('piklist_notices', array('piklist_form', 'notices'));
+    add_action('piklist_notices', array(__CLASS__, 'notices'));
 
     if (is_admin())
     {
       add_action('admin_enqueue_scripts', 'wp_enqueue_media');
     }
 
-    add_filter('teeny_mce_before_init', array('piklist_form', 'tiny_mce_settings'), 100, 2);
-    add_filter('tiny_mce_before_init', array('piklist_form', 'tiny_mce_settings'), 100, 2);
-    add_filter('quicktags_settings', array('piklist_form', 'quicktags_settings'), 100, 2);
-    add_filter('piklist_field_templates', array('piklist_form', 'field_templates'), 0);
-    add_filter('the_editor', array('piklist_form', 'the_editor'));
-    add_filter('tiny_mce_before_init', array('piklist_form', 'remove_theme_css'), 10, 2);
-    add_filter('teeny_mce_before_init', array('piklist_form', 'remove_theme_css'), 10, 2);
+    add_filter('teeny_mce_before_init', array(__CLASS__, 'tiny_mce_settings'), 100, 2);
+    add_filter('tiny_mce_before_init', array(__CLASS__, 'tiny_mce_settings'), 100, 2);
+    add_filter('quicktags_settings', array(__CLASS__, 'quicktags_settings'), 100, 2);
+    add_filter('piklist_field_templates', array(__CLASS__, 'field_templates'), 0);
+    add_filter('the_editor', array(__CLASS__, 'the_editor'));
+    add_filter('tiny_mce_before_init', array(__CLASS__, 'remove_theme_css'), 10, 2);
+    add_filter('teeny_mce_before_init', array(__CLASS__, 'remove_theme_css'), 10, 2);
   }
 
   /**
@@ -318,7 +318,7 @@ class Piklist_Form
 
     foreach (self::$template_shortcodes as $template_shortcode)
     {
-      add_shortcode($template_shortcode, array('piklist_form', 'template_shortcode'));
+      add_shortcode($template_shortcode, array(__CLASS__, 'template_shortcode'));
     }
 
     if (in_array($pagenow, array('widgets.php', 'customize.php')))
@@ -331,12 +331,12 @@ class Piklist_Form
       if ($pagenow == 'widgets.php')
       {
         add_action('admin_print_footer_scripts', array('_WP_Editors', 'editor_js'), 50);
-        add_action('admin_footer', array('piklist_form', 'editor_proxy'));
+        add_action('admin_footer', array(__CLASS__, 'editor_proxy'));
       }
       else
       {
         add_action('customize_controls_print_footer_scripts', array('_WP_Editors', 'editor_js'), 50);
-        add_action('customize_controls_print_footer_scripts', array('piklist_form', 'editor_proxy'));
+        add_action('customize_controls_print_footer_scripts', array(__CLASS__, 'editor_proxy'));
       }
     }
 
@@ -625,6 +625,52 @@ class Piklist_Form
       ,'value' => array(
         'description' => __('The final value after validationa and santization.', 'piklist')
         ,'_internal' => true
+      )
+    ));
+    
+    piklist_arguments::register('forms', array(
+      // Basics
+      'title' => array(
+        'description' => __('The title of the meta box.', 'piklist')
+      )
+      ,'description' => array(
+        'description' => __('The description of what the meta box is for.', 'piklist')
+      )
+
+      // Permissions
+      ,'capability' => array(
+        'description' => __('The user capability needed by the user to view the meta box.', 'piklist')
+        ,'type' => 'array'
+        ,'validate' => 'capability'
+      )
+      ,'role' => array(
+        'description' => __('The user role needed by the user to view the meta box.', 'piklist')
+        ,'type' => 'array'
+        ,'validate' => 'role'
+      )
+      ,'logged_in' => array(
+        'description' => __('Whether or not the user needs to be logged in.', 'piklist')
+        ,'type' => 'array'
+        ,'validate' => 'logged_in'
+      )
+
+      ,'class' => array(
+        'description' => __('', 'piklist')
+      )
+      ,'method' => array(
+        'description' => __('', 'piklist')
+      )
+      ,'action' => array(
+        'description' => __('', 'piklist')
+      )
+      ,'filter' => array(
+        'description' => __('', 'piklist')
+      )
+      ,'redirect' => array(
+        'description' => __('', 'piklist')
+      )
+      ,'message' => array(
+        'description' => __('', 'piklist')
       )
     ));
   }
@@ -1760,8 +1806,8 @@ class Piklist_Form
   {
     global $taxnow;
 
-    add_action($taxnow . '_term_new_form_tag', array('piklist_form', 'add_enctype'));
-    add_action($taxnow . '_term_edit_form_tag', array('piklist_form', 'add_enctype'));
+    add_action($taxnow . '_term_new_form_tag', array(__CLASS__, 'add_enctype'));
+    add_action($taxnow . '_term_edit_form_tag', array(__CLASS__, 'add_enctype'));
   }
 
   /**
@@ -1842,7 +1888,7 @@ class Piklist_Form
       $default['scope'] = self::get_field_scope();
     }
 
-    $default['sortable'] = isset($field['add_more']) && is_bool($field['add_more']) && $field['add_more'] ? true : $default['sortable'];
+    $default['sortable'] = isset($field['add_more']) && piklist::is_bool($field['add_more']) && $field['add_more'] ? true : $default['sortable'];
 
     if (!isset($field['multiple']))
     {
@@ -2490,14 +2536,14 @@ class Piklist_Form
 
     foreach ($actions as $action)
     {
-      add_action($action, array('piklist_form', 'save_fields'), 101);
+      add_action($action, array(__CLASS__, 'save_fields'), 101);
     }
 
     $taxonomies = get_taxonomies('', 'names');
     foreach ($taxonomies as $taxonomy)
     {
-      add_action($taxonomy . '_add_form', array('piklist_form', 'save_fields'), 101);
-      add_action($taxonomy . '_edit_form', array('piklist_form', 'save_fields'), 101);
+      add_action($taxonomy . '_add_form', array(__CLASS__, 'save_fields'), 101);
+      add_action($taxonomy . '_edit_form', array(__CLASS__, 'save_fields'), 101);
     }
   }
 
@@ -3227,33 +3273,20 @@ class Piklist_Form
   }
 
   /**
-   * register_forms
+   * register
    * Register forms from the forms part folder.
    *
    * @access public
    * @static
    * @since 1.0
    */
-  public static function register_forms()
+  public static function register()
   {
-    $data = array(
-              'title' => 'Title'
-              ,'class' => 'Class'
-              ,'description' => 'Description'
-              ,'method' => 'Method'
-              ,'action' => 'Action'
-              ,'filter' => 'Filter'
-              ,'redirect' => 'Redirect'
-              ,'message' => 'Message'
-              ,'capability' => 'Capability'
-              ,'logged_in' => 'Logged In'
-            );
-
-    piklist::process_parts('forms', $data, array('piklist_form', 'register_forms_callback'));
+    piklist::process_parts('forms', piklist_arguments::get('forms', 'part'), array(__CLASS__, 'register_callback'));
   }
 
   /**
-   * register_forms_callback
+   * register_callback
    * The callback for successfully registered form parts.
    *
    * @param array $arguments The part object.
@@ -3262,7 +3295,7 @@ class Piklist_Form
    * @static
    * @since 1.0
    */
-  public static function register_forms_callback($arguments)
+  public static function register_callback($arguments)
   {
     global $pagenow;
 
@@ -3867,7 +3900,7 @@ class Piklist_Form
           if (!$field['display'])
           {
             $taxonomy = is_string($field['save_as']) ? $field['save_as'] : $field['field'];
-            $append = isset($field['options']['append']) && is_bool($field['options']['append']) ? $field['options']['append'] : false;
+            $append = isset($field['options']['append']) && piklist::is_bool($field['options']['append']) ? $field['options']['append'] : false;
 
             $context = self::get_field_context($field);
 
@@ -4545,7 +4578,7 @@ class Piklist_Form
 
     foreach ($settings as $key => $value)
     {
-      if (is_bool($value))
+      if (piklist::is_bool($value))
       {
         $new_settings[$key] = $value ? true : false;
 

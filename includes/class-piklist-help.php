@@ -8,7 +8,7 @@ if (!defined('ABSPATH')) exit; // Exit if accessed directly
  *
  * @package     Piklist
  * @subpackage  Help
- * @copyright   Copyright (c) 2012-2016, Piklist, LLC.
+ * @copyright   Copyright (c) 2012-2018, Piklist, LLC.
  * @license     http://opensource.org/licenses/gpl-2.0.php GNU Public License
  * @since       1.0
  */
@@ -24,7 +24,7 @@ class Piklist_Help
    */
   public static function _construct()
   {
-    add_action('admin_head', array('piklist_help', 'register_help'));
+    add_action('admin_head', array(__CLASS__, 'register_help'));
   }
 
   /**
@@ -51,7 +51,7 @@ class Piklist_Help
               ,'taxonomy' => 'Taxonomy'
             );
 
-    piklist::process_parts('help', $data, array('piklist_help', 'register_help_callback'));
+    piklist::process_parts('help', $data, array(__CLASS__, 'register_help_callback'));
   }
 
   /**

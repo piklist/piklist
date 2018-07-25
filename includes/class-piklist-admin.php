@@ -8,7 +8,7 @@ if (!defined('ABSPATH')) exit; // Exit if accessed directly
  *
  * @package     Piklist
  * @subpackage  Admin
- * @copyright   Copyright (c) 2012-2016, Piklist, LLC.
+ * @copyright   Copyright (c) 2012-2018, Piklist, LLC.
  * @license     http://opensource.org/licenses/gpl-2.0.php GNU Public License
  * @since       1.0
  */
@@ -78,28 +78,28 @@ class Piklist_Admin
 
     if (is_admin())
     {
-      add_action('init', array('piklist_admin', 'init'));
+      add_action('init', array(__CLASS__, 'init'));
     }
 
-    add_action('admin_head', array('piklist_admin', 'admin_head'));
-    add_action('wp_head', array('piklist_admin', 'admin_head'));
-    add_action('admin_menu', array('piklist_admin', 'register_admin_pages'), -1);
-    add_action('redirect_post_location', array('piklist_admin', 'redirect_post_location'), 10, 2);
+    add_action('admin_head', array(__CLASS__, 'admin_head'));
+    add_action('wp_head', array(__CLASS__, 'admin_head'));
+    add_action('admin_menu', array(__CLASS__, 'register_admin_pages'), -1);
+    add_action('redirect_post_location', array(__CLASS__, 'redirect_post_location'), 10, 2);
 
-    add_filter('admin_footer_text', array('piklist_admin', 'admin_footer_text'));
-    add_filter('admin_body_class', array('piklist_admin', 'admin_body_class'));
-    add_filter('screen_options_show_screen', array('piklist_admin', 'screen_options_show_screen'), 10, 2);
+    add_filter('admin_footer_text', array(__CLASS__, 'admin_footer_text'));
+    add_filter('admin_body_class', array(__CLASS__, 'admin_body_class'));
+    add_filter('screen_options_show_screen', array(__CLASS__, 'screen_options_show_screen'), 10, 2);
 
-    add_filter('plugin_action_links_piklist/piklist.php', array('piklist_admin', 'plugin_action_links'));
-    add_filter('plugin_row_meta', array('piklist_admin', 'plugin_row_meta'), 10, 2);
+    add_filter('plugin_action_links_piklist/piklist.php', array(__CLASS__, 'plugin_action_links'));
+    add_filter('plugin_row_meta', array(__CLASS__, 'plugin_row_meta'), 10, 2);
 
     if ($pagenow == 'customize.php')
     {
-      add_filter('piklist_assets_footer', array('piklist_admin', 'assets'), 100);
+      add_filter('piklist_assets_footer', array(__CLASS__, 'assets'), 100);
     }
     else
     {
-      add_filter('piklist_assets', array('piklist_admin', 'assets'), 100);
+      add_filter('piklist_assets', array(__CLASS__, 'assets'), 100);
     }
   }
 
@@ -124,7 +124,7 @@ class Piklist_Admin
 
     self::check_persistant_update();
 
-    add_action('in_plugin_update_message-piklist/piklist.php', array('piklist_admin', 'update_available'), null, 2);
+    add_action('in_plugin_update_message-piklist/piklist.php', array(__CLASS__, 'update_available'), null, 2);
   }
 
   /**
@@ -346,19 +346,19 @@ class Piklist_Admin
       {
         piklist_admin::$capability_save = $page['capability_save'];
 
-        add_filter("option_page_capability_{$page['setting']}", array('piklist_admin', 'option_page_capability'));
+        add_filter("option_page_capability_{$page['setting']}", array(__CLASS__, 'option_page_capability'));
       }
 
       if (isset($page['sub_menu']))
       {
-        add_submenu_page($page['sub_menu'], $page['page_title'], $page['menu_title'], $page['capability'], $page['menu_slug'], array('piklist_admin', 'admin_page'));
+        add_submenu_page($page['sub_menu'], $page['page_title'], $page['menu_title'], $page['capability'], $page['menu_slug'], array(__CLASS__, 'admin_page'));
       }
       else
       {
         $menu_icon = isset($page['menu_icon']) ? $page['menu_icon'] : (isset($page['icon_url']) ? $page['icon_url'] : null);
 
-        add_menu_page($page['page_title'], $page['menu_title'], $page['capability'], $page['menu_slug'], array('piklist_admin', 'admin_page'), $menu_icon, isset($page['position']) ? $page['position'] : null);
-        add_submenu_page($page['menu_slug'], $page['page_title'], $page['page_title'], $page['capability'], $page['menu_slug'], array('piklist_admin', 'admin_page'));
+        add_menu_page($page['page_title'], $page['menu_title'], $page['capability'], $page['menu_slug'], array(__CLASS__, 'admin_page'), $menu_icon, isset($page['position']) ? $page['position'] : null);
+        add_submenu_page($page['menu_slug'], $page['page_title'], $page['page_title'], $page['capability'], $page['menu_slug'], array(__CLASS__, 'admin_page'));
       }
     }
 
@@ -379,7 +379,7 @@ class Piklist_Admin
               ,'position' => 'Position'
             );
 
-    piklist::process_parts('admin-pages', $data, array('piklist_admin', 'register_admin_pages_callback'));
+    piklist::process_parts('admin-pages', $data, array(__CLASS__, 'register_admin_pages_callback'));
   }
 
   /**
@@ -581,9 +581,9 @@ class Piklist_Admin
       return;
     }
 
-    add_filter('plugin_action_links_piklist/piklist.php', array('piklist_admin', 'replace_deactivation_link'));
-    add_filter('network_admin_plugin_action_links_piklist/piklist.php', array('piklist_admin', 'replace_deactivation_link'));
-    add_filter('admin_body_class', array('piklist_admin', 'admin_body_class'));
+    add_filter('plugin_action_links_piklist/piklist.php', array(__CLASS__, 'replace_deactivation_link'));
+    add_filter('network_admin_plugin_action_links_piklist/piklist.php', array(__CLASS__, 'replace_deactivation_link'));
+    add_filter('admin_body_class', array(__CLASS__, 'admin_body_class'));
   }
 
   /**
@@ -771,7 +771,7 @@ class Piklist_Admin
 
     if (!empty($valid_persistant_updates))
     {
-      piklist::check_network_propagate(array('piklist_admin', 'run_update'), $valid_persistant_updates);
+      piklist::check_network_propagate(array(__CLASS__, 'run_update'), $valid_persistant_updates);
     }
   }
 
@@ -814,7 +814,7 @@ class Piklist_Admin
 
     if ($valid_updates)
     {
-      piklist::check_network_propagate(array('piklist_admin', 'run_update'), $valid_updates);
+      piklist::check_network_propagate(array(__CLASS__, 'run_update'), $valid_updates);
     }
   }
 

@@ -8,7 +8,7 @@ if (!defined('ABSPATH')) exit; // Exit if accessed directly
  *
  * @package     Piklist
  * @subpackage  Media
- * @copyright   Copyright (c) 2012-2016, Piklist, LLC.
+ * @copyright   Copyright (c) 2012-2018, Piklist, LLC.
  * @license     http://opensource.org/licenses/gpl-2.0.php GNU Public License
  * @since       1.0
  */
@@ -26,9 +26,9 @@ class Piklist_Media
    */
   public static function _construct()
   {
-    add_action('admin_init', array('piklist_media', 'init'), 50);
+    add_action('admin_init', array(__CLASS__, 'init'), 50);
 
-    add_filter('attachment_fields_to_edit', array('piklist_media', 'attachment_fields_to_edit'), 100, 2);
+    add_filter('attachment_fields_to_edit', array(__CLASS__, 'attachment_fields_to_edit'), 100, 2);
   }
 
   /**
@@ -111,7 +111,7 @@ class Piklist_Media
               ,'id' => 'ID'
             );
 
-    piklist::process_parts('media', $data, array('piklist_media', 'register_meta_boxes_callback'));
+    piklist::process_parts('media', $data, array(__CLASS__, 'register_meta_boxes_callback'));
   }
 
   /**

@@ -8,7 +8,7 @@ if (!defined('ABSPATH')) exit; // Exit if accessed directly
  *
  * @package     Piklist
  * @subpackage  Notice
- * @copyright   Copyright (c) 2012-2016, Piklist, LLC.
+ * @copyright   Copyright (c) 2012-2018, Piklist, LLC.
  * @license     http://opensource.org/licenses/gpl-2.0.php GNU Public License
  * @since       1.0
  */
@@ -38,36 +38,74 @@ class Piklist_Notice
   {
     if (is_admin())
     {
-      add_action('current_screen', array('piklist_notice', 'register_notice'));
-      add_action('admin_notices', array('piklist_notice', 'notice'));
-      add_action('wp_ajax_piklist_notice', array('piklist_notice', 'ajax'));
+      add_action('init', array(__CLASS__, 'register_arguments'));
+      add_action('current_screen', array(__CLASS__, 'register'));
+      add_action('admin_notices', array(__CLASS__, 'notice'));
+      add_action('wp_ajax_piklist_notice', array(__CLASS__, 'ajax'));
     }
   }
-   
+  
   /**
-   * register_notice
+   * register_arguments
+   * Register arguments for our helper methods
+   *
+   * @access public
+   * @static
+   * @since 1.0
+   */
+  public static function register_arguments()
+  {
+    piklist_arguments::register('notices', array(
+      // Basics
+      'title' => array(
+        'description' => __('The title of the meta box.', 'piklist')
+      )
+      ,'description' => array(
+        'description' => __('The description of what the meta box is for.', 'piklist')
+      )
+          
+      // Permissions
+      ,'capability' => array(
+        'description' => __('The user capability needed by the user to view the meta box.', 'piklist')
+        ,'type' => 'array'
+        ,'validate' => 'capability'
+      )
+      ,'role' => array(
+        'description' => __('The user role needed by the user to view the meta box.', 'piklist')
+        ,'type' => 'array'
+        ,'validate' => 'role'
+      )
+        
+      ,'notice_id' => array(
+        'description' => __('', 'piklist')
+      )
+      ,'notice_type' => array( // TODO: error, updated, update-nag
+        'description' => __('', 'piklist')
+      )  
+      ,'page' => array(
+        'description' => __('', 'piklist')
+      )
+      ,'dismiss' => array(
+        'description' => __('', 'piklist')
+      )
+    ));
+  }
+
+  /**
+   * register
    * Register any notices available.
    *
    * @access public
    * @static
    * @since 1.0
    */
-  public static function register_notice()
+  public static function register()
   {
-    $data = array(
-              'notice_type' => 'Notice Type' // error, updated, update-nag
-              ,'notice_id' => 'Notice ID'
-              ,'capability' => 'Capability'
-              ,'role' => 'Role'
-              ,'page' => 'Page'
-              ,'dismiss' => 'Dismiss'
-            );
-            
-    piklist::process_parts('notices', $data, array('piklist_notice', 'register_notice_callback'));
+    piklist::process_parts('notices', piklist_arguments::get('notices', 'part'), array(__CLASS__, 'register_callback'));
   }
 
   /**
-   * register_notice_callback
+   * register_callback
    * Handle and render a registered admin notice.
    *
    * @param array $arguments The part object.
@@ -76,7 +114,7 @@ class Piklist_Notice
    * @static
    * @since 1.0
    */
-  public static function register_notice_callback($arguments)
+  public static function register_callback($arguments)
   {
     extract($arguments);
     
@@ -150,6 +188,6 @@ class Piklist_Notice
       }
     }
 
-    // wp_die();
+    wp_die();
   }
 }

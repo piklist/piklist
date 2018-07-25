@@ -1,12 +1,13 @@
 <?php
 /*
 Title: Text Fields
-Post Type: piklist_demo
+Post Type: piklist_demos
 Order: 10
 Collapse: false
 Tab: Common
 Sub Tab: Basic
 Flow: Demo Workflow
+Context: side
 */
 ?>
 
@@ -20,7 +21,7 @@ Flow: Demo Workflow
     'type' => 'text'
     ,'field' => 'text'
     ,'scope' => 'post_meta'
-    ,'label' => true //__('Text', 'piklist-demo')
+    ,'label' => __('Text', 'piklist-demo')
     ,'help' => __('You can easily add tooltips to your fields with the help parameter.', 'piklist-demo')
     ,'attributes' => array(
       'class' => 'regular-text'

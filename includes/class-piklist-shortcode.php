@@ -8,7 +8,7 @@ if (!defined('ABSPATH')) exit; // Exit if accessed directly
  *
  * @package     Piklist
  * @subpackage  Shortcode
- * @copyright   Copyright (c) 2012-2016, Piklist, LLC.
+ * @copyright   Copyright (c) 2012-2018, Piklist, LLC.
  * @license     http://opensource.org/licenses/gpl-2.0.php GNU Public License
  * @since       1.0
  */
@@ -67,21 +67,22 @@ class Piklist_Shortcode
    */
   public static function _construct()
   {
-    add_action('init', array('piklist_shortcode', 'register_shortcodes'));
-    add_action('admin_init', array('piklist_shortcode', 'admin_init'));
-    add_action('media_buttons', array('piklist_shortcode', 'media_buttons'), 100);
-    add_action('print_media_templates', array('piklist_shortcode', 'print_media_templates'));
-    add_action('wp_editor_settings', array('piklist_shortcode', 'wp_editor_settings'), 10, 2);
-    add_action('wp_ajax_piklist_shortcode', array('piklist_shortcode', 'ajax'));
-    add_action('wp_ajax_nopriv_piklist_shortcode', array('piklist_shortcode', 'ajax'));
+    add_action('init', array(__CLASS__, 'register_arguments'));
+    add_action('init', array(__CLASS__, 'register'), 11);
+    add_action('admin_init', array(__CLASS__, 'admin_init'));
+    add_action('media_buttons', array(__CLASS__, 'media_buttons'), 100);
+    add_action('print_media_templates', array(__CLASS__, 'print_media_templates'));
+    add_action('wp_editor_settings', array(__CLASS__, 'wp_editor_settings'), 10, 2);
+    add_action('wp_ajax_piklist_shortcode', array(__CLASS__, 'ajax'));
+    add_action('wp_ajax_nopriv_piklist_shortcode', array(__CLASS__, 'ajax'));
 
-    add_filter('admin_body_class', array('piklist_shortcode', 'admin_body_class'));
-    add_filter('piklist_part_id-shortcodes', array('piklist_shortcode', 'part_id'), 10, 4);
-    add_filter('piklist_part_process-shortcodes', array('piklist_shortcode', 'part_process'), 10, 2);
-    add_filter('piklist_admin_pages', array('piklist_shortcode', 'admin_pages'));
-    add_filter('piklist_field_templates', array('piklist_shortcode', 'field_templates'));
-    add_filter('piklist_assets_localize', array('piklist_shortcode', 'assets_localize'));
-    add_filter('piklist_pre_render_field_shortcode_data_content', array('piklist_shortcode', 'set_content_field'));
+    add_filter('admin_body_class', array(__CLASS__, 'admin_body_class'));
+    add_filter('piklist_part_id-shortcodes', array(__CLASS__, 'part_id'), 10, 4);
+    add_filter('piklist_part_process-shortcodes', array(__CLASS__, 'part_process'), 10, 2);
+    add_filter('piklist_admin_pages', array(__CLASS__, 'admin_pages'));
+    add_filter('piklist_field_templates', array(__CLASS__, 'field_templates'));
+    add_filter('piklist_assets_localize', array(__CLASS__, 'assets_localize'));
+    add_filter('piklist_pre_render_field_shortcode_data_content', array(__CLASS__, 'set_content_field'));
   }
   
   /**
@@ -94,9 +95,9 @@ class Piklist_Shortcode
    */
   public static function admin_init()
   {
-    add_filter('mce_buttons', array('piklist_shortcode', 'mce_buttons'));
-    add_filter('tiny_mce_before_init', array('piklist_shortcode', 'tiny_mce_before_init'));
-    add_filter('mce_external_plugins', array('piklist_shortcode', 'mce_external_plugins'), 100);
+    add_filter('mce_buttons', array(__CLASS__, 'mce_buttons'));
+    add_filter('tiny_mce_before_init', array(__CLASS__, 'tiny_mce_before_init'));
+    add_filter('mce_external_plugins', array(__CLASS__, 'mce_external_plugins'), 100);
   }
   
   /**
@@ -164,31 +165,58 @@ class Piklist_Shortcode
   }
 
   /**
-   * register_shortcodes
+   * register_arguments
+   * Register arguments for our helper methods
+   *
+   * @access public
+   * @static
+   * @since 1.0
+   */
+  public static function register_arguments()
+  {
+    piklist_arguments::register('shortcodes', array(
+      'name' => array(
+        'description' => __('', 'piklist')
+      )
+      ,'shortcode' => array(
+        'description' => __('', 'piklist')
+      )
+      ,'description' => array(
+        'description' => __('The description of what the meta box is for.', 'piklist')
+      )
+      ,'icon' => array(
+        'description' => __('', 'piklist')
+      )
+      ,'inline' => array(
+        'description' => __('', 'piklist')
+      )
+      ,'preview' => array(
+        'description' => __('', 'piklist')
+      )
+      ,'editor' => array(
+        'description' => __('', 'piklist')
+      )
+      ,'type' => array(
+        'description' => __('', 'piklist')
+      )
+    ));
+  }
+
+  /**
+   * register
    * Regsiter shortcodes to be added to the system.
    *
    * @access public
    * @static
    * @since 1.0
    */
-  public static function register_shortcodes()
+  public static function register()
   {
-    $data = array(
-              'name' => 'Name'
-              ,'description' => 'Description'
-              ,'shortcode' => 'Shortcode'
-              ,'icon' => 'Icon'
-              ,'inline' => 'Inline'
-              ,'preview' => 'Preview'
-              ,'editor' => 'Editor'
-              ,'type' => 'Type'
-            );
-
-    piklist::process_parts('shortcodes', $data, array('piklist_shortcode', 'register_shortcodes_callback'));
+    piklist::process_parts('shortcodes', piklist_arguments::get('shortcodes', 'part'), array(__CLASS__, 'register_callback'));
   }
 
   /**
-   * register_shortcodes_callback
+   * register_callback
    * Handle shortcodes that have been registered.
    *
    * @param array $arguments The part object.
@@ -197,7 +225,7 @@ class Piklist_Shortcode
    * @static
    * @since 1.0
    */
-  public static function register_shortcodes_callback($arguments)
+  public static function register_callback($arguments)
   {
     extract($arguments);
 
@@ -214,7 +242,7 @@ class Piklist_Shortcode
       {
         if (!strstr($file, '-form.php'))
         {
-          add_shortcode($data['shortcode'], array('piklist_shortcode', 'shortcode'));
+          add_shortcode($data['shortcode'], array(__CLASS__, 'shortcode'));
 
           break;
         }

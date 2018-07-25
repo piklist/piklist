@@ -8,7 +8,7 @@ if (!defined('ABSPATH')) exit; // Exit if accessed directly
  *
  * @package     Piklist
  * @subpackage  Add ons
- * @copyright   Copyright (c) 2012-2016, Piklist, LLC.
+ * @copyright   Copyright (c) 2012-2018, Piklist, LLC.
  * @license     http://opensource.org/licenses/gpl-2.0.php GNU Public License
  * @since       1.0
  */
@@ -30,7 +30,7 @@ class Piklist_Add_On
    */
   public static function _construct()
   {
-    add_action('init', array('piklist_add_on', 'include_add_ons'), 0);
+    add_action('init', array(__CLASS__, 'include_add_ons'), 0);
   }
 
   /**

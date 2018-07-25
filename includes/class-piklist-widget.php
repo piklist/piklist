@@ -8,7 +8,7 @@ if (!defined('ABSPATH')) exit; // Exit if accessed directly
  *
  * @package     Piklist
  * @subpackage  Widget
- * @copyright   Copyright (c) 2012-2016, Piklist, LLC.
+ * @copyright   Copyright (c) 2012-2018, Piklist, LLC.
  * @license     http://opensource.org/licenses/gpl-2.0.php GNU Public License
  * @since       1.0
  */
@@ -54,28 +54,16 @@ class Piklist_Widget
    */
   public static function _construct()
   {
-    add_action('init', array('piklist_widget', 'init'));
-    add_action('widgets_init', array('piklist_widget', 'register_widgets'));
-    add_action('widgets_init', array('piklist_widget', 'register_widget_groups'), 90);
+    add_action('init', array(__CLASS__, 'register'));
+    add_action('widgets_init', array(__CLASS__, 'register_arguments'));
+    add_action('widgets_init', array(__CLASS__, 'register_widgets'));
+    add_action('widgets_init', array(__CLASS__, 'register_widget_groups'), 90);
 
-    add_filter('dynamic_sidebar_params', array('piklist_widget', 'dynamic_sidebar_params'));
+    add_filter('dynamic_sidebar_params', array(__CLASS__, 'dynamic_sidebar_params'));
   }
 
   /**
-   * init
-   * Initializes system.
-   *
-   * @access public
-   * @static
-   * @since 1.0
-   */
-  public static function init()
-  {
-    self::register_sidebars();
-  }
-
-  /**
-   * register_sidebars
+   * register
    * Register sidebars via the piklist_sidebars
    * Sets better defaults than WordPress
    *
@@ -83,7 +71,7 @@ class Piklist_Widget
    * @static
    * @since 1.0
    */
-  public static function register_sidebars()
+  public static function register()
   {
     /**
      * piklist_sidebars
@@ -140,19 +128,7 @@ class Piklist_Widget
    */
   public static function register_widgets()
   {
-    // Run all widgets through callback
-    $data = array(
-              'title' => 'Title'
-              ,'description' => 'Description'
-              ,'tags' => 'Tags'
-              ,'class' => 'Class'
-              ,'height' => 'Height'
-              ,'width' => 'Width'
-              ,'standalone' => 'Standalone'
-              ,'customize_selective_refresh' => 'Customize Selective Refresh'
-            );
-    
-    piklist::process_parts('widgets', $data, array('piklist_widget', 'register_widgets_callback'));
+    piklist::process_parts('widgets', piklist_arguments::get('widgets', 'part'), array(__CLASS__, 'register_widgets_callback'));
 
     // Create widget groups 
     $addons_paths = piklist::paths();
@@ -302,7 +278,6 @@ class Piklist_Widget
 
     return $params;
   }
-  
 
   /**
    * get
@@ -319,5 +294,47 @@ class Piklist_Widget
   public static function get($variable)
   {
     return isset(self::$$variable) ? self::$$variable : false;
+  }
+  
+  /**
+   * register_arguments
+   * Register arguments for our helper methods
+   *
+   * @access public
+   * @static
+   * @since 1.0
+   */
+  public static function register_arguments()
+  {
+    piklist_arguments::register('widgets', array(
+      // Basics
+      'title' => array(
+        'description' => __('The title of the meta box.', 'piklist')
+      )
+      ,'description' => array(
+        'description' => __('The description of what the meta box is for.', 'piklist')
+      )
+            
+      // Display
+      ,'class' => array(
+        'description' => __('Class names to add to the widget.', 'piklist')
+      )
+      ,'height' => array(
+        'description' => __('The height of the widget form.', 'piklist')
+        ,'type' => 'integer'
+      )
+      ,'width' => array(
+        'description' => __('The width of the widget form.', 'piklist')
+        ,'type' => 'integer'
+      )
+      ,'standalone' => array(
+        'description' => __('Whether or not this is a grouped or standalone widget.', 'piklist')
+        ,'type' => 'boolean'
+      )
+      ,'customize_selective_refresh' => array(
+        'description' => __('Whether or not to refresh the page if the widget is in the Customizer.', 'piklist')
+        ,'type' => 'boolean'
+      )
+    ));
   }
 }

@@ -8,7 +8,7 @@ if (!defined('ABSPATH')) exit; // Exit if accessed directly
  *
  * @package     Piklist
  * @subpackage  User
- * @copyright   Copyright (c) 2012-2016, Piklist, LLC.
+ * @copyright   Copyright (c) 2012-2018, Piklist, LLC.
  * @license     http://opensource.org/licenses/gpl-2.0.php GNU Public License
  * @since       1.0
  */
@@ -30,9 +30,10 @@ class Piklist_User
    */
   public static function _construct()
   {
-    add_action('init', array('piklist_user', 'init'));
-    add_action('show_user_profile', array('piklist_user', 'meta_box'));
-    add_action('edit_user_profile', array('piklist_user', 'meta_box'));
+    add_action('init', array(__CLASS__, 'register_arguments'));
+    add_action('init', array(__CLASS__, 'init'), 11);
+    add_action('show_user_profile', array(__CLASS__, 'meta_box'));
+    add_action('edit_user_profile', array(__CLASS__, 'meta_box'));
   }
   
   /**
@@ -45,44 +46,75 @@ class Piklist_User
    */
   public static function init()
   {
-    self::register_meta_boxes();
+    self::register();
 
     $use_multiple_user_roles = piklist::get_settings('piklist_core', 'multiple_user_roles');
 
     if ($use_multiple_user_roles && (!is_multisite() || (isset($pagenow) && $pagenow == 'user-edit.php' && is_multisite())))
     {
-      add_action('profile_update', array('piklist_user', 'multiple_roles'));
-      add_action('user_register', array('piklist_user', 'multiple_roles'), 9);
-      add_action('admin_footer', array('piklist_user', 'multiple_roles_field'));
+      add_action('profile_update', array(__CLASS__, 'multiple_roles'));
+      add_action('user_register', array(__CLASS__, 'multiple_roles'), 9);
+      add_action('admin_footer', array(__CLASS__, 'multiple_roles_field'));
 
-      add_filter('additional_capabilities_display', array('piklist_user', 'additional_capabilities_display'));
+      add_filter('additional_capabilities_display', array(__CLASS__, 'additional_capabilities_display'));
     }
   }
 
   /**
-   * register_meta_boxes
-   * Register user meta sections.
+   * register_arguments
+   * Register arguments for our helper methods
    *
    * @access public
    * @static
    * @since 1.0
    */
-  public static function register_meta_boxes()
+  public static function register_arguments()
   {
-    $data = array(
-              'title' => 'Title'
-              ,'description' => 'Description'
-              ,'capability' => 'Capability'
-              ,'order' => 'Order'
-              ,'role' => 'Role'
-              ,'new' => 'New'
-            );
-
-    piklist::process_parts('users', $data, array('piklist_user', 'register_meta_boxes_callback'));
+    piklist_arguments::register('users', array(
+      // Basics
+      'title' => array(
+        'description' => __('The title of the meta box.', 'piklist')
+      )
+      ,'description' => array(
+        'description' => __('The description of what the meta box is for.', 'piklist')
+      )
+          
+      // Permissions
+      ,'capability' => array(
+        'description' => __('The user capability needed by the user to view the meta box.', 'piklist')
+        ,'type' => 'array'
+        ,'validate' => 'capability'
+      )
+      ,'role' => array(
+        'description' => __('The user role needed by the user to view the meta box.', 'piklist')
+        ,'type' => 'array'
+        ,'validate' => 'role'
+      )
+        
+      ,'order' => array(
+        'description' => __('', 'piklist')
+      )
+      ,'new' => array(
+        'description' => __('', 'piklist')
+      )
+    ));
   }
 
   /**
-   * register_meta_boxes_callback
+   * register
+   * Register term sections.
+   *
+   * @access public
+   * @static
+   * @since 1.0
+   */
+  public static function register()
+  {
+    piklist::process_parts('users', piklist_arguments::get('users', 'part'), array(__CLASS__, 'register_callback'));
+  }
+
+  /**
+   * register_callback
    * Handle the registration of a user meta section.
    *
    * @param array $arguments The part object.
@@ -91,7 +123,7 @@ class Piklist_User
    * @static
    * @since 1.0
    */
-  public static function register_meta_boxes_callback($arguments)
+  public static function register_callback($arguments)
   {
     global $pagenow;
     

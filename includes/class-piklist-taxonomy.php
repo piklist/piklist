@@ -8,7 +8,7 @@ if (!defined('ABSPATH')) exit; // Exit if accessed directly
  *
  * @package     Piklist
  * @subpackage  Taxonomy
- * @copyright   Copyright (c) 2012-2016, Piklist, LLC.
+ * @copyright   Copyright (c) 2012-2018, Piklist, LLC.
  * @license     http://opensource.org/licenses/gpl-2.0.php GNU Public License
  * @since       1.0
  */
@@ -38,23 +38,24 @@ class Piklist_Taxonomy
   {
     global $wp_version;
 
-    add_action('piklist_activate', array('piklist_taxonomy', 'activate'));
+    add_action('piklist_activate', array(__CLASS__, 'activate'));
 
-    add_action('admin_init', array('piklist_taxonomy', 'register_meta_boxes'), 50);
-    add_action('registered_taxonomy',  array('piklist_taxonomy', 'registered_taxonomy'), 10, 3);
-    add_action('admin_menu', array('piklist_taxonomy', 'admin_menu'));
+    add_action('init', array(__CLASS__, 'register_arguments'));
+    add_action('admin_init', array(__CLASS__, 'register'), 50);
+    add_action('registered_taxonomy',  array(__CLASS__, 'registered_taxonomy'), 10, 3);
+    add_action('admin_menu', array(__CLASS__, 'admin_menu'));
 
-    add_filter('wp_redirect', array('piklist_taxonomy', 'wp_redirect'), 10, 2);
-    add_filter('parent_file', array('piklist_taxonomy', 'parent_file'));
-    add_filter('sanitize_user', array('piklist_taxonomy', 'restrict_username'));
-    add_filter('piklist_meta_tables_sort', array('piklist_taxonomy', 'piklist_meta_tables_sort'));
+    add_filter('wp_redirect', array(__CLASS__, 'wp_redirect'), 10, 2);
+    add_filter('parent_file', array(__CLASS__, 'parent_file'));
+    add_filter('sanitize_user', array(__CLASS__, 'restrict_username'));
+    add_filter('piklist_meta_tables_sort', array(__CLASS__, 'piklist_meta_tables_sort'));
 
     // Load before termmeta was native to WordPress
     if ( version_compare($wp_version, '4.4.0', '<') )
     {
-      add_filter('init', array('piklist_taxonomy', 'register_tables'));
-      add_filter('terms_clauses', array('piklist_taxonomy', 'terms_clauses'), 10, 3);
-      add_filter('get_terms_args', array('piklist_taxonomy', 'get_terms_args'), 0);
+      add_filter('init', array(__CLASS__, 'register_tables'));
+      add_filter('terms_clauses', array(__CLASS__, 'terms_clauses'), 10, 3);
+      add_filter('get_terms_args', array(__CLASS__, 'get_terms_args'), 0);
     }
   }
 
@@ -154,30 +155,63 @@ class Piklist_Taxonomy
   }
 
   /**
-   * register_meta_boxes
+   * register_arguments
+   * Register arguments for our helper methods
+   *
+   * @access public
+   * @static
+   * @since 1.0
+   */
+  public static function register_arguments()
+  {
+    piklist_arguments::register('terms', array(
+      // Basics
+      'title' => array(
+        'description' => __('The title of the meta box.', 'piklist')
+      )
+      ,'description' => array(
+        'description' => __('The description of what the meta box is for.', 'piklist')
+      )
+          
+      // Permissions
+      ,'capability' => array(
+        'description' => __('The user capability needed by the user to view the meta box.', 'piklist')
+        ,'type' => 'array'
+        ,'validate' => 'capability'
+      )
+      ,'role' => array(
+        'description' => __('The user role needed by the user to view the meta box.', 'piklist')
+        ,'type' => 'array'
+        ,'validate' => 'role'
+      )
+        
+      ,'order' => array(
+        'description' => __('', 'piklist')
+      )
+      ,'taxonomy' => array(
+        'description' => __('', 'piklist')
+      )  
+      ,'new' => array(
+        'description' => __('', 'piklist')
+      )
+    ));
+  }
+
+  /**
+   * register
    * Register term sections.
    *
    * @access public
    * @static
    * @since 1.0
    */
-  public static function register_meta_boxes()
+  public static function register()
   {
-    $data = array(
-              'title' => 'Title'
-              ,'description' => 'Description'
-              ,'capability' => 'Capability'
-              ,'role' => 'Role'
-              ,'order' => 'Order'
-              ,'taxonomy' => 'Taxonomy'
-              ,'new' => 'New'
-            );
-
-    piklist::process_parts('terms', $data, array('piklist_taxonomy', 'register_meta_boxes_callback'));
+    piklist::process_parts('terms', piklist_arguments::get('terms', 'part'), array(__CLASS__, 'register_callback'));
   }
 
   /**
-   * register_meta_boxes_callback
+   * register_callback
    * Handle the registration of a term section.
    *
    * @param array $arguments The part object.
@@ -186,7 +220,7 @@ class Piklist_Taxonomy
    * @static
    * @since 1.0
    */
-  public static function register_meta_boxes_callback($arguments)
+  public static function register_callback($arguments)
   {
     extract($arguments);
 
@@ -200,8 +234,8 @@ class Piklist_Taxonomy
       {
         self::$meta_boxes[$data['taxonomy']] = array();
 
-        add_action($data['taxonomy'] . '_edit_form_fields', array('piklist_taxonomy', 'meta_box_edit'), 10, 2);
-        add_action($data['taxonomy'] . '_add_form_fields', array('piklist_taxonomy', 'meta_box_new'), 10, 1);
+        add_action($data['taxonomy'] . '_edit_form_fields', array(__CLASS__, 'meta_box_edit'), 10, 2);
+        add_action($data['taxonomy'] . '_add_form_fields', array(__CLASS__, 'meta_box_new'), 10, 1);
       }
 
       foreach (self::$meta_boxes[$data['taxonomy']] as $key => $meta_box)
@@ -351,13 +385,13 @@ class Piklist_Taxonomy
     {
       $arguments  = (object) $arguments;
 
-      add_filter("manage_edit-{$taxonomy}_columns",  array('piklist_taxonomy', 'user_taxonomy_column'));
+      add_filter("manage_edit-{$taxonomy}_columns",  array(__CLASS__, 'user_taxonomy_column'));
 
-      add_action("manage_{$taxonomy}_custom_column",  array('piklist_taxonomy', 'user_taxonomy_column_value'), 10, 3);
+      add_action("manage_{$taxonomy}_custom_column",  array(__CLASS__, 'user_taxonomy_column_value'), 10, 3);
 
       if (empty($arguments->update_count_callback))
       {
-        $arguments->update_count_callback  = array('piklist_taxonomy', 'user_update_count');
+        $arguments->update_count_callback  = array(__CLASS__, 'user_update_count');
       }
 
       $wp_taxonomies[$taxonomy]  = $arguments;

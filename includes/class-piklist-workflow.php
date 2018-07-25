@@ -8,7 +8,7 @@ if (!defined('ABSPATH')) exit; // Exit if accessed directly
  *
  * @package     Piklist
  * @subpackage  Workflow
- * @copyright   Copyright (c) 2012-2016, Piklist, LLC.
+ * @copyright   Copyright (c) 2012-2018, Piklist, LLC.
  * @license     http://opensource.org/licenses/gpl-2.0.php GNU Public License
  * @since       1.0
  */
@@ -54,16 +54,17 @@ class Piklist_Workflow
    */
   public static function _construct()
   {
-    add_filter('redirect_post_location', array('piklist_workflow', 'redirect'), 10, 2);
-    add_filter('wp_redirect', array('piklist_workflow', 'redirect'), 10, 2);
-    add_filter('piklist_part_process_callback', array('piklist_workflow', 'part_process_callback'), 100, 2);
-    add_filter('piklist_part_data', array('piklist_workflow', 'part_data'), 10, 2);
-    add_filter('admin_body_class', array('piklist_workflow', 'admin_body_class'));
-    add_filter('piklist_validate_part_parameter_skip', array('piklist_workflow', 'validate_part_parameter_skip'), 10, 3);
-    add_action('init', array('piklist_workflow', 'register_workflows'), 100);
-    add_action('piklist_parts_processed-workflows', array('piklist_workflow', 'detect_workflow'), 100);
+    add_action('init', array(__CLASS__, 'register_arguments'));
+    add_filter('redirect_post_location', array(__CLASS__, 'redirect'), 10, 2);
+    add_filter('wp_redirect', array(__CLASS__, 'redirect'), 10, 2);
+    add_filter('piklist_part_process_callback', array(__CLASS__, 'part_process_callback'), 100, 2);
+    add_filter('piklist_part_data', array(__CLASS__, 'part_data'), 10, 2);
+    add_filter('admin_body_class', array(__CLASS__, 'admin_body_class'));
+    add_filter('piklist_validate_part_parameter_skip', array(__CLASS__, 'validate_part_parameter_skip'), 10, 3);
+    add_action('init', array(__CLASS__, 'register'), 100);
+    add_action('piklist_parts_processed-workflows', array(__CLASS__, 'detect_workflow'), 100);
 
-    add_shortcode('piklist_workflow', array('piklist_workflow', 'shortcode'));
+    add_shortcode('piklist_workflow', array(__CLASS__, 'shortcode'));
   }
 
   /**
@@ -124,37 +125,16 @@ class Piklist_Workflow
   }
 
   /**
-   * register_workflows
+   * register
    * Regsiter workflows to be added to the system.
    *
    * @access public
    * @static
    * @since 1.0
    */
-  public static function register_workflows()
+  public static function register()
   {
-    $data = array(
-              'title' => 'Title'
-              ,'description' => 'Description'
-              ,'capability' => 'Capability'
-              ,'order' => 'Order'
-              ,'flow' => 'Flow'
-              ,'page' => 'Page'
-              ,'post_type' => 'Post Type'
-              ,'taxonomy' => 'Taxonomy'
-              ,'template' => 'Template'
-              ,'id' => 'ID'
-              ,'role' => 'Role'
-              ,'redirect' => 'Redirect'
-              ,'header' => 'Header'
-              ,'disable' => 'Disable'
-              ,'position' => 'Position'
-              ,'default' => 'Default'
-              ,'layout' => 'Layout'
-              ,'clear' => 'Clear'
-            );
-
-    piklist::process_parts('workflows', $data, array('piklist_workflow', 'register_workflows_callback'));
+    piklist::process_parts('workflows', piklist_arguments::get('workflows', 'part'), array(__CLASS__, 'register_callback'));
 
     self::$after_positions = array(
       'header' => 'in_admin_header'
@@ -165,12 +145,96 @@ class Piklist_Workflow
 
     foreach (self::$after_positions as $position => $filter)
     {
-      add_action($filter, array('piklist_workflow', 'render_workflow'));
+      add_action($filter, array(__CLASS__, 'render_workflow'));
     }
+  }
+  
+  /**
+   * register_arguments
+   * Register arguments for our helper methods
+   *
+   * @access public
+   * @static
+   * @since 1.0
+   */
+  public static function register_arguments()
+  {
+    piklist_arguments::register('workflows', array(
+      // Basics
+      'title' => array(
+        'description' => __('The title of the meta box.', 'piklist')
+      )
+      ,'description' => array(
+        'description' => __('The description of what the meta box is for.', 'piklist')
+      )
+          
+      // Permissions
+      ,'capability' => array(
+        'description' => __('The user capability needed by the user to view the meta box.', 'piklist')
+        ,'type' => 'array'
+        ,'validate' => 'capability'
+      )
+      ,'role' => array(
+        'description' => __('The user role needed by the user to view the meta box.', 'piklist')
+        ,'type' => 'array'
+        ,'validate' => 'role'
+      )
+
+      // Display
+      ,'order' => array(
+        'description' => __('The order within the context where the box should show, defined as an integer.', 'piklist')
+        ,'type' => 'integer'
+      )
+      ,'id' => array(
+        'description' => __('Show the meta box only for a specific id or list of ids\'.', 'piklist')
+        ,'type' => 'integer'
+      )
+      ,'template' => array(
+        'description' => __('Only show the meta box for a specified template.', 'piklist')
+        ,'type' => 'array'
+        ,'validate' => 'page_template'
+      )
+      ,'flow' => array(
+        'description' => __('', 'piklist')
+      )
+      ,'page' => array(
+        'description' => __('', 'piklist')
+      )
+      ,'post_type' => array(
+        'description' => __('The post type the meta box should be show for.', 'piklist')
+        ,'type' => 'array'
+        ,'validate' => 'post_type'
+        ,'default' => 'post'
+      )
+      ,'taxonomy' => array(
+        'description' => __('', 'piklist')
+      )
+      ,'redirect' => array(
+        'description' => __('', 'piklist')
+      )
+      ,'header' => array(
+        'description' => __('', 'piklist')
+      )
+      ,'disable' => array(
+        'description' => __('', 'piklist')
+      )
+      ,'position' => array(
+        'description' => __('', 'piklist')
+      )
+      ,'default' => array(
+        'description' => __('', 'piklist')
+      )
+      ,'layout' => array(
+        'description' => __('', 'piklist')
+      )
+      ,'clear' => array(
+        'description' => __('', 'piklist')
+      )
+    ));
   }
 
   /**
-   * register_workflows_callback
+   * register_callback
    * Handle registered workflow tabs.
    *
    * @param array $arguments The configuration data for the workflow tab.
@@ -179,7 +243,7 @@ class Piklist_Workflow
    * @static
    * @since 1.0
    */
-  public static function register_workflows_callback($arguments)
+  public static function register_callback($arguments)
   {
     $pagenow = basename($_SERVER['SCRIPT_NAME']);
 
@@ -514,10 +578,10 @@ class Piklist_Workflow
     {
       $post_types = $data['data']['post_type'];
       $current_post_type = piklist_cpt::detect_post_type();
-
       if (!empty($post_types))
       {
-        $allowed = in_array($current_post_type, $post_types);
+        // TODO: Remove the array check in favor of sanitization 
+        $allowed = in_array($current_post_type, is_array($post_types) ? $post_types : array($post_types));
       }
     }
 

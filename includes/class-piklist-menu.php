@@ -8,7 +8,7 @@ if (!defined('ABSPATH')) exit; // Exit if accessed directly
  *
  * @package     Piklist
  * @subpackage  Menu
- * @copyright   Copyright (c) 2012-2016, Piklist, LLC.
+ * @copyright   Copyright (c) 2012-2018, Piklist, LLC.
  * @license     http://opensource.org/licenses/gpl-2.0.php GNU Public License
  * @since       1.0
  */
@@ -24,7 +24,7 @@ class Piklist_Menu
    */
   public static function _construct()
   {
-    add_filter('wp_nav_menu', array('piklist_menu', 'wp_nav_menu_updates'));
+    add_filter('wp_nav_menu', array(__CLASS__, 'wp_nav_menu_updates'));
   }
   
   /**

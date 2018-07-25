@@ -7,7 +7,7 @@ if (!defined('ABSPATH')) exit; // Exit if accessed directly
  * Core functionality for Piklist.
  *
  * @package     Piklist
- * @copyright   Copyright (c) 2012-2016, Piklist, LLC.
+ * @copyright   Copyright (c) 2012-2018, Piklist, LLC.
  * @license     http://opensource.org/licenses/gpl-2.0.php GNU Public License
  * @since       1.0
  */
@@ -496,7 +496,7 @@ class Piklist
         {
           $trigger_error_message = sprintf(__('is a reserved WordPress global variable and cannot be passed as an argument to %s', 'piklist'), 'piklist::render()');
 
-          piklist::error('$' . $_key . " " . $trigger_error_message);
+          self::error('$' . $_key . " " . $trigger_error_message);
         }
         else
         {
@@ -535,7 +535,7 @@ class Piklist
     {
       if (dirname($view) != str_replace('/.php', '', $view))
       {
-        piklist::error(sprintf(__('File does not exist %s', 'piklist'), ': ' . $view));
+        self::error(sprintf(__('File does not exist %s', 'piklist'), ': ' . $view));
       }
     }
 
@@ -683,15 +683,7 @@ class Piklist
             }
             $_part_extend['data'] = piklist::cast_file_data($_part_extend['data']);
 
-            // Check validity of the extension for this context
-            if (self::validate_part($_part_extend))
-            {
-              $_part['id'] = $part_data['extend'];
-            }
-            else
-            {
-              $_part = null;
-            }
+            $_part['id'] = $part_data['extend'];
           }
 
           if ($_part)
@@ -744,7 +736,7 @@ class Piklist
           {
             foreach ($part['data'] as $attribute => &$_data)
             {
-              if (!in_array($attribute, array('extend', 'extend_method')) && (!empty($extend['data'][$attribute]) || is_bool($extend['data'][$attribute])))
+              if (!in_array($attribute, array('extend', 'extend_method')) && (!empty($extend['data'][$attribute]) || self::is_bool($extend['data'][$attribute])))
               {
                 $_data = is_array($extend['data'][$attribute]) && is_array($_data) ? array_unique(array_merge($extend['data'][$attribute], $data), SORT_REGULAR) : $extend['data'][$attribute];
               }
@@ -844,17 +836,7 @@ class Piklist
 
     if (is_null($callback))
     {
-      $parts = array();
-
-      foreach (self::$processed_parts[$folder]['parts'] as $_part)
-      {
-        if (self::validate_part($_part))
-        {
-          array_push($parts, $_part);
-        }
-      }
-
-      return $parts;
+      return self::$processed_parts[$folder]['parts'];
     }
   }
 
@@ -908,9 +890,18 @@ class Piklist
          */
         $part = apply_filters("piklist_part_process_callback-{$folder}", $part);
 
-        if ($part && self::validate_part($part))
+        if ($part)
         {
-          call_user_func_array($processed['callback'], array($part));
+          list($valid, $part['data']) = piklist_arguments::validate($folder, $part['data']);
+
+          if (!$valid)
+          {
+            self::error(sprintf(__('The %s <strong>%s</strong> was not rendered because of an invalid configuration. See the above errors for more information.', 'piklist'), piklist::humanize(piklist::singularize($folder)), count($part['render']) > 1 ? print_r($part['render'], true) : current($part['render'])));
+          }
+          else
+          {
+            call_user_func_array($processed['callback'], array($part));
+          }
         }
       }
 
@@ -953,7 +944,8 @@ class Piklist
    * @static
    * @since 1.0
    */
-  public static function cast_file_data($data) {
+  public static function cast_file_data($data) 
+  {
     array_walk_recursive($data, array('piklist', 'array_values_cast'));
 
     foreach ($data as $parameter => &$value)
@@ -997,7 +989,7 @@ class Piklist
 
         case 'group':
 
-          $value = empty($value) && !is_bool($value) ? true : $value;
+          $value = empty($value) && !self::is_bool($value) ? true : $value;
 
         break;
 
@@ -1755,9 +1747,9 @@ class Piklist
       return (bool) $variable;
     }
     
-    return in_array(strtolower($variable), array('1', 'true', 'on', 'yes', 'y'));
+    return $variable;
   }
-
+  
   /**
    * array_paths
    * Get the array paths in an object
@@ -1811,7 +1803,7 @@ class Piklist
    */
   public static function array_path_get($array, $path)
   {
-    if (!$path)
+    if (!$path || is_null($path))
     {
       return false;
     }
@@ -1893,7 +1885,7 @@ class Piklist
     {
       $value = $value + 0;
     }
-    elseif (in_array(self::strtolower($value), array('0', '1', 'true', 'false', 'on', 'off', 'yes', 'no', 'y', 'n')))
+    elseif (self::is_bool($value))
     {
       $value = self::to_bool($value);
     }
@@ -2330,13 +2322,13 @@ class Piklist
    */
   public static function sort_by_args_order($a, $b)
   {
-    if (!isset($a['args']['order']) || !isset($b['args']['order']))
+    if (!isset($a['args']['order']) && !isset($b['args']['order']))
     {
-      return 0;
+      return 1;
     }
 
-    $a['args']['order'] = is_numeric($a['args']['order']) ? $a['args']['order'] : 0;
-    $b['args']['order'] = is_numeric($b['args']['order']) ? $b['args']['order'] : 0;
+    $a['args']['order'] = !empty($a['args']['order']) && is_numeric($a['args']['order']) ? $a['args']['order'] : 0;
+    $b['args']['order'] = !empty($b['args']['order']) && is_numeric($b['args']['order']) ? $b['args']['order'] : 0;
 
     return $a['args']['order'] - $b['args']['order'];
   }
@@ -2356,9 +2348,12 @@ class Piklist
    */
   public static function sort_by_data_order($a, $b)
   {
-    return (int) $a['data']['order'] - (int) $b['data']['order'];
+    $a['data']['order'] = !empty($a['data']['order']) && is_numeric($a['data']['order']) ? $a['data']['order'] : 0;
+    $b['data']['order'] = !empty($b['data']['order']) && is_numeric($b['data']['order']) ? $b['data']['order'] : 0;
+    
+    return $a['data']['order'] - $b['data']['order'];
   }
-
+  
   /**
    * sort_by_data_extend
    * Sort an array by the data|order key.
@@ -2446,6 +2441,23 @@ class Piklist
   public static function is_not_numeric($a)
   {
     return !is_numeric($a);
+  }
+  
+  /**
+   * is_bool
+   * Checks if a value is boolean
+   *
+   * @param mixed $a Value to check.
+   *
+   * @return bool Status of comparison.
+   *
+   * @access public
+   * @static
+   * @since 1.0
+   */
+  public static function is_bool($a)
+  {
+    return in_array(self::strtolower($a), array('0', '1', 'true', 'false', 'on', 'off', 'yes', 'no', 'y', 'n'));
   }
 
   /**
@@ -2948,7 +2960,14 @@ class Piklist
   {
     if (WP_DEBUG && WP_DEBUG_DISPLAY)
     {
-      trigger_error(self::$error_prefix . $error);
+      if (is_array($error))
+      {
+        trigger_error(self::$error_prefix . $error[0], $error[1]);
+      }
+      else
+      {
+        trigger_error(self::$error_prefix . $error);
+      }
     }
   }
 }

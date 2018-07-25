@@ -8,7 +8,7 @@ if (!defined('ABSPATH')) exit; // Exit if accessed directly
  *
  * @package     Piklist
  * @subpackage  Revision
- * @copyright   Copyright (c) 2012-2016, Piklist, LLC.
+ * @copyright   Copyright (c) 2012-2018, Piklist, LLC.
  * @license     http://opensource.org/licenses/gpl-2.0.php GNU Public License
  * @since       1.0
  */
@@ -24,10 +24,10 @@ class Piklist_Revision
    */
   public static function _construct()
   {
-    add_action('save_post', array('piklist_revision', 'save_post'), -1, 2);
-    add_action('wp_restore_post_revision', array('piklist_revision', 'restore_revision'), 10, 2);
+    add_action('save_post', array(__CLASS__, 'save_post'), -1, 2);
+    add_action('wp_restore_post_revision', array(__CLASS__, 'restore_revision'), 10, 2);
 
-    add_filter('_wp_post_revision_fields', array('piklist_revision', 'wp_post_revision_fields'));
+    add_filter('_wp_post_revision_fields', array(__CLASS__, 'wp_post_revision_fields'));
   }
 
   /**
@@ -109,7 +109,7 @@ class Piklist_Revision
 
       $fields[$meta_key] = __($label, 'piklist');
 
-      add_filter('_wp_post_revision_field_' . $meta_key, array('piklist_revision', 'wp_post_revision_field'), 10, 4);
+      add_filter('_wp_post_revision_field_' . $meta_key, array(__CLASS__, 'wp_post_revision_field'), 10, 4);
     }
 
     return $fields;

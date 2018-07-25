@@ -8,7 +8,7 @@ if (!defined('ABSPATH')) exit; // Exit if accessed directly
  *
  * @package     Piklist
  * @subpackage  Meta
- * @copyright   Copyright (c) 2012-2016, Piklist, LLC.
+ * @copyright   Copyright (c) 2012-2018, Piklist, LLC.
  * @license     http://opensource.org/licenses/gpl-2.0.php GNU Public License
  * @since       1.0
  */
@@ -66,137 +66,41 @@ class Piklist_Meta
    */
   public static function _construct()
   {
-    self::register_arguments();
-    
-    add_action('init', array('piklist_meta', 'meta_grouped'), 100);
-    add_action('init', array('piklist_meta', 'meta_reset'));
-    add_action('query', array('piklist_meta', 'meta_sort'));
-    add_action('add_meta_boxes', array('piklist_meta', 'register_meta_boxes'), 1000);
-    add_action('admin_head', array('piklist_meta', 'sort_meta_boxes'), 1050, 3);
-    add_action('piklist_parts_process-meta-boxes', array('piklist_meta', 'clear_screen'), 50);
+    add_action('init', array(__CLASS__, 'register_arguments'));
+    add_action('init', array(__CLASS__, 'meta_grouped'), 100);
+    add_action('init', array(__CLASS__, 'meta_reset'));
+    add_action('query', array(__CLASS__, 'meta_sort'));
+    add_action('add_meta_boxes', array(__CLASS__, 'register'), 1000);
+    add_action('admin_head', array(__CLASS__, 'sort_meta_boxes'), 1050, 3);
+    add_action('piklist_parts_process-meta-boxes', array(__CLASS__, 'clear_screen'), 50);
 
-    add_filter('get_post_metadata', array('piklist_meta', 'get_post_meta'), 100, 4);
-    add_filter('get_user_metadata', array('piklist_meta', 'get_user_meta'), 100, 4);
-    add_filter('get_term_metadata', array('piklist_meta', 'get_term_meta'), 100, 4);
+    add_filter('get_post_metadata', array(__CLASS__, 'get_post_meta'), 100, 4);
+    add_filter('get_user_metadata', array(__CLASS__, 'get_user_meta'), 100, 4);
+    add_filter('get_term_metadata', array(__CLASS__, 'get_term_meta'), 100, 4);
 
-    add_filter('wp_save_post_revision_check_for_changes', array('piklist_meta', 'wp_save_post_revision_check_for_changes'), -1, 3);
-    add_filter('wp_save_post_revision_post_has_changed', array('piklist_meta', 'wp_save_post_revision_post_has_changed'), -1, 3);
-    add_filter('get_post_metadata', array('piklist_meta', 'wp_save_post_revision_post_meta_serialize'), 100, 4);
+    add_filter('wp_save_post_revision_check_for_changes', array(__CLASS__, 'wp_save_post_revision_check_for_changes'), -1, 3);
+    add_filter('wp_save_post_revision_post_has_changed', array(__CLASS__, 'wp_save_post_revision_post_has_changed'), -1, 3);
+    add_filter('get_post_metadata', array(__CLASS__, 'wp_save_post_revision_post_meta_serialize'), 100, 4);
 
-    add_filter('piklist_part_process-meta-boxes', array('piklist_meta', 'part_process'), 10, 2);
+    add_filter('piklist_part_process-meta-boxes', array(__CLASS__, 'part_process'), 10, 2);
+    add_filter('piklist_argument_validation_rules', array(__CLASS__, 'validation_rules'));
   }
 
   /**
-   * register_arguments
-   * Register arguments for our helper methods
-   *
-   * @access public
-   * @static
-   * @since 1.0
-   */
-  public static function register_arguments()
-  {
-    piklist_arguments::register('meta-boxes', array(
-      // Basics
-      'title' => array(
-        'description' => __('The title of the meta box.', 'piklist')
-      )
-      ,'description' => array(
-        'description' => __('The description of what the meta box is for.', 'piklist')
-      )
-          
-      // Permissions
-      ,'capability' => array(
-        'description' => __('The user capability needed by the user to view the meta box.', 'piklist')
-      )
-      ,'role' => array(
-        'description' => __('The user role needed by the user to view the meta box.', 'piklist')
-      )
-          
-      // Display
-      ,'context' => array(
-        'description' => __('The context within the screen where the box should display.', 'piklist')
-        ,'default' => 'normal'
-        ,'allowed' => array(
-          'normal'
-          ,'side'
-          ,'advanced'
-        )
-      )
-      ,'priority' => array(
-        'description' => __('The priority within the context where the box should show.', 'piklist')
-        ,'default' => 'low'
-        ,'allowed' => array(
-          'default'
-          ,'high'
-          ,'low'
-          ,'sorted'
-          ,'core'
-        )
-      )
-      ,'order' => array(
-        'description' => __('The order within the context where the box should show, defined as an integer.', 'piklist')
-        ,'type' => 'integer'
-      )
-      ,'lock' => array(
-        'description' => __('Whether or not to allow the meta box to be re-positioned.', 'piklist')
-        ,'type' => 'boolean'
-        ,'default' => false
-      )
-      ,'collapse' => array(
-        'description' => __('Whether or not to collapse the meta-box by default.', 'piklist')
-        ,'type' => 'boolean'
-        ,'default' => false
-      )
-      ,'meta_box' => array(
-        'description' => __('Show the default UI Chrome for a meta box.', 'piklist')
-        ,'type' => 'boolean'
-        ,'default' => true
-      )
-            
-      // Display - Conditions
-      ,'new' => array(
-        'description' => __('Show the meta box for new post type content only.', 'piklist')
-        ,'type' => 'boolean'
-        ,'default' => false
-      )
-      ,'post_type' => array(
-        'description' => __('The post type the meta box should be show for.', 'piklist')
-      )
-      ,'post_status' => array(
-        'description' => __('The post status the meta box should be show for.', 'piklist')
-      )
-      ,'status' => array(
-        'description' => __('The post status the meta box should be show for.', 'piklist')
-      )
-      ,'post_format' => array(
-        'description' => __('The title of the meta box.', 'piklist')
-      )
-      ,'id' => array(
-        'description' => __('Show the meta box only for a specific id or list of ids\'.', 'piklist')
-        ,'type' => 'integer'
-      )
-      ,'template' => array(
-        'description' => __('Only show the meta box for a specified template.', 'piklist')
-      )
-    ));
-  }
-  
-  /**
-   * register_meta_boxes
+   * register
    * Register the meta-boxes parts folder
    *
    * @access public
    * @static
    * @since 1.0
    */
-  public static function register_meta_boxes()
+  public static function register()
   {
-    piklist::process_parts('meta-boxes', piklist_arguments::get('meta-boxes', 'part'), array('piklist_meta', 'register_meta_boxes_callback'));
+    piklist::process_parts('meta-boxes', piklist_arguments::get('meta-boxes', 'part'), array(__CLASS__, 'register_callback'));
   }
 
   /**
-   * register_meta_boxes_callback
+   * register_callback
    * Process the resulting parts from the registration of the meta-boxes part folder.
    *
    * @param $arguments
@@ -205,17 +109,8 @@ class Piklist_Meta
    * @static
    * @since 1.0
    */
-  public static function register_meta_boxes_callback($arguments)
+  public static function register_callback($arguments)
   {
-    list($valid, $arguments['data']) = piklist_arguments::validate('meta-boxes', $arguments['data']);
-    
-    if (!$valid)
-    {
-      piklist::error(sprintf(__('The meta-box <strong>%s</strong> was not rendered because of an invalid configuration. See the above errors for more information.'), count($arguments['render']) > 1 ? print_r($arguments['render'], true) : current($arguments['render'])));
-
-      return false;
-    }
-
     extract($arguments);
 
     $textdomain = isset(piklist_add_on::$available_add_ons[$add_on]['TextDomain']) ? piklist_add_on::$available_add_ons[$add_on]['TextDomain'] : null;
@@ -238,7 +133,7 @@ class Piklist_Meta
         add_meta_box(
           $id
           ,$data['title']
-          ,array('piklist_meta', 'meta_box')
+          ,array(__CLASS__, 'meta_box')
           ,$type
           ,$data['context']
           ,$data['priority']
@@ -252,28 +147,28 @@ class Piklist_Meta
         
         if ($data['meta_box'] === false)
         {
-          add_filter("postbox_classes_{$type}_{$id}", array('piklist_meta', 'lock_meta_boxes'));
-          add_filter("postbox_classes_{$type}_{$id}", array('piklist_meta', 'no_meta_boxes'));
+          add_filter("postbox_classes_{$type}_{$id}", array(__CLASS__, 'lock_meta_boxes'));
+          add_filter("postbox_classes_{$type}_{$id}", array(__CLASS__, 'no_meta_boxes'));
         }
         else
         {
           if ($data['lock'] === true)
           {
-            add_filter("postbox_classes_{$type}_{$id}", array('piklist_meta', 'lock_meta_boxes'));
+            add_filter("postbox_classes_{$type}_{$id}", array(__CLASS__, 'lock_meta_boxes'));
           }
 
           if ($data['collapse'] === true)
           {
-            add_filter("postbox_classes_{$type}_{$id}", array('piklist_meta', 'collapse_meta_boxes'));
+            add_filter("postbox_classes_{$type}_{$id}", array(__CLASS__, 'collapse_meta_boxes'));
           }
         }
 
         if ($data['title'] == $id)
         {
-          add_filter("postbox_classes_{$type}_{$id}", array('piklist_meta', 'no_title_meta_boxes'));
+          add_filter("postbox_classes_{$type}_{$id}", array(__CLASS__, 'no_title_meta_boxes'));
         }
 
-        add_filter("postbox_classes_{$type}_{$id}", array('piklist_meta', 'default_classes'));
+        add_filter("postbox_classes_{$type}_{$id}", array(__CLASS__, 'default_classes'));
       }
     }
   }
@@ -377,20 +272,60 @@ class Piklist_Meta
    * clear_screen
    * Clear the screen of all meta-boxes
    *
+   * @param boolean $title Whether or not to remove the title
+   * @param boolean $editor Whether or not to remove the editor
+   * @param array $exclude_meta_boxes Meta boxes to exclude from the clear
+   *
    * @access public
    * @static
    * @since 1.0
    */
-  public static function clear_screen()
+  public static function clear_screen($title = true, $editor = true, $exclude_meta_boxes = array())
   {
     global $wp_meta_boxes, $current_screen;
 
     $workflow = piklist_workflow::get('workflow');
 
-    if ($workflow && !empty($workflow['data']['clear']) && $workflow['data']['clear'] == true && piklist_admin::is_post())
+    if ($workflow && !empty($workflow['data']['clear']) && piklist_admin::is_post())
     {
-      remove_post_type_support('post', 'editor');
-      remove_post_type_support('post', 'title');
+      if (!piklist::is_bool($workflow['data']['clear']))
+      {
+        $clear_arguments = piklist::explode(',', $workflow['data']['clear']);
+        
+        $found = array_search('title', $clear_arguments);
+        if ($found !== false)
+        {
+          $title = false;
+          unset($clear_arguments[$found]);
+        }
+        
+        $found = array_search('editor', $clear_arguments);
+        if ($found !== false)
+        {
+          $editor = false;
+          unset($clear_arguments[$found]);
+        }
+        
+        if (!empty($clear_arguments))
+        {
+          $exclude_meta_boxes = $clear_arguments;
+        }
+      }
+      elseif (piklist::to_bool($workflow['data']['clear']) == true)
+      { 
+        $title = true;
+        $editor = true;
+      }
+      
+      if ($title)
+      {
+        remove_post_type_support('post', 'title');
+      }
+      
+      if ($editor)
+      {
+        remove_post_type_support('post', 'editor');
+      }
 
       foreach (array('normal', 'advanced', 'side') as $context)
       {
@@ -400,7 +335,7 @@ class Piklist_Meta
           {
             foreach ($wp_meta_boxes[$current_screen->id][$context][$priority] as $meta_box)
             {
-              if ($meta_box['id'] != 'submitdiv')
+              if ($meta_box['id'] != 'submitdiv' && !in_array($meta_box['id'], $exclude_meta_boxes))
               {
                 unset($wp_meta_boxes[$current_screen->id][$context][$priority][$meta_box['id']]);
               }
@@ -804,9 +739,9 @@ class Piklist_Meta
 
     if (is_array(self::$grouped_meta_keys[$meta_type]) && in_array($meta_key, self::$grouped_meta_keys[$meta_type]))
     {
-      remove_filter('get_post_metadata', array('piklist_meta', 'get_post_meta'), 100);
-      remove_filter('get_user_metadata', array('piklist_meta', 'get_user_meta'), 100);
-      remove_filter('get_term_metadata', array('piklist_meta', 'get_term_meta'), 100);
+      remove_filter('get_post_metadata', array(__CLASS__, 'get_post_meta'), 100);
+      remove_filter('get_user_metadata', array(__CLASS__, 'get_user_meta'), 100);
+      remove_filter('get_term_metadata', array(__CLASS__, 'get_term_meta'), 100);
 
       if (($meta_ids = get_metadata($meta_type, $object_id, $meta_key)) && ($meta = self::get_meta_properties($meta_type)) !== false)
       {
@@ -823,9 +758,9 @@ class Piklist_Meta
         $value = $meta_ids;
       }
 
-      add_filter('get_post_metadata', array('piklist_meta', 'get_post_meta'), 100, 4);
-      add_filter('get_user_metadata', array('piklist_meta', 'get_user_meta'), 100, 4);
-      add_filter('get_term_metadata', array('piklist_meta', 'get_term_meta'), 100, 4);
+      add_filter('get_post_metadata', array(__CLASS__, 'get_post_meta'), 100, 4);
+      add_filter('get_user_metadata', array(__CLASS__, 'get_user_meta'), 100, 4);
+      add_filter('get_term_metadata', array(__CLASS__, 'get_term_meta'), 100, 4);
     }
 
     return $value;
@@ -963,5 +898,168 @@ class Piklist_Meta
     }
 
     return $value;
+  }
+  
+  /**
+   * register_arguments
+   * Register arguments for our helper methods
+   *
+   * @access public
+   * @static
+   * @since 1.0
+   */
+  public static function register_arguments()
+  {
+    piklist_arguments::register('meta-boxes', array(
+      // Basics
+      'title' => array(
+        'description' => __('The title of the meta box.', 'piklist')
+      )
+      ,'description' => array(
+        'description' => __('The description of what the meta box is for.', 'piklist')
+      )
+          
+      // Permissions
+      ,'capability' => array(
+        'description' => __('The user capability needed by the user to view the meta box.', 'piklist')
+        ,'type' => 'array'
+        ,'validate' => 'capability'
+      )
+      ,'role' => array(
+        'description' => __('The user role needed by the user to view the meta box.', 'piklist')
+        ,'type' => 'array'
+        ,'validate' => 'role'
+      )
+          
+      // Display
+      ,'context' => array(
+        'description' => __('The context within the screen where the box should display.', 'piklist')
+        ,'validate' => 'context'
+        ,'default' => 'normal'
+      )
+      ,'priority' => array(
+        'description' => __('The priority within the context where the box should show.', 'piklist')
+        ,'validate' => 'priority'
+        ,'default' => 'low'
+      )
+      ,'order' => array(
+        'description' => __('The order within the context where the box should show, defined as an integer.', 'piklist')
+        ,'type' => 'integer'
+      )
+      ,'lock' => array(
+        'description' => __('Whether or not to allow the meta box to be re-positioned.', 'piklist')
+        ,'type' => 'boolean'
+        ,'default' => false
+      )
+      ,'collapse' => array(
+        'description' => __('Whether or not to collapse the meta-box by default.', 'piklist')
+        ,'type' => 'boolean'
+        ,'default' => false
+      )
+      ,'meta_box' => array(
+        'description' => __('Show the default UI Chrome for a meta box.', 'piklist')
+        ,'type' => 'boolean'
+        ,'default' => true
+      )
+            
+      // Display - Conditions
+      ,'new' => array(
+        'description' => __('Show the meta box for new post type content only.', 'piklist')
+        ,'type' => 'boolean'
+        ,'default' => false
+      )
+      ,'post_type' => array(
+        'description' => __('The post type the meta box should be show for.', 'piklist')
+        ,'type' => 'array'
+        ,'validate' => 'post_type'
+        ,'default' => 'post'
+      )
+      ,'post_status' => array(
+        'description' => __('The post status the meta box should be show for.', 'piklist')
+        ,'type' => 'array'
+        ,'validate' => 'post_status'
+      )
+      ,'status' => array(
+        'description' => __('The post status the meta box should be show for.', 'piklist')
+        ,'type' => 'array'
+        ,'validate' => 'post_status'
+        ,'depreciated' => true
+      )
+      ,'post_format' => array(
+        'description' => __('The title of the meta box.', 'piklist')
+        ,'validate' => 'post_format'
+      )
+      ,'id' => array(
+        'description' => __('Show the meta box only for a specific id or list of ids\'.', 'piklist')
+        ,'type' => 'integer'
+      )
+      ,'template' => array(
+        'description' => __('Only show the meta box for a specified template.', 'piklist')
+        ,'type' => 'array'
+        ,'validate' => 'page_template'
+      )
+    ));
+  }
+  
+  /**
+   * Included Validation Callbacks
+   */
+
+  /**
+   * validation_rules
+   * Array of included validation rules.
+   *
+   * @param array $validation_rules Validation rules.
+   *
+   * @return array Validation rules.
+   *
+   * @access public
+   * @static
+   * @since 1.0
+   */
+  public static function validation_rules($validation_rules)
+  {
+    $validation_rules = array_merge($validation_rules, array(
+      'context' => array(
+        'name' => __('Context', 'piklist')
+        ,'callback' => array(__CLASS__, 'validate_context')
+      )          
+      ,'priority' => array(
+        'name' => __('Priority', 'piklist')
+        ,'callback' => array(__CLASS__, 'validate_priority')
+      )
+    ));
+
+    return $validation_rules;
+  }
+  
+  /**
+   * validate_context
+   *
+   * @param $argument
+   * @param $value
+   *
+   * @access public
+   * @static
+   * @since 1.0
+   */
+  public static function validate_context($argument, $value)
+  {
+    return in_array($value, array('normal', 'side', 'advanced')) ? true : sprintf(__('The argument <strong>Context</strong> with the value of <strong>%s</strong> is not valid.', 'piklist'), $value);
+  }  
+
+  /**
+   * validate_priority
+   *
+   * @param $argument
+   * @param $value
+   *
+   * @access public
+   * @static
+   * @since 1.0
+   */
+  public static function validate_priority($argument, $value)
+  {
+    return in_array($value, array('default', 'low', 'high', 'sorted', 'core')) ? true : sprintf(__('The argument <strong>Priority</strong> with the value of <strong>%s</strong> is not valid.', 'piklist'), $value);
   }
 }

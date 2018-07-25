@@ -8,7 +8,7 @@ if (!defined('ABSPATH')) exit; // Exit if accessed directly
  *
  * @package     Piklist
  * @subpackage  Parameters
- * @copyright   Copyright (c) 2012-2016, Piklist, LLC.
+ * @copyright   Copyright (c) 2012-2018, Piklist, LLC.
  * @license     http://opensource.org/licenses/gpl-2.0.php GNU Public License
  * @since       1.0
  */
@@ -19,7 +19,41 @@ class Piklist_Arguments
    * @access private
    */
   private static $arguments = array();
-
+  
+  /**
+   * @var array Registered validation rules.
+   * @access private
+   */
+  private static $validation_rules = array();
+  
+  /**
+   * _construct
+   * Class constructor.
+   *
+   * @access public
+   * @static
+   * @since 1.0
+   */
+  public static function _construct()
+  {
+    add_action('init', array(__CLASS__, 'init'));
+    
+    add_filter('piklist_argument_validation_rules', array(__CLASS__, 'validation_rules'));
+  }
+  
+  /**
+   * init
+   * Initializes system.
+   *
+   * @access public
+   * @static
+   * @since 1.0
+   */
+  public static function init()
+  {
+    self::$validation_rules = apply_filters('piklist_argument_validation_rules', self::$validation_rules);
+  }
+  
   /**
    * register
    * Register and paramters for use with a component.
@@ -141,25 +175,27 @@ class Piklist_Arguments
    * @static
    * @since 1.0
    */
-  public static function validate($component, $arguments)
+  public static function validate($component, $arguments, $method = false)
   {
-    $warnings = array();
+    $errors = array();
   
     if (($registered_arguments = self::get($component)) === false)
     {
-      array_push($warnings, __('No arguments have been registered for this component.', 'piklist'));
+      array_push($errors, __('No arguments have been registered for this part.', 'piklist'));
     }
     else
     {
       foreach ($registered_arguments as $argument => $data)
       {
+        $argument_label = $method ? $argument : piklist::humanize($argument);
+        
         if (isset($data['required']) && $data['required'] === true)
         {
-          array_push($warnings, sprintf(__('The argument <strong>%s</strong> is required.'), $argument));
+          array_push($errors, sprintf(__('The argument <strong>%s</strong> is required.', 'piklist'), $argument));
         }
         elseif (isset($arguments[$argument]) && !empty($arguments[$argument]))
         {
-          list($valid, $value) = self::check_and_cast($arguments[$argument], $data['type']);
+          list($valid, $value) = self::check_and_cast($arguments[$argument], $data['type'], $method);
           
           if ($valid)
           {
@@ -167,12 +203,30 @@ class Piklist_Arguments
           }
           else
           {
-            array_push($warnings, sprintf(__('The argument <strong>%s</strong> was the incorrect type; <strong>%s</strong> was expected.'), $argument, $data['type']));
+            array_push($errors, sprintf(__('The argument <strong>%s</strong> was the incorrect type; <strong>%s</strong> was expected.', 'piklist'), $argument_label, $data['type']));
           }
-          
-          if (isset($data['allowed']) && !in_array($arguments[$argument], $data['allowed']))
+
+          if (isset($data['validate']) && isset(self::$validation_rules[$data['validate']])) 
           {
-            array_push($warnings, sprintf(__('The argument <strong>%s</strong> is not allowed; <em>%s</em>.'), $argument, implode(',', $data['allowed'])));
+            $validation_rule = self::$validation_rules[$data['validate']];
+          
+            if (isset($validation_rule['callback']))
+            {
+              $response = call_user_func_array($validation_rule['callback'], array($argument, $value));
+    
+              if (is_string($response))
+              {
+                array_push($errors, $response);
+              }
+            }
+            else
+            {
+              array_push($errors, sprintf(__('The argument <strong>%s</strong> has a validation rule applied to the argument but there is no callback method specified.', 'piklist'), $argument_label));
+            }
+          }
+          elseif (isset($data['validate']) && !isset(self::$validation_rules[$data['validate']]))
+          {
+            array_push($errors, sprintf(__('The argument <strong>%s</strong> has a validation rule <strong>%s</strong> set but it does not exist.', 'piklist'), $argument_label, $data['validate']));
           }
         }
         
@@ -183,15 +237,15 @@ class Piklist_Arguments
       }
     }
     
-    if (!empty($warnings))
+    if (!empty($errors))
     {
-      foreach ($warnings as $warning)
+      foreach ($errors as $error)
       {
-        piklist::error($warning);
+        piklist::error($error);
       }
     }
     
-    return array(empty($warnings), $arguments);
+    return array(empty($errors), $arguments);
   }
   
   /**
@@ -205,7 +259,7 @@ class Piklist_Arguments
    * @static
    * @since 1.0
    */
-  public static function check_and_cast($value, $type = 'string')
+  public static function check_and_cast($value, $type = 'string', $method = false)
   {
     if (is_array($value) && $type != 'array')
     {
@@ -213,7 +267,7 @@ class Piklist_Arguments
       
       foreach ($items as &$item)
       {
-        list($valid, $_value) = self::check_and_cast($item, $type);
+        list($valid, $_value) = self::check_and_cast($item, $type, $method);
         
         if ($valid)
         {
@@ -233,7 +287,7 @@ class Piklist_Arguments
     
       foreach ($types as $type)
       {
-        list($valid, $value) = self::check_and_cast($value, $type);
+        list($valid, $value) = self::check_and_cast($value, $type, $method);
         
         if ($valid)
         {
@@ -267,7 +321,7 @@ class Piklist_Arguments
         case 'bool':
         case 'boolean':
         
-          if (($valid = in_array(strtolower($value), array('0', '1', 'true', 'false', 'on', 'off', 'yes', 'no', 'y', 'n'))) === true || is_bool($value))
+          if (($valid = piklist::is_bool($value)) === true)
           {
             $value = piklist::to_bool($value);
           }
@@ -275,6 +329,18 @@ class Piklist_Arguments
         break;
       
         case 'array':
+        
+          if (is_string($value) && !$method)
+          {
+            if (strstr($value, ','))
+            {
+              $value = piklist::explode(',', $value);
+            }
+            else
+            {
+              $value = array($value);
+            }
+          }
       
           $valid = is_array($value);
       
@@ -299,5 +365,168 @@ class Piklist_Arguments
     }
 
     return array($valid, $value);
+  }
+  
+
+  
+  /**
+   * Included Validation Callbacks
+   */
+
+  /**
+   * validation_rules
+   * Array of included validation rules.
+   *
+   * @param array $validation_rules Validation rules.
+   *
+   * @return array Validation rules.
+   *
+   * @access public
+   * @static
+   * @since 1.0
+   */
+  public static function validation_rules($validation_rules)
+  {
+    $validation_rules = array_merge($validation_rules, array(
+      'role' => array(
+        'name' => __('Role', 'piklist')
+        ,'callback' => array(__CLASS__, 'validate_role')
+      )
+      ,'capability' => array(
+        'name' => __('Capability', 'piklist')
+        ,'callback' => array(__CLASS__, 'validate_capability')
+      )
+      ,'logged_in' => array(
+        'name' => __('Logged In', 'piklist')
+        ,'callback' => array(__CLASS__, 'validate_logged_in')
+      )
+      ,'post_type' => array(
+        'name' => __('Post Type', 'piklist')
+        ,'callback' => array(__CLASS__, 'validate_post_type')
+      )
+      ,'post_status' => array(
+        'name' => __('Post Status', 'piklist')
+        ,'callback' => array(__CLASS__, 'validate_post_status')
+      )
+      ,'post_format' => array(
+        'name' => __('Post Format', 'piklist')
+        ,'callback' => array(__CLASS__, 'validate_post_format')
+      )
+      ,'page_template' => array(
+        'name' => __('Page Template', 'piklist')
+        ,'callback' => array(__CLASS__, 'validate_page_template')
+      )
+    ));
+
+    return $validation_rules;
+  }
+  
+  /**
+   * validate_role
+   *
+   * @param $argument
+   * @param $value
+   *
+   * @access public
+   * @static
+   * @since 1.0
+   */
+  public static function validate_role($argument, $value)
+  {
+    return current_user_can($value);
+  }
+  
+  /**
+   * validate_capability
+   *
+   * @param $argument
+   * @param $value
+   *
+   * @access public
+   * @static
+   * @since 1.0
+   */
+  public static function validate_capability($argument, $value)
+  {
+    return current_user_can($value);
+  }
+  
+  /**
+   * validate_logged_in
+   *
+   * @param $argument
+   * @param $value
+   *
+   * @access public
+   * @static
+   * @since 1.0
+   */
+  public static function validate_logged_in($argument, $value)
+  {
+    return is_user_logged_in();
+  }  
+  
+  /**
+   * validate_post_type
+   *
+   * @param $argument
+   * @param $value
+   *
+   * @access public
+   * @static
+   * @since 1.0
+   */
+  public static function validate_post_type($argument, $value)
+  {
+    global $post;
+    
+    return (isset($_REQUEST['post_type']) && $value === $_REQUEST['post_type']) || !$post || in_array($post->post_type, $value);
+  }
+  
+  /**
+   * validate_post_status
+   *
+   * @param $argument
+   * @param $value
+   *
+   * @access public
+   * @static
+   * @since 1.0
+   */
+  public static function validate_post_status($argument, $value)
+  {
+    return count(array_intersect($value, get_post_stati('', 'names'))) > 0;
+  }
+  
+  /**
+   * validate_post_format
+   *
+   * @param $argument
+   * @param $value
+   *
+   * @access public
+   * @static
+   * @since 1.0
+   */
+  public static function validate_post_format($argument, $value)
+  {
+    global $post;
+    
+    return in_array(get_post_format($post), $value);
+  }
+  
+  /**
+   * validate_page_template
+   *
+   * @param $argument
+   * @param $value
+   *
+   * @access public
+   * @static
+   * @since 1.0
+   */
+  public static function validate_page_template($argument, $value)
+  {
+    return count(array_intersect($value, array_keys(get_page_templates()))) > 0;
   }
 }

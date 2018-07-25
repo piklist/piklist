@@ -8,7 +8,7 @@ if (!defined('ABSPATH')) exit; // Exit if accessed directly
  *
  * @package     Piklist
  * @subpackage  Pointer
- * @copyright   Copyright (c) 2012-2016, Piklist, LLC.
+ * @copyright   Copyright (c) 2012-2018, Piklist, LLC.
  * @license     http://opensource.org/licenses/gpl-2.0.php GNU Public License
  * @since       1.0
  */
@@ -32,10 +32,11 @@ class Piklist_Pointer
   {
     if (is_admin())
     {
-      add_filter('piklist_assets_localize', array('piklist_pointer', 'assets_localize'));
+      add_filter('piklist_assets_localize', array(__CLASS__, 'assets_localize'));
 
-      add_action('current_screen', array('piklist_pointer', 'register_pointer'));
-      add_action('admin_footer', array('piklist_pointer', 'admin_footer'));
+      add_action('init', array(__CLASS__, 'register_arguments'));
+      add_action('current_screen', array(__CLASS__, 'register'));
+      add_action('admin_footer', array(__CLASS__, 'admin_footer'));
     }
   }
 
@@ -57,30 +58,66 @@ class Piklist_Pointer
   }
 
   /**
-   * register_pointer
+   * register_arguments
+   * Register arguments for our helper methods
+   *
+   * @access public
+   * @static
+   * @since 1.0
+   */
+  public static function register_arguments()
+  {
+    piklist_arguments::register('pointers', array(
+      // Basics
+      'title' => array(
+        'description' => __('The title of the meta box.', 'piklist')
+      )
+      ,'description' => array(
+        'description' => __('The description of what the meta box is for.', 'piklist')
+      )
+          
+      // Permissions
+      ,'capability' => array(
+        'description' => __('The user capability needed by the user to view the meta box.', 'piklist')
+        ,'type' => 'array'
+        ,'validate' => 'capability'
+      )
+      ,'role' => array(
+        'description' => __('The user role needed by the user to view the meta box.', 'piklist')
+        ,'type' => 'array'
+        ,'validate' => 'role'
+      )
+        
+      ,'page' => array(
+        'description' => __('', 'piklist')
+      )
+      ,'anchor_id' => array(
+        'description' => __('', 'piklist')
+      )  
+      ,'edge' => array(
+        'description' => __('', 'piklist')
+      )
+      ,'align' => array(
+        'description' => __('', 'piklist')
+      )
+    ));
+  }
+
+  /**
+   * register
    * Register any admin pointers available.
    *
    * @access public
    * @static
    * @since 1.0
    */
-  public static function register_pointer()
+  public static function register()
   {
-    $data = array(
-              'title' => 'Title'
-              ,'capability' => 'Capability'
-              ,'role' => 'Role'
-              ,'page' => 'Page'
-              ,'anchor_id' => 'Anchor ID'
-              ,'edge' => 'Edge'
-              ,'align' => 'Align'
-            );
-            
-    piklist::process_parts('pointers', $data, array('piklist_pointer', 'register_pointer_callback'));
+    piklist::process_parts('pointers', piklist_arguments::get('pointers', 'part'), array(__CLASS__, 'register_callback'));
   }
 
   /**
-   * register_pointer_callback
+   * register_callback
    * Handle and render a registered admin pointer.
    *
    * @param array $arguments The part object.
@@ -89,7 +126,7 @@ class Piklist_Pointer
    * @static
    * @since 1.0
    */
-  public static function register_pointer_callback($arguments)
+  public static function register_callback($arguments)
   {
     extract($arguments);
     

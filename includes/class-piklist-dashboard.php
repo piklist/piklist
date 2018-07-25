@@ -8,7 +8,7 @@ if (!defined('ABSPATH')) exit; // Exit if accessed directly
  *
  * @package     Piklist
  * @subpackage  Dashboard
- * @copyright   Copyright (c) 2012-2016, Piklist, LLC.
+ * @copyright   Copyright (c) 2012-2018, Piklist, LLC.
  * @license     http://opensource.org/licenses/gpl-2.0.php GNU Public License
  * @since       1.0
  */
@@ -34,11 +34,13 @@ class Piklist_Dashboard
     
     if (is_admin())
     {
-      add_filter('piklist_part_process-dashboard', array('piklist_dashboard', 'part_process'), 5);
+      add_filter('piklist_part_process-dashboard', array(__CLASS__, 'part_process'), 5);
       add_filter('piklist_part_process-dashboard', array('piklist_meta', 'part_process'), 10);
+      add_filter('piklist_argument_validation_rules', array(__CLASS__, 'validation_rules'));
       
-      add_action('wp_dashboard_setup', array('piklist_dashboard', 'register_dashboard_widgets'));
-      add_action('wp_network_dashboard_setup', array('piklist_dashboard', 'register_dashboard_widgets'));
+      add_action('init', array(__CLASS__, 'register_arguments'));
+      add_action('wp_dashboard_setup', array(__CLASS__, 'register_dashboard_widgets'));
+      add_action('wp_network_dashboard_setup', array(__CLASS__, 'register_dashboard_widgets'));
     }
   }
 
@@ -52,14 +54,7 @@ class Piklist_Dashboard
    */
   public static function register_dashboard_widgets()
   {
-    $data = array(
-              'title' => 'Title'
-              ,'capability' => 'Capability'
-              ,'role' => 'Role'
-              ,'network' => 'Network'
-            );
-
-    piklist::process_parts('dashboard', $data, array('piklist_dashboard', 'register_dashboard_widgets_callback'));
+    piklist::process_parts('dashboard', piklist_arguments::get('dashboard', 'part'), array(__CLASS__, 'register_dashboard_widgets_callback'));
   }
 
   /**
@@ -88,7 +83,7 @@ class Piklist_Dashboard
     wp_add_dashboard_widget(
       $id
       ,__($data['title'])
-      ,array('piklist_dashboard', 'render_dashboad_widget')
+      ,array(__CLASS__, 'render_dashboad_widget')
     );
   }
   
@@ -149,5 +144,103 @@ class Piklist_Dashboard
     }
 
     return $part;
+  }
+  
+  /**
+   * register_arguments
+   * Register arguments for our helper methods
+   *
+   * @access public
+   * @static
+   * @since 1.0
+   */
+  public static function register_arguments()
+  {
+    piklist_arguments::register('dashboard', array(
+      // Basics
+      'title' => array(
+        'description' => __('The title of the meta box.', 'piklist')
+      )
+          
+      // Permissions
+      ,'capability' => array(
+        'description' => __('The user capability needed by the user to view the meta box.', 'piklist')
+        ,'type' => 'array'
+        ,'validate' => 'capability'
+      )
+      ,'role' => array(
+        'description' => __('The user role needed by the user to view the meta box.', 'piklist')
+        ,'type' => 'array'
+        ,'validate' => 'role'
+      )
+            
+      // Display - Conditions
+      ,'network' => array(
+        'description' => __('Show the dashboard widget on the network dashboard.', 'piklist')
+        ,'default' => false
+        ,'validate' => 'network_dashboard'
+      )
+    ));
+  }
+  
+  
+  
+  /**
+   * Included Validation Callbacks
+   */
+
+  /**
+   * validation_rules
+   * Array of included validation rules.
+   *
+   * @param array $validation_rules Validation rules.
+   *
+   * @return array Validation rules.
+   *
+   * @access public
+   * @static
+   * @since 1.0
+   */
+  public static function validation_rules($validation_rules)
+  {
+    $validation_rules = array_merge($validation_rules, array(
+      'network_dashboard' => array(
+        'name' => __('Network', 'piklist')
+        ,'callback' => array(__CLASS__, 'validate_network_dashboard')
+      )
+    ));
+
+    return $validation_rules;
+  }
+  
+  /**
+   * validate_network_dashboard
+   *
+   * @param $argument
+   * @param $value
+   *
+   * @access public
+   * @static
+   * @since 1.0
+   */
+  public static function validate_network_dashboard($argument, $value)
+  {
+    global $current_screen;
+    
+    if (!piklist::is_bool($value) && $value != 'only') 
+    {
+      return sprintf(__('The argument <strong>Network</strong> with the value of <strong>%s</strong> is not valid.', 'piklist'), $value);
+    }
+    
+    if (isset($current_screen) && $current_screen->id == 'dashboard-network')
+    {
+      return $value || $value == 'only';
+    }
+    elseif (isset($current_screen) && $current_screen->id == 'dashboard')
+    {
+      return $value === true;
+    }
+    
+    return false;
   }
 }

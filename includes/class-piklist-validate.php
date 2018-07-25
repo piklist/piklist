@@ -8,7 +8,7 @@ if (!defined('ABSPATH')) exit; // Exit if accessed directly
  *
  * @package     Piklist
  * @subpackage  Validate
- * @copyright   Copyright (c) 2012-2016, Piklist, LLC.
+ * @copyright   Copyright (c) 2012-2018, Piklist, LLC.
  * @license     http://opensource.org/licenses/gpl-2.0.php GNU Public License
  * @since       1.0
  */
@@ -72,18 +72,18 @@ class Piklist_Validate
    */
   public static function _construct()
   {
-    add_action('init', array('piklist_validate', 'init'));
-    add_action('admin_head', array('piklist_validate', 'admin_head'));
-    add_action('admin_notices', array('piklist_validate', 'notices'));
-    add_action('piklist_notices', array('piklist_validate', 'notices'));
-    add_action('wp_ajax_piklist_validate', array('piklist_validate', 'ajax'));
-    add_action('wp_ajax_nopriv_piklist_validate', array('piklist_validate', 'ajax'));
-    add_action('wp_loaded', array('piklist_validate', 'set_data'), 99999);
+    add_action('init', array(__CLASS__, 'init'));
+    add_action('admin_head', array(__CLASS__, 'admin_head'));
+    add_action('admin_notices', array(__CLASS__, 'notices'));
+    add_action('piklist_notices', array(__CLASS__, 'notices'));
+    add_action('wp_ajax_piklist_validate', array(__CLASS__, 'ajax'));
+    add_action('wp_ajax_nopriv_piklist_validate', array(__CLASS__, 'ajax'));
+    add_action('wp_loaded', array(__CLASS__, 'set_data'), 99999);
 
-    add_filter('piklist_assets_localize', array('piklist_validate', 'assets_localize'));
-    add_filter('wp_redirect', array('piklist_validate', 'wp_redirect'), 10, 2);
-    add_filter('piklist_validation_rules', array('piklist_validate', 'validation_rules'));
-    add_filter('piklist_sanitization_rules', array('piklist_validate', 'sanitization_rules'));
+    add_filter('piklist_assets_localize', array(__CLASS__, 'assets_localize'));
+    add_filter('wp_redirect', array(__CLASS__, 'wp_redirect'), 10, 2);
+    add_filter('piklist_validation_rules', array(__CLASS__, 'validation_rules'));
+    add_filter('piklist_sanitization_rules', array(__CLASS__, 'sanitization_rules'));
   }
 
   /**
@@ -953,32 +953,32 @@ class Piklist_Validate
       'email' => array(
         'name' => __('Email Address', 'piklist')
         ,'description' => __('Verifies that the input is in the proper format for an email address.', 'piklist')
-        ,'callback' => array('piklist_validate', 'validate_email')
+        ,'callback' => array(__CLASS__, 'validate_email')
       )
       ,'email_domain' => array(
         'name' => __('Email Domain', 'piklist')
         ,'description' => __('Verifies that the email domain entered is a valid domain.', 'piklist')
-        ,'callback' => array('piklist_validate', 'validate_email_domain')
+        ,'callback' => array(__CLASS__, 'validate_email_domain')
       )
       ,'email_exists' => array(
         'name' => __('Email exists?', 'piklist')
         ,'description' => __('Checks that the entered email is not already registered to another user.', 'piklist')
-        ,'callback' => array('piklist_validate', 'validate_email_exists')
+        ,'callback' => array(__CLASS__, 'validate_email_exists')
       )
       ,'file_exists' => array(
         'name' => __('File Exists?', 'piklist')
         ,'description' => __('Verifies that the file path entered leads to an actual file.', 'piklist')
-        ,'callback' => array('piklist_validate', 'validate_file_exists')
+        ,'callback' => array(__CLASS__, 'validate_file_exists')
       )
       ,'hex_color' => array(
         'name' => __('Hex Color', 'piklist')
         ,'description' => __('Verifies that the data entered is a valid hex color.', 'piklist')
-        ,'callback' => array('piklist_validate', 'validate_hex_color')
+        ,'callback' => array(__CLASS__, 'validate_hex_color')
       )
       ,'image' => array(
         'name' => __('Is Image?', 'piklist')
         ,'description' => __('Verifies that the file path entered leads to an image file.', 'piklist')
-        ,'callback' => array('piklist_validate', 'validate_image')
+        ,'callback' => array(__CLASS__, 'validate_image')
       )
       ,'ip_address' => array(
         'name' => __('IP Address', 'piklist')
@@ -989,12 +989,12 @@ class Piklist_Validate
       ,'limit' => array(
         'name' => __('Entry Limit', 'piklist')
         ,'description' => __('Verifies that the number of items are within the defined limit.', 'piklist')
-        ,'callback' => array('piklist_validate', 'validate_limit')
+        ,'callback' => array(__CLASS__, 'validate_limit')
       )
       ,'range' => array(
         'name' => __('Range', 'piklist')
         ,'description' => __('Verifies that the data entered is within the defined range.', 'piklist')
-        ,'callback' => array('piklist_validate', 'validate_range')
+        ,'callback' => array(__CLASS__, 'validate_range')
       )
       ,'safe_text' => array(
         'name' => __('Alphanumeric', 'piklist')
@@ -1011,12 +1011,12 @@ class Piklist_Validate
       ,'username_exists' => array(
         'name' => __('Username exists?', 'piklist')
         ,'description' => __('Checks that the entered username does not already exist.', 'piklist')
-        ,'callback' => array('piklist_validate', 'validate_username_exists')
+        ,'callback' => array(__CLASS__, 'validate_username_exists')
       )
       ,'match' => array(
         'name' => __('Match Fields', 'piklist')
         ,'description' => __('Checks to see if two fields match.', 'piklist')
-        ,'callback' => array('piklist_validate', 'validate_match')
+        ,'callback' => array(__CLASS__, 'validate_match')
       )
     ));
 
@@ -1403,52 +1403,52 @@ class Piklist_Validate
       'email' => array(
         'name' => __('Email address', 'piklist')
         ,'description' => __('Strips out all characters that are not allowable in an email address.', 'piklist')
-        ,'callback' => array('piklist_validate', 'sanitize_email')
+        ,'callback' => array(__CLASS__, 'sanitize_email')
       )
       ,'file_name' => array(
         'name' => __('File name', 'piklist')
         ,'description' => __('Removes or replaces special characters that are illegal in filenames.', 'piklist')
-        ,'callback' => array('piklist_validate', 'sanitize_file_name')
+        ,'callback' => array(__CLASS__, 'sanitize_file_name')
       )
       ,'html_class' => array(
         'name' => __('HTML class', 'piklist')
         ,'description' => __('Removes all characters that are not allowable in an HTML classname.', 'piklist')
-        ,'callback' => array('piklist_validate', 'sanitize_html_class')
+        ,'callback' => array(__CLASS__, 'sanitize_html_class')
       )
       ,'text_field' => array(
         'name' => __('Text field', 'piklist')
         ,'description' => __('Removes all HTML markup, as well as extra whitespace, leaving only plain text.', 'piklist')
-        ,'callback' => array('piklist_validate', 'sanitize_text_field')
+        ,'callback' => array(__CLASS__, 'sanitize_text_field')
       )
       ,'title' => array(
         'name' => __('Post title', 'piklist')
         ,'description' => __('Removes all HTML and PHP tags, returning a title that is suitable for a url', 'piklist')
-        ,'callback' => array('piklist_validate', 'sanitize_title')
+        ,'callback' => array(__CLASS__, 'sanitize_title')
       )
       ,'user' => array(
         'name' => __('Username', 'piklist')
         ,'description' => __('Removes all unsafe characters for a username.', 'piklist')
-        ,'callback' => array('piklist_validate', 'sanitize_user')
+        ,'callback' => array(__CLASS__, 'sanitize_user')
       )
       ,'wp_kses' => array(
         'name' => __('wp_kses', 'piklist')
         ,'description' => __('Makes sure that only the allowed HTML element names, attribute names and attribute values plus only sane HTML entities are accepted.', 'piklist')
-        ,'callback' => array('piklist_validate', 'sanitize_wp_kses')
+        ,'callback' => array(__CLASS__, 'sanitize_wp_kses')
       )
       ,'wp_filter_kses' => array(
         'name' => __('wp_filter_kses', 'piklist')
         ,'description' => __('Makes sure only default HTML elements are accepted.', 'piklist')
-        ,'callback' => array('piklist_validate', 'sanitize_wp_filter_kses')
+        ,'callback' => array(__CLASS__, 'sanitize_wp_filter_kses')
       )
       ,'wp_kses_post' => array(
         'name' => __('wp_kses_post', 'piklist')
         ,'description' => __('Makes sure only appropriate HTML elements for post content are accepted.', 'piklist')
-        ,'callback' => array('piklist_validate', 'sanitize_wp_kses_post')
+        ,'callback' => array(__CLASS__, 'sanitize_wp_kses_post')
       )
       ,'wp_strip_all_tags' => array(
         'name' => __('wp_strip_all_tags', 'piklist')
         ,'description' => __('Properly strip all HTML tags including script and style.', 'piklist')
-        ,'callback' => array('piklist_validate', 'sanitize_wp_strip_all_tags')
+        ,'callback' => array(__CLASS__, 'sanitize_wp_strip_all_tags')
       )
     ));
 
