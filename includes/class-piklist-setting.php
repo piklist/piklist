@@ -13,7 +13,7 @@ if (!is_admin())
  *
  * @package     Piklist
  * @subpackage  Setting
- * @copyright   Copyright (c) 2012-2016, Piklist, LLC.
+ * @copyright   Copyright (c) 2012-2018, Piklist, LLC.
  * @license     http://opensource.org/licenses/gpl-2.0.php GNU Public License
  * @since       1.0
  */
