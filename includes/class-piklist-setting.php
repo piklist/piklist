@@ -150,7 +150,6 @@ class Piklist_Setting
               'title' => 'Title'
               ,'setting' => 'Setting'
               ,'tab' => 'Tab'
-              ,'tab_order' => 'Tab Order'
               ,'order' => 'Order'
             );
 
@@ -513,6 +512,10 @@ class Piklist_Setting
               $tab = current($part['data']['tab']);
               $part['data']['flow'] = $part['data']['setting'];
 
+              /*
+               * Backwards compatible for "tab_order" parameter
+               * Replaced with "order" parameter
+               */
               if (isset($workflow[$tab]))
               {
                 if (!empty($part['data']['tab_order']))
@@ -532,7 +535,7 @@ class Piklist_Setting
                   ,'data' => array(
                     'flow' => array($part['data']['setting'])
                     ,'page' => array($part['data']['setting'])
-                    ,'order' => $part['data']['tab_order']
+                    ,'order' => $part['data']['order']
                     ,'title' => ucwords($tab)
                     ,'position' => 'title'
                     ,'tab' => null
@@ -568,7 +571,7 @@ class Piklist_Setting
                 ,'data' => array(
                   'flow' => array($part['data']['setting'])
                   ,'page' => array($part['data']['setting'])
-                  ,'order' => $part['data']['tab_order']
+                  ,'order' => $part['data']['order']
                   ,'title' => __(isset($admin_page['default_tab']) && $admin_page['default_tab'] ? piklist::slug($admin_page['default_tab']) : 'General')
                   ,'position' => 'title'
                   ,'tab' => null
