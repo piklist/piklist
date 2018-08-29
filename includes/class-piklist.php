@@ -1093,7 +1093,7 @@ class Piklist
       $validate_object = 'term';
     }
 
-    if ( $pagenow == 'user-edit.php' )
+    if ( $pagenow == 'user-edit.php' & isset($_GET['user_id']))
     {
       $user = get_user_by('id', $_GET['user_id']);
       $validate_object = 'user';

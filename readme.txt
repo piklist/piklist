@@ -150,6 +150,7 @@ Thank you for wanting to contribute! It helps everyone out!
 
 = 0.11.5 =
 
+* FIXED: when saving user data, check if $_GET['user_id'] is set before validating user.
 * ENHANCED: Allow user with no role set to save
 
 = 0.11.4 =
