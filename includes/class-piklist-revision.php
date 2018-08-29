@@ -24,7 +24,7 @@ class Piklist_Revision
    */
   public static function _construct()
   {
-    add_action('save_post', array('piklist_revision', 'save_post'), -1, 2);
+    add_action('save_post', array('piklist_revision', 'save_post'), 10, 2);
     add_action('wp_restore_post_revision', array('piklist_revision', 'restore_revision'), 10, 2);
 
     add_filter('_wp_post_revision_fields', array('piklist_revision', 'wp_post_revision_fields'));
