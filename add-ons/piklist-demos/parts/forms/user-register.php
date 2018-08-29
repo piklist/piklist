@@ -2,7 +2,7 @@
 /*
 Title: User Register
 Method: post
-Message: User Profile Saved.
+Redirect: /
 */
 
 
@@ -23,99 +23,136 @@ Message: User Profile Saved.
  * The shortcode for this form is:
  * [piklist_form form="user-register" add_on="piklist-demos"]
  */
-
 ?>
 
-<h1><?php _e('Register for this site.', 'piklist-demo'); ?></h1>
 
-<?php
+<?php $users_can_register = get_option('users_can_register'); // Check if the "Anyone can register" option is set
 
-  piklist('field', array(
-    'type' => 'text'
-    ,'scope' => 'user' // user_login is in the wp_users table, so scope is: user
-    ,'field' => 'user_login'
-    ,'label' => __('Username', 'piklist-demo')
-    ,'required' => true
-    ,'attributes' => array(
-      'autocomplete' => 'off'
-      ,'wrapper_class' => 'user_login'
-    )
-  ));
+if($users_can_register) : ?>
 
-  piklist('field', array(
-    'type' => 'text'
-    ,'scope' => 'user'// scope needs to be set on EVERY field for front-end forms.
-    ,'field' => 'user_email'
-    ,'label' => __('Email', 'piklist-demo')
-    ,'required' => true
-    ,'validate' => array(
-      array(
-        'type' => 'email_exists'
+  <h1><?php _e('Register for this site.', 'piklist-demo'); ?></h1>
+
+  <?php
+
+    piklist('field', array(
+      'type' => 'text'
+      ,'scope' => 'user' // user_login is in the wp_users table, so scope is: user
+      ,'field' => 'user_login'
+      ,'label' => __('Username', 'piklist-demo')
+      ,'required' => true
+      ,'attributes' => array(
+        'autocomplete' => 'off'
+        ,'wrapper_class' => 'user_login'
       )
-      ,array(
-        'type' => 'email'
-      )
-      ,array(
-        'type' => 'email_domain'
-      )
-    )
-    ,'attributes' => array(
-      'wrapper_class' => 'user_email'
-    )
-  ));
+    ));
 
-  piklist('field', array(
-    'type' => 'password'
-    ,'scope' => 'user'
-    ,'field' => 'user_pass'
-    ,'label' => __('New Password', 'piklist-demo')
-    ,'required' => true
-    ,'value' => false // Setting to false forces no value to show in form.
-    ,'attributes' => array(
-      'autocomplete' => 'off'
-      ,'wrapper_class' => 'user_pass'
-    )
-  ));
-
-  piklist('field', array(
-    'type' => 'password'
-    ,'scope' => 'user'
-    ,'field' => 'user_pass_repeat'
-    ,'label' => __('Repeat New Password', 'piklist-demo')
-    ,'required' => true
-    ,'value' => false // Setting to false forces no value to show in form.
-    ,'validate' => array(
-      array(
-        'type' => 'match'
-        ,'options' => array(
-          'field' => 'user_pass'
+    piklist('field', array(
+      'type' => 'text'
+      ,'scope' => 'user'// scope needs to be set on EVERY field for front-end forms.
+      ,'field' => 'user_email'
+      ,'label' => __('Email', 'piklist-demo')
+      ,'required' => true
+      ,'validate' => array(
+        array(
+          'type' => 'email_exists'
+        )
+        ,array(
+          'type' => 'email'
+        )
+        ,array(
+          'type' => 'email_domain'
         )
       )
-    )
-    ,'attributes' => array(
-      'wrapper_class' => 'user_pass_repeat'
-    )
-  ));
+      ,'attributes' => array(
+        'wrapper_class' => 'user_email'
+      )
+    ));
 
-  piklist('field', array(
-    'type' => 'text'
-    ,'scope' => 'user_meta' // scope needs to be set on EVERY field for front-end forms.
-    ,'field' => 'first_name'
-    ,'label' => __('First name', 'piklist-demo')
-    ,'attributes' => array(
-      'wrapper_class' => 'first_name'
-    )
-  ));
+    piklist('field', array(
+      'type' => 'password'
+      ,'scope' => 'user'
+      ,'field' => 'user_pass'
+      ,'label' => __('New Password', 'piklist-demo')
+      ,'required' => true
+      ,'value' => false // Setting to false forces no value to show in form.
+      ,'attributes' => array(
+        'autocomplete' => 'off'
+        ,'wrapper_class' => 'user_pass'
+      )
+    ));
 
-  piklist('field', array(
-    'type' => 'text'
-    ,'scope' => 'user_meta' // scope needs to be set on EVERY field for front-end forms.
-    ,'field' => 'last_name'
-    ,'label' => __('Last name', 'piklist-demo')
-    ,'attributes' => array(
-      'wrapper_class' => 'last_name'
-    )
-  ));
+    piklist('field', array(
+      'type' => 'password'
+      ,'scope' => 'user'
+      ,'field' => 'user_pass_repeat'
+      ,'label' => __('Repeat New Password', 'piklist-demo')
+      ,'required' => true
+      ,'value' => false // Setting to false forces no value to show in form.
+      ,'validate' => array(
+        array(
+          'type' => 'match'
+          ,'options' => array(
+            'field' => 'user_pass'
+          )
+        )
+      )
+      ,'attributes' => array(
+        'wrapper_class' => 'user_pass_repeat'
+      )
+    ));
+
+    piklist('field', array(
+      'type' => 'text'
+      ,'scope' => 'user_meta' // scope needs to be set on EVERY field for front-end forms.
+      ,'field' => 'first_name'
+      ,'label' => __('First name', 'piklist-demo')
+      ,'attributes' => array(
+        'wrapper_class' => 'first_name'
+      )
+    ));
+
+    piklist('field', array(
+      'type' => 'text'
+      ,'scope' => 'user_meta' // scope needs to be set on EVERY field for front-end forms.
+      ,'field' => 'last_name'
+      ,'label' => __('Last name', 'piklist-demo')
+      ,'attributes' => array(
+        'wrapper_class' => 'last_name'
+      )
+    ));
+
+else : ?>
+
+  <h1><?php _e('Registration is disabled. Please log in.', 'piklist-demo'); ?></h1>
+
+  <?php
+
+    piklist('field', array(
+      'type' => 'text'
+      ,'scope' => 'user' // user_login is in the wp_users table, so scope is: user
+      ,'field' => 'user_login'
+      ,'label' => __('Username', 'piklist-demo')
+      ,'required' => true
+      ,'attributes' => array(
+        'autocomplete' => 'off'
+        ,'wrapper_class' => 'user_login'
+      )
+    ));
+
+    piklist('field', array(
+      'type' => 'password'
+      ,'scope' => 'user'
+      ,'field' => 'user_pass'
+      ,'label' => __('New Password', 'piklist-demo')
+      ,'required' => true
+      ,'value' => false // Setting to false forces no value to show in form.
+      ,'attributes' => array(
+        'autocomplete' => 'off'
+        ,'wrapper_class' => 'user_pass'
+      )
+    ));
+
+endif;
 
 
   // Submit button
