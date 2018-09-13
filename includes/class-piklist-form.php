@@ -116,6 +116,8 @@ class Piklist_Form
       ,'jabber'
       ,'aim'
       ,'yim'
+      ,'rememberme'
+      ,'signon'
     )
     ,'user_meta' => array()
     ,'taxonomy' => array()
@@ -3180,7 +3182,7 @@ class Piklist_Form
 
       return false;
     }
-
+    
     $fields_data = $check['fields_data'];
 
     // Handle normal file uploads
@@ -3432,6 +3434,24 @@ class Piklist_Form
             {
               $object_ids[$context] = is_array($object_ids[$context]) ? $object_ids[$context] : array($object_ids[$context]);
               array_push($object_ids[$context], $result_id);
+            }
+            
+            if ($scope == 'user' && isset($object['signon']))
+            {
+              if ($result_id)
+              {
+                wp_set_current_user($result_id);
+              }
+              else
+              {
+                foreach ($fields as &$field)
+                {
+                  if (in_array($field['field'], array('user_login', 'user_pass')))
+                  {
+                    $field = piklist_validate::add_error($field, 0, __('Invalid credentials.', 'piklist'));
+                  }
+                }
+              }
             }
           }
         }
@@ -3728,7 +3748,7 @@ class Piklist_Form
         foreach ($fields as &$field)
         {
           $allowed = $field['role'] === null || $field['capability'] === null;
-
+          
           if (!$allowed)
           {
             $allowed = current_user_can('manage_options');
@@ -3777,7 +3797,7 @@ class Piklist_Form
 
         unset($field);
       }
-
+      
       /**
        * piklist_save_field
        * Fires after fields have been saved
@@ -3927,6 +3947,22 @@ class Piklist_Form
 
       case 'user':
 
+        if (isset($object['signon']))
+        {
+          $user = wp_signon(array(
+                    'user_login' => $object['user_login']
+                    ,'user_password' => $object['user_pass']
+                    ,'remember' => $object['rememberme']
+                  ), is_ssl());
+           
+          if (!is_wp_error($user))
+          {
+            $id = $user->ID;
+          }
+          
+          break;
+        }
+      
         $re_auth_cookie = false;
 
         if (isset($object['user_pass']) && empty($object['user_pass']))

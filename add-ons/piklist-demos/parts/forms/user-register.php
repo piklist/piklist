@@ -5,30 +5,26 @@ Method: post
 Redirect: /
 */
 
+  /**
+   * Piklist forms automatically generate a shortcode:
+   *
+   * If your form is in a PLUGIN (i.e. wp-content/plugins/my-plugin/parts/forms/my-form.php)
+   * Use [piklist_form form="my-form" add_on="my-plugin"]
+   *
+   * If your form is in a THEME (i.e. wp-content/themes/my-theme/piklist/parts/forms/my-form.php)
+   * Use [piklist_form form="my-form" add_on="theme"]
+   *
+   * The "form" parameter is the file name of your form without ".php".
+   *
+   */
 
-/**
- * Piklist forms automatically generate a shortcode:
- *
- * If your form is in a PLUGIN (i.e. wp-content/plugins/my-plugin/parts/forms/my-form.php)
- * Use [piklist_form form="my-form" add_on="my-plugin"]
- *
- * If your form is in a THEME (i.e. wp-content/themes/my-theme/piklist/parts/forms/my-form.php)
- * Use [piklist_form form="my-form" add_on="theme"]
- *
- * The "form" parameter is the file name of your form without ".php".
- *
- */
+  /**
+   * The shortcode for this form is:
+   * [piklist_form form="user-register" add_on="piklist-demos"]
+   */
 
-/**
- * The shortcode for this form is:
- * [piklist_form form="user-register" add_on="piklist-demos"]
- */
+  if (get_option('users_can_register')): 
 ?>
-
-
-<?php $users_can_register = get_option('users_can_register'); // Check if the "Anyone can register" option is set
-
-if($users_can_register) : ?>
 
   <h1><?php _e('Register for this site.', 'piklist-demo'); ?></h1>
 
@@ -121,12 +117,12 @@ if($users_can_register) : ?>
       )
     ));
 
-else : ?>
+  else: 
+?>
 
   <h1><?php _e('Registration is disabled. Please log in.', 'piklist-demo'); ?></h1>
 
   <?php
-
     piklist('field', array(
       'type' => 'text'
       ,'scope' => 'user' // user_login is in the wp_users table, so scope is: user
@@ -151,11 +147,25 @@ else : ?>
         ,'wrapper_class' => 'user_pass'
       )
     ));
+    
+    piklist('field', array(
+      'type' => 'checkbox'
+      ,'scope' => 'user'
+      ,'field' => 'rememberme'
+      ,'choices' => array(
+        'forever' => __('Remember Me', 'piklist-demo')
+      )
+    ));
+    
+    piklist('field', array(
+      'type' => 'hidden'
+      ,'scope' => 'user'
+      ,'field' => 'signon'
+      ,'value' => true
+    ));
 
-endif;
+  endif;
 
-
-  // Submit button
   piklist('field', array(
     'type' => 'submit'
     ,'field' => 'submit'
