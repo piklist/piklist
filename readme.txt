@@ -2,7 +2,7 @@
 Contributors: piklist, p51labs, sbruner, jason_the_adams
 Tested up to: 4.9
 Requires at least: 4.0
-Stable tag: 0.11.4
+Stable tag: 1.0.1
 Requires PHP: 5.3
 Donate link: http://piklist.com/get-involved/
 License: GPLv2 or later
@@ -15,8 +15,6 @@ Easy for beginners... built for developers. Piklist helps you build things - fas
 
 
 == Description ==
-
-**CURRENTLY IN BETA**
 
 = Piklist is the most powerful framework available for WordPress. =
 Easy for beginners... built for developers. Piklist helps you build things - fast.
@@ -147,6 +145,18 @@ Thank you for wanting to contribute! It helps everyone out!
 4. Ask questions on our <a href="https://piklist.com/support/">Support Forum</a>. (We love hearing from our users)
 
 == Changelog ==
+
+= 1.0.1 =
+Release Date: November 6, 2018
+
+* FIXED: when saving user data, check if $_GET['user_id'] is set before validating user.
+* ENHANCED: Allow user with no role set to save
+
+
+= 1.0 =
+Release Date: November 5, 2018
+
+* UPDATE: Change priority for piklist_revision::save_post to default.
 
 = 0.11.4 =
 Release Date: June 11, 2018
