@@ -2,7 +2,7 @@
 Contributors: piklist, p51labs, sbruner, jason_the_adams
 Tested up to: 4.9
 Requires at least: 4.0
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 Requires PHP: 5.3
 Donate link: http://piklist.com/get-involved/
 License: GPLv2 or later
@@ -146,12 +146,17 @@ Thank you for wanting to contribute! It helps everyone out!
 
 == Changelog ==
 
+= 1.0.2 =
+Release Date: December 25, 2018
+
+* FIXED: Show which page is set to front page on page list table.
+* FIXED: If no active parts, don't show notice.
+
 = 1.0.1 =
 Release Date: November 6, 2018
 
 * FIXED: when saving user data, check if $_GET['user_id'] is set before validating user.
 * ENHANCED: Allow user with no role set to save
-
 
 = 1.0 =
 Release Date: November 5, 2018

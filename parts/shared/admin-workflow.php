@@ -78,6 +78,7 @@
 
     <?php
 
+    if(!empty($active['parts'])) :
       foreach ($active['parts'] as $order => $part):
         if ($part['data']['active']):
 
@@ -95,6 +96,7 @@
 
         endif;
       endforeach;
+    endif;
 
      ?>
 
