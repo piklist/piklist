@@ -1624,7 +1624,7 @@ class Piklist
       ,'singular_name' => $singular
       ,'search_items' => sprintf(__('Search %s', 'piklist'), $plural)
       ,'all_items' => sprintf(__('All %s', 'piklist'), $plural)
-      ,'parent_item' => sprintf(__('Parent %s', $plural), 'piklist')
+      ,'parent_item' => sprintf(__('Parent %s', 'piklist'), $plural)
       ,'parent_item_colon' => sprintf(__('Parent %s:', 'piklist'), $plural)
       ,'edit_item' => sprintf(__('Edit %s', 'piklist'), $singular)
       ,'update_item' => sprintf(__('Update %s', 'piklist'), $singular)
