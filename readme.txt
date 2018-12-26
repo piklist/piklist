@@ -2,7 +2,7 @@
 Contributors: piklist, p51labs, sbruner, jason_the_adams
 Tested up to: 4.9
 Requires at least: 4.0
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 Requires PHP: 5.3
 Donate link: http://piklist.com/get-involved/
 License: GPLv2 or later
@@ -145,6 +145,11 @@ Thank you for wanting to contribute! It helps everyone out!
 4. Ask questions on our <a href="https://piklist.com/support/">Support Forum</a>. (We love hearing from our users)
 
 == Changelog ==
+
+= 1.0.2 =
+Release Date: December 26, 2018
+
+* FIXED: Show which page is set to front page on page list table.
 
 = 1.0.1 =
 Release Date: November 6, 2018

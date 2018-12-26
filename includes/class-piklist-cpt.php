@@ -91,7 +91,7 @@ class Piklist_CPT
     add_filter('post_row_actions', array('piklist_cpt', 'post_row_actions'), 10, 2);
     add_filter('page_row_actions', array('piklist_cpt', 'post_row_actions'), 10, 2);
     add_filter('wp_insert_post_data', array('piklist_cpt', 'wp_insert_post_data'), 100, 2);
-    add_filter('display_post_states', array('piklist_cpt', 'display_post_states'));
+    add_filter('display_post_states', array('piklist_cpt', 'display_post_states'), 999);
     add_filter('piklist_assets_localize', array('piklist_cpt', 'assets_localize'));
 
     if (piklist_admin::is_post())
@@ -684,7 +684,7 @@ class Piklist_CPT
    *
    * @access public
    * @static
-   * @since 1.0
+   * @since 1.0.2
    */
   public static function display_post_states($states)
   {
@@ -692,16 +692,41 @@ class Piklist_CPT
 
     if (!empty($states))
     {
+      $type = key($states);
+
+      switch ($type)
+      {
+        case 'page_on_front':
+
+        break;
+
+        case 'Publish':
+  
+          $states = '';
+  
+        break;
+  
+        default:
+  
+        break;
+      }
+
+    }
+    else
+    {
       $current_status = $post->post_status;
       $post_statuses = self::get_post_statuses_for_type();
       $status = isset($post_statuses[$current_status]) ? $post_statuses[$current_status] : current($post_statuses);
 
       $states = !empty($status->label) ? $status->label : $status['label'];
-      $states = $states == 'Published' ? '' : array($states);
+      $states = $states == 'Publish' ? '' : array($states);
     }
 
     return $states;
   }
+
+
+
 
   /**
    * quick_edit_post_statuses
