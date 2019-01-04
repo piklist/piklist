@@ -719,7 +719,7 @@ class Piklist_CPT
       $status = isset($post_statuses[$current_status]) ? $post_statuses[$current_status] : current($post_statuses);
 
       $states = !empty($status->label) ? $status->label : $status['label'];
-      $states = $states == 'Publish' ? '' : array($states);
+      $states = $states == 'Published' ? array() : array($states);
     }
 
     return $states;

@@ -147,8 +147,9 @@ Thank you for wanting to contribute! It helps everyone out!
 == Changelog ==
 
 = 1.0.3 =
+Release Date: January 3, 2018
 
-* FIXED: Parent term label displays as expected.
+* ENHANCED: Do not show the “Published” post state on list tables.
 
 = 1.0.2 =
 Release Date: December 25, 2018
