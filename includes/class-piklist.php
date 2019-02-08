@@ -946,18 +946,20 @@ class Piklist
    */
   public static function cast_file_data($data) 
   {
+    // TODO: Comment these out as things start using arguments instead
+    
     array_walk_recursive($data, array('piklist', 'array_values_cast'));
 
     foreach ($data as $parameter => &$value)
     {
       switch ($parameter)
       {
-        case 'capability':
+        // case 'capability':
+        // case 'role':
         case 'id':
         case 'slug':
         case 'page':
         case 'post_type':
-        case 'role':
         case 'status':
         case 'taxonomy':
         case 'post_format':
@@ -968,14 +970,14 @@ class Piklist
 
         break;
 
-        case 'template':
-
-          $value = piklist::explode(',', $value, array('piklist', 'strtolower'));
-          $value = str_ireplace('.php', '', $value);
-          $value = array_filter($value);
-          $value = empty($value) ? null : $value;
-
-        break;
+        // case 'template':
+        //
+        //   $value = piklist::explode(',', $value, array('piklist', 'strtolower'));
+        //   $value = str_ireplace('.php', '', $value);
+        //   $value = array_filter($value);
+        //   $value = empty($value) ? null : $value;
+        //
+        // break;
 
         case 'flow':
         case 'flow_page':
@@ -988,26 +990,26 @@ class Piklist
 
         break;
 
-        case 'group':
-
-          $value = empty($value) && !self::is_bool($value) ? true : $value;
-
-        break;
-
-        default:
-
-          /**
-           * piklist_part_data_parameter
-           * Add custom part parameters to check.
-           *
-           * @param $value Value to compare.
-           * @param $parameter Parameter to check.
-           *
-           * @since 1.0
-           */
-          $value = apply_filters('piklist_part_data_parameter', $value, $parameter);
-
-        break;
+        // case 'group':
+        //
+        //   $value = empty($value) && !self::is_bool($value) ? true : $value;
+        //
+        // break;
+        //
+        // default:
+        //
+        //   /**
+        //    * piklist_part_data_parameter
+        //    * Add custom part parameters to check.
+        //    *
+        //    * @param $value Value to compare.
+        //    * @param $parameter Parameter to check.
+        //    *
+        //    * @since 1.0
+        //    */
+        //   $value = apply_filters('piklist_part_data_parameter', $value, $parameter);
+        //
+        // break;
       }
     }
 

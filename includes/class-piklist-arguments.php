@@ -281,7 +281,8 @@ class Piklist_Arguments
       
       $value = $items;
     }
-    elseif (is_array($type))
+    else
+    if (is_array($type))
     {
       $types = $type;
     

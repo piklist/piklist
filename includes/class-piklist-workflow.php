@@ -171,12 +171,10 @@ class Piklist_Workflow
       // Permissions
       ,'capability' => array(
         'description' => __('The user capability needed by the user to view the meta box.', 'piklist')
-        ,'type' => 'array'
         ,'validate' => 'capability'
       )
       ,'role' => array(
         'description' => __('The user role needed by the user to view the meta box.', 'piklist')
-        ,'type' => 'array'
         ,'validate' => 'role'
       )
 

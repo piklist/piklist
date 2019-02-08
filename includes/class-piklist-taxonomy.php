@@ -176,17 +176,16 @@ class Piklist_Taxonomy
       // Permissions
       ,'capability' => array(
         'description' => __('The user capability needed by the user to view the meta box.', 'piklist')
-        ,'type' => 'array'
         ,'validate' => 'capability'
       )
       ,'role' => array(
         'description' => __('The user role needed by the user to view the meta box.', 'piklist')
-        ,'type' => 'array'
         ,'validate' => 'role'
       )
         
       ,'order' => array(
         'description' => __('', 'piklist')
+        ,'type' => 'integer'
       )
       ,'taxonomy' => array(
         'description' => __('', 'piklist')
