@@ -27,7 +27,7 @@ class Piklist_Revision
     add_action('save_post', array('piklist_revision', 'save_post'), 10, 2);
     add_action('wp_restore_post_revision', array('piklist_revision', 'restore_revision'), 10, 2);
 
-    add_filter('_wp_post_revision_fields', array('piklist_revision', 'wp_post_revision_fields'));
+    add_filter('_wp_post_revision_fields', array('piklist_revision', 'wp_post_revision_fields'), 10, 2);
   }
 
   /**
@@ -95,6 +95,7 @@ class Piklist_Revision
    * Adds a custom field for metadata to the revision ui.
    *
    * @param array $fields The current set of fields for the ui.
+   * @param array $post   Current post data as array. Added in WordPress 4.5.0
    *
    * @return array Updated fields.
    *
@@ -102,11 +103,16 @@ class Piklist_Revision
    * @static
    * @since 1.0
    */
-  public static function wp_post_revision_fields($fields)
+  public static function wp_post_revision_fields($fields, $post = array())
   {
     global $wpdb;
 
-    $meta_keys = $wpdb->get_col("SELECT DISTINCT meta_key FROM $wpdb->postmeta");
+    if (empty($post)) {
+      $post = get_post($post, ARRAY_A);
+    }
+    $post_id = absint($post['ID']);
+
+    $meta_keys = $wpdb->get_col("SELECT DISTINCT meta_key FROM $wpdb->postmeta WHERE post_id=$post_id");
 
     foreach ($meta_keys as $meta_key)
     {
