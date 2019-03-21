@@ -112,7 +112,8 @@ class Piklist_Revision
     }
     $post_id = absint($post['ID']);
 
-    $meta_keys = $wpdb->get_col("SELECT DISTINCT meta_key FROM $wpdb->postmeta WHERE post_id=$post_id");
+    $query     = $wpdb->prepare("SELECT DISTINCT meta_key FROM $wpdb->postmeta WHERE post_id=%d", $post_id);
+    $meta_keys = $wpdb->get_col($query);
 
     foreach ($meta_keys as $meta_key)
     {
