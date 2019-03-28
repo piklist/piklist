@@ -2,7 +2,7 @@
 Contributors: piklist, p51labs, sbruner, jason_the_adams
 Tested up to: 4.9
 Requires at least: 4.0
-Stable tag: 1.0.2
+Stable tag: 1.0.3
 Requires PHP: 5.3
 Donate link: http://piklist.com/get-involved/
 License: GPLv2 or later
@@ -145,6 +145,11 @@ Thank you for wanting to contribute! It helps everyone out!
 4. Ask questions on our <a href="https://piklist.com/support/">Support Forum</a>. (We love hearing from our users)
 
 == Changelog ==
+
+= 1.0.3 =
+Release Date: January 3, 2018
+
+* ENHANCED: Do not show the “Published” post state on list tables.
 
 = 1.0.2 =
 Release Date: December 25, 2018
