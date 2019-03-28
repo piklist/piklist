@@ -107,13 +107,17 @@ class Piklist_Revision
   {
     global $wpdb;
 
-    if (empty($post)) {
-      $post = get_post($post, ARRAY_A);
+    if (empty($post))
+    {
+      $meta_keys = $wpdb->get_col("SELECT DISTINCT meta_key FROM $wpdb->postmeta");
     }
-    $post_id = absint($post['ID']);
+    else
+    {
+      $post_id = absint($post['ID']);
 
-    $query     = $wpdb->prepare("SELECT DISTINCT meta_key FROM $wpdb->postmeta WHERE post_id=%d", $post_id);
-    $meta_keys = $wpdb->get_col($query);
+      $query = $wpdb->prepare("SELECT DISTINCT meta_key FROM $wpdb->postmeta WHERE post_id=%d", $post_id);
+      $meta_keys = $wpdb->get_col($query);
+    }
 
     foreach ($meta_keys as $meta_key)
     {
