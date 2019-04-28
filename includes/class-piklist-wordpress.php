@@ -186,7 +186,7 @@ class Piklist_WordPress
    * @static
    * @since 1.0
    */
-  public static function pre_get_posts(&$query)
+  public static function pre_get_posts($query)
   {
     if (isset($query->query_vars['orderby']))
     {
@@ -212,7 +212,7 @@ class Piklist_WordPress
    * @static
    * @since 1.0
    */
-  public static function pre_user_query(&$query)
+  public static function pre_user_query($query)
   {
     global $wpdb;
 
@@ -531,7 +531,7 @@ class Piklist_WordPress
    * @static
    * @since 1.0
    */
-  public static function where($where, &$query)
+  public static function where($where, $query)
   {
     remove_filter('posts_where', array('piklist_wordpress', 'where'), 10);
     remove_filter('posts_where_request', array('piklist_wordpress', 'where'), 10);
@@ -557,7 +557,7 @@ class Piklist_WordPress
    * @static
    * @since 1.0
    */
-  public static function orderby($orderby, &$query)
+  public static function orderby($orderby, $query)
   {
     remove_filter('posts_orderby', array('piklist_wordpress', 'orderby'), 10);
     remove_filter('posts_orderby_request', array('piklist_wordpress', 'orderby'), 10);
@@ -583,7 +583,7 @@ class Piklist_WordPress
    * @static
    * @since 1.0
    */
-  public static function distinct($distinct, &$query)
+  public static function distinct($distinct, $query)
   {
     remove_filter('posts_distinct', array('piklist_wordpress', 'distinct'), 10);
     remove_filter('posts_distinct_request', array('piklist_wordpress', 'distinct'), 10);
