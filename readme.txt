@@ -2,7 +2,7 @@
 Contributors: piklist, p51labs, sbruner, jason_the_adams
 Tested up to: 4.9
 Requires at least: 4.0
-Stable tag: 1.0.3
+Stable tag: 1.0.4
 Requires PHP: 5.3
 Donate link: http://piklist.com/get-involved/
 License: GPLv2 or later
@@ -146,10 +146,18 @@ Thank you for wanting to contribute! It helps everyone out!
 
 == Changelog ==
 
-= 1.0.3 =
-Release Date: January 3, 2018
+= 1.0.4 =
+Release Date: June 15, 2019
 
-* ENHANCED: Do not show the “Published” post state on list tables.
+* ENHANCED: Updated piklist::performance to check PHP version.
+* ENHANCED: safe_mode removed
+* ENHANCED: PHP 7.3 capability
+* FIXED: changed &$query to $query in class-piklist-wordpress.php
+
+= 1.0.3 =
+Release Date: January 3, 2019
+
+* ENHANCED: Do not show the "Published" post state on list tables.
 
 = 1.0.2 =
 Release Date: December 25, 2018
