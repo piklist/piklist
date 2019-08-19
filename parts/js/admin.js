@@ -432,10 +432,12 @@
         if (!wp.autosave)
         {
           var editor = tinyMCE.activeEditor;
+          
+          if (editor) {
+            editor.selection.select(editor.getBody(), true);
+            editor.selection.collapse(true);
+          }
 
-          editor.selection.select(editor.getBody(), true);
-
-          editor.selection.collapse(true);
         }
       });
 
