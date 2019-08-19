@@ -2,7 +2,7 @@
 Contributors: piklist, p51labs, sbruner, jason_the_adams
 Tested up to: 4.9
 Requires at least: 4.0
-Stable tag: 1.0.4
+Stable tag: 1.0.5
 Requires PHP: 5.3
 Donate link: http://piklist.com/get-involved/
 License: GPLv2 or later
@@ -146,6 +146,10 @@ Thank you for wanting to contribute! It helps everyone out!
 
 == Changelog ==
 
+= 1.0.5 =
+
+* FIXED: Posts now saves if no TinyMCE is found on the page. (e.g. when using WPBakery Visual Composer Page editor) (props @xeiter)
+
 = 1.0.4 =
 Release Date: June 15, 2019
 
@@ -184,7 +188,7 @@ Release Date: June 11, 2018
 = 0.11.3 =
 Release Date: June 4, 2018
 
-* FIXED: Multiple images can be removed normally. (prop @alasdaircr)
+* FIXED: Multiple images can be removed normally. (props @alasdaircr)
 
 = 0.11.2 =
 Release Date: May 24, 2018
