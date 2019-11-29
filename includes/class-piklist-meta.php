@@ -228,7 +228,7 @@ class Piklist_Meta
   {
     extract($arguments);
 
-    $textdomain = isset(piklist_add_on::$available_add_ons[$add_on]['TextDomain']) ? piklist_add_on::$available_add_ons[$add_on]['TextDomain'] : null;
+    $textdomain = isset(piklist_add_on::$available_add_ons[$add_on]['text_domain']) ? piklist_add_on::$available_add_ons[$add_on]['text_domain'] : null;
     $title = !empty($data['title']) ? $data['title'] : $id;
     $title = !empty($textdomain) ? __($title, $textdomain) : __($title);
     $types = empty($data['post_type']) ? get_post_types() : $data['post_type'];

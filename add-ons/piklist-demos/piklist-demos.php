@@ -6,7 +6,7 @@ Description: Creates a Demo post type, Taxonomy, Settings Page, User fields, Das
 Version: 0.3
 Author: Piklist
 Author URI: https://piklist.com/
-Text Domain: piklist-demo
+Text Domain: piklist-demos
 Domain Path: /languages
 */
 
@@ -15,9 +15,10 @@ Domain Path: /languages
     exit;
   }
 
-  add_action( 'init', 'piklist_demo_add_post_formats');
-  function piklist_demo_add_post_formats()
+  add_action( 'init', 'piklist_demo_init');
+  function piklist_demo_init()
   {
+	load_plugin_textdomain('piklist-demos', false, 'piklist/add-ons/piklist-demos/languages');
     add_theme_support('post-formats', array('aside', 'gallery', 'link', 'image', 'quote', 'status', 'video', 'audio', 'chat'));
   }
 
