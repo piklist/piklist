@@ -152,7 +152,9 @@ Release Date: December 18, 2019
 * FIXED: Removed Post Status notices on menu screen in WordPress 5.3
 
 = 1.0.5 =
+Release Date: November 29, 2019
 
+* FIXED: Comment block titles are now translatable.
 * FIXED: Posts now saves if no TinyMCE is found on the page. (e.g. when using WPBakery Visual Composer Page editor) (props @xeiter)
 
 = 1.0.4 =
