@@ -712,7 +712,7 @@ class Piklist_CPT
       }
 
     }
-    else
+    elseif (isset($post->post_status))
     {
       $current_status = $post->post_status;
       $post_statuses = self::get_post_statuses_for_type();
