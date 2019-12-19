@@ -147,7 +147,7 @@ Thank you for wanting to contribute! It helps everyone out!
 == Changelog ==
 
 = 1.0.6 =
-Release Date: December 18, 2019
+Release Date: December 19, 2019
 
 * FIXED: Removed Post Status notices on menu screen in WordPress 5.3
 
