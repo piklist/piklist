@@ -12,7 +12,7 @@ License: GPLv2
 */
 
 /*
-  Copyright (c) 2012-2019 Piklist, LLC.
+  Copyright (c) 2012-2020 Piklist, LLC.
   All rights reserved.
 
   This software is distributed under the GNU General Public License, Version 2,
