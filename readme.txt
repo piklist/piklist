@@ -25,7 +25,7 @@ Easy for beginners... built for developers. Piklist helps you build things - fas
 
 Piklist is a rapid development framework for WordPress that will let you concentrate on the main focus of your plugin or theme, and let Piklist handle everything else.
 
-[Watch the Piklist presentation from WordCamp NYC >](http://wordpress.tv/2012/09/04/steve-bruner-and-kevin-miller-building-powerful-websites-and-web-applications-with-piklist/):
+[Watch the Piklist presentation from WordCamp NYC &rarr;](http://wordpress.tv/2012/09/04/steve-bruner-and-kevin-miller-building-powerful-websites-and-web-applications-with-piklist/):
 
 = Piklist makes it easy to: =
 *   Build Fields for Settings page, Widgets, Custom Post Types, Custom Taxonomies and User Profiles with minimal code.
