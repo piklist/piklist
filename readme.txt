@@ -16,8 +16,11 @@ Easy for beginners... built for developers. Piklist helps you build things - fas
 
 == Description ==
 
-= Piklist is the most powerful framework available for WordPress. =
-Easy for beginners... built for developers. Piklist helps you build things - fast.
+### Piklist is the most powerful framework available for WordPress.
+#### Easy for beginners... built for developers. Piklist helps you build things - fast.
+
+= Piklist requires the [Classic Editor](https://wordpress.org/plugins/classic-editor/) plugin to work with the latest version of WordPress. =
+
 
 Piklist is a rapid development framework for WordPress that will let you concentrate on the main focus of your plugin or theme, and let Piklist handle everything else.
 
