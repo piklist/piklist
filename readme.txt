@@ -19,7 +19,9 @@ Easy for beginners... built for developers. Piklist helps you build things - fas
 ### Piklist is the most powerful framework available for WordPress.
 Easy for beginners... built for developers. Piklist helps you build things - fast.
 
-> Piklist 2.0 is coming soon with full Gutenberg support. Until then, please use the [Classic Editor plugin](https://wordpress.org/plugins/classic-editor/) when using WordPress 5.0+
+> Piklist 2.0 is coming soon with full Gutenberg support. Until then, please use the [Classic Editor plugin](https://wordpress.org/plugins/classic-editor/) when using WordPress 5.0+. 
+
+[Stay up to date with Piklist news &rarr;](http://eepurl.com/lkbD9)
 
 Piklist is a rapid development framework for WordPress that will let you concentrate on the main focus of your plugin or theme, and let Piklist handle everything else.
 
@@ -107,7 +109,7 @@ Piklist is a rapid development framework for WordPress that will let you concent
 
 
 > #### Getting Started with Piklist is Easy.
-> <a href="https://piklist.com/user-guide/tutorials/getting-started-with-piklist/">Read our getting started tutorial.</a>
+> <a href="https://docs.piklist.com/getting-started/">Read our getting started tutorial.</a>
 
 == Installation ==
 
