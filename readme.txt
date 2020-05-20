@@ -2,7 +2,7 @@
 Contributors: piklist, p51labs, sbruner, jason_the_adams
 Tested up to: 4.9
 Requires at least: 4.0
-Stable tag: 1.0.6
+Stable tag: 1.0.8
 Requires PHP: 5.3
 Donate link: http://piklist.com/get-involved/
 License: GPLv2 or later
@@ -16,12 +16,16 @@ Easy for beginners... built for developers. Piklist helps you build things - fas
 
 == Description ==
 
-= Piklist is the most powerful framework available for WordPress. =
+### Piklist is the most powerful framework available for WordPress.
 Easy for beginners... built for developers. Piklist helps you build things - fast.
+
+> Piklist 2.0 is coming soon with full Gutenberg support. Until then, please use the [Classic Editor plugin](https://wordpress.org/plugins/classic-editor/) when using WordPress 5.0+. 
+
+[Stay up to date with Piklist news &rarr;](http://eepurl.com/lkbD9)
 
 Piklist is a rapid development framework for WordPress that will let you concentrate on the main focus of your plugin or theme, and let Piklist handle everything else.
 
-[Watch the Piklist presentation from WordCamp NYC >](http://wordpress.tv/2012/09/04/steve-bruner-and-kevin-miller-building-powerful-websites-and-web-applications-with-piklist/):
+[Watch the Piklist presentation from WordCamp NYC &rarr;](http://wordpress.tv/2012/09/04/steve-bruner-and-kevin-miller-building-powerful-websites-and-web-applications-with-piklist/):
 
 = Piklist makes it easy to: =
 *   Build Fields for Settings page, Widgets, Custom Post Types, Custom Taxonomies and User Profiles with minimal code.
@@ -105,7 +109,7 @@ Piklist is a rapid development framework for WordPress that will let you concent
 
 
 > #### Getting Started with Piklist is Easy.
-> <a href="https://piklist.com/user-guide/tutorials/getting-started-with-piklist/">Read our getting started tutorial.</a>
+> <a href="https://docs.piklist.com/getting-started/">Read our getting started tutorial.</a>
 
 == Installation ==
 
@@ -146,8 +150,18 @@ Thank you for wanting to contribute! It helps everyone out!
 
 == Changelog ==
 
+= 1.0.8 =
+Release Date: May 20, 2020
+
+* ENHANCED: Piklist "select" fields look better in newer versions of WordPress.
+
+= 1.0.7 =
+Release Date: April 23, 2020
+
+* FIXED: Workflow notice
+
 = 1.0.6 =
-Release Date: December 18, 2019
+Release Date: December 19, 2019
 
 * FIXED: Removed Post Status notices on menu screen in WordPress 5.3
 
