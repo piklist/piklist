@@ -11,13 +11,14 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: custom, field, fields, forms, framework, flexible, content, meta, boxes, post types, repeater, advanced
 
 Piklist is the most powerful framework available for WordPress.
-Easy for beginners... built for developers. Piklist helps you build things - fast.
+Easy for beginners... built for developers.
+Easily Build Fields, Forms, Settings, Widgets and More.
 
 
 == Description ==
 
 ### Piklist is the most powerful framework available for WordPress.
-Easy for beginners... built for developers. Piklist helps you build things - fast.
+Easy for beginners... built for developers. Easily Build Fields, Forms, Settings, Widgets and More.
 
 > Piklist 2.0 is coming soon with full Gutenberg support. Until then, please use the [Classic Editor plugin](https://wordpress.org/plugins/classic-editor/) when using WordPress 5.0+. 
 
