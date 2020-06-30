@@ -1,4 +1,4 @@
-=== PIKLIST | Rapid development framework ===
+=== PIKLIST - Easily Build Fields, Forms, Settings, Widgets and More. ===
 Contributors: piklist, p51labs, sbruner, jason_the_adams
 Tested up to: 4.9
 Requires at least: 4.0
