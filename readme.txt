@@ -2,7 +2,7 @@
 Contributors: piklist, p51labs, sbruner, jason_the_adams
 Tested up to: 4.9
 Requires at least: 4.0
-Stable tag: 1.0.8
+Stable tag: 1.0.9
 Requires PHP: 5.3
 Donate link: http://piklist.com/get-involved/
 License: GPLv2 or later
@@ -150,6 +150,11 @@ Thank you for wanting to contribute! It helps everyone out!
 4. Ask questions on our <a href="https://piklist.com/support/">Support Forum</a>. (We love hearing from our users)
 
 == Changelog ==
+
+= 1.0.9 =
+Release Date: July 6, 2020
+
+* FIXED: PHP 7.4 notice
 
 = 1.0.8 =
 Release Date: May 20, 2020
