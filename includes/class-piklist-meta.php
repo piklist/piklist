@@ -349,7 +349,7 @@ class Piklist_Meta
         {
           foreach ($wp_meta_boxes[$current_screen->id][$context][$priority] as $meta_box)
           {
-            if ($meta_box['id'] == $part['id'] && (!isset($part['data']['post_type']) || ($part['data']['post_type'] && in_array($current_screen->id, $part['data']['post_type']))))
+			if (!empty($meta_box['id']) && !empty($part['id']) && $meta_box['id'] == $part['id'] && (!isset($part['data']['post_type']) || ($part['data']['post_type'] && in_array($current_screen->id, $part['data']['post_type']))))
             {
               if (is_array($part['render']) && !in_array($meta_box, $part['render']))
               {
