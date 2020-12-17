@@ -2,7 +2,7 @@
 Contributors: piklist, p51labs, sbruner, jason_the_adams
 Tested up to: 4.9
 Requires at least: 4.0
-Stable tag: 1.0.10
+Stable tag: 1.0.11
 Requires PHP: 5.3
 Tags: custom field, custom fields, forms, framework, flexible, content, meta boxes, post types, repeater, advanced
 Donate link: http://piklist.com/get-involved/
@@ -150,6 +150,11 @@ Thank you for wanting to contribute! It helps everyone out!
 4. Ask questions on our <a href="https://piklist.com/support/">Support Forum</a>. (We love hearing from our users)
 
 == Changelog ==
+
+= 1.0.11 =
+Release Date: December 17, 2020
+
+* FIXED: PHP 7.4 notice for bool error
 
 = 1.0.10 =
 Release Date: September 9, 2020

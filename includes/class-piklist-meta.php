@@ -123,16 +123,19 @@ class Piklist_Meta
         {
           foreach ($wp_meta_boxes[$page][$context][$priority] as $order => $meta_box)
           {
-            if ($meta_box['id'] == $id)
+            if(!is_null($meta_box['id']))
             {
-              if ($action == 'remove')
+              if ($meta_box['id'] == $id)
               {
-                unset($wp_meta_boxes[$page][$context][$priority][$order]);
+                if ($action == 'remove')
+                {
+                  unset($wp_meta_boxes[$page][$context][$priority][$order]);
 
-                return $order;
+                  return $order;
+                }
+
+                $check = true;
               }
-
-              $check = true;
             }
           }
         }
