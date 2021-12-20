@@ -181,16 +181,6 @@ class Piklist_Admin
       ,'admin' => true
     ));
 
-    array_push($assets['styles'], array(
-      'handle' => 'piklist-dashicons'
-      ,'src' => piklist::$add_ons['piklist']['url'] . '/parts/fonts/dashicons.css'
-      ,'ver' => '20140105'
-      ,'enqueue' => true
-      ,'in_footer' => false
-      ,'media' => 'screen, projection'
-      ,'admin' => true
-    ));
-
     return $assets;
   }
 
