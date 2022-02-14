@@ -11,7 +11,8 @@ Today, we are announcing that Piklist is officially shutting down. The plugin wi
 * Website / Support: https://piklist.github.io/site/
 * Documentation: https://piklist.github.io/docs/
 * Code: https://github.com/piklist/piklist
-* 
+
+
 This was a very tough decision to make. You have been unbelievably supportive and dedicated, and we can't thank you enough for using Piklist over the last nine years.
 
 Thank you,
