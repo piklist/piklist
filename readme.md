@@ -1,4 +1,4 @@
-# Piklist is shutting down
+# Piklist Update
 
 On June 12, 2012, at WordCampNYC, we announced Piklist. Developers were awed by its power, and beginners were amazed by how simple it was to use.
 
