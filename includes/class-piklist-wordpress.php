@@ -97,7 +97,7 @@ class Piklist_WordPress
   public static function _construct()
   {
     add_action('pre_user_query', array('piklist_wordpress', 'pre_user_query'));
-    add_action('posts_where', array('piklist_wordpress', 'relation_taxonomy'));
+    add_action('posts_where', array('piklist_wordpress', 'relation_taxonomy'), 10, 2);
     add_action('wp_scheduled_delete', array('piklist_wordpress', 'garbage_collection'));
     add_action('pre_get_posts', array('piklist_wordpress', 'pre_get_posts'));
     add_action('piklist_pre_render_workflow', array('piklist_wordpress', 'pre_render_workflow'));
@@ -514,7 +514,7 @@ class Piklist_WordPress
         }
       }
     }
-    
+
     return $sql;
   }
 
@@ -596,6 +596,7 @@ class Piklist_WordPress
    * Applies a taxonomy relation.
    *
    * @param string $where The current where clause.
+   * @param WP_Query $wp_query Current WP_Query object, passed by reference.
    *
    * @return string The new where clause.
    *
@@ -603,11 +604,11 @@ class Piklist_WordPress
    * @static
    * @since 1.0
    */
-  public static function relation_taxonomy($where)
+  public static function relation_taxonomy($where, $wp_query)
   {
     global $wpdb;
 
-    $taxonomy_relation = get_query_var('taxonomy_relation');
+    $taxonomy_relation = $wp_query->get('taxonomy_relation');
 
     if ($taxonomy_relation)
     {
@@ -682,7 +683,7 @@ class Piklist_WordPress
   public static function pre_render_workflow($active_tab)
   {
     global $pagenow, $typenow;
-    
+
     if (isset($active_tab['data']['default_form']) && !$active_tab['data']['default_form'])
     {
       $type = null;
@@ -731,7 +732,7 @@ class Piklist_WordPress
 
     return $data;
   }
-  
+
   /**
    * piklist_part_data_parameter
    * Checks the default form variable and casts its value
