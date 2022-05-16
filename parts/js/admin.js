@@ -382,7 +382,7 @@
           frame_in_frame = window.location != window.parent.location,
           content = editor && !frame_in_frame ? editor.selection.getContent({format : 'html'}) : null,
           url = location.href,
-          editor_url = url.substr(0, url.indexOf('/wp-')) + '/wp-admin/admin.php',
+          editor_url = url.substr(0, url.indexOf('/wp-admin')) + '/wp-admin/admin.php',
           attributes = {
             page: 'shortcode_editor'
           };
