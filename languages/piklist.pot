@@ -1,0 +1,4278 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"Project-Id-Version: Piklist\n"
+"POT-Creation-Date: 2019-11-29 16:45-0500\n"
+"PO-Revision-Date: 2019-11-29 16:45-0500\n"
+"Last-Translator: SlipFire <team@slipfire.com>\n"
+"Language-Team: SlipFire <team@slipfire.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.12\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-WPHeader: piklist.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: add-ons/piklist-demos/parts/admin-pages/reading-settings.php:9
+msgid "This settings page is a reproduction of the WordPress"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/admin-pages/reading-settings.php:9
+#: includes/class-piklist-admin.php:649 includes/class-piklist-setting.php:95
+#: includes/class-piklist-setting.php:637 parts/fields/add-ons.php:45
+msgid "Settings"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/admin-pages/reading-settings.php:9
+msgid "Reading"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/admin-pages/reading-settings.php:9
+msgid "Page"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/admin-pages/reading-settings.php:12
+msgid "IMPORTANT"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/admin-pages/reading-settings.php:12
+msgid ""
+"Changes you make on this page, will effect your site as if you are making "
+"changes to the original Reading Settings page."
+msgstr ""
+
+#: add-ons/piklist-demos/parts/admin-pages/reading-settings.php:16
+msgid ""
+"Using Piklist you can recreate almost any form with ease. In this case we "
+"have recreated the Reading Settings page and even made it a little more "
+"responsive!"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/dashboard/dashboard-piklist-news.php:24
+msgid "No items"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/dashboard/extend-dashboard_activity.php:13
+#: add-ons/piklist-demos/parts/help/extend-help.php:10
+msgid "This dashboard widget has been extended with Piklist."
+msgstr ""
+
+#: add-ons/piklist-demos/parts/forms/new-post-with-validation.php:43
+#: add-ons/piklist-demos/parts/widgets/advanced-form.php:121
+msgid "Title"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/forms/new-post-with-validation.php:57
+msgid "Post Status"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/forms/new-post-with-validation.php:83
+#: add-ons/piklist-demos/parts/meta-boxes/field-taxonomies.php:24
+#: add-ons/piklist-demos/parts/users/user-taxonomies.php:15
+msgid "Demo Types"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/forms/new-post-with-validation.php:84
+#: add-ons/piklist-demos/parts/meta-boxes/field-taxonomies.php:25
+#, php-format
+msgid "Terms will appear when they are added to %1$s the Demo taxonomy %2$s."
+msgstr ""
+
+#: add-ons/piklist-demos/parts/forms/new-post-with-validation.php:101
+#: add-ons/piklist-demos/parts/media/field-validate.php:12
+#: add-ons/piklist-demos/parts/meta-boxes/field-add-more-three-levels.php:15
+#: add-ons/piklist-demos/parts/meta-boxes/field-validate-basic.php:14
+#: add-ons/piklist-demos/parts/settings/field-validate.php:13
+#: add-ons/piklist-demos/parts/terms/field-validate.php:13
+#: add-ons/piklist-demos/parts/users/field-validate.php:12
+#: add-ons/piklist-demos/parts/widgets/validation-form.php:6
+msgid "Text Required"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/forms/new-post-with-validation.php:105
+#: add-ons/piklist-demos/parts/media/field-validate.php:16
+#: add-ons/piklist-demos/parts/meta-boxes/field-add-more-three-levels.php:19
+#: add-ons/piklist-demos/parts/meta-boxes/field-validate-basic.php:18
+#: add-ons/piklist-demos/parts/settings/field-validate.php:17
+#: add-ons/piklist-demos/parts/terms/field-validate.php:17
+#: add-ons/piklist-demos/parts/users/field-validate.php:16
+msgid "Enter text or this page won't save."
+msgstr ""
+
+#: add-ons/piklist-demos/parts/forms/new-post-with-validation.php:124
+#: add-ons/piklist-demos/parts/media/field-validate.php:51
+#: add-ons/piklist-demos/parts/meta-boxes/field-validate-basic.php:53
+#: add-ons/piklist-demos/parts/settings/field-validate.php:52
+#: add-ons/piklist-demos/parts/terms/field-validate.php:52
+#: add-ons/piklist-demos/parts/users/field-validate.php:51
+#: add-ons/piklist-demos/parts/widgets/validation-form.php:34
+msgid "Group Required"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/forms/new-post-with-validation.php:125
+#: add-ons/piklist-demos/parts/media/field-validate.php:52
+#: add-ons/piklist-demos/parts/meta-boxes/field-validate-basic.php:54
+#: add-ons/piklist-demos/parts/settings/field-validate.php:53
+#: add-ons/piklist-demos/parts/terms/field-validate.php:53
+#: add-ons/piklist-demos/parts/users/field-validate.php:52
+msgid "Only the checkbox is required"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/forms/new-post-with-validation.php:160
+#: add-ons/piklist-demos/parts/media/field-validate.php:79
+#: add-ons/piklist-demos/parts/meta-boxes/field-validate-basic.php:86
+#: add-ons/piklist-demos/parts/settings/field-validate.php:80
+#: add-ons/piklist-demos/parts/terms/field-validate.php:80
+#: add-ons/piklist-demos/parts/users/field-validate.php:79
+#: add-ons/piklist-demos/parts/widgets/validation-form.php:61
+msgid "File Name"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/forms/new-post-with-validation.php:162
+#: add-ons/piklist-demos/parts/media/field-validate.php:81
+#: add-ons/piklist-demos/parts/meta-boxes/field-validate-basic.php:88
+#: add-ons/piklist-demos/parts/settings/field-validate.php:82
+#: add-ons/piklist-demos/parts/terms/field-validate.php:82
+#: add-ons/piklist-demos/parts/users/field-validate.php:81
+#: add-ons/piklist-demos/parts/widgets/validation-form.php:63
+msgid "Converts multiple words to a valid file name"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/forms/new-post-with-validation.php:178
+#: add-ons/piklist-demos/parts/media/field-validate.php:95
+#: add-ons/piklist-demos/parts/meta-boxes/field-validate-basic.php:102
+#: add-ons/piklist-demos/parts/settings/field-validate.php:96
+#: add-ons/piklist-demos/parts/terms/field-validate.php:96
+#: add-ons/piklist-demos/parts/users/field-validate.php:95
+#: add-ons/piklist-demos/parts/widgets/validation-form.php:77
+#: includes/class-piklist-validate.php:1409
+msgid "Email address"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/forms/new-post-with-validation.php:179
+#: add-ons/piklist-demos/parts/media/field-validate.php:96
+#: add-ons/piklist-demos/parts/meta-boxes/field-validate-basic.php:103
+#: add-ons/piklist-demos/parts/settings/field-validate.php:97
+#: add-ons/piklist-demos/parts/terms/field-validate.php:97
+#: add-ons/piklist-demos/parts/users/field-validate.php:96
+#: add-ons/piklist-demos/parts/widgets/validation-form.php:78
+msgid "Validate Email and Email Domain"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/forms/new-post-with-validation.php:198
+#: add-ons/piklist-demos/parts/media/field-validate.php:113
+#: add-ons/piklist-demos/parts/meta-boxes/field-validate-basic.php:120
+#: add-ons/piklist-demos/parts/settings/field-validate.php:114
+#: add-ons/piklist-demos/parts/terms/field-validate.php:114
+#: add-ons/piklist-demos/parts/users/field-validate.php:113
+#: add-ons/piklist-demos/parts/widgets/validation-form.php:95
+msgid "File exists?"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/forms/new-post-with-validation.php:199
+#: add-ons/piklist-demos/parts/forms/new-post-with-validation.php:216
+#: add-ons/piklist-demos/parts/media/field-validate.php:114
+#: add-ons/piklist-demos/parts/media/field-validate.php:129
+#: add-ons/piklist-demos/parts/meta-boxes/field-validate-basic.php:121
+#: add-ons/piklist-demos/parts/meta-boxes/field-validate-basic.php:136
+#: add-ons/piklist-demos/parts/settings/field-validate.php:115
+#: add-ons/piklist-demos/parts/settings/field-validate.php:130
+#: add-ons/piklist-demos/parts/terms/field-validate.php:115
+#: add-ons/piklist-demos/parts/terms/field-validate.php:130
+#: add-ons/piklist-demos/parts/users/field-validate.php:114
+#: add-ons/piklist-demos/parts/users/field-validate.php:129
+#: add-ons/piklist-demos/parts/widgets/validation-form.php:96
+#: add-ons/piklist-demos/parts/widgets/validation-form.php:112
+#, php-format
+msgid "Test with: %s"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/forms/new-post-with-validation.php:215
+#: add-ons/piklist-demos/parts/media/field-add-more-two-levels.php:146
+#: add-ons/piklist-demos/parts/media/field-validate.php:128
+#: add-ons/piklist-demos/parts/meta-boxes/field-add-more-two-levels.php:148
+#: add-ons/piklist-demos/parts/meta-boxes/field-validate-basic.php:135
+#: add-ons/piklist-demos/parts/settings/field-add-more-two-levels.php:147
+#: add-ons/piklist-demos/parts/settings/field-validate.php:129
+#: add-ons/piklist-demos/parts/terms/field-add-more-two-levels.php:148
+#: add-ons/piklist-demos/parts/terms/field-validate.php:129
+#: add-ons/piklist-demos/parts/users/field-add-more-two-levels.php:146
+#: add-ons/piklist-demos/parts/users/field-validate.php:128
+#: add-ons/piklist-demos/parts/widgets/validation-form.php:111
+msgid "Image"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/forms/new-post-with-validation.php:232
+#: add-ons/piklist-demos/parts/media/field-add-more-single-level.php:343
+#: add-ons/piklist-demos/parts/media/field-checkbox.php:13
+#: add-ons/piklist-demos/parts/media/field-validate.php:143
+#: add-ons/piklist-demos/parts/meta-boxes/field-add-more-single-level.php:341
+#: add-ons/piklist-demos/parts/meta-boxes/field-checkbox.php:14
+#: add-ons/piklist-demos/parts/meta-boxes/field-validate-basic.php:150
+#: add-ons/piklist-demos/parts/settings/field-add-more-single-level.php:238
+#: add-ons/piklist-demos/parts/settings/field-checkbox.php:14
+#: add-ons/piklist-demos/parts/settings/field-validate.php:144
+#: add-ons/piklist-demos/parts/terms/field-add-more-single-level.php:261
+#: add-ons/piklist-demos/parts/terms/field-checkbox.php:14
+#: add-ons/piklist-demos/parts/terms/field-new-form.php:12
+#: add-ons/piklist-demos/parts/terms/field-validate.php:144
+#: add-ons/piklist-demos/parts/users/field-add-more-single-level.php:343
+#: add-ons/piklist-demos/parts/users/field-checkbox.php:13
+#: add-ons/piklist-demos/parts/users/field-validate.php:143
+#: add-ons/piklist-demos/parts/widgets/group-form.php:107
+#: add-ons/piklist-demos/parts/widgets/group-form.php:169
+#: add-ons/piklist-demos/parts/widgets/lists-form.php:62
+#: add-ons/piklist-demos/parts/widgets/validation-form.php:126
+msgid "Checkbox"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/forms/new-post-with-validation.php:236
+#: add-ons/piklist-demos/parts/media/field-multiselect.php:16
+#: add-ons/piklist-demos/parts/media/field-multiselect.php:32
+#: add-ons/piklist-demos/parts/media/field-radio.php:16
+#: add-ons/piklist-demos/parts/media/field-radio.php:29
+#: add-ons/piklist-demos/parts/media/field-radio.php:59
+#: add-ons/piklist-demos/parts/media/field-radio.php:71
+#: add-ons/piklist-demos/parts/media/field-radio.php:86
+#: add-ons/piklist-demos/parts/media/field-select.php:16
+#: add-ons/piklist-demos/parts/media/field-select.php:29
+#: add-ons/piklist-demos/parts/media/field-validate.php:147
+#: add-ons/piklist-demos/parts/meta-boxes/field-multiselect.php:17
+#: add-ons/piklist-demos/parts/meta-boxes/field-multiselect.php:33
+#: add-ons/piklist-demos/parts/meta-boxes/field-radio.php:17
+#: add-ons/piklist-demos/parts/meta-boxes/field-radio.php:30
+#: add-ons/piklist-demos/parts/meta-boxes/field-radio.php:60
+#: add-ons/piklist-demos/parts/meta-boxes/field-radio.php:72
+#: add-ons/piklist-demos/parts/meta-boxes/field-radio.php:87
+#: add-ons/piklist-demos/parts/meta-boxes/field-select.php:17
+#: add-ons/piklist-demos/parts/meta-boxes/field-select.php:30
+#: add-ons/piklist-demos/parts/meta-boxes/field-select.php:43
+#: add-ons/piklist-demos/parts/meta-boxes/field-select.php:48
+#: add-ons/piklist-demos/parts/meta-boxes/field-validate-basic.php:154
+#: add-ons/piklist-demos/parts/settings/field-multiselect.php:17
+#: add-ons/piklist-demos/parts/settings/field-multiselect.php:33
+#: add-ons/piklist-demos/parts/settings/field-radio.php:17
+#: add-ons/piklist-demos/parts/settings/field-radio.php:30
+#: add-ons/piklist-demos/parts/settings/field-radio.php:60
+#: add-ons/piklist-demos/parts/settings/field-radio.php:72
+#: add-ons/piklist-demos/parts/settings/field-radio.php:87
+#: add-ons/piklist-demos/parts/settings/field-select.php:17
+#: add-ons/piklist-demos/parts/settings/field-select.php:30
+#: add-ons/piklist-demos/parts/settings/field-validate.php:148
+#: add-ons/piklist-demos/parts/terms/field-multiselect.php:17
+#: add-ons/piklist-demos/parts/terms/field-multiselect.php:33
+#: add-ons/piklist-demos/parts/terms/field-radio.php:17
+#: add-ons/piklist-demos/parts/terms/field-radio.php:30
+#: add-ons/piklist-demos/parts/terms/field-radio.php:60
+#: add-ons/piklist-demos/parts/terms/field-radio.php:72
+#: add-ons/piklist-demos/parts/terms/field-radio.php:87
+#: add-ons/piklist-demos/parts/terms/field-select.php:17
+#: add-ons/piklist-demos/parts/terms/field-select.php:30
+#: add-ons/piklist-demos/parts/terms/field-validate.php:148
+#: add-ons/piklist-demos/parts/users/field-multiselect.php:16
+#: add-ons/piklist-demos/parts/users/field-multiselect.php:32
+#: add-ons/piklist-demos/parts/users/field-radio.php:16
+#: add-ons/piklist-demos/parts/users/field-radio.php:29
+#: add-ons/piklist-demos/parts/users/field-radio.php:59
+#: add-ons/piklist-demos/parts/users/field-radio.php:71
+#: add-ons/piklist-demos/parts/users/field-radio.php:86
+#: add-ons/piklist-demos/parts/users/field-select.php:16
+#: add-ons/piklist-demos/parts/users/field-select.php:29
+#: add-ons/piklist-demos/parts/users/field-validate.php:147
+#: add-ons/piklist-demos/parts/widgets/group-form.php:110
+#: add-ons/piklist-demos/parts/widgets/group-form.php:172
+#: add-ons/piklist-demos/parts/widgets/lists-form.php:9
+#: add-ons/piklist-demos/parts/widgets/lists-form.php:25
+#: add-ons/piklist-demos/parts/widgets/lists-form.php:40
+#: add-ons/piklist-demos/parts/widgets/lists-form.php:53
+#: add-ons/piklist-demos/parts/widgets/lists-form.php:66
+#: add-ons/piklist-demos/parts/widgets/lists-form.php:80
+#: add-ons/piklist-demos/parts/widgets/lists-form.php:143
+#: add-ons/piklist-demos/parts/widgets/lists-form.php:167
+#: add-ons/piklist-demos/parts/widgets/lists-form.php:181
+#: add-ons/piklist-demos/parts/widgets/lists-form.php:240
+#: add-ons/piklist-demos/parts/widgets/validation-form.php:130
+msgid "First Choice"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/forms/new-post-with-validation.php:237
+#: add-ons/piklist-demos/parts/media/field-multiselect.php:17
+#: add-ons/piklist-demos/parts/media/field-multiselect.php:33
+#: add-ons/piklist-demos/parts/media/field-radio.php:17
+#: add-ons/piklist-demos/parts/media/field-radio.php:30
+#: add-ons/piklist-demos/parts/media/field-radio.php:72
+#: add-ons/piklist-demos/parts/media/field-select.php:17
+#: add-ons/piklist-demos/parts/media/field-select.php:30
+#: add-ons/piklist-demos/parts/media/field-validate.php:148
+#: add-ons/piklist-demos/parts/meta-boxes/field-multiselect.php:18
+#: add-ons/piklist-demos/parts/meta-boxes/field-multiselect.php:34
+#: add-ons/piklist-demos/parts/meta-boxes/field-radio.php:18
+#: add-ons/piklist-demos/parts/meta-boxes/field-radio.php:31
+#: add-ons/piklist-demos/parts/meta-boxes/field-radio.php:73
+#: add-ons/piklist-demos/parts/meta-boxes/field-select.php:18
+#: add-ons/piklist-demos/parts/meta-boxes/field-select.php:31
+#: add-ons/piklist-demos/parts/meta-boxes/field-select.php:44
+#: add-ons/piklist-demos/parts/meta-boxes/field-select.php:49
+#: add-ons/piklist-demos/parts/meta-boxes/field-validate-basic.php:155
+#: add-ons/piklist-demos/parts/settings/field-multiselect.php:18
+#: add-ons/piklist-demos/parts/settings/field-multiselect.php:34
+#: add-ons/piklist-demos/parts/settings/field-radio.php:18
+#: add-ons/piklist-demos/parts/settings/field-radio.php:31
+#: add-ons/piklist-demos/parts/settings/field-radio.php:73
+#: add-ons/piklist-demos/parts/settings/field-select.php:18
+#: add-ons/piklist-demos/parts/settings/field-select.php:31
+#: add-ons/piklist-demos/parts/settings/field-validate.php:149
+#: add-ons/piklist-demos/parts/terms/field-multiselect.php:18
+#: add-ons/piklist-demos/parts/terms/field-multiselect.php:34
+#: add-ons/piklist-demos/parts/terms/field-radio.php:18
+#: add-ons/piklist-demos/parts/terms/field-radio.php:31
+#: add-ons/piklist-demos/parts/terms/field-radio.php:73
+#: add-ons/piklist-demos/parts/terms/field-select.php:18
+#: add-ons/piklist-demos/parts/terms/field-select.php:31
+#: add-ons/piklist-demos/parts/terms/field-validate.php:149
+#: add-ons/piklist-demos/parts/users/field-multiselect.php:17
+#: add-ons/piklist-demos/parts/users/field-multiselect.php:33
+#: add-ons/piklist-demos/parts/users/field-radio.php:17
+#: add-ons/piklist-demos/parts/users/field-radio.php:30
+#: add-ons/piklist-demos/parts/users/field-radio.php:72
+#: add-ons/piklist-demos/parts/users/field-select.php:17
+#: add-ons/piklist-demos/parts/users/field-select.php:30
+#: add-ons/piklist-demos/parts/users/field-validate.php:148
+#: add-ons/piklist-demos/parts/widgets/group-form.php:111
+#: add-ons/piklist-demos/parts/widgets/group-form.php:173
+#: add-ons/piklist-demos/parts/widgets/lists-form.php:10
+#: add-ons/piklist-demos/parts/widgets/lists-form.php:26
+#: add-ons/piklist-demos/parts/widgets/lists-form.php:41
+#: add-ons/piklist-demos/parts/widgets/lists-form.php:54
+#: add-ons/piklist-demos/parts/widgets/lists-form.php:67
+#: add-ons/piklist-demos/parts/widgets/lists-form.php:81
+#: add-ons/piklist-demos/parts/widgets/lists-form.php:168
+#: add-ons/piklist-demos/parts/widgets/lists-form.php:182
+#: add-ons/piklist-demos/parts/widgets/validation-form.php:131
+msgid "Second Choice"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/forms/new-post-with-validation.php:238
+#: add-ons/piklist-demos/parts/media/field-multiselect.php:18
+#: add-ons/piklist-demos/parts/media/field-multiselect.php:34
+#: add-ons/piklist-demos/parts/media/field-radio.php:18
+#: add-ons/piklist-demos/parts/media/field-radio.php:31
+#: add-ons/piklist-demos/parts/media/field-radio.php:60
+#: add-ons/piklist-demos/parts/media/field-radio.php:73
+#: add-ons/piklist-demos/parts/media/field-radio.php:88
+#: add-ons/piklist-demos/parts/media/field-select.php:18
+#: add-ons/piklist-demos/parts/media/field-select.php:31
+#: add-ons/piklist-demos/parts/media/field-validate.php:149
+#: add-ons/piklist-demos/parts/meta-boxes/field-multiselect.php:19
+#: add-ons/piklist-demos/parts/meta-boxes/field-multiselect.php:35
+#: add-ons/piklist-demos/parts/meta-boxes/field-radio.php:19
+#: add-ons/piklist-demos/parts/meta-boxes/field-radio.php:32
+#: add-ons/piklist-demos/parts/meta-boxes/field-radio.php:61
+#: add-ons/piklist-demos/parts/meta-boxes/field-radio.php:74
+#: add-ons/piklist-demos/parts/meta-boxes/field-radio.php:89
+#: add-ons/piklist-demos/parts/meta-boxes/field-select.php:19
+#: add-ons/piklist-demos/parts/meta-boxes/field-select.php:32
+#: add-ons/piklist-demos/parts/meta-boxes/field-select.php:45
+#: add-ons/piklist-demos/parts/meta-boxes/field-select.php:50
+#: add-ons/piklist-demos/parts/meta-boxes/field-validate-basic.php:156
+#: add-ons/piklist-demos/parts/settings/field-multiselect.php:19
+#: add-ons/piklist-demos/parts/settings/field-multiselect.php:35
+#: add-ons/piklist-demos/parts/settings/field-radio.php:19
+#: add-ons/piklist-demos/parts/settings/field-radio.php:32
+#: add-ons/piklist-demos/parts/settings/field-radio.php:61
+#: add-ons/piklist-demos/parts/settings/field-radio.php:74
+#: add-ons/piklist-demos/parts/settings/field-radio.php:89
+#: add-ons/piklist-demos/parts/settings/field-select.php:19
+#: add-ons/piklist-demos/parts/settings/field-select.php:32
+#: add-ons/piklist-demos/parts/settings/field-validate.php:150
+#: add-ons/piklist-demos/parts/terms/field-multiselect.php:19
+#: add-ons/piklist-demos/parts/terms/field-multiselect.php:35
+#: add-ons/piklist-demos/parts/terms/field-radio.php:19
+#: add-ons/piklist-demos/parts/terms/field-radio.php:32
+#: add-ons/piklist-demos/parts/terms/field-radio.php:61
+#: add-ons/piklist-demos/parts/terms/field-radio.php:74
+#: add-ons/piklist-demos/parts/terms/field-radio.php:89
+#: add-ons/piklist-demos/parts/terms/field-select.php:19
+#: add-ons/piklist-demos/parts/terms/field-select.php:32
+#: add-ons/piklist-demos/parts/terms/field-validate.php:150
+#: add-ons/piklist-demos/parts/users/field-multiselect.php:18
+#: add-ons/piklist-demos/parts/users/field-multiselect.php:34
+#: add-ons/piklist-demos/parts/users/field-radio.php:18
+#: add-ons/piklist-demos/parts/users/field-radio.php:31
+#: add-ons/piklist-demos/parts/users/field-radio.php:60
+#: add-ons/piklist-demos/parts/users/field-radio.php:73
+#: add-ons/piklist-demos/parts/users/field-radio.php:88
+#: add-ons/piklist-demos/parts/users/field-select.php:18
+#: add-ons/piklist-demos/parts/users/field-select.php:31
+#: add-ons/piklist-demos/parts/users/field-validate.php:149
+#: add-ons/piklist-demos/parts/widgets/group-form.php:112
+#: add-ons/piklist-demos/parts/widgets/group-form.php:174
+#: add-ons/piklist-demos/parts/widgets/lists-form.php:11
+#: add-ons/piklist-demos/parts/widgets/lists-form.php:27
+#: add-ons/piklist-demos/parts/widgets/lists-form.php:42
+#: add-ons/piklist-demos/parts/widgets/lists-form.php:55
+#: add-ons/piklist-demos/parts/widgets/lists-form.php:68
+#: add-ons/piklist-demos/parts/widgets/lists-form.php:82
+#: add-ons/piklist-demos/parts/widgets/lists-form.php:145
+#: add-ons/piklist-demos/parts/widgets/lists-form.php:169
+#: add-ons/piklist-demos/parts/widgets/lists-form.php:183
+#: add-ons/piklist-demos/parts/widgets/lists-form.php:242
+#: add-ons/piklist-demos/parts/widgets/validation-form.php:132
+msgid "Third Choice"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/forms/new-post-with-validation.php:259
+#: add-ons/piklist-demos/parts/forms/new-post-with-validation.php:263
+#: add-ons/piklist-demos/parts/media/field-add-more-single-level.php:299
+#: add-ons/piklist-demos/parts/media/field-add-more-single-level.php:326
+#: add-ons/piklist-demos/parts/media/field-upload.php:38
+#: add-ons/piklist-demos/parts/media/field-validate.php:166
+#: add-ons/piklist-demos/parts/media/field-validate.php:170
+#: add-ons/piklist-demos/parts/meta-boxes/field-add-more-single-level.php:302
+#: add-ons/piklist-demos/parts/meta-boxes/field-add-more-single-level.php:324
+#: add-ons/piklist-demos/parts/meta-boxes/field-upload.php:39
+#: add-ons/piklist-demos/parts/meta-boxes/field-validate-basic.php:173
+#: add-ons/piklist-demos/parts/meta-boxes/field-validate-basic.php:177
+#: add-ons/piklist-demos/parts/settings/field-add-more-single-level.php:194
+#: add-ons/piklist-demos/parts/settings/field-add-more-single-level.php:221
+#: add-ons/piklist-demos/parts/settings/field-upload.php:37
+#: add-ons/piklist-demos/parts/settings/field-validate.php:167
+#: add-ons/piklist-demos/parts/settings/field-validate.php:171
+#: add-ons/piklist-demos/parts/terms/field-upload.php:37
+#: add-ons/piklist-demos/parts/terms/field-validate.php:167
+#: add-ons/piklist-demos/parts/terms/field-validate.php:171
+#: add-ons/piklist-demos/parts/users/field-add-more-single-level.php:299
+#: add-ons/piklist-demos/parts/users/field-add-more-single-level.php:326
+#: add-ons/piklist-demos/parts/users/field-upload.php:36
+#: add-ons/piklist-demos/parts/users/field-validate.php:166
+#: add-ons/piklist-demos/parts/users/field-validate.php:170
+#: add-ons/piklist-demos/parts/widgets/advanced-form.php:283
+#: add-ons/piklist-demos/parts/widgets/advanced-form.php:307
+#: add-ons/piklist-demos/parts/widgets/basic-form.php:62
+#: add-ons/piklist-demos/parts/widgets/basic-form.php:65
+#: add-ons/piklist-demos/parts/widgets/validation-form.php:149
+#: add-ons/piklist-demos/parts/widgets/validation-form.php:152
+msgid "Add File(s)"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/forms/new-post-with-validation.php:260
+#: add-ons/piklist-demos/parts/media/field-validate.php:167
+#: add-ons/piklist-demos/parts/meta-boxes/field-validate-basic.php:174
+#: add-ons/piklist-demos/parts/settings/field-validate.php:168
+#: add-ons/piklist-demos/parts/terms/field-validate.php:168
+#: add-ons/piklist-demos/parts/users/field-validate.php:167
+msgid "No more than one file is allowed"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/forms/new-post-with-validation.php:264
+#: add-ons/piklist-demos/parts/media/field-add-more-single-level.php:300
+#: add-ons/piklist-demos/parts/media/field-add-more-single-level.php:327
+#: add-ons/piklist-demos/parts/media/field-upload.php:39
+#: add-ons/piklist-demos/parts/media/field-validate.php:171
+#: add-ons/piklist-demos/parts/meta-boxes/field-add-more-single-level.php:303
+#: add-ons/piklist-demos/parts/meta-boxes/field-add-more-single-level.php:325
+#: add-ons/piklist-demos/parts/meta-boxes/field-upload.php:40
+#: add-ons/piklist-demos/parts/meta-boxes/field-validate-basic.php:178
+#: add-ons/piklist-demos/parts/settings/field-add-more-single-level.php:195
+#: add-ons/piklist-demos/parts/settings/field-add-more-single-level.php:222
+#: add-ons/piklist-demos/parts/settings/field-upload.php:38
+#: add-ons/piklist-demos/parts/settings/field-validate.php:172
+#: add-ons/piklist-demos/parts/terms/field-upload.php:38
+#: add-ons/piklist-demos/parts/terms/field-validate.php:172
+#: add-ons/piklist-demos/parts/users/field-add-more-single-level.php:300
+#: add-ons/piklist-demos/parts/users/field-add-more-single-level.php:327
+#: add-ons/piklist-demos/parts/users/field-upload.php:37
+#: add-ons/piklist-demos/parts/users/field-validate.php:171
+#: add-ons/piklist-demos/parts/widgets/advanced-form.php:284
+#: add-ons/piklist-demos/parts/widgets/advanced-form.php:308
+#: add-ons/piklist-demos/parts/widgets/basic-form.php:66
+#: add-ons/piklist-demos/parts/widgets/validation-form.php:153
+msgid "Add"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/forms/new-post-with-validation.php:286
+#: add-ons/piklist-demos/parts/media/field-validate.php:191
+#: add-ons/piklist-demos/parts/meta-boxes/field-validate-basic.php:198
+#: add-ons/piklist-demos/parts/settings/field-validate.php:192
+#: add-ons/piklist-demos/parts/terms/field-validate.php:192
+#: add-ons/piklist-demos/parts/users/field-validate.php:191
+#: add-ons/piklist-demos/parts/widgets/validation-form.php:174
+msgid "Grouped/Add more with Limit"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/forms/new-post-with-validation.php:287
+#: add-ons/piklist-demos/parts/media/field-validate.php:192
+#: add-ons/piklist-demos/parts/meta-boxes/field-validate-basic.php:199
+#: add-ons/piklist-demos/parts/settings/field-validate.php:193
+#: add-ons/piklist-demos/parts/terms/field-validate.php:193
+#: add-ons/piklist-demos/parts/users/field-validate.php:192
+msgid "No more than two add mores are allowed"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/forms/new-post-with-validation.php:295
+#: add-ons/piklist-demos/parts/media/field-validate.php:197
+#: add-ons/piklist-demos/parts/meta-boxes/field-validate-basic.php:204
+#: add-ons/piklist-demos/parts/settings/field-validate.php:198
+#: add-ons/piklist-demos/parts/terms/field-validate.php:198
+#: add-ons/piklist-demos/parts/users/field-validate.php:197
+#: add-ons/piklist-demos/parts/widgets/validation-form.php:180
+msgid "Field 1"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/forms/new-post-with-validation.php:304
+#: add-ons/piklist-demos/parts/media/field-validate.php:203
+#: add-ons/piklist-demos/parts/meta-boxes/field-validate-basic.php:210
+#: add-ons/piklist-demos/parts/settings/field-validate.php:204
+#: add-ons/piklist-demos/parts/terms/field-validate.php:204
+#: add-ons/piklist-demos/parts/users/field-validate.php:203
+#: add-ons/piklist-demos/parts/widgets/validation-form.php:186
+msgid "Field 2"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/forms/reading-settings.php:20
+#, php-format
+msgid "#%d (no title)"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/forms/user-profile.php:29
+msgid "Edit your profile."
+msgstr ""
+
+#: add-ons/piklist-demos/parts/forms/user-profile.php:37
+msgid "User login"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/forms/user-profile.php:48
+#: add-ons/piklist-demos/parts/forms/user-register.php:71
+msgid "New Password"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/forms/user-profile.php:60
+#: add-ons/piklist-demos/parts/forms/user-register.php:84
+msgid "Repeat New Password"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/forms/user-profile.php:79
+#: add-ons/piklist-demos/parts/forms/user-register.php:104
+msgid "First name"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/forms/user-profile.php:89
+#: add-ons/piklist-demos/parts/forms/user-register.php:114
+msgid "Last name"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/forms/user-profile.php:99
+msgid "Nickname"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/forms/user-profile.php:109
+msgid "Display name"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/forms/user-profile.php:117
+msgid "Contact Info"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/forms/user-profile.php:125
+#: add-ons/piklist-demos/parts/forms/user-register.php:49
+msgid "Email"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/forms/user-profile.php:147
+msgid "Website"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/forms/user-profile.php:162
+msgid "Biographical Info"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/forms/user-profile.php:170
+msgid "Personal Options"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/forms/user-profile.php:178
+msgid "Keyboard Shortcuts"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/forms/user-profile.php:191
+msgid "Toolbox"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/forms/user-register.php:29
+msgid "Register for this site."
+msgstr ""
+
+#: add-ons/piklist-demos/parts/forms/user-register.php:37
+#: includes/class-piklist-validate.php:1434
+msgid "Username"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/help/demos-help-sidebar.php:14
+msgid "Help with Piklist is just a click away."
+msgstr ""
+
+#: add-ons/piklist-demos/parts/help/demos-help-sidebar.php:17
+#: add-ons/piklist-demos/parts/media/help.php:17
+#: add-ons/piklist-demos/parts/meta-boxes/help.php:18
+msgid "Tutorials"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/help/demos-help-sidebar.php:18
+#: add-ons/piklist-demos/parts/media/help.php:18
+#: add-ons/piklist-demos/parts/meta-boxes/help.php:19
+msgid "Documentation"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/help/demos-help-sidebar.php:19
+#: add-ons/piklist-demos/parts/media/help.php:19
+#: add-ons/piklist-demos/parts/meta-boxes/help.php:20
+msgid "Support Forum"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/help/demos-help-sidebar.php:20
+#: add-ons/piklist-demos/parts/media/help.php:20
+#: add-ons/piklist-demos/parts/meta-boxes/help.php:21
+msgid "Disable Piklist Demos"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/help/demos-help.php:12
+msgid ""
+"Piklist Demos are designed to show off Piklist features and demonstrate how "
+"to use them."
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-add-more-single-level.php:13
+#: add-ons/piklist-demos/parts/media/field-templates.php:35
+#: add-ons/piklist-demos/parts/media/field-text.php:20
+#: add-ons/piklist-demos/parts/meta-boxes/field-add-more-single-level.php:15
+#: add-ons/piklist-demos/parts/meta-boxes/field-templates.php:25
+#: add-ons/piklist-demos/parts/meta-boxes/field-text.php:23
+#: add-ons/piklist-demos/parts/meta-boxes/meta-box-collapse.php:15
+#: add-ons/piklist-demos/parts/meta-boxes/meta-box-locked.php:16
+#: add-ons/piklist-demos/parts/meta-boxes/meta-box-none.php:16
+#: add-ons/piklist-demos/parts/settings/field-add-more-single-level.php:16
+#: add-ons/piklist-demos/parts/settings/field-templates.php:33
+#: add-ons/piklist-demos/parts/settings/field-text.php:21
+#: add-ons/piklist-demos/parts/terms/field-add-more-single-level.php:14
+#: add-ons/piklist-demos/parts/terms/field-templates.php:36
+#: add-ons/piklist-demos/parts/terms/field-text.php:22
+#: add-ons/piklist-demos/parts/users/field-add-more-single-level.php:13
+#: add-ons/piklist-demos/parts/users/field-templates.php:35
+#: add-ons/piklist-demos/parts/users/field-text.php:20
+#: add-ons/piklist-demos/parts/widgets/basic-form.php:6
+#: add-ons/piklist-demos/parts/widgets/standalone-form.php:6
+msgid "Text"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-add-more-single-level.php:15
+#: add-ons/piklist-demos/parts/meta-boxes/field-add-more-single-level.php:17
+#: add-ons/piklist-demos/parts/settings/field-add-more-single-level.php:18
+#: add-ons/piklist-demos/parts/terms/field-add-more-single-level.php:16
+#: add-ons/piklist-demos/parts/users/field-add-more-single-level.php:15
+msgid "single"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-add-more-single-level.php:21
+#: add-ons/piklist-demos/parts/media/field-javascript.php:23
+#: add-ons/piklist-demos/parts/meta-boxes/field-add-more-single-level.php:23
+#: add-ons/piklist-demos/parts/settings/field-add-more-single-level.php:24
+#: add-ons/piklist-demos/parts/settings/field-javascript.php:31
+#: add-ons/piklist-demos/parts/terms/field-add-more-single-level.php:22
+#: add-ons/piklist-demos/parts/terms/field-javascript.php:23
+#: add-ons/piklist-demos/parts/users/field-add-more-single-level.php:21
+#: add-ons/piklist-demos/parts/users/field-javascript.php:22
+msgid "Date Picker"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-add-more-single-level.php:28
+#: add-ons/piklist-demos/parts/meta-boxes/field-add-more-single-level.php:30
+#: add-ons/piklist-demos/parts/settings/field-add-more-single-level.php:31
+#: add-ons/piklist-demos/parts/terms/field-add-more-single-level.php:29
+#: add-ons/piklist-demos/parts/users/field-add-more-single-level.php:27
+msgid "Todo's (Serialized Group)"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-add-more-single-level.php:29
+#: add-ons/piklist-demos/parts/media/field-add-more-single-level.php:337
+#: add-ons/piklist-demos/parts/meta-boxes/field-add-more-single-level.php:31
+#: add-ons/piklist-demos/parts/meta-boxes/field-add-more-single-level.php:335
+#: add-ons/piklist-demos/parts/settings/field-add-more-single-level.php:32
+#: add-ons/piklist-demos/parts/settings/field-add-more-single-level.php:232
+#: add-ons/piklist-demos/parts/terms/field-add-more-single-level.php:30
+#: add-ons/piklist-demos/parts/terms/field-add-more-single-level.php:255
+#: add-ons/piklist-demos/parts/users/field-add-more-single-level.php:28
+#: add-ons/piklist-demos/parts/users/field-add-more-single-level.php:337
+msgid "Saves all data in one serialized array."
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-add-more-single-level.php:35
+#: add-ons/piklist-demos/parts/media/field-add-more-single-level.php:82
+#: add-ons/piklist-demos/parts/media/field-add-more-three-levels.php:93
+#: add-ons/piklist-demos/parts/meta-boxes/field-add-more-single-level.php:37
+#: add-ons/piklist-demos/parts/meta-boxes/field-add-more-single-level.php:84
+#: add-ons/piklist-demos/parts/meta-boxes/field-add-more-three-levels.php:116
+#: add-ons/piklist-demos/parts/settings/field-add-more-single-level.php:38
+#: add-ons/piklist-demos/parts/settings/field-add-more-three-levels.php:94
+#: add-ons/piklist-demos/parts/terms/field-add-more-single-level.php:36
+#: add-ons/piklist-demos/parts/terms/field-add-more-single-level.php:83
+#: add-ons/piklist-demos/parts/terms/field-add-more-three-levels.php:95
+#: add-ons/piklist-demos/parts/users/field-add-more-single-level.php:34
+#: add-ons/piklist-demos/parts/users/field-add-more-single-level.php:81
+#: add-ons/piklist-demos/parts/users/field-add-more-three-levels.php:93
+#: add-ons/piklist-demos/parts/widgets/advanced-form.php:105
+msgid "Task"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-add-more-single-level.php:54
+#: add-ons/piklist-demos/parts/media/field-add-more-single-level.php:101
+#: add-ons/piklist-demos/parts/meta-boxes/field-add-more-single-level.php:56
+#: add-ons/piklist-demos/parts/meta-boxes/field-add-more-single-level.php:103
+#: add-ons/piklist-demos/parts/settings/field-add-more-single-level.php:57
+#: add-ons/piklist-demos/parts/terms/field-add-more-single-level.php:55
+#: add-ons/piklist-demos/parts/terms/field-add-more-single-level.php:102
+#: add-ons/piklist-demos/parts/users/field-add-more-single-level.php:53
+#: add-ons/piklist-demos/parts/users/field-add-more-single-level.php:100
+#: add-ons/piklist-demos/parts/widgets/advanced-form.php:94
+#: add-ons/piklist-demos/piklist-demos.php:52
+msgid "Assigned to"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-add-more-single-level.php:75
+#: add-ons/piklist-demos/parts/meta-boxes/field-add-more-single-level.php:77
+#: add-ons/piklist-demos/parts/terms/field-add-more-single-level.php:76
+#: add-ons/piklist-demos/parts/users/field-add-more-single-level.php:74
+msgid "Todo's (Group)"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-add-more-single-level.php:76
+#: add-ons/piklist-demos/parts/meta-boxes/field-add-more-single-level.php:78
+#: add-ons/piklist-demos/parts/terms/field-add-more-single-level.php:77
+#: add-ons/piklist-demos/parts/users/field-add-more-single-level.php:75
+msgid "Saves data as individual meta keys."
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-add-more-single-level.php:121
+#: add-ons/piklist-demos/parts/meta-boxes/field-add-more-single-level.php:124
+#: add-ons/piklist-demos/parts/users/field-add-more-single-level.php:121
+msgid "Multiple Scopes"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-add-more-single-level.php:122
+#: add-ons/piklist-demos/parts/meta-boxes/field-add-more-single-level.php:125
+#: add-ons/piklist-demos/parts/users/field-add-more-single-level.php:122
+msgid "Dropdown field saves as a category, text field saves as post meta."
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-add-more-single-level.php:129
+#: add-ons/piklist-demos/parts/meta-boxes/field-add-more-single-level.php:132
+#: add-ons/piklist-demos/parts/users/field-add-more-single-level.php:129
+msgid "Choose Categories"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-add-more-single-level.php:144
+#: add-ons/piklist-demos/parts/meta-boxes/field-add-more-single-level.php:147
+#: add-ons/piklist-demos/parts/meta-boxes/field-comments.php:22
+#: add-ons/piklist-demos/parts/users/field-add-more-single-level.php:144
+msgid "Notes"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-add-more-single-level.php:154
+#: add-ons/piklist-demos/parts/meta-boxes/field-add-more-single-level.php:157
+#: add-ons/piklist-demos/parts/terms/field-add-more-single-level.php:125
+#: add-ons/piklist-demos/parts/users/field-add-more-single-level.php:154
+#: add-ons/piklist-demos/parts/widgets/basic-form.php:83
+msgid "Slide Images"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-add-more-single-level.php:155
+#: add-ons/piklist-demos/parts/meta-boxes/field-add-more-single-level.php:158
+#: add-ons/piklist-demos/parts/terms/field-add-more-single-level.php:126
+#: add-ons/piklist-demos/parts/users/field-add-more-single-level.php:155
+#: add-ons/piklist-demos/parts/widgets/basic-form.php:84
+msgid ""
+"Add the slides for the slideshow.  You can add as many slides as you want, "
+"and they can be drag-and-dropped into the order that you would like them to "
+"appear."
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-add-more-single-level.php:160
+#: add-ons/piklist-demos/parts/media/field-add-more-single-level.php:191
+#: add-ons/piklist-demos/parts/meta-boxes/field-add-more-single-level.php:163
+#: add-ons/piklist-demos/parts/meta-boxes/field-add-more-single-level.php:194
+#: add-ons/piklist-demos/parts/settings/field-add-more-single-level.php:86
+#: add-ons/piklist-demos/parts/terms/field-add-more-single-level.php:131
+#: add-ons/piklist-demos/parts/terms/field-add-more-single-level.php:162
+#: add-ons/piklist-demos/parts/users/field-add-more-single-level.php:160
+#: add-ons/piklist-demos/parts/users/field-add-more-single-level.php:191
+#: add-ons/piklist-demos/parts/widgets/basic-form.php:89
+msgid "Slides"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-add-more-single-level.php:175
+#: add-ons/piklist-demos/parts/media/field-add-more-single-level.php:205
+#: add-ons/piklist-demos/parts/meta-boxes/field-add-more-single-level.php:178
+#: add-ons/piklist-demos/parts/meta-boxes/field-add-more-single-level.php:208
+#: add-ons/piklist-demos/parts/settings/field-add-more-single-level.php:100
+#: add-ons/piklist-demos/parts/terms/field-add-more-single-level.php:146
+#: add-ons/piklist-demos/parts/terms/field-add-more-single-level.php:176
+#: add-ons/piklist-demos/parts/users/field-add-more-single-level.php:175
+#: add-ons/piklist-demos/parts/users/field-add-more-single-level.php:205
+#: add-ons/piklist-demos/parts/widgets/basic-form.php:104
+#: includes/class-piklist-validate.php:1011
+msgid "URL"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-add-more-single-level.php:185
+#: add-ons/piklist-demos/parts/meta-boxes/field-add-more-single-level.php:188
+#: add-ons/piklist-demos/parts/settings/field-add-more-single-level.php:80
+#: add-ons/piklist-demos/parts/terms/field-add-more-single-level.php:156
+#: add-ons/piklist-demos/parts/users/field-add-more-single-level.php:185
+msgid "Slide Images with Basic uploader"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-add-more-single-level.php:186
+#: add-ons/piklist-demos/parts/meta-boxes/field-add-more-single-level.php:189
+#: add-ons/piklist-demos/parts/settings/field-add-more-single-level.php:81
+#: add-ons/piklist-demos/parts/terms/field-add-more-single-level.php:157
+#: add-ons/piklist-demos/parts/users/field-add-more-single-level.php:186
+msgid "This is the same field as above, except it is using the Basic uploader."
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-add-more-single-level.php:213
+#: add-ons/piklist-demos/parts/meta-boxes/field-add-more-single-level.php:216
+#: add-ons/piklist-demos/parts/settings/field-add-more-single-level.php:108
+#: add-ons/piklist-demos/parts/terms/field-add-more-single-level.php:184
+#: add-ons/piklist-demos/parts/users/field-add-more-single-level.php:213
+#: add-ons/piklist-demos/parts/widgets/advanced-form.php:196
+msgid "Newsletter Signup"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-add-more-single-level.php:220
+#: add-ons/piklist-demos/parts/meta-boxes/field-add-more-single-level.php:223
+#: add-ons/piklist-demos/parts/settings/field-add-more-single-level.php:115
+#: add-ons/piklist-demos/parts/terms/field-add-more-single-level.php:191
+#: add-ons/piklist-demos/parts/users/field-add-more-single-level.php:220
+#: add-ons/piklist-demos/parts/widgets/advanced-form.php:204
+msgid "First Name"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-add-more-single-level.php:226
+#: add-ons/piklist-demos/parts/meta-boxes/field-add-more-single-level.php:229
+#: add-ons/piklist-demos/parts/settings/field-add-more-single-level.php:121
+#: add-ons/piklist-demos/parts/terms/field-add-more-single-level.php:197
+#: add-ons/piklist-demos/parts/users/field-add-more-single-level.php:226
+#: add-ons/piklist-demos/parts/widgets/advanced-form.php:210
+msgid "Last Name"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-add-more-single-level.php:232
+#: add-ons/piklist-demos/parts/meta-boxes/field-add-more-single-level.php:235
+#: add-ons/piklist-demos/parts/settings/field-add-more-single-level.php:127
+#: add-ons/piklist-demos/parts/terms/field-add-more-single-level.php:203
+#: add-ons/piklist-demos/parts/users/field-add-more-single-level.php:232
+#: add-ons/piklist-demos/parts/widgets/advanced-form.php:216
+#: includes/class-piklist-validate.php:959
+msgid "Email Address"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-add-more-single-level.php:242
+#: add-ons/piklist-demos/parts/meta-boxes/field-add-more-single-level.php:245
+#: add-ons/piklist-demos/parts/settings/field-add-more-single-level.php:137
+#: add-ons/piklist-demos/parts/terms/field-add-more-single-level.php:213
+#: add-ons/piklist-demos/parts/users/field-add-more-single-level.php:242
+#: add-ons/piklist-demos/parts/widgets/advanced-form.php:226
+msgid "Newsletter A"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-add-more-single-level.php:246
+#: add-ons/piklist-demos/parts/meta-boxes/field-add-more-single-level.php:249
+#: add-ons/piklist-demos/parts/settings/field-add-more-single-level.php:141
+#: add-ons/piklist-demos/parts/terms/field-add-more-single-level.php:217
+#: add-ons/piklist-demos/parts/users/field-add-more-single-level.php:246
+#: add-ons/piklist-demos/parts/widgets/advanced-form.php:230
+msgid "A-1"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-add-more-single-level.php:247
+#: add-ons/piklist-demos/parts/meta-boxes/field-add-more-single-level.php:250
+#: add-ons/piklist-demos/parts/settings/field-add-more-single-level.php:142
+#: add-ons/piklist-demos/parts/terms/field-add-more-single-level.php:218
+#: add-ons/piklist-demos/parts/users/field-add-more-single-level.php:247
+#: add-ons/piklist-demos/parts/widgets/advanced-form.php:231
+msgid "A-2"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-add-more-single-level.php:248
+#: add-ons/piklist-demos/parts/meta-boxes/field-add-more-single-level.php:251
+#: add-ons/piklist-demos/parts/settings/field-add-more-single-level.php:143
+#: add-ons/piklist-demos/parts/terms/field-add-more-single-level.php:219
+#: add-ons/piklist-demos/parts/users/field-add-more-single-level.php:248
+#: add-ons/piklist-demos/parts/widgets/advanced-form.php:232
+msgid "A-3"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-add-more-single-level.php:255
+#: add-ons/piklist-demos/parts/meta-boxes/field-add-more-single-level.php:258
+#: add-ons/piklist-demos/parts/settings/field-add-more-single-level.php:150
+#: add-ons/piklist-demos/parts/terms/field-add-more-single-level.php:226
+#: add-ons/piklist-demos/parts/users/field-add-more-single-level.php:255
+#: add-ons/piklist-demos/parts/widgets/advanced-form.php:239
+msgid "Newsletter B"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-add-more-single-level.php:258
+#: add-ons/piklist-demos/parts/meta-boxes/field-add-more-single-level.php:261
+#: add-ons/piklist-demos/parts/settings/field-add-more-single-level.php:153
+#: add-ons/piklist-demos/parts/terms/field-add-more-single-level.php:229
+#: add-ons/piklist-demos/parts/users/field-add-more-single-level.php:258
+#: add-ons/piklist-demos/parts/widgets/advanced-form.php:242
+msgid "B-1"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-add-more-single-level.php:259
+#: add-ons/piklist-demos/parts/meta-boxes/field-add-more-single-level.php:262
+#: add-ons/piklist-demos/parts/settings/field-add-more-single-level.php:154
+#: add-ons/piklist-demos/parts/terms/field-add-more-single-level.php:230
+#: add-ons/piklist-demos/parts/users/field-add-more-single-level.php:259
+#: add-ons/piklist-demos/parts/widgets/advanced-form.php:243
+msgid "B-2"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-add-more-single-level.php:260
+#: add-ons/piklist-demos/parts/meta-boxes/field-add-more-single-level.php:263
+#: add-ons/piklist-demos/parts/settings/field-add-more-single-level.php:155
+#: add-ons/piklist-demos/parts/terms/field-add-more-single-level.php:231
+#: add-ons/piklist-demos/parts/users/field-add-more-single-level.php:260
+#: add-ons/piklist-demos/parts/widgets/advanced-form.php:244
+msgid "B-3"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-add-more-single-level.php:267
+#: add-ons/piklist-demos/parts/meta-boxes/field-add-more-single-level.php:270
+#: add-ons/piklist-demos/parts/settings/field-add-more-single-level.php:162
+#: add-ons/piklist-demos/parts/terms/field-add-more-single-level.php:238
+#: add-ons/piklist-demos/parts/users/field-add-more-single-level.php:267
+#: add-ons/piklist-demos/parts/widgets/advanced-form.php:251
+msgid "Newsletter C"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-add-more-single-level.php:270
+#: add-ons/piklist-demos/parts/meta-boxes/field-add-more-single-level.php:273
+#: add-ons/piklist-demos/parts/settings/field-add-more-single-level.php:165
+#: add-ons/piklist-demos/parts/terms/field-add-more-single-level.php:241
+#: add-ons/piklist-demos/parts/users/field-add-more-single-level.php:270
+#: add-ons/piklist-demos/parts/widgets/advanced-form.php:254
+msgid "C-1"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-add-more-single-level.php:271
+#: add-ons/piklist-demos/parts/meta-boxes/field-add-more-single-level.php:274
+#: add-ons/piklist-demos/parts/settings/field-add-more-single-level.php:166
+#: add-ons/piklist-demos/parts/terms/field-add-more-single-level.php:242
+#: add-ons/piklist-demos/parts/users/field-add-more-single-level.php:271
+#: add-ons/piklist-demos/parts/widgets/advanced-form.php:255
+msgid "C-2"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-add-more-single-level.php:272
+#: add-ons/piklist-demos/parts/meta-boxes/field-add-more-single-level.php:275
+#: add-ons/piklist-demos/parts/settings/field-add-more-single-level.php:167
+#: add-ons/piklist-demos/parts/terms/field-add-more-single-level.php:243
+#: add-ons/piklist-demos/parts/users/field-add-more-single-level.php:272
+#: add-ons/piklist-demos/parts/widgets/advanced-form.php:256
+msgid "C-3"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-add-more-single-level.php:283
+#: add-ons/piklist-demos/parts/meta-boxes/field-add-more-single-level.php:286
+#: add-ons/piklist-demos/parts/settings/field-add-more-single-level.php:178
+#: add-ons/piklist-demos/parts/users/field-add-more-single-level.php:283
+#: add-ons/piklist-demos/parts/widgets/advanced-form.php:267
+msgid "Newsletter Archives"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-add-more-single-level.php:290
+#: add-ons/piklist-demos/parts/meta-boxes/field-add-more-single-level.php:293
+#: add-ons/piklist-demos/parts/settings/field-add-more-single-level.php:185
+#: add-ons/piklist-demos/parts/users/field-add-more-single-level.php:290
+#: add-ons/piklist-demos/parts/widgets/advanced-form.php:274
+msgid "Issue Date"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-add-more-single-level.php:296
+#: add-ons/piklist-demos/parts/meta-boxes/field-add-more-single-level.php:299
+#: add-ons/piklist-demos/parts/settings/field-add-more-single-level.php:191
+#: add-ons/piklist-demos/parts/users/field-add-more-single-level.php:296
+#: add-ons/piklist-demos/parts/widgets/advanced-form.php:280
+msgid "Upload or choose an Image"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-add-more-single-level.php:306
+#: add-ons/piklist-demos/parts/meta-boxes/field-add-more-single-level.php:309
+#: add-ons/piklist-demos/parts/settings/field-add-more-single-level.php:201
+#: add-ons/piklist-demos/parts/users/field-add-more-single-level.php:306
+#: add-ons/piklist-demos/parts/widgets/advanced-form.php:290
+msgid "Highlights of this issue"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-add-more-single-level.php:324
+#: add-ons/piklist-demos/parts/meta-boxes/field-add-more-single-level.php:322
+#: add-ons/piklist-demos/parts/settings/field-add-more-single-level.php:219
+#: add-ons/piklist-demos/parts/users/field-add-more-single-level.php:324
+#: add-ons/piklist-demos/parts/widgets/advanced-form.php:305
+msgid "Add a cover image"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-add-more-single-level.php:336
+#: add-ons/piklist-demos/parts/meta-boxes/field-add-more-single-level.php:334
+#: add-ons/piklist-demos/parts/settings/field-add-more-single-level.php:231
+#: add-ons/piklist-demos/parts/terms/field-add-more-single-level.php:254
+#: add-ons/piklist-demos/parts/users/field-add-more-single-level.php:336
+msgid "Lots of List Fields (Serialized Group)"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-add-more-single-level.php:355
+#: add-ons/piklist-demos/parts/media/field-select.php:13
+#: add-ons/piklist-demos/parts/meta-boxes/field-add-more-single-level.php:353
+#: add-ons/piklist-demos/parts/meta-boxes/field-select.php:14
+#: add-ons/piklist-demos/parts/settings/field-add-more-single-level.php:250
+#: add-ons/piklist-demos/parts/settings/field-select.php:14
+#: add-ons/piklist-demos/parts/terms/field-add-more-single-level.php:273
+#: add-ons/piklist-demos/parts/terms/field-select.php:14
+#: add-ons/piklist-demos/parts/users/field-add-more-single-level.php:355
+#: add-ons/piklist-demos/parts/users/field-select.php:13
+#: add-ons/piklist-demos/parts/widgets/lists-form.php:37
+msgid "Select"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-add-more-single-level.php:367
+#: add-ons/piklist-demos/parts/media/field-radio.php:13
+#: add-ons/piklist-demos/parts/meta-boxes/field-add-more-single-level.php:365
+#: add-ons/piklist-demos/parts/meta-boxes/field-radio.php:14
+#: add-ons/piklist-demos/parts/settings/field-add-more-single-level.php:262
+#: add-ons/piklist-demos/parts/settings/field-radio.php:14
+#: add-ons/piklist-demos/parts/terms/field-add-more-single-level.php:285
+#: add-ons/piklist-demos/parts/terms/field-radio.php:14
+#: add-ons/piklist-demos/parts/users/field-add-more-single-level.php:367
+#: add-ons/piklist-demos/parts/users/field-radio.php:13
+#: add-ons/piklist-demos/parts/widgets/lists-form.php:163
+msgid "Radio"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-add-more-three-levels.php:13
+#: add-ons/piklist-demos/parts/meta-boxes/field-add-more-three-levels.php:37
+#: add-ons/piklist-demos/parts/settings/field-add-more-three-levels.php:14
+#: add-ons/piklist-demos/parts/terms/field-add-more-three-levels.php:14
+#: add-ons/piklist-demos/parts/users/field-add-more-three-levels.php:13
+msgid "Menu"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-add-more-three-levels.php:19
+#: add-ons/piklist-demos/parts/meta-boxes/field-add-more-three-levels.php:43
+#: add-ons/piklist-demos/parts/settings/field-add-more-three-levels.php:20
+#: add-ons/piklist-demos/parts/terms/field-add-more-three-levels.php:20
+#: add-ons/piklist-demos/parts/users/field-add-more-three-levels.php:19
+msgid "Menu Title"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-add-more-three-levels.php:30
+#: add-ons/piklist-demos/parts/meta-boxes/field-add-more-three-levels.php:54
+#: add-ons/piklist-demos/parts/settings/field-add-more-three-levels.php:31
+#: add-ons/piklist-demos/parts/terms/field-add-more-three-levels.php:32
+#: add-ons/piklist-demos/parts/users/field-add-more-three-levels.php:30
+msgid "Recipe"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-add-more-three-levels.php:36
+#: add-ons/piklist-demos/parts/meta-boxes/field-add-more-three-levels.php:60
+#: add-ons/piklist-demos/parts/settings/field-add-more-three-levels.php:37
+#: add-ons/piklist-demos/parts/terms/field-add-more-three-levels.php:38
+#: add-ons/piklist-demos/parts/users/field-add-more-three-levels.php:36
+msgid "Restrictions"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-add-more-three-levels.php:53
+#: add-ons/piklist-demos/parts/media/field-add-more-two-levels.php:42
+#: add-ons/piklist-demos/parts/meta-boxes/field-add-more-three-levels.php:77
+#: add-ons/piklist-demos/parts/meta-boxes/field-add-more-two-levels.php:44
+#: add-ons/piklist-demos/parts/settings/field-add-more-three-levels.php:54
+#: add-ons/piklist-demos/parts/settings/field-add-more-two-levels.php:43
+#: add-ons/piklist-demos/parts/terms/field-add-more-three-levels.php:55
+#: add-ons/piklist-demos/parts/terms/field-add-more-two-levels.php:44
+#: add-ons/piklist-demos/parts/users/field-add-more-three-levels.php:53
+#: add-ons/piklist-demos/parts/users/field-add-more-two-levels.php:42
+#: add-ons/piklist-demos/parts/widgets/advanced-form.php:177
+msgid "Qty"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-add-more-three-levels.php:59
+#: add-ons/piklist-demos/parts/media/field-add-more-three-levels.php:105
+#: add-ons/piklist-demos/parts/media/field-add-more-two-levels.php:48
+#: add-ons/piklist-demos/parts/meta-boxes/field-add-more-three-levels.php:83
+#: add-ons/piklist-demos/parts/meta-boxes/field-add-more-three-levels.php:128
+#: add-ons/piklist-demos/parts/meta-boxes/field-add-more-two-levels.php:50
+#: add-ons/piklist-demos/parts/settings/field-add-more-three-levels.php:60
+#: add-ons/piklist-demos/parts/settings/field-add-more-three-levels.php:106
+#: add-ons/piklist-demos/parts/settings/field-add-more-two-levels.php:49
+#: add-ons/piklist-demos/parts/terms/field-add-more-three-levels.php:61
+#: add-ons/piklist-demos/parts/terms/field-add-more-three-levels.php:107
+#: add-ons/piklist-demos/parts/terms/field-add-more-two-levels.php:50
+#: add-ons/piklist-demos/parts/users/field-add-more-three-levels.php:59
+#: add-ons/piklist-demos/parts/users/field-add-more-three-levels.php:105
+#: add-ons/piklist-demos/parts/users/field-add-more-two-levels.php:48
+#: add-ons/piklist-demos/parts/widgets/advanced-form.php:183
+msgid "Description"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-add-more-three-levels.php:76
+#: add-ons/piklist-demos/parts/media/field-add-more-three-levels.php:82
+#: add-ons/piklist-demos/parts/meta-boxes/field-add-more-three-levels.php:99
+#: add-ons/piklist-demos/parts/meta-boxes/field-add-more-three-levels.php:105
+#: add-ons/piklist-demos/parts/settings/field-add-more-three-levels.php:77
+#: add-ons/piklist-demos/parts/settings/field-add-more-three-levels.php:83
+#: add-ons/piklist-demos/parts/terms/field-add-more-three-levels.php:78
+#: add-ons/piklist-demos/parts/terms/field-add-more-three-levels.php:84
+#: add-ons/piklist-demos/parts/users/field-add-more-three-levels.php:76
+#: add-ons/piklist-demos/parts/users/field-add-more-three-levels.php:82
+msgid "Project"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-add-more-three-levels.php:99
+#: add-ons/piklist-demos/parts/media/field-add-more-three-levels.php:131
+#: add-ons/piklist-demos/parts/meta-boxes/field-add-more-three-levels.php:122
+#: add-ons/piklist-demos/parts/meta-boxes/field-add-more-three-levels.php:154
+#: add-ons/piklist-demos/parts/settings/field-add-more-three-levels.php:100
+#: add-ons/piklist-demos/parts/settings/field-add-more-three-levels.php:132
+#: add-ons/piklist-demos/parts/terms/field-add-more-three-levels.php:101
+#: add-ons/piklist-demos/parts/terms/field-add-more-three-levels.php:133
+#: add-ons/piklist-demos/parts/users/field-add-more-three-levels.php:99
+#: add-ons/piklist-demos/parts/users/field-add-more-three-levels.php:131
+msgid "Due"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-add-more-three-levels.php:111
+#: add-ons/piklist-demos/parts/meta-boxes/field-add-more-three-levels.php:134
+#: add-ons/piklist-demos/parts/settings/field-add-more-three-levels.php:112
+#: add-ons/piklist-demos/parts/terms/field-add-more-three-levels.php:113
+#: add-ons/piklist-demos/parts/users/field-add-more-three-levels.php:111
+msgid "Authorized Roles"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-add-more-three-levels.php:125
+#: add-ons/piklist-demos/parts/meta-boxes/field-add-more-three-levels.php:148
+#: add-ons/piklist-demos/parts/settings/field-add-more-three-levels.php:126
+#: add-ons/piklist-demos/parts/terms/field-add-more-three-levels.php:127
+#: add-ons/piklist-demos/parts/users/field-add-more-three-levels.php:125
+msgid "Sub Task"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-add-more-two-levels.php:13
+#: add-ons/piklist-demos/parts/meta-boxes/field-add-more-two-levels.php:15
+#: add-ons/piklist-demos/parts/settings/field-add-more-two-levels.php:14
+#: add-ons/piklist-demos/parts/terms/field-add-more-two-levels.php:14
+#: add-ons/piklist-demos/parts/users/field-add-more-two-levels.php:13
+#: add-ons/piklist-demos/parts/widgets/advanced-form.php:160
+msgid "Ingredients"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-add-more-two-levels.php:19
+#: add-ons/piklist-demos/parts/meta-boxes/field-add-more-two-levels.php:21
+#: add-ons/piklist-demos/parts/settings/field-add-more-two-levels.php:20
+#: add-ons/piklist-demos/parts/terms/field-add-more-two-levels.php:20
+#: add-ons/piklist-demos/parts/users/field-add-more-two-levels.php:19
+msgid "Ingredient Title"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-add-more-two-levels.php:27
+#: add-ons/piklist-demos/parts/meta-boxes/field-add-more-two-levels.php:29
+#: add-ons/piklist-demos/parts/settings/field-add-more-two-levels.php:28
+#: add-ons/piklist-demos/parts/terms/field-add-more-two-levels.php:29
+#: add-ons/piklist-demos/parts/users/field-add-more-two-levels.php:27
+msgid "Meal Type"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-add-more-two-levels.php:29
+#: add-ons/piklist-demos/parts/meta-boxes/field-add-more-two-levels.php:31
+#: add-ons/piklist-demos/parts/settings/field-add-more-two-levels.php:30
+#: add-ons/piklist-demos/parts/terms/field-add-more-two-levels.php:31
+#: add-ons/piklist-demos/parts/users/field-add-more-two-levels.php:29
+msgid "Appetizer"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-add-more-two-levels.php:30
+#: add-ons/piklist-demos/parts/meta-boxes/field-add-more-two-levels.php:32
+#: add-ons/piklist-demos/parts/settings/field-add-more-two-levels.php:31
+#: add-ons/piklist-demos/parts/terms/field-add-more-two-levels.php:32
+#: add-ons/piklist-demos/parts/users/field-add-more-two-levels.php:30
+msgid "Entree"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-add-more-two-levels.php:31
+#: add-ons/piklist-demos/parts/meta-boxes/field-add-more-two-levels.php:33
+#: add-ons/piklist-demos/parts/settings/field-add-more-two-levels.php:32
+#: add-ons/piklist-demos/parts/terms/field-add-more-two-levels.php:33
+#: add-ons/piklist-demos/parts/users/field-add-more-two-levels.php:31
+msgid "Main Course"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-add-more-two-levels.php:62
+#: add-ons/piklist-demos/parts/meta-boxes/field-add-more-two-levels.php:64
+#: add-ons/piklist-demos/parts/settings/field-add-more-two-levels.php:63
+#: add-ons/piklist-demos/parts/terms/field-add-more-two-levels.php:64
+#: add-ons/piklist-demos/parts/users/field-add-more-two-levels.php:62
+msgid "Page Modules"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-add-more-two-levels.php:63
+#: add-ons/piklist-demos/parts/meta-boxes/field-add-more-two-levels.php:65
+#: add-ons/piklist-demos/parts/settings/field-add-more-two-levels.php:64
+#: add-ons/piklist-demos/parts/terms/field-add-more-two-levels.php:65
+#: add-ons/piklist-demos/parts/users/field-add-more-two-levels.php:63
+msgid "Add more 's within a hide/show condition"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-add-more-two-levels.php:70
+#: add-ons/piklist-demos/parts/meta-boxes/field-add-more-two-levels.php:72
+#: add-ons/piklist-demos/parts/settings/field-add-more-two-levels.php:71
+#: add-ons/piklist-demos/parts/terms/field-add-more-two-levels.php:72
+#: add-ons/piklist-demos/parts/users/field-add-more-two-levels.php:70
+msgid "Select a Module"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-add-more-two-levels.php:73
+#: add-ons/piklist-demos/parts/meta-boxes/field-add-more-two-levels.php:75
+#: add-ons/piklist-demos/parts/settings/field-add-more-two-levels.php:74
+#: add-ons/piklist-demos/parts/terms/field-add-more-two-levels.php:75
+#: add-ons/piklist-demos/parts/users/field-add-more-two-levels.php:73
+msgid "Select a Module to add"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-add-more-two-levels.php:74
+#: add-ons/piklist-demos/parts/meta-boxes/field-add-more-two-levels.php:76
+#: add-ons/piklist-demos/parts/settings/field-add-more-two-levels.php:75
+#: add-ons/piklist-demos/parts/settings/field-editor.php:15
+#: add-ons/piklist-demos/parts/terms/field-add-more-two-levels.php:76
+#: add-ons/piklist-demos/parts/users/field-add-more-two-levels.php:74
+msgid "Editor"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-add-more-two-levels.php:75
+#: add-ons/piklist-demos/parts/meta-boxes/field-add-more-two-levels.php:77
+#: add-ons/piklist-demos/parts/settings/field-add-more-two-levels.php:76
+#: add-ons/piklist-demos/parts/terms/field-add-more-two-levels.php:77
+#: add-ons/piklist-demos/parts/users/field-add-more-two-levels.php:75
+msgid "Repeating Textarea"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-add-more-two-levels.php:103
+#: add-ons/piklist-demos/parts/meta-boxes/field-add-more-two-levels.php:105
+#: add-ons/piklist-demos/parts/settings/field-add-more-two-levels.php:104
+#: add-ons/piklist-demos/parts/terms/field-add-more-two-levels.php:105
+#: add-ons/piklist-demos/parts/users/field-add-more-two-levels.php:103
+msgid "Module title:"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-add-more-two-levels.php:120
+#: add-ons/piklist-demos/parts/meta-boxes/field-add-more-two-levels.php:122
+#: add-ons/piklist-demos/parts/settings/field-add-more-two-levels.php:121
+#: add-ons/piklist-demos/parts/terms/field-add-more-two-levels.php:122
+#: add-ons/piklist-demos/parts/users/field-add-more-two-levels.php:120
+msgid "Module text:"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-add-more-two-levels.php:140
+#: add-ons/piklist-demos/parts/meta-boxes/field-add-more-two-levels.php:142
+#: add-ons/piklist-demos/parts/settings/field-add-more-two-levels.php:141
+#: add-ons/piklist-demos/parts/terms/field-add-more-two-levels.php:142
+#: add-ons/piklist-demos/parts/users/field-add-more-two-levels.php:140
+msgid "Upload Repeater"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-add-more-two-levels.php:152
+#: add-ons/piklist-demos/parts/meta-boxes/field-add-more-two-levels.php:155
+#: add-ons/piklist-demos/parts/settings/field-add-more-two-levels.php:153
+#: add-ons/piklist-demos/parts/terms/field-add-more-two-levels.php:154
+#: add-ons/piklist-demos/parts/users/field-add-more-two-levels.php:152
+msgid "Information Section"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-add-more-two-levels.php:161
+#: add-ons/piklist-demos/parts/meta-boxes/field-add-more-two-levels.php:164
+#: add-ons/piklist-demos/parts/settings/field-add-more-two-levels.php:162
+#: add-ons/piklist-demos/parts/terms/field-add-more-two-levels.php:163
+#: add-ons/piklist-demos/parts/users/field-add-more-two-levels.php:161
+msgid "Content Section (Grouped)"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-add-more-two-levels.php:162
+#: add-ons/piklist-demos/parts/meta-boxes/field-add-more-two-levels.php:165
+#: add-ons/piklist-demos/parts/settings/field-add-more-two-levels.php:163
+#: add-ons/piklist-demos/parts/terms/field-add-more-two-levels.php:164
+#: add-ons/piklist-demos/parts/users/field-add-more-two-levels.php:162
+#: add-ons/piklist-demos/parts/widgets/advanced-form.php:114
+msgid ""
+"When an add more field is nested it should be grouped to maintain the data "
+"relationships."
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-add-more-two-levels.php:169
+#: add-ons/piklist-demos/parts/meta-boxes/field-add-more-two-levels.php:172
+#: add-ons/piklist-demos/parts/settings/field-add-more-two-levels.php:170
+#: add-ons/piklist-demos/parts/terms/field-add-more-two-levels.php:171
+#: add-ons/piklist-demos/parts/users/field-add-more-two-levels.php:169
+#: add-ons/piklist-demos/parts/widgets/advanced-form.php:166
+msgid "Section Title"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-add-more-two-levels.php:178
+#: add-ons/piklist-demos/parts/meta-boxes/field-add-more-two-levels.php:181
+#: add-ons/piklist-demos/parts/settings/field-add-more-two-levels.php:179
+#: add-ons/piklist-demos/parts/terms/field-add-more-two-levels.php:180
+#: add-ons/piklist-demos/parts/users/field-add-more-two-levels.php:178
+msgid "Section Tagline"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-add-more-two-levels.php:192
+#: add-ons/piklist-demos/parts/meta-boxes/field-add-more-two-levels.php:195
+#: add-ons/piklist-demos/parts/settings/field-add-more-two-levels.php:193
+#: add-ons/piklist-demos/parts/terms/field-add-more-two-levels.php:194
+#: add-ons/piklist-demos/parts/users/field-add-more-two-levels.php:192
+msgid "Content Title"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-checkbox.php:25
+#: add-ons/piklist-demos/parts/meta-boxes/field-checkbox.php:26
+#: add-ons/piklist-demos/parts/settings/field-checkbox.php:26
+#: add-ons/piklist-demos/parts/terms/field-checkbox.php:26
+#: add-ons/piklist-demos/parts/terms/field-new-form.php:24
+#: add-ons/piklist-demos/parts/users/field-checkbox.php:25
+#: add-ons/piklist-demos/parts/widgets/lists-form.php:75
+msgid "Checkbox Add More"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-checkbox.php:38
+#: add-ons/piklist-demos/parts/media/field-radio.php:38
+#: add-ons/piklist-demos/parts/meta-boxes/field-checkbox.php:39
+#: add-ons/piklist-demos/parts/meta-boxes/field-radio.php:39
+#: add-ons/piklist-demos/parts/settings/field-checkbox.php:39
+#: add-ons/piklist-demos/parts/settings/field-radio.php:39
+#: add-ons/piklist-demos/parts/terms/field-checkbox.php:39
+#: add-ons/piklist-demos/parts/terms/field-new-form.php:37
+#: add-ons/piklist-demos/parts/terms/field-radio.php:39
+#: add-ons/piklist-demos/parts/users/field-checkbox.php:38
+#: add-ons/piklist-demos/parts/users/field-radio.php:38
+#: add-ons/piklist-demos/parts/widgets/lists-form.php:89
+#: add-ons/piklist-demos/parts/widgets/lists-form.php:190
+msgid "Single Line"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-checkbox.php:50
+#: add-ons/piklist-demos/parts/media/field-radio.php:50
+#: add-ons/piklist-demos/parts/meta-boxes/field-checkbox.php:51
+#: add-ons/piklist-demos/parts/meta-boxes/field-radio.php:51
+#: add-ons/piklist-demos/parts/settings/field-checkbox.php:51
+#: add-ons/piklist-demos/parts/settings/field-radio.php:51
+#: add-ons/piklist-demos/parts/terms/field-checkbox.php:51
+#: add-ons/piklist-demos/parts/terms/field-new-form.php:49
+#: add-ons/piklist-demos/parts/terms/field-radio.php:51
+#: add-ons/piklist-demos/parts/users/field-checkbox.php:50
+#: add-ons/piklist-demos/parts/users/field-radio.php:50
+#: add-ons/piklist-demos/parts/widgets/lists-form.php:101
+#: add-ons/piklist-demos/parts/widgets/lists-form.php:202
+msgid "Group Lists"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-checkbox.php:56
+#: add-ons/piklist-demos/parts/media/field-radio.php:55
+#: add-ons/piklist-demos/parts/meta-boxes/field-checkbox.php:57
+#: add-ons/piklist-demos/parts/meta-boxes/field-radio.php:56
+#: add-ons/piklist-demos/parts/settings/field-checkbox.php:57
+#: add-ons/piklist-demos/parts/settings/field-radio.php:56
+#: add-ons/piklist-demos/parts/terms/field-checkbox.php:57
+#: add-ons/piklist-demos/parts/terms/field-new-form.php:55
+#: add-ons/piklist-demos/parts/terms/field-radio.php:56
+#: add-ons/piklist-demos/parts/users/field-checkbox.php:56
+#: add-ons/piklist-demos/parts/users/field-radio.php:55
+#: add-ons/piklist-demos/parts/widgets/lists-form.php:108
+#: add-ons/piklist-demos/parts/widgets/lists-form.php:208
+msgid "List #1"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-checkbox.php:68
+#: add-ons/piklist-demos/parts/media/field-radio.php:67
+#: add-ons/piklist-demos/parts/meta-boxes/field-checkbox.php:69
+#: add-ons/piklist-demos/parts/meta-boxes/field-radio.php:68
+#: add-ons/piklist-demos/parts/settings/field-checkbox.php:69
+#: add-ons/piklist-demos/parts/settings/field-radio.php:68
+#: add-ons/piklist-demos/parts/terms/field-checkbox.php:69
+#: add-ons/piklist-demos/parts/terms/field-new-form.php:67
+#: add-ons/piklist-demos/parts/terms/field-radio.php:68
+#: add-ons/piklist-demos/parts/users/field-checkbox.php:68
+#: add-ons/piklist-demos/parts/users/field-radio.php:67
+#: add-ons/piklist-demos/parts/widgets/lists-form.php:120
+msgid "List #2"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-checkbox.php:84
+#: add-ons/piklist-demos/parts/media/field-radio.php:83
+#: add-ons/piklist-demos/parts/meta-boxes/field-checkbox.php:85
+#: add-ons/piklist-demos/parts/meta-boxes/field-radio.php:84
+#: add-ons/piklist-demos/parts/settings/field-checkbox.php:85
+#: add-ons/piklist-demos/parts/settings/field-radio.php:84
+#: add-ons/piklist-demos/parts/terms/field-checkbox.php:85
+#: add-ons/piklist-demos/parts/terms/field-new-form.php:83
+#: add-ons/piklist-demos/parts/terms/field-radio.php:84
+#: add-ons/piklist-demos/parts/users/field-checkbox.php:84
+#: add-ons/piklist-demos/parts/users/field-radio.php:83
+#: add-ons/piklist-demos/parts/widgets/lists-form.php:136
+#: add-ons/piklist-demos/parts/widgets/lists-form.php:236
+msgid "Nested Field"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-checkbox.php:91
+#: add-ons/piklist-demos/parts/meta-boxes/field-checkbox.php:92
+#: add-ons/piklist-demos/parts/settings/field-checkbox.php:92
+#: add-ons/piklist-demos/parts/terms/field-checkbox.php:92
+#: add-ons/piklist-demos/parts/terms/field-new-form.php:90
+#: add-ons/piklist-demos/parts/users/field-checkbox.php:91
+#, php-format
+msgid "Second Choices with a nested %s input."
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-colorpicker.php:11
+#: add-ons/piklist-demos/parts/meta-boxes/field-colorpicker.php:13
+#: add-ons/piklist-demos/parts/settings/field-javascript.php:14
+#: add-ons/piklist-demos/parts/terms/field-colorpicker.php:12
+#: add-ons/piklist-demos/parts/users/field-colorpicker.php:11
+msgid ""
+"WordPress ColorPicker fields are super simple to create. Piklist handles all "
+"the Javascript."
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-colorpicker.php:19
+#: add-ons/piklist-demos/parts/media/field-colorpicker.php:26
+#: add-ons/piklist-demos/parts/media/field-javascript.php:14
+#: add-ons/piklist-demos/parts/meta-boxes/field-colorpicker.php:21
+#: add-ons/piklist-demos/parts/settings/field-javascript.php:22
+#: add-ons/piklist-demos/parts/terms/field-colorpicker.php:20
+#: add-ons/piklist-demos/parts/terms/field-colorpicker.php:27
+#: add-ons/piklist-demos/parts/terms/field-javascript.php:14
+#: add-ons/piklist-demos/parts/users/field-colorpicker.php:19
+#: add-ons/piklist-demos/parts/users/field-colorpicker.php:26
+#: add-ons/piklist-demos/parts/users/field-javascript.php:13
+#: add-ons/piklist-demos/parts/widgets/advanced-form.php:6
+msgid "Color Picker"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-conditions-party-invite.php:13
+#: add-ons/piklist-demos/parts/meta-boxes/field-conditions-party-invite.php:20
+#: add-ons/piklist-demos/parts/settings/field-conditions-party-invite.php:14
+#: add-ons/piklist-demos/parts/terms/field-conditions-party-invite.php:14
+#: add-ons/piklist-demos/parts/users/field-conditions-party-invite.php:13
+#: add-ons/piklist-demos/parts/widgets/conditions-form.php:185
+msgid "We only serve steaks rare."
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-conditions-party-invite.php:37
+#: add-ons/piklist-demos/parts/meta-boxes/field-conditions-party-invite.php:45
+#: add-ons/piklist-demos/parts/settings/field-conditions-party-invite.php:38
+#: add-ons/piklist-demos/parts/terms/field-conditions-party-invite.php:38
+#: add-ons/piklist-demos/parts/users/field-conditions-party-invite.php:37
+#: add-ons/piklist-demos/parts/widgets/conditions-form.php:206
+msgid "Are you coming to the party?"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-conditions-party-invite.php:57
+#: add-ons/piklist-demos/parts/meta-boxes/field-conditions-party-invite.php:66
+#: add-ons/piklist-demos/parts/settings/field-conditions-party-invite.php:58
+#: add-ons/piklist-demos/parts/terms/field-conditions-party-invite.php:58
+#: add-ons/piklist-demos/parts/users/field-conditions-party-invite.php:57
+#: add-ons/piklist-demos/parts/widgets/conditions-form.php:226
+msgid "Choose meal type"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-conditions-party-invite.php:75
+#: add-ons/piklist-demos/parts/meta-boxes/field-conditions-party-invite.php:85
+#: add-ons/piklist-demos/parts/settings/field-conditions-party-invite.php:76
+#: add-ons/piklist-demos/parts/terms/field-conditions-party-invite.php:76
+#: add-ons/piklist-demos/parts/users/field-conditions-party-invite.php:75
+#: add-ons/piklist-demos/parts/widgets/conditions-form.php:244
+msgid "Are you bringing guests"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-conditions-party-invite.php:76
+#: add-ons/piklist-demos/parts/meta-boxes/field-conditions-party-invite.php:86
+#: add-ons/piklist-demos/parts/settings/field-conditions-party-invite.php:77
+#: add-ons/piklist-demos/parts/terms/field-conditions-party-invite.php:77
+#: add-ons/piklist-demos/parts/users/field-conditions-party-invite.php:76
+#: add-ons/piklist-demos/parts/widgets/conditions-form.php:245
+msgid "Coming to party != (No or empty)"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-conditions-party-invite.php:93
+#: add-ons/piklist-demos/parts/meta-boxes/field-conditions-party-invite.php:104
+#: add-ons/piklist-demos/parts/settings/field-conditions-party-invite.php:94
+#: add-ons/piklist-demos/parts/terms/field-conditions-party-invite.php:94
+#: add-ons/piklist-demos/parts/users/field-conditions-party-invite.php:93
+#: add-ons/piklist-demos/parts/widgets/conditions-form.php:262
+msgid "Sorry, only two guests are allowed."
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-conditions-party-invite.php:108
+#: add-ons/piklist-demos/parts/meta-boxes/field-conditions-party-invite.php:121
+#: add-ons/piklist-demos/parts/settings/field-conditions-party-invite.php:109
+#: add-ons/piklist-demos/parts/terms/field-conditions-party-invite.php:109
+#: add-ons/piklist-demos/parts/users/field-conditions-party-invite.php:108
+#: add-ons/piklist-demos/parts/widgets/conditions-form.php:274
+msgid "How many guests?"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-conditions-party-invite.php:109
+#: add-ons/piklist-demos/parts/meta-boxes/field-conditions-party-invite.php:122
+#: add-ons/piklist-demos/parts/settings/field-conditions-party-invite.php:110
+#: add-ons/piklist-demos/parts/terms/field-conditions-party-invite.php:110
+#: add-ons/piklist-demos/parts/users/field-conditions-party-invite.php:109
+#: add-ons/piklist-demos/parts/widgets/conditions-form.php:275
+msgid "Coming to party != (No or empty) AND Guests = Yes"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-conditions-party-invite.php:132
+#: add-ons/piklist-demos/parts/meta-boxes/field-conditions-party-invite.php:147
+#: add-ons/piklist-demos/parts/settings/field-conditions-party-invite.php:133
+#: add-ons/piklist-demos/parts/terms/field-conditions-party-invite.php:133
+#: add-ons/piklist-demos/parts/users/field-conditions-party-invite.php:132
+#: add-ons/piklist-demos/parts/widgets/conditions-form.php:298
+msgid "Guest One"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-conditions-party-invite.php:133
+#: add-ons/piklist-demos/parts/meta-boxes/field-conditions-party-invite.php:148
+#: add-ons/piklist-demos/parts/settings/field-conditions-party-invite.php:134
+#: add-ons/piklist-demos/parts/terms/field-conditions-party-invite.php:134
+#: add-ons/piklist-demos/parts/users/field-conditions-party-invite.php:133
+#: add-ons/piklist-demos/parts/widgets/conditions-form.php:299
+msgid "Number of guests != empty"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-conditions-party-invite.php:138
+#: add-ons/piklist-demos/parts/media/field-conditions-party-invite.php:177
+#: add-ons/piklist-demos/parts/meta-boxes/field-conditions-party-invite.php:153
+#: add-ons/piklist-demos/parts/meta-boxes/field-conditions-party-invite.php:194
+#: add-ons/piklist-demos/parts/settings/field-conditions-party-invite.php:139
+#: add-ons/piklist-demos/parts/settings/field-conditions-party-invite.php:178
+#: add-ons/piklist-demos/parts/terms/field-conditions-party-invite.php:139
+#: add-ons/piklist-demos/parts/terms/field-conditions-party-invite.php:178
+#: add-ons/piklist-demos/parts/users/field-conditions-party-invite.php:138
+#: add-ons/piklist-demos/parts/users/field-conditions-party-invite.php:177
+#: add-ons/piklist-demos/parts/widgets/conditions-form.php:343
+#: add-ons/piklist-demos/parts/widgets/validation-form.php:40
+msgid "Name"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-conditions-party-invite.php:143
+#: add-ons/piklist-demos/parts/media/field-conditions-party-invite.php:182
+#: add-ons/piklist-demos/parts/meta-boxes/field-conditions-party-invite.php:158
+#: add-ons/piklist-demos/parts/meta-boxes/field-conditions-party-invite.php:199
+#: add-ons/piklist-demos/parts/settings/field-conditions-party-invite.php:144
+#: add-ons/piklist-demos/parts/settings/field-conditions-party-invite.php:183
+#: add-ons/piklist-demos/parts/terms/field-conditions-party-invite.php:144
+#: add-ons/piklist-demos/parts/terms/field-conditions-party-invite.php:183
+#: add-ons/piklist-demos/parts/users/field-conditions-party-invite.php:143
+#: add-ons/piklist-demos/parts/users/field-conditions-party-invite.php:182
+#: add-ons/piklist-demos/parts/widgets/conditions-form.php:309
+#: add-ons/piklist-demos/parts/widgets/conditions-form.php:348
+msgid "Meal choice"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-conditions-party-invite.php:171
+#: add-ons/piklist-demos/parts/meta-boxes/field-conditions-party-invite.php:188
+#: add-ons/piklist-demos/parts/settings/field-conditions-party-invite.php:172
+#: add-ons/piklist-demos/parts/terms/field-conditions-party-invite.php:172
+#: add-ons/piklist-demos/parts/users/field-conditions-party-invite.php:171
+#: add-ons/piklist-demos/parts/widgets/conditions-form.php:337
+msgid "Guest Two"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-conditions-party-invite.php:172
+#: add-ons/piklist-demos/parts/meta-boxes/field-conditions-party-invite.php:189
+#: add-ons/piklist-demos/parts/settings/field-conditions-party-invite.php:173
+#: add-ons/piklist-demos/parts/terms/field-conditions-party-invite.php:173
+#: add-ons/piklist-demos/parts/users/field-conditions-party-invite.php:172
+#: add-ons/piklist-demos/parts/widgets/conditions-form.php:338
+msgid "Number of guests != (empty or 1)"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-conditions.php:13
+#: add-ons/piklist-demos/parts/meta-boxes/field-conditions.php:15
+#: add-ons/piklist-demos/parts/settings/field-conditions.php:14
+#: add-ons/piklist-demos/parts/terms/field-conditions.php:14
+#: add-ons/piklist-demos/parts/users/field-conditions.php:13
+#: add-ons/piklist-demos/parts/widgets/conditions-form.php:6
+msgid "Select: toggle a field"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-conditions.php:25
+#: add-ons/piklist-demos/parts/meta-boxes/field-conditions.php:27
+#: add-ons/piklist-demos/parts/settings/field-conditions.php:26
+#: add-ons/piklist-demos/parts/terms/field-conditions.php:26
+#: add-ons/piklist-demos/parts/users/field-conditions.php:25
+#: add-ons/piklist-demos/parts/widgets/conditions-form.php:18
+msgid "Show/Hide Field (Set 1)"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-conditions.php:26
+#: add-ons/piklist-demos/parts/media/field-conditions.php:52
+#: add-ons/piklist-demos/parts/meta-boxes/field-conditions.php:28
+#: add-ons/piklist-demos/parts/meta-boxes/field-conditions.php:82
+#: add-ons/piklist-demos/parts/settings/field-conditions.php:27
+#: add-ons/piklist-demos/parts/settings/field-conditions.php:53
+#: add-ons/piklist-demos/parts/terms/field-conditions.php:27
+#: add-ons/piklist-demos/parts/terms/field-conditions.php:53
+#: add-ons/piklist-demos/parts/users/field-conditions.php:26
+#: add-ons/piklist-demos/parts/users/field-conditions.php:52
+#: add-ons/piklist-demos/parts/widgets/conditions-form.php:19
+#: add-ons/piklist-demos/parts/widgets/conditions-form.php:45
+msgid "This field is toggled by the Select field above"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-conditions.php:38
+#: add-ons/piklist-demos/parts/meta-boxes/field-conditions.php:40
+#: add-ons/piklist-demos/parts/settings/field-conditions.php:39
+#: add-ons/piklist-demos/parts/terms/field-conditions.php:39
+#: add-ons/piklist-demos/parts/users/field-conditions.php:38
+#: add-ons/piklist-demos/parts/widgets/conditions-form.php:31
+msgid "Another Show/Hide Field (Set 1)"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-conditions.php:39
+#: add-ons/piklist-demos/parts/media/field-conditions.php:65
+#: add-ons/piklist-demos/parts/media/field-conditions.php:78
+#: add-ons/piklist-demos/parts/media/field-conditions.php:96
+#: add-ons/piklist-demos/parts/meta-boxes/field-conditions.php:41
+#: add-ons/piklist-demos/parts/meta-boxes/field-conditions.php:95
+#: add-ons/piklist-demos/parts/meta-boxes/field-conditions.php:108
+#: add-ons/piklist-demos/parts/meta-boxes/field-conditions.php:126
+#: add-ons/piklist-demos/parts/settings/field-conditions.php:40
+#: add-ons/piklist-demos/parts/settings/field-conditions.php:66
+#: add-ons/piklist-demos/parts/settings/field-conditions.php:79
+#: add-ons/piklist-demos/parts/settings/field-conditions.php:97
+#: add-ons/piklist-demos/parts/terms/field-conditions.php:40
+#: add-ons/piklist-demos/parts/terms/field-conditions.php:66
+#: add-ons/piklist-demos/parts/terms/field-conditions.php:79
+#: add-ons/piklist-demos/parts/terms/field-conditions.php:97
+#: add-ons/piklist-demos/parts/users/field-conditions.php:39
+#: add-ons/piklist-demos/parts/users/field-conditions.php:65
+#: add-ons/piklist-demos/parts/users/field-conditions.php:78
+#: add-ons/piklist-demos/parts/users/field-conditions.php:96
+#: add-ons/piklist-demos/parts/widgets/conditions-form.php:32
+#: add-ons/piklist-demos/parts/widgets/conditions-form.php:58
+#: add-ons/piklist-demos/parts/widgets/conditions-form.php:71
+#: add-ons/piklist-demos/parts/widgets/conditions-form.php:89
+msgid "This field is also toggled by the Select field above"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-conditions.php:51
+#: add-ons/piklist-demos/parts/meta-boxes/field-conditions.php:81
+#: add-ons/piklist-demos/parts/settings/field-conditions.php:52
+#: add-ons/piklist-demos/parts/terms/field-conditions.php:52
+#: add-ons/piklist-demos/parts/users/field-conditions.php:51
+#: add-ons/piklist-demos/parts/widgets/conditions-form.php:44
+msgid "Show/Hide Field (Set 2)"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-conditions.php:64
+#: add-ons/piklist-demos/parts/meta-boxes/field-conditions.php:94
+#: add-ons/piklist-demos/parts/settings/field-conditions.php:65
+#: add-ons/piklist-demos/parts/terms/field-conditions.php:65
+#: add-ons/piklist-demos/parts/users/field-conditions.php:64
+#: add-ons/piklist-demos/parts/widgets/conditions-form.php:57
+msgid "Another Show/Hide Field (Set 2)"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-conditions.php:77
+#: add-ons/piklist-demos/parts/meta-boxes/field-conditions.php:107
+#: add-ons/piklist-demos/parts/settings/field-conditions.php:78
+#: add-ons/piklist-demos/parts/terms/field-conditions.php:78
+#: add-ons/piklist-demos/parts/users/field-conditions.php:77
+#: add-ons/piklist-demos/parts/widgets/conditions-form.php:70
+msgid "Select Show/Hide Field (Set 2)"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-conditions.php:95
+#: add-ons/piklist-demos/parts/meta-boxes/field-conditions.php:125
+#: add-ons/piklist-demos/parts/settings/field-conditions.php:96
+#: add-ons/piklist-demos/parts/terms/field-conditions.php:96
+#: add-ons/piklist-demos/parts/users/field-conditions.php:95
+#: add-ons/piklist-demos/parts/widgets/conditions-form.php:88
+msgid "Checkbox Show/Hide Field (Set 2)"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-conditions.php:113
+#: add-ons/piklist-demos/parts/meta-boxes/field-conditions.php:143
+#: add-ons/piklist-demos/parts/settings/field-conditions.php:114
+#: add-ons/piklist-demos/parts/terms/field-conditions.php:114
+#: add-ons/piklist-demos/parts/users/field-conditions.php:113
+#: add-ons/piklist-demos/parts/widgets/conditions-form.php:106
+msgid "Radio: toggle a field"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-conditions.php:124
+#: add-ons/piklist-demos/parts/media/field-conditions.php:146
+#: add-ons/piklist-demos/parts/meta-boxes/field-conditions.php:154
+#: add-ons/piklist-demos/parts/meta-boxes/field-conditions.php:176
+#: add-ons/piklist-demos/parts/settings/field-conditions.php:125
+#: add-ons/piklist-demos/parts/settings/field-conditions.php:147
+#: add-ons/piklist-demos/parts/terms/field-conditions.php:125
+#: add-ons/piklist-demos/parts/terms/field-conditions.php:147
+#: add-ons/piklist-demos/parts/users/field-conditions.php:124
+#: add-ons/piklist-demos/parts/users/field-conditions.php:146
+#: add-ons/piklist-demos/parts/widgets/conditions-form.php:117
+#: add-ons/piklist-demos/parts/widgets/conditions-form.php:139
+msgid "Show/Hide Field"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-conditions.php:125
+#: add-ons/piklist-demos/parts/meta-boxes/field-conditions.php:155
+#: add-ons/piklist-demos/parts/settings/field-conditions.php:126
+#: add-ons/piklist-demos/parts/terms/field-conditions.php:126
+#: add-ons/piklist-demos/parts/users/field-conditions.php:125
+#: add-ons/piklist-demos/parts/widgets/conditions-form.php:118
+msgid "This field is toggled by the Radio field above"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-conditions.php:137
+#: add-ons/piklist-demos/parts/meta-boxes/field-conditions.php:167
+#: add-ons/piklist-demos/parts/settings/field-conditions.php:138
+#: add-ons/piklist-demos/parts/terms/field-conditions.php:138
+#: add-ons/piklist-demos/parts/users/field-conditions.php:137
+#: add-ons/piklist-demos/parts/widgets/conditions-form.php:130
+msgid "Checkbox: toggle a field"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-conditions.php:147
+#: add-ons/piklist-demos/parts/meta-boxes/field-conditions.php:177
+#: add-ons/piklist-demos/parts/settings/field-conditions.php:148
+#: add-ons/piklist-demos/parts/terms/field-conditions.php:148
+#: add-ons/piklist-demos/parts/users/field-conditions.php:147
+#: add-ons/piklist-demos/parts/widgets/conditions-form.php:140
+msgid "This field is toggled by the Checkbox field above"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-conditions.php:159
+#: add-ons/piklist-demos/parts/meta-boxes/field-conditions.php:189
+#: add-ons/piklist-demos/parts/settings/field-conditions.php:160
+#: add-ons/piklist-demos/parts/terms/field-conditions.php:160
+#: add-ons/piklist-demos/parts/users/field-conditions.php:159
+#: add-ons/piklist-demos/parts/widgets/conditions-form.php:152
+msgid "Update a field"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-conditions.php:169
+#: add-ons/piklist-demos/parts/meta-boxes/field-conditions.php:199
+#: add-ons/piklist-demos/parts/settings/field-conditions.php:170
+#: add-ons/piklist-demos/parts/terms/field-conditions.php:170
+#: add-ons/piklist-demos/parts/users/field-conditions.php:169
+msgid "Hello World!"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-conditions.php:185
+#: add-ons/piklist-demos/parts/meta-boxes/field-conditions.php:215
+#: add-ons/piklist-demos/parts/settings/field-conditions.php:186
+#: add-ons/piklist-demos/parts/terms/field-conditions.php:186
+#: add-ons/piklist-demos/parts/users/field-conditions.php:185
+#: add-ons/piklist-demos/parts/widgets/conditions-form.php:178
+msgid "Update This Field"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-conditions.php:186
+#: add-ons/piklist-demos/parts/meta-boxes/field-conditions.php:216
+#: add-ons/piklist-demos/parts/settings/field-conditions.php:187
+#: add-ons/piklist-demos/parts/terms/field-conditions.php:187
+#: add-ons/piklist-demos/parts/users/field-conditions.php:186
+#: add-ons/piklist-demos/parts/widgets/conditions-form.php:179
+msgid "This field is updated by the field above"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-conditions.php:192
+#: add-ons/piklist-demos/parts/meta-boxes/field-conditions.php:222
+#: add-ons/piklist-demos/parts/settings/field-conditions.php:193
+#: add-ons/piklist-demos/parts/terms/field-conditions.php:193
+#: add-ons/piklist-demos/parts/users/field-conditions.php:192
+msgid "Update Multiple Fields"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-conditions.php:194
+#: add-ons/piklist-demos/parts/meta-boxes/field-conditions.php:224
+#: add-ons/piklist-demos/parts/settings/field-conditions.php:195
+#: add-ons/piklist-demos/parts/terms/field-conditions.php:195
+#: add-ons/piklist-demos/parts/users/field-conditions.php:194
+msgid "Update"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-conditions.php:201
+#: add-ons/piklist-demos/parts/meta-boxes/field-conditions.php:231
+#: add-ons/piklist-demos/parts/settings/field-conditions.php:202
+#: add-ons/piklist-demos/parts/terms/field-conditions.php:202
+#: add-ons/piklist-demos/parts/users/field-conditions.php:201
+msgid "Value 1"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-conditions.php:213
+#: add-ons/piklist-demos/parts/meta-boxes/field-conditions.php:243
+#: add-ons/piklist-demos/parts/settings/field-conditions.php:214
+#: add-ons/piklist-demos/parts/terms/field-conditions.php:214
+#: add-ons/piklist-demos/parts/users/field-conditions.php:213
+msgid "Value 2"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-conditions.php:226
+#: add-ons/piklist-demos/parts/meta-boxes/field-conditions.php:256
+#: add-ons/piklist-demos/parts/settings/field-conditions.php:227
+#: add-ons/piklist-demos/parts/terms/field-conditions.php:227
+#: add-ons/piklist-demos/parts/users/field-conditions.php:226
+msgid "Update 1"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-conditions.php:232
+#: add-ons/piklist-demos/parts/meta-boxes/field-conditions.php:262
+#: add-ons/piklist-demos/parts/settings/field-conditions.php:233
+#: add-ons/piklist-demos/parts/terms/field-conditions.php:233
+#: add-ons/piklist-demos/parts/users/field-conditions.php:232
+msgid "Update 2"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-date-time.php:11
+#: add-ons/piklist-demos/parts/meta-boxes/field-date-time.php:13
+#: add-ons/piklist-demos/parts/settings/field-date-time.php:12
+#: add-ons/piklist-demos/parts/terms/field-date-time.php:12
+#: add-ons/piklist-demos/parts/users/field-date-time.php:11
+msgid "DatePicker fields are easy to create and format."
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-date-time.php:19
+#: add-ons/piklist-demos/parts/meta-boxes/field-date-time.php:21
+#: add-ons/piklist-demos/parts/settings/field-date-time.php:20
+#: add-ons/piklist-demos/parts/terms/field-date-time.php:20
+#: add-ons/piklist-demos/parts/users/field-date-time.php:19
+#: add-ons/piklist-demos/parts/widgets/advanced-form.php:19
+msgid "Date"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-date-time.php:20
+#: add-ons/piklist-demos/parts/media/field-date-time.php:35
+#: add-ons/piklist-demos/parts/meta-boxes/field-date-time.php:22
+#: add-ons/piklist-demos/parts/meta-boxes/field-date-time.php:40
+#: add-ons/piklist-demos/parts/settings/field-date-time.php:21
+#: add-ons/piklist-demos/parts/settings/field-date-time.php:36
+#: add-ons/piklist-demos/parts/terms/field-date-time.php:21
+#: add-ons/piklist-demos/parts/terms/field-date-time.php:36
+#: add-ons/piklist-demos/parts/users/field-date-time.php:20
+#: add-ons/piklist-demos/parts/users/field-date-time.php:35
+#: add-ons/piklist-demos/parts/widgets/advanced-form.php:20
+#: add-ons/piklist-demos/parts/widgets/advanced-form.php:36
+msgid "Choose a date"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-date-time.php:34
+#: add-ons/piklist-demos/parts/media/field-select.php:26
+#: add-ons/piklist-demos/parts/meta-boxes/field-select.php:27
+#: add-ons/piklist-demos/parts/settings/field-date-time.php:35
+#: add-ons/piklist-demos/parts/settings/field-select.php:27
+#: add-ons/piklist-demos/parts/terms/field-date-time.php:35
+#: add-ons/piklist-demos/parts/terms/field-select.php:27
+#: add-ons/piklist-demos/parts/users/field-date-time.php:34
+#: add-ons/piklist-demos/parts/users/field-select.php:26
+msgid "Add More"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-editor.php:16
+#: add-ons/piklist-demos/parts/meta-boxes/field-editor.php:17
+#: add-ons/piklist-demos/parts/terms/field-editor.php:15
+#: add-ons/piklist-demos/parts/users/field-editor.php:15
+#: add-ons/piklist-demos/parts/widgets/group-form.php:119
+#: add-ons/piklist-demos/parts/widgets/group-form.php:149
+msgid "Post Content"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-editor.php:17
+#: add-ons/piklist-demos/parts/meta-boxes/field-conditions.php:55
+#: add-ons/piklist-demos/parts/meta-boxes/field-editor.php:18
+#: add-ons/piklist-demos/parts/terms/field-editor.php:16
+#: add-ons/piklist-demos/parts/users/field-editor.php:16
+msgid "This is a replacement for the post_content editor"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-editor.php:40
+#: add-ons/piklist-demos/parts/meta-boxes/field-editor.php:41
+#: add-ons/piklist-demos/parts/terms/field-editor.php:39
+#: add-ons/piklist-demos/parts/users/field-editor.php:39
+msgid "Post Content Add More"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-editor.php:42
+#: add-ons/piklist-demos/parts/meta-boxes/field-editor.php:43
+#: add-ons/piklist-demos/parts/settings/field-editor.php:41
+#: add-ons/piklist-demos/parts/terms/field-editor.php:41
+#: add-ons/piklist-demos/parts/users/field-editor.php:41
+msgid "This is the teeny editor used in an add more repeater field."
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-group.php:13
+#: add-ons/piklist-demos/parts/meta-boxes/field-group.php:14
+#: add-ons/piklist-demos/parts/settings/field-group.php:14
+#: add-ons/piklist-demos/parts/terms/field-group.php:14
+#: add-ons/piklist-demos/parts/users/field-group.php:13
+#: add-ons/piklist-demos/parts/widgets/group-form.php:6
+msgid "Address (Grouped)"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-group.php:15
+#: add-ons/piklist-demos/parts/meta-boxes/field-group.php:16
+#: add-ons/piklist-demos/parts/settings/field-group.php:16
+#: add-ons/piklist-demos/parts/terms/field-group.php:16
+#: add-ons/piklist-demos/parts/users/field-group.php:15
+#: add-ons/piklist-demos/parts/widgets/group-form.php:8
+msgid ""
+"A grouped field with a key set. Data is not searchable, since it is saved in "
+"an array."
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-group.php:20
+#: add-ons/piklist-demos/parts/media/field-group.php:73
+#: add-ons/piklist-demos/parts/media/field-group.php:123
+#: add-ons/piklist-demos/parts/media/field-group.php:163
+#: add-ons/piklist-demos/parts/meta-boxes/field-group.php:21
+#: add-ons/piklist-demos/parts/meta-boxes/field-group.php:78
+#: add-ons/piklist-demos/parts/meta-boxes/field-group.php:131
+#: add-ons/piklist-demos/parts/meta-boxes/field-group.php:174
+#: add-ons/piklist-demos/parts/settings/field-group.php:21
+#: add-ons/piklist-demos/parts/settings/field-group.php:74
+#: add-ons/piklist-demos/parts/terms/field-group.php:21
+#: add-ons/piklist-demos/parts/terms/field-group.php:74
+#: add-ons/piklist-demos/parts/terms/field-group.php:124
+#: add-ons/piklist-demos/parts/terms/field-group.php:164
+#: add-ons/piklist-demos/parts/users/field-group.php:20
+#: add-ons/piklist-demos/parts/users/field-group.php:73
+#: add-ons/piklist-demos/parts/users/field-group.php:123
+#: add-ons/piklist-demos/parts/users/field-group.php:163
+#: add-ons/piklist-demos/parts/widgets/group-form.php:13
+#: add-ons/piklist-demos/parts/widgets/group-form.php:66
+msgid "Street Address"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-group.php:29
+#: add-ons/piklist-demos/parts/media/field-group.php:79
+#: add-ons/piklist-demos/parts/media/field-group.php:129
+#: add-ons/piklist-demos/parts/media/field-group.php:169
+#: add-ons/piklist-demos/parts/meta-boxes/field-group.php:31
+#: add-ons/piklist-demos/parts/meta-boxes/field-group.php:84
+#: add-ons/piklist-demos/parts/meta-boxes/field-group.php:137
+#: add-ons/piklist-demos/parts/meta-boxes/field-group.php:180
+#: add-ons/piklist-demos/parts/settings/field-group.php:30
+#: add-ons/piklist-demos/parts/settings/field-group.php:80
+#: add-ons/piklist-demos/parts/terms/field-group.php:30
+#: add-ons/piklist-demos/parts/terms/field-group.php:80
+#: add-ons/piklist-demos/parts/terms/field-group.php:130
+#: add-ons/piklist-demos/parts/terms/field-group.php:170
+#: add-ons/piklist-demos/parts/users/field-group.php:29
+#: add-ons/piklist-demos/parts/users/field-group.php:79
+#: add-ons/piklist-demos/parts/users/field-group.php:129
+#: add-ons/piklist-demos/parts/users/field-group.php:169
+#: add-ons/piklist-demos/parts/widgets/group-form.php:22
+#: add-ons/piklist-demos/parts/widgets/group-form.php:72
+msgid "PO Box, Suite, etc."
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-group.php:38
+#: add-ons/piklist-demos/parts/media/field-group.php:85
+#: add-ons/piklist-demos/parts/media/field-group.php:135
+#: add-ons/piklist-demos/parts/media/field-group.php:175
+#: add-ons/piklist-demos/parts/meta-boxes/field-group.php:40
+#: add-ons/piklist-demos/parts/meta-boxes/field-group.php:90
+#: add-ons/piklist-demos/parts/meta-boxes/field-group.php:143
+#: add-ons/piklist-demos/parts/meta-boxes/field-group.php:186
+#: add-ons/piklist-demos/parts/settings/field-group.php:39
+#: add-ons/piklist-demos/parts/settings/field-group.php:86
+#: add-ons/piklist-demos/parts/terms/field-group.php:39
+#: add-ons/piklist-demos/parts/terms/field-group.php:86
+#: add-ons/piklist-demos/parts/terms/field-group.php:136
+#: add-ons/piklist-demos/parts/terms/field-group.php:176
+#: add-ons/piklist-demos/parts/users/field-group.php:38
+#: add-ons/piklist-demos/parts/users/field-group.php:85
+#: add-ons/piklist-demos/parts/users/field-group.php:135
+#: add-ons/piklist-demos/parts/users/field-group.php:175
+#: add-ons/piklist-demos/parts/widgets/group-form.php:31
+#: add-ons/piklist-demos/parts/widgets/group-form.php:78
+msgid "City"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-group.php:47
+#: add-ons/piklist-demos/parts/media/field-group.php:91
+#: add-ons/piklist-demos/parts/media/field-group.php:141
+#: add-ons/piklist-demos/parts/media/field-group.php:181
+#: add-ons/piklist-demos/parts/meta-boxes/field-group.php:49
+#: add-ons/piklist-demos/parts/meta-boxes/field-group.php:96
+#: add-ons/piklist-demos/parts/meta-boxes/field-group.php:149
+#: add-ons/piklist-demos/parts/meta-boxes/field-group.php:192
+#: add-ons/piklist-demos/parts/settings/field-group.php:48
+#: add-ons/piklist-demos/parts/settings/field-group.php:92
+#: add-ons/piklist-demos/parts/terms/field-group.php:48
+#: add-ons/piklist-demos/parts/terms/field-group.php:92
+#: add-ons/piklist-demos/parts/terms/field-group.php:142
+#: add-ons/piklist-demos/parts/terms/field-group.php:182
+#: add-ons/piklist-demos/parts/users/field-group.php:47
+#: add-ons/piklist-demos/parts/users/field-group.php:91
+#: add-ons/piklist-demos/parts/users/field-group.php:141
+#: add-ons/piklist-demos/parts/users/field-group.php:181
+#: add-ons/piklist-demos/parts/widgets/group-form.php:40
+#: add-ons/piklist-demos/parts/widgets/group-form.php:84
+msgid "State"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-group.php:54
+#: add-ons/piklist-demos/parts/media/field-group.php:98
+#: add-ons/piklist-demos/parts/media/field-group.php:148
+#: add-ons/piklist-demos/parts/media/field-group.php:188
+#: add-ons/piklist-demos/parts/meta-boxes/field-group.php:56
+#: add-ons/piklist-demos/parts/meta-boxes/field-group.php:103
+#: add-ons/piklist-demos/parts/meta-boxes/field-group.php:156
+#: add-ons/piklist-demos/parts/meta-boxes/field-group.php:199
+#: add-ons/piklist-demos/parts/settings/field-group.php:55
+#: add-ons/piklist-demos/parts/settings/field-group.php:99
+#: add-ons/piklist-demos/parts/terms/field-group.php:55
+#: add-ons/piklist-demos/parts/terms/field-group.php:99
+#: add-ons/piklist-demos/parts/terms/field-group.php:149
+#: add-ons/piklist-demos/parts/terms/field-group.php:189
+#: add-ons/piklist-demos/parts/users/field-group.php:54
+#: add-ons/piklist-demos/parts/users/field-group.php:98
+#: add-ons/piklist-demos/parts/users/field-group.php:148
+#: add-ons/piklist-demos/parts/users/field-group.php:188
+#: add-ons/piklist-demos/parts/widgets/group-form.php:47
+#: add-ons/piklist-demos/parts/widgets/group-form.php:91
+msgid "Postal Code"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-group.php:67
+#: add-ons/piklist-demos/parts/meta-boxes/field-group.php:72
+#: add-ons/piklist-demos/parts/settings/field-group.php:68
+#: add-ons/piklist-demos/parts/terms/field-group.php:68
+#: add-ons/piklist-demos/parts/users/field-group.php:67
+#: add-ons/piklist-demos/parts/widgets/group-form.php:60
+msgid "Address (Grouped/Add more)"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-group.php:68
+#: add-ons/piklist-demos/parts/meta-boxes/field-group.php:73
+#: add-ons/piklist-demos/parts/settings/field-group.php:69
+#: add-ons/piklist-demos/parts/terms/field-group.php:69
+#: add-ons/piklist-demos/parts/users/field-group.php:68
+#: add-ons/piklist-demos/parts/widgets/group-form.php:61
+msgid "A grouped field using add more."
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-group.php:108
+#: add-ons/piklist-demos/parts/media/field-group.php:198
+#: add-ons/piklist-demos/parts/meta-boxes/field-group.php:116
+#: add-ons/piklist-demos/parts/meta-boxes/field-group.php:212
+#: add-ons/piklist-demos/parts/terms/field-group.php:109
+#: add-ons/piklist-demos/parts/terms/field-group.php:199
+#: add-ons/piklist-demos/parts/users/field-group.php:108
+#: add-ons/piklist-demos/parts/users/field-group.php:198
+msgid "Address Output"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-group.php:109
+#: add-ons/piklist-demos/parts/meta-boxes/field-group.php:117
+#: add-ons/piklist-demos/parts/terms/field-group.php:110
+#: add-ons/piklist-demos/parts/users/field-group.php:109
+msgid "This is the output of the grouped add more field."
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-group.php:117
+#: add-ons/piklist-demos/parts/meta-boxes/field-group.php:125
+#: add-ons/piklist-demos/parts/terms/field-group.php:118
+#: add-ons/piklist-demos/parts/users/field-group.php:117
+msgid "Address (Un-Grouped)"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-group.php:118
+#: add-ons/piklist-demos/parts/media/field-group.php:158
+#: add-ons/piklist-demos/parts/meta-boxes/field-group.php:126
+#: add-ons/piklist-demos/parts/meta-boxes/field-group.php:169
+#: add-ons/piklist-demos/parts/terms/field-group.php:119
+#: add-ons/piklist-demos/parts/terms/field-group.php:159
+#: add-ons/piklist-demos/parts/users/field-group.php:118
+#: add-ons/piklist-demos/parts/users/field-group.php:158
+msgid ""
+"An Un-grouped field. Data is saved as individual meta and is searchable."
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-group.php:156
+#: add-ons/piklist-demos/parts/meta-boxes/field-group.php:167
+#: add-ons/piklist-demos/parts/terms/field-group.php:157
+#: add-ons/piklist-demos/parts/users/field-group.php:156
+msgid "Address (Un-Grouped/Add more)"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-group.php:199
+#: add-ons/piklist-demos/parts/meta-boxes/field-group.php:213
+#: add-ons/piklist-demos/parts/terms/field-group.php:200
+#: add-ons/piklist-demos/parts/users/field-group.php:199
+msgid "This is the output of the Un-grouped add more field."
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-html.php:12
+#: add-ons/piklist-demos/parts/meta-boxes/field-html.php:14
+#: add-ons/piklist-demos/parts/settings/field-html.php:13
+#: add-ons/piklist-demos/parts/terms/field-html.php:13
+#: add-ons/piklist-demos/parts/users/field-html.php:12
+msgid "HTML fields can output your markup in the same format as other fields."
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-html.php:19
+#: add-ons/piklist-demos/parts/meta-boxes/field-html.php:21
+#: add-ons/piklist-demos/parts/settings/field-html.php:20
+#: add-ons/piklist-demos/parts/terms/field-html.php:20
+#: add-ons/piklist-demos/parts/users/field-html.php:19
+msgid "HTML Field"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-html.php:20
+#: add-ons/piklist-demos/parts/meta-boxes/field-html.php:22
+#: add-ons/piklist-demos/parts/settings/field-html.php:21
+#: add-ons/piklist-demos/parts/terms/field-html.php:21
+#: add-ons/piklist-demos/parts/users/field-html.php:20
+msgid "Allows you to output any HTML in the proper format."
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-html.php:21
+#: add-ons/piklist-demos/parts/meta-boxes/field-html.php:23
+#: add-ons/piklist-demos/parts/settings/field-html.php:22
+#: add-ons/piklist-demos/parts/terms/field-html.php:22
+#: add-ons/piklist-demos/parts/users/field-html.php:21
+#, php-format
+msgid "%1$s %2$sFirst Item%3$s %2$sSecond Item%3$s %4$s"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-html.php:28
+#: add-ons/piklist-demos/parts/meta-boxes/field-html.php:30
+#: add-ons/piklist-demos/parts/settings/field-html.php:29
+#: add-ons/piklist-demos/parts/terms/field-html.php:29
+#: add-ons/piklist-demos/parts/users/field-html.php:28
+msgid "Display information from your database."
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-html.php:29
+#: add-ons/piklist-demos/parts/meta-boxes/field-html.php:31
+#: add-ons/piklist-demos/parts/settings/field-html.php:30
+#: add-ons/piklist-demos/parts/terms/field-html.php:30
+#: add-ons/piklist-demos/parts/users/field-html.php:29
+#, php-format
+msgid ""
+"Pull information and display it in the proper format. Does that sound good "
+"%s?"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-multiselect.php:13
+#: add-ons/piklist-demos/parts/meta-boxes/field-multiselect.php:14
+#: add-ons/piklist-demos/parts/settings/field-multiselect.php:14
+#: add-ons/piklist-demos/parts/terms/field-multiselect.php:14
+#: add-ons/piklist-demos/parts/users/field-multiselect.php:13
+#: add-ons/piklist-demos/parts/widgets/lists-form.php:6
+msgid "Multiselect"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-multiselect.php:28
+#: add-ons/piklist-demos/parts/meta-boxes/field-multiselect.php:29
+#: add-ons/piklist-demos/parts/settings/field-multiselect.php:29
+#: add-ons/piklist-demos/parts/terms/field-multiselect.php:29
+#: add-ons/piklist-demos/parts/users/field-multiselect.php:28
+#: add-ons/piklist-demos/parts/widgets/lists-form.php:21
+msgid "Multiselect Add More"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-radio.php:25
+#: add-ons/piklist-demos/parts/meta-boxes/field-radio.php:26
+#: add-ons/piklist-demos/parts/settings/field-radio.php:26
+#: add-ons/piklist-demos/parts/terms/field-radio.php:26
+#: add-ons/piklist-demos/parts/users/field-radio.php:25
+#: add-ons/piklist-demos/parts/widgets/lists-form.php:176
+msgid "Radio Add More"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-radio.php:42
+#: add-ons/piklist-demos/parts/meta-boxes/field-radio.php:43
+#: add-ons/piklist-demos/parts/settings/field-radio.php:43
+#: add-ons/piklist-demos/parts/terms/field-radio.php:43
+#: add-ons/piklist-demos/parts/users/field-radio.php:42
+#: add-ons/piklist-demos/parts/widgets/conditions-form.php:209
+#: add-ons/piklist-demos/parts/widgets/conditions-form.php:247
+#: add-ons/piklist-demos/parts/widgets/lists-form.php:194
+msgid "Yes"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-radio.php:43
+#: add-ons/piklist-demos/parts/meta-boxes/field-radio.php:44
+#: add-ons/piklist-demos/parts/settings/field-radio.php:44
+#: add-ons/piklist-demos/parts/terms/field-radio.php:44
+#: add-ons/piklist-demos/parts/users/field-radio.php:43
+#: add-ons/piklist-demos/parts/widgets/conditions-form.php:210
+#: add-ons/piklist-demos/parts/widgets/conditions-form.php:248
+#: add-ons/piklist-demos/parts/widgets/lists-form.php:195
+msgid "No"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-radio.php:87
+#: add-ons/piklist-demos/parts/meta-boxes/field-radio.php:88
+#: add-ons/piklist-demos/parts/settings/field-radio.php:88
+#: add-ons/piklist-demos/parts/terms/field-radio.php:88
+#: add-ons/piklist-demos/parts/users/field-radio.php:87
+#: add-ons/piklist-demos/parts/widgets/lists-form.php:144
+#: add-ons/piklist-demos/parts/widgets/lists-form.php:241
+#, php-format
+msgid "Second Choice with a nested %s input."
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-templates.php:13
+#: add-ons/piklist-demos/parts/meta-boxes/field-templates.php:14
+#: add-ons/piklist-demos/parts/settings/field-templates.php:14
+#: add-ons/piklist-demos/parts/terms/field-templates.php:14
+#: add-ons/piklist-demos/parts/users/field-templates.php:13
+#: includes/class-piklist-form.php:574 includes/class-piklist-form.php:2497
+msgid "Default"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-templates.php:14
+#: add-ons/piklist-demos/parts/meta-boxes/field-templates.php:15
+#: add-ons/piklist-demos/parts/settings/field-templates.php:15
+#: add-ons/piklist-demos/parts/terms/field-templates.php:15
+#: add-ons/piklist-demos/parts/users/field-templates.php:14
+msgid "Piklist automatically assigning the \"post_meta\" field template."
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-templates.php:17
+#: add-ons/piklist-demos/parts/meta-boxes/field-templates.php:18
+#: add-ons/piklist-demos/parts/settings/field-templates.php:18
+#: add-ons/piklist-demos/parts/terms/field-templates.php:18
+#: add-ons/piklist-demos/parts/users/field-templates.php:17
+msgid "Enter text here."
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-templates.php:25
+#: add-ons/piklist-demos/parts/meta-boxes/field-templates.php:35
+#: add-ons/piklist-demos/parts/settings/field-templates.php:25
+#: add-ons/piklist-demos/parts/terms/field-templates.php:26
+#: add-ons/piklist-demos/parts/users/field-templates.php:25
+msgid ""
+"Using the Piklist \"field\" field template, only shows a field, with no "
+"label."
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-templates.php:39
+#: add-ons/piklist-demos/parts/meta-boxes/field-templates.php:29
+#: add-ons/piklist-demos/parts/settings/field-templates.php:37
+#: add-ons/piklist-demos/parts/terms/field-templates.php:40
+#: add-ons/piklist-demos/parts/users/field-templates.php:39
+msgid "I have no label"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-text.php:12
+#: add-ons/piklist-demos/parts/meta-boxes/field-text.php:14
+#: add-ons/piklist-demos/parts/settings/field-text.php:13
+#: add-ons/piklist-demos/parts/terms/field-text.php:13
+#: add-ons/piklist-demos/parts/users/field-text.php:12
+msgid ""
+"Text fields are at the core of most forms, and easily created with Piklist. "
+"Tooltip help can be added to any field with one line of code."
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-text.php:21
+#: add-ons/piklist-demos/parts/meta-boxes/field-text.php:24
+#: add-ons/piklist-demos/parts/settings/field-text.php:22
+#: add-ons/piklist-demos/parts/terms/field-text.php:23
+#: add-ons/piklist-demos/parts/users/field-text.php:21
+#: add-ons/piklist-demos/parts/widgets/basic-form.php:8
+#: add-ons/piklist-demos/parts/widgets/standalone-form.php:8
+msgid "You can easily add tooltips to your fields with the help parameter."
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-text.php:30
+#: add-ons/piklist-demos/parts/meta-boxes/field-text.php:33
+#: add-ons/piklist-demos/parts/settings/field-text.php:31
+#: add-ons/piklist-demos/parts/terms/field-text.php:32
+#: add-ons/piklist-demos/parts/users/field-text.php:30
+msgid "Text Area"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-upload.php:17
+#: add-ons/piklist-demos/parts/meta-boxes/field-upload.php:18
+#: add-ons/piklist-demos/parts/settings/field-upload.php:18
+#: add-ons/piklist-demos/parts/terms/field-upload.php:18
+#: add-ons/piklist-demos/parts/users/field-upload.php:17
+msgid ""
+"Piklist comes standard with two upload fields: Basic and Media. The Media "
+"field works just like the standard WordPress media field, while the Basic "
+"uploader is great for simple forms."
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-upload.php:26
+#: add-ons/piklist-demos/parts/meta-boxes/field-upload.php:27
+#: add-ons/piklist-demos/parts/settings/field-upload.php:26
+#: add-ons/piklist-demos/parts/terms/field-upload.php:26
+#: add-ons/piklist-demos/parts/users/field-upload.php:25
+msgid "Basic Upload Field"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-upload.php:36
+#: add-ons/piklist-demos/parts/meta-boxes/field-upload.php:37
+#: add-ons/piklist-demos/parts/settings/field-upload.php:35
+#: add-ons/piklist-demos/parts/terms/field-upload.php:35
+#: add-ons/piklist-demos/parts/users/field-upload.php:34
+msgid "Media Uploader"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/media/field-validate.php:34
+#: add-ons/piklist-demos/parts/meta-boxes/field-validate-basic.php:36
+#: add-ons/piklist-demos/parts/settings/field-validate.php:35
+#: add-ons/piklist-demos/parts/terms/field-validate.php:35
+#: add-ons/piklist-demos/parts/users/field-validate.php:34
+#: add-ons/piklist-demos/parts/widgets/validation-form.php:17
+msgid "Custom Required Message"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/meta-boxes/extend-meta-box-extend.php:12
+msgid "I am extended!"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/meta-boxes/extend-post-formats-before.php:16
+msgid ""
+"This is the default WordPress Post Formats meta box, extended by Piklist, "
+"changing three things: "
+msgstr ""
+
+#: add-ons/piklist-demos/parts/meta-boxes/extend-post-formats-before.php:20
+msgid "The title of the meta-box was updated."
+msgstr ""
+
+#: add-ons/piklist-demos/parts/meta-boxes/extend-post-formats-before.php:21
+msgid "Location was moved from the sidebar to under this Workflow tab."
+msgstr ""
+
+#: add-ons/piklist-demos/parts/meta-boxes/extend-post-formats-before.php:22
+msgid ""
+"What you are reading right now was added to the beginning of the meta box."
+msgstr ""
+
+#: add-ons/piklist-demos/parts/meta-boxes/field-colorpicker.php:31
+msgid "Color Picker add more"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/meta-boxes/field-comments.php:15
+msgid "Inline comments fields are a snap to add."
+msgstr ""
+
+#: add-ons/piklist-demos/parts/meta-boxes/field-comments.php:23
+msgid "Add some notes"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/meta-boxes/field-comments.php:65
+#, php-format
+msgid "on %s"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/meta-boxes/field-comments.php:66
+#, php-format
+msgid "Status: %s"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/meta-boxes/field-conditions.php:54
+msgid "Post Content (Set 1)"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/meta-boxes/field-date-time.php:39
+msgid "Date add more"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/meta-boxes/field-editor-draggable.php:16
+#, php-format
+msgid ""
+"You can remove the left label when displaying the editor by defining %1$s in "
+"the field parameters. This will make it look like the default WordPress "
+"editor. To learn about replacing the WordPress editor %2$sread our Tutorial"
+"%3$s."
+msgstr ""
+
+#: add-ons/piklist-demos/parts/meta-boxes/field-featured-image.php:15
+msgid ""
+"With Piklist you can easily replicate the WordPress Featured Image field, "
+"with an added bonus. Piklist allows you to use multiple featured images."
+msgstr ""
+
+#: add-ons/piklist-demos/parts/meta-boxes/field-featured-image.php:25
+#: add-ons/piklist-demos/parts/meta-boxes/field-featured-image.php:26
+msgid "Set featured image(s)"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/meta-boxes/field-relate.php:12
+msgid "Relate Posts"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/meta-boxes/field-relate.php:40
+#: add-ons/piklist-demos/parts/meta-boxes/field-relationship.php:64
+msgid "Related Posts"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/meta-boxes/field-relate.php:43
+msgid "See the code in the file for the query example."
+msgstr ""
+
+#: add-ons/piklist-demos/parts/meta-boxes/field-relationship.php:13
+msgid ""
+"This form will allow you to create brand new Post, User and Comment, that "
+"are all related to this Demo Post."
+msgstr ""
+
+#: add-ons/piklist-demos/parts/meta-boxes/field-relationship.php:116
+msgid "Related Users"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/meta-boxes/field-relationship.php:139
+msgid "Related Comments"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/meta-boxes/field-select.php:39
+msgid "Select with Option Groups"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/meta-boxes/field-taxonomies.php:15
+msgid ""
+"Create your own Taxonomy metabox, and display the terms as a checkbox, "
+"radio, select or any field you can imagine."
+msgstr ""
+
+#: add-ons/piklist-demos/parts/meta-boxes/field-validate-advanced.php:13
+msgid "File"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/meta-boxes/field-validate-advanced.php:19
+msgid "File 1"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/meta-boxes/field-validate-advanced.php:35
+msgid "File 2"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/meta-boxes/field-validate-advanced.php:51
+msgid "File 3"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/meta-boxes/meta-box-extend.php:13
+msgid "Extend your own meta-boxes generated in piklist!"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/notices/demo-notice.php:13
+msgid ""
+"Piklist makes it super simple to add admin notices that are dismissable."
+msgstr ""
+
+#: add-ons/piklist-demos/parts/notices/demos-are-on.php:11
+msgid "Piklist Demos are activated."
+msgstr ""
+
+#: add-ons/piklist-demos/parts/notices/demos-are-on.php:15
+#, php-format
+msgid ""
+"Demos should only be used as a resource, and %1$sturned off%2$s during "
+"normal website operation."
+msgstr ""
+
+#: add-ons/piklist-demos/parts/pointers/demos-here.php:10
+#, php-format
+msgid ""
+"Many of the Demos can be found here. In addition, Piklist also created a "
+"%1$sDemo Widget %2$s, and added fields to your %3$sUser Profile %2$s and "
+"%4$sMedia Attachments%2$s."
+msgstr ""
+
+#: add-ons/piklist-demos/parts/settings/field-editor.php:16
+msgid "This is a kitchen sink editor"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/settings/field-editor.php:39
+msgid "Editor Add More"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/shared/code-locater.php:5
+#, php-format
+msgid "The code that built this %s can be found here:"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/shared/field-value.php:2
+msgid "Getting the field value is easy!"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/shared/field-value.php:2
+msgid "Get value"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/shared/field-value.php:10
+msgid "Get your data the WordPress Way!"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/shared/field-value.php:10
+msgid "Use standard WordPress functions like below."
+msgstr ""
+
+#: add-ons/piklist-demos/parts/shared/field-value.php:10
+msgid "Output data"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/shortcodes/pullquote-form.php:12
+msgid "Quote"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/shortcodes/pullquote-form.php:23
+msgid "Source"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/shortcodes/variable-form.php:13
+msgid "Current User"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/users/user-taxonomies.php:16
+msgid "Terms will appear when they are added to this taxonomy."
+msgstr ""
+
+#: add-ons/piklist-demos/parts/widgets/advanced-form.php:13
+msgid "Color Picker Add More"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/widgets/advanced-form.php:35
+msgid "Date Add More"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/widgets/advanced-form.php:51
+msgid "REPAIR"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/widgets/advanced-form.php:52
+msgid "Enter TYPE of Work, PRICE and DUE DATE"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/widgets/advanced-form.php:59
+msgid "Type of work"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/widgets/advanced-form.php:67
+msgid "$"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/widgets/advanced-form.php:78
+msgid "Due date"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/widgets/advanced-form.php:88
+msgid "Todo's"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/widgets/advanced-form.php:97
+msgid "Adam"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/widgets/advanced-form.php:98
+msgid "Bill"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/widgets/advanced-form.php:99
+msgid "Carol"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/widgets/advanced-form.php:113
+msgid "Content Section"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/widgets/advanced-form.php:130
+msgid "Section"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/widgets/advanced-form.php:144
+msgid "Grade"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/widgets/advanced-form.php:197
+msgid "Add email addresses with topic selectivity"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/widgets/basic-form.php:17
+msgid "Columns Element"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/widgets/basic-form.php:27
+msgid "Text Add More"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/widgets/basic-form.php:35
+msgid "Number"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/widgets/basic-form.php:49
+msgid "Large Code"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/widgets/basic-form.php:63
+msgid "This is the uploader seen in the admin by default."
+msgstr ""
+
+#: add-ons/piklist-demos/parts/widgets/conditions-form.php:8
+msgid "Show first set"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/widgets/conditions-form.php:9
+msgid "Show second set"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/widgets/conditions-form.php:10
+msgid "Hide all"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/widgets/conditions-form.php:73
+#: add-ons/piklist-demos/parts/widgets/conditions-form.php:91
+msgid "Choice A"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/widgets/conditions-form.php:74
+#: add-ons/piklist-demos/parts/widgets/conditions-form.php:92
+msgid "Choice B"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/widgets/conditions-form.php:75
+#: add-ons/piklist-demos/parts/widgets/conditions-form.php:93
+msgid "Choice C"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/widgets/conditions-form.php:108
+#: add-ons/piklist-demos/parts/widgets/conditions-form.php:132
+msgid "Show"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/widgets/conditions-form.php:109
+msgid "Hide"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/widgets/conditions-form.php:154
+msgid "Hello World"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/widgets/conditions-form.php:155
+#: includes/class-piklist-form.php:2496
+msgid "Clear"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/widgets/conditions-form.php:211
+msgid "Maybe"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/widgets/conditions-form.php:228
+#: add-ons/piklist-demos/parts/widgets/conditions-form.php:311
+#: add-ons/piklist-demos/parts/widgets/conditions-form.php:350
+msgid "Chicken"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/widgets/conditions-form.php:229
+#: add-ons/piklist-demos/parts/widgets/conditions-form.php:312
+#: add-ons/piklist-demos/parts/widgets/conditions-form.php:351
+msgid "Steak"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/widgets/conditions-form.php:230
+#: add-ons/piklist-demos/parts/widgets/conditions-form.php:313
+#: add-ons/piklist-demos/parts/widgets/conditions-form.php:352
+msgid "Vegetarian"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/widgets/general-form.php:6
+#: parts/dashboard/dashboard-right-now.php:16
+msgid "Content"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/widgets/general-form.php:7
+#: add-ons/piklist-demos/parts/widgets/group-form.php:150
+msgid "This is the standard post box, now placed in a Piklist WorkFlow."
+msgstr ""
+
+#: add-ons/piklist-demos/parts/widgets/general-form.php:28
+msgid "Teeny Add More"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/widgets/general-form.php:30
+msgid "This is the teeny editor with an add more."
+msgstr ""
+
+#: add-ons/piklist-demos/parts/widgets/group-form.php:100
+msgid "Editor test 1 with add more"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/widgets/group-form.php:102
+#: add-ons/piklist-demos/parts/widgets/group-form.php:143
+msgid "A grouped/addmore field test with Editor."
+msgstr ""
+
+#: add-ons/piklist-demos/parts/widgets/group-form.php:141
+msgid "Editor test 2 with add more"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/widgets/lists-form.php:49
+msgid "Select Add More"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/widgets/lists-form.php:93
+msgid "This"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/widgets/lists-form.php:94
+msgid "That"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/widgets/lists-form.php:112
+#: add-ons/piklist-demos/parts/widgets/lists-form.php:212
+msgid "1-1 Choice"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/widgets/lists-form.php:113
+#: add-ons/piklist-demos/parts/widgets/lists-form.php:213
+msgid "1-2 Choice"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/widgets/lists-form.php:124
+#: add-ons/piklist-demos/parts/widgets/lists-form.php:224
+msgid "2-1 Choice"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/widgets/lists-form.php:125
+#: add-ons/piklist-demos/parts/widgets/lists-form.php:225
+msgid "2-2 Choice"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/widgets/lists-form.php:126
+#: add-ons/piklist-demos/parts/widgets/lists-form.php:226
+msgid "2-3 Choice"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/widgets/validation-form.php:46
+msgid "Type"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/widgets/validation-form.php:53
+msgid "placeholder"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/widgets/validation-form.php:175
+msgid "No more than 2"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/workflows/demo-add-more-one-level.php:13
+#: add-ons/piklist-demos/parts/workflows/demo-add-more-three-levels.php:12
+#: add-ons/piklist-demos/parts/workflows/demo-add-more-two-levels.php:12
+msgid "Your infinite repeater field."
+msgstr ""
+
+#: add-ons/piklist-demos/parts/workflows/demo-add-more-one-level.php:16
+#: add-ons/piklist-demos/parts/workflows/demo-add-more-three-levels.php:15
+#: add-ons/piklist-demos/parts/workflows/demo-add-more-two-levels.php:15
+msgid ""
+"Piklist add more fields are the repeater field you always dreamed of. Group "
+"together as many fields as you want and make them repeat indefinitely. Or "
+"place an add more within an add more within an Add more ..."
+msgstr ""
+
+#: add-ons/piklist-demos/parts/workflows/demo-common-editor.php:11
+msgid "The Editor is more versatile than ever!"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/workflows/demo-common-editor.php:14
+#, php-format
+msgid ""
+"The WordPress post editor can be placed anywhere you like, since Piklist "
+"treats it like any other field. Multiple editors can be used per page, and "
+"you can even %1$sreplace the default WordPress editor%2$s with you own."
+msgstr ""
+
+#: add-ons/piklist-demos/parts/workflows/demo-common-lists.php:12
+msgid "The lists field types have lists of options!"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/workflows/demo-common-lists.php:15
+msgid ""
+"Select, Radio and Checkbox fields have multiple configuration options. You "
+"can display them stacked, single line, as grouped lists and even use nested "
+"fields."
+msgstr ""
+
+#: add-ons/piklist-demos/parts/workflows/demo-conditions-basic.php:13
+msgid "Conditional fields add interactivity to your website."
+msgstr ""
+
+#: add-ons/piklist-demos/parts/workflows/demo-conditions-basic.php:16
+msgid "Hide, show or update a field, based on the state of another field"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/workflows/demo-extend.php:13
+msgid "Take control of WordPress, and even third-party plugins."
+msgstr ""
+
+#: add-ons/piklist-demos/parts/workflows/demo-extend.php:16
+msgid ""
+"With Piklist you can \"extend\" ANY meta-box, settings section, etc. Whether "
+"it was created by Piklist, WordPress or another plugin."
+msgstr ""
+
+#: add-ons/piklist-demos/parts/workflows/demo-header.php:21
+msgid "Edit Your Profile"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/workflows/demo-header.php:26
+msgid "Edit User: "
+msgstr ""
+
+#: add-ons/piklist-demos/parts/workflows/demo-header.php:26
+#: includes/class-piklist.php:1568
+msgid "Add New"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/workflows/demo-layout-groups.php:13
+msgid "Group fields for more layout options."
+msgstr ""
+
+#: add-ons/piklist-demos/parts/workflows/demo-layout-groups.php:16
+msgid ""
+"Group fields are perfect for creating complex field layouts like Address "
+"fields."
+msgstr ""
+
+#: add-ons/piklist-demos/parts/workflows/demo-layout-groups.php:17
+msgid ""
+"Assign a field name to a group field, and data from all the fields will be "
+"saved in one array for convenience. If you do not specify a field name, all "
+"field data will be save separtely."
+msgstr ""
+
+#: add-ons/piklist-demos/parts/workflows/demo-layout-meta-boxes.php:13
+msgid "Control the look and feel of your Meta Boxes."
+msgstr ""
+
+#: add-ons/piklist-demos/parts/workflows/demo-layout-meta-boxes.php:16
+msgid ""
+"Meta Boxes can be locked so users can not rearrange them, set to collapse by "
+"default or be removed altogether."
+msgstr ""
+
+#: add-ons/piklist-demos/parts/workflows/demo-layout-templates.php:12
+msgid "Field Templates let you define the markup of your fields."
+msgstr ""
+
+#: add-ons/piklist-demos/parts/workflows/demo-layout-templates.php:15
+#, php-format
+msgid ""
+"Field Templates are the backbone of every field in Piklist, by controlling "
+"the HTML markup. You can let Piklist automatically choose the correct "
+"template, or %1$smanually create your own.%2$s"
+msgstr ""
+
+#: add-ons/piklist-demos/parts/workflows/demo-relate.php:14
+msgid ""
+"Piklist relate fields are the most powerful available. You can relate any "
+"object to any object."
+msgstr ""
+
+#: add-ons/piklist-demos/parts/workflows/demo-validate.php:13
+msgid "Validate and Sanitize your field data."
+msgstr ""
+
+#: add-ons/piklist-demos/parts/workflows/demo-validate.php:17
+msgid ""
+"Easily force your users to enter the proper data into forms using Piklist "
+"rules, or you can create your own."
+msgstr ""
+
+#: add-ons/piklist-demos/piklist-demos.php:31
+msgid "Enter a new Demo Title"
+msgstr ""
+
+#: add-ons/piklist-demos/piklist-demos.php:51
+#: includes/class-piklist-admin.php:650
+msgid "Demo"
+msgstr ""
+
+#: add-ons/piklist-demos/piklist-demos.php:134
+#: add-ons/piklist-demos/piklist-demos.php:135
+msgid "Demo Settings"
+msgstr ""
+
+#: add-ons/piklist-demos/piklist-demos.php:147
+msgid "Reading Settings"
+msgstr ""
+
+#: add-ons/piklist-demos/piklist-demos.php:148
+msgid "Demo Reading"
+msgstr ""
+
+#: add-ons/piklist-demos/piklist-demos.php:156
+#: add-ons/piklist-demos/piklist-demos.php:157
+msgid "Bulk Create"
+msgstr ""
+
+#: add-ons/piklist-demos/piklist-demos.php:171
+#: includes/class-piklist-form.php:629
+msgid "User"
+msgstr ""
+
+#: add-ons/piklist-demos/piklist-demos.php:172
+msgid "Default layout for User fields from Piklist Demos."
+msgstr ""
+
+#: add-ons/piklist-demos/piklist-demos.php:185
+msgid "Theme - Tight"
+msgstr ""
+
+#: add-ons/piklist-demos/piklist-demos.php:186
+msgid "A front end form wrapper example from Piklist Demos."
+msgstr ""
+
+#: add-ons/piklist-demos/piklist-demos.php:209
+msgid "Create Demo"
+msgstr ""
+
+#: add-ons/piklist-demos/piklist-demos.php:471
+msgid ""
+"By default WorkFlows are setup as TABS. To change them to a BAR, use "
+"\"Layout : Bar\" in your Workflow Header file."
+msgstr ""
+
+#: add-ons/piklist-demos/piklist-demos.php:481
+msgid "View as Tabs"
+msgstr ""
+
+#: add-ons/piklist-demos/piklist-demos.php:485
+msgid "View as Bar"
+msgstr ""
+
+#: includes/class-piklist-admin.php:254
+#, php-format
+msgid "%1$s and %2$sPiklist%1$s."
+msgstr ""
+
+#: includes/class-piklist-admin.php:455
+msgid "Save Changes"
+msgstr ""
+
+#: includes/class-piklist-admin.php:607
+#, php-format
+msgid "%1$sDependent plugins or theme are active.%2$s"
+msgstr ""
+
+#: includes/class-piklist-admin.php:607
+msgid "Network Deactivate"
+msgstr ""
+
+#: includes/class-piklist-admin.php:607
+msgid "Deactivate"
+msgstr ""
+
+#: includes/class-piklist-admin.php:627
+msgid ""
+"Piklist has disabled the deactivation link to protect your website.  Either "
+"your theme or a plugin is dependent on Piklist. Please change your theme or "
+"deactivate the dependent plugin(s) to allow deactivation."
+msgstr ""
+
+#: includes/class-piklist-admin.php:672
+msgid "User Guide"
+msgstr ""
+
+#: includes/class-piklist-admin.php:673
+msgid "Support"
+msgstr ""
+
+#: includes/class-piklist-admin.php:674 includes/class-piklist-setting.php:107
+msgid "Add-ons"
+msgstr ""
+
+#: includes/class-piklist-cpt.php:192
+#, php-format
+msgid " <span class=\"count\">(%s)</span>"
+msgid_plural " <span class=\"count\">(%s)</span>"
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/class-piklist-cpt.php:798 includes/class-piklist-cpt.php:800
+msgid "Preview "
+msgstr ""
+
+#: includes/class-piklist-cpt.php:802
+msgid "View "
+msgstr ""
+
+#: includes/class-piklist-cpt.php:806
+msgid "M j, Y @ H:i"
+msgstr ""
+
+#: includes/class-piklist-cpt.php:810 includes/class-piklist-cpt.php:813
+msgid " updated."
+msgstr ""
+
+#: includes/class-piklist-cpt.php:811
+msgid "Custom field updated."
+msgstr ""
+
+#: includes/class-piklist-cpt.php:812
+msgid "Custom field deleted."
+msgstr ""
+
+#: includes/class-piklist-cpt.php:814
+#, php-format
+msgid " restored to revision from %s"
+msgstr ""
+
+#: includes/class-piklist-cpt.php:815
+msgid " published."
+msgstr ""
+
+#: includes/class-piklist-cpt.php:816
+msgid "Page saved."
+msgstr ""
+
+#: includes/class-piklist-cpt.php:817
+msgid " submitted."
+msgstr ""
+
+#: includes/class-piklist-cpt.php:818
+#, php-format
+msgid " scheduled for: %s."
+msgstr ""
+
+#: includes/class-piklist-cpt.php:819
+msgid " draft updated."
+msgstr ""
+
+#: includes/class-piklist-cpt.php:920
+msgid "Auto Draft"
+msgstr ""
+
+#: includes/class-piklist-form.php:545
+msgid "Field"
+msgstr ""
+
+#: includes/class-piklist-form.php:546
+msgid "Displays a field."
+msgstr ""
+
+#: includes/class-piklist-form.php:551
+msgid "Field and Label"
+msgstr ""
+
+#: includes/class-piklist-form.php:552
+msgid "Displays a field then the label."
+msgstr ""
+
+#: includes/class-piklist-form.php:557
+msgid "Label and Field"
+msgstr ""
+
+#: includes/class-piklist-form.php:558
+msgid "Displays a label then the field."
+msgstr ""
+
+#: includes/class-piklist-form.php:563
+msgid "Field and Description"
+msgstr ""
+
+#: includes/class-piklist-form.php:564
+msgid "Displays a field then the description."
+msgstr ""
+
+#: includes/class-piklist-form.php:575
+msgid "General responsive layout with a fixed label column."
+msgstr ""
+
+#: includes/class-piklist-form.php:580
+msgid "Submit Button"
+msgstr ""
+
+#: includes/class-piklist-form.php:581
+msgid "General layout for submit button in WordPress."
+msgstr ""
+
+#: includes/class-piklist-form.php:586
+msgid "Form Table"
+msgstr ""
+
+#: includes/class-piklist-form.php:587
+msgid "Default layout for the WordPress form table."
+msgstr ""
+
+#: includes/class-piklist-form.php:592
+msgid "Form Table - Field"
+msgstr ""
+
+#: includes/class-piklist-form.php:593
+msgid "The field component of the WordPress form table layout."
+msgstr ""
+
+#: includes/class-piklist-form.php:598
+msgid "Form Table - Inline Description"
+msgstr ""
+
+#: includes/class-piklist-form.php:599
+msgid "The description is just added as appended text."
+msgstr ""
+
+#: includes/class-piklist-form.php:605
+msgid "Widget"
+msgstr ""
+
+#: includes/class-piklist-form.php:606
+msgid "Default layout for Widget fields."
+msgstr ""
+
+#: includes/class-piklist-form.php:611
+msgid "Post"
+msgstr ""
+
+#: includes/class-piklist-form.php:612
+msgid "Default layout for Post fields."
+msgstr ""
+
+#: includes/class-piklist-form.php:617
+msgid "Terms"
+msgstr ""
+
+#: includes/class-piklist-form.php:618
+msgid "Default layout for Term fields."
+msgstr ""
+
+#: includes/class-piklist-form.php:623
+msgid "New Terms"
+msgstr ""
+
+#: includes/class-piklist-form.php:624
+msgid "Default layout for New Term fields."
+msgstr ""
+
+#: includes/class-piklist-form.php:630
+msgid "Default layout for User fields."
+msgstr ""
+
+#: includes/class-piklist-form.php:635
+msgid "Option"
+msgstr ""
+
+#: includes/class-piklist-form.php:636
+msgid "Default layout for Option fields."
+msgstr ""
+
+#: includes/class-piklist-form.php:641
+msgid "Shortcode"
+msgstr ""
+
+#: includes/class-piklist-form.php:642
+msgid "Default layout for Shortcode fields."
+msgstr ""
+
+#: includes/class-piklist-form.php:647
+msgid "Media"
+msgstr ""
+
+#: includes/class-piklist-form.php:648
+msgid "Default layout for Media fields."
+msgstr ""
+
+#: includes/class-piklist-form.php:653
+msgid "Theme"
+msgstr ""
+
+#: includes/class-piklist-form.php:654
+msgid "Default layout for frontend fields."
+msgstr ""
+
+#: includes/class-piklist-form.php:2498
+msgid "Select Color"
+msgstr ""
+
+#: includes/class-piklist-form.php:3106
+msgid "You must be logged in to view this form."
+msgstr ""
+
+#: includes/class-piklist-form.php:3205 includes/class-piklist-form.php:3349
+#: includes/class-piklist-form.php:3526 includes/class-piklist-form.php:3697
+#: includes/class-piklist-form.php:3739 includes/class-piklist-form.php:3794
+msgid "Insufficient permissions to save this data."
+msgstr ""
+
+#: includes/class-piklist-form.php:3451
+msgid "Invalid credentials."
+msgstr ""
+
+#: includes/class-piklist-list-table.php:251
+#, php-format
+msgid "1 item"
+msgid_plural "%s items"
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/class-piklist-list-table.php:275
+msgid "Go to the first page"
+msgstr ""
+
+#: includes/class-piklist-list-table.php:283
+msgid "Go to the previous page"
+msgstr ""
+
+#: includes/class-piklist-list-table.php:290
+msgid "Current page"
+msgstr ""
+
+#: includes/class-piklist-list-table.php:296
+#, php-format
+msgctxt "paging"
+msgid "%1$s of %2$s"
+msgstr ""
+
+#: includes/class-piklist-list-table.php:301
+msgid "Go to the next page"
+msgstr ""
+
+#: includes/class-piklist-list-table.php:309
+msgid "Go to the last page"
+msgstr ""
+
+#: includes/class-piklist-setting.php:84
+msgid "About"
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+#. Author of the plugin/theme
+#: includes/class-piklist-setting.php:85
+msgid "Piklist"
+msgstr ""
+
+#: includes/class-piklist-setting.php:94
+msgid "Piklist Settings"
+msgstr ""
+
+#: includes/class-piklist-setting.php:106
+msgid "Piklist Add-ons"
+msgstr ""
+
+#: includes/class-piklist-setting.php:575
+msgid "General"
+msgstr ""
+
+#: includes/class-piklist-setting.php:656
+msgid "Actions"
+msgstr ""
+
+#: includes/class-piklist-shortcode.php:117
+#: includes/class-piklist-shortcode.php:118
+msgid "Shortcode Editor"
+msgstr ""
+
+#: includes/class-piklist-shortcode.php:303
+msgid "Add Shortcode"
+msgstr ""
+
+#: includes/class-piklist-shortcode.php:485
+msgid "Click on this box to edit the shortcode properties."
+msgstr ""
+
+#: includes/class-piklist-shortcode.php:542
+msgid "No shortcode specified."
+msgstr ""
+
+#: includes/class-piklist-taxonomy.php:457
+msgid "Users"
+msgstr ""
+
+#: includes/class-piklist-validate.php:542
+#, php-format
+msgid "Sanitization type \"%s\" is not valid."
+msgstr ""
+
+#: includes/class-piklist-validate.php:567
+#, php-format
+msgid "Validation type \"%s\" is not valid."
+msgstr ""
+
+#: includes/class-piklist-validate.php:631
+msgid "is a required field."
+msgstr ""
+
+#: includes/class-piklist-validate.php:736
+#: includes/class-piklist-validate.php:749
+msgid "is not valid input"
+msgstr ""
+
+#: includes/class-piklist-validate.php:960
+msgid "Verifies that the input is in the proper format for an email address."
+msgstr ""
+
+#: includes/class-piklist-validate.php:964
+msgid "Email Domain"
+msgstr ""
+
+#: includes/class-piklist-validate.php:965
+msgid "Verifies that the email domain entered is a valid domain."
+msgstr ""
+
+#: includes/class-piklist-validate.php:969
+msgid "Email exists?"
+msgstr ""
+
+#: includes/class-piklist-validate.php:970
+msgid ""
+"Checks that the entered email is not already registered to another user."
+msgstr ""
+
+#: includes/class-piklist-validate.php:974
+msgid "File Exists?"
+msgstr ""
+
+#: includes/class-piklist-validate.php:975
+msgid "Verifies that the file path entered leads to an actual file."
+msgstr ""
+
+#: includes/class-piklist-validate.php:979
+msgid "Hex Color"
+msgstr ""
+
+#: includes/class-piklist-validate.php:980
+msgid "Verifies that the data entered is a valid hex color."
+msgstr ""
+
+#: includes/class-piklist-validate.php:984
+msgid "Is Image?"
+msgstr ""
+
+#: includes/class-piklist-validate.php:985
+msgid "Verifies that the file path entered leads to an image file."
+msgstr ""
+
+#: includes/class-piklist-validate.php:989
+msgid "IP Address"
+msgstr ""
+
+#: includes/class-piklist-validate.php:990
+msgid "Verifies that the data entered is a valid IP Address."
+msgstr ""
+
+#: includes/class-piklist-validate.php:992
+msgid "is not a valid ip address."
+msgstr ""
+
+#: includes/class-piklist-validate.php:995
+msgid "Entry Limit"
+msgstr ""
+
+#: includes/class-piklist-validate.php:996
+msgid "Verifies that the number of items are within the defined limit."
+msgstr ""
+
+#: includes/class-piklist-validate.php:1000
+msgid "Range"
+msgstr ""
+
+#: includes/class-piklist-validate.php:1001
+msgid "Verifies that the data entered is within the defined range."
+msgstr ""
+
+#: includes/class-piklist-validate.php:1005
+msgid "Alphanumeric"
+msgstr ""
+
+#: includes/class-piklist-validate.php:1006
+msgid "Verifies that the data entered is alphanumeric."
+msgstr ""
+
+#: includes/class-piklist-validate.php:1008
+msgid "contains invalid characters. Must contain only letters and numbers."
+msgstr ""
+
+#: includes/class-piklist-validate.php:1012
+msgid "Verifies that the data entered is a valid URL."
+msgstr ""
+
+#: includes/class-piklist-validate.php:1014
+msgid "is not a valid url."
+msgstr ""
+
+#: includes/class-piklist-validate.php:1017
+msgid "Username exists?"
+msgstr ""
+
+#: includes/class-piklist-validate.php:1018
+msgid "Checks that the entered username does not already exist."
+msgstr ""
+
+#: includes/class-piklist-validate.php:1022
+msgid "Match Fields"
+msgstr ""
+
+#: includes/class-piklist-validate.php:1023
+msgid "Checks to see if two fields match."
+msgstr ""
+
+#: includes/class-piklist-validate.php:1049
+msgid "does not contain a valid Email Address."
+msgstr ""
+
+#: includes/class-piklist-validate.php:1073
+msgid "does not contain a valid Email Domain."
+msgstr ""
+
+#: includes/class-piklist-validate.php:1098
+#, php-format
+msgid "cannot be \"%s\". This email is registered to another user."
+msgstr ""
+
+#: includes/class-piklist-validate.php:1133
+msgid "contains a file that does not exist."
+msgstr ""
+
+#: includes/class-piklist-validate.php:1204
+msgid "contains a file that is not an image."
+msgstr ""
+
+#: includes/class-piklist-validate.php:1244
+msgid "words"
+msgstr ""
+
+#: includes/class-piklist-validate.php:1252
+msgid "characters"
+msgstr ""
+
+#: includes/class-piklist-validate.php:1259
+msgid "items added"
+msgstr ""
+
+#: includes/class-piklist-validate.php:1259
+msgid "items selected"
+msgstr ""
+
+#: includes/class-piklist-validate.php:1269
+#, php-format
+msgid "must have exactly %1$s %2$s."
+msgstr ""
+
+#: includes/class-piklist-validate.php:1273
+#, php-format
+msgid "must have between %1$s and %2$s %3$s."
+msgstr ""
+
+#: includes/class-piklist-validate.php:1309
+#, php-format
+msgid "contains a value that is not between %s and %s"
+msgstr ""
+
+#: includes/class-piklist-validate.php:1340
+#, php-format
+msgid "cannot be \"%s\". This username already exists."
+msgstr ""
+
+#: includes/class-piklist-validate.php:1381
+#, php-format
+msgid "must match <strong>%s</strong>"
+msgstr ""
+
+#: includes/class-piklist-validate.php:1410
+msgid "Strips out all characters that are not allowable in an email address."
+msgstr ""
+
+#: includes/class-piklist-validate.php:1414
+msgid "File name"
+msgstr ""
+
+#: includes/class-piklist-validate.php:1415
+msgid "Removes or replaces special characters that are illegal in filenames."
+msgstr ""
+
+#: includes/class-piklist-validate.php:1419
+msgid "HTML class"
+msgstr ""
+
+#: includes/class-piklist-validate.php:1420
+msgid "Removes all characters that are not allowable in an HTML classname."
+msgstr ""
+
+#: includes/class-piklist-validate.php:1424
+msgid "Text field"
+msgstr ""
+
+#: includes/class-piklist-validate.php:1425
+msgid ""
+"Removes all HTML markup, as well as extra whitespace, leaving only plain "
+"text."
+msgstr ""
+
+#: includes/class-piklist-validate.php:1429
+msgid "Post title"
+msgstr ""
+
+#: includes/class-piklist-validate.php:1430
+msgid ""
+"Removes all HTML and PHP tags, returning a title that is suitable for a url"
+msgstr ""
+
+#: includes/class-piklist-validate.php:1435
+msgid "Removes all unsafe characters for a username."
+msgstr ""
+
+#: includes/class-piklist-validate.php:1439
+msgid "wp_kses"
+msgstr ""
+
+#: includes/class-piklist-validate.php:1440
+msgid ""
+"Makes sure that only the allowed HTML element names, attribute names and "
+"attribute values plus only sane HTML entities are accepted."
+msgstr ""
+
+#: includes/class-piklist-validate.php:1444
+msgid "wp_filter_kses"
+msgstr ""
+
+#: includes/class-piklist-validate.php:1445
+msgid "Makes sure only default HTML elements are accepted."
+msgstr ""
+
+#: includes/class-piklist-validate.php:1449
+msgid "wp_kses_post"
+msgstr ""
+
+#: includes/class-piklist-validate.php:1450
+msgid ""
+"Makes sure only appropriate HTML elements for post content are accepted."
+msgstr ""
+
+#: includes/class-piklist-validate.php:1454
+msgid "wp_strip_all_tags"
+msgstr ""
+
+#: includes/class-piklist-validate.php:1455
+msgid "Properly strip all HTML tags including script and style."
+msgstr ""
+
+#: includes/class-piklist-widget.php:174 includes/class-piklist-widget.php:190
+msgid "Widgets"
+msgstr ""
+
+#: includes/class-piklist-widget.php:183
+msgid "Piklist Widgets"
+msgstr ""
+
+#: includes/class-piklist-widget.php:184
+msgid "Core Widgets for Piklist."
+msgstr ""
+
+#: includes/class-piklist-widget.php:191
+#, php-format
+msgid "Widgets for the %s Theme"
+msgstr ""
+
+#: includes/class-piklist.php:489
+#, php-format
+msgid ""
+"is a reserved WordPress global variable and cannot be passed as an argument "
+"to %s"
+msgstr ""
+
+#: includes/class-piklist.php:530
+#, php-format
+msgid "File does not exist%s"
+msgstr ""
+
+#: includes/class-piklist.php:1567 includes/class-piklist.php:1626
+#, php-format
+msgid "All %s"
+msgstr ""
+
+#: includes/class-piklist.php:1569 includes/class-piklist.php:1571
+#: includes/class-piklist.php:1631
+#, php-format
+msgid "Add New %s"
+msgstr ""
+
+#: includes/class-piklist.php:1570 includes/class-piklist.php:1629
+#, php-format
+msgid "Edit %s"
+msgstr ""
+
+#: includes/class-piklist.php:1572 includes/class-piklist.php:1632
+#, php-format
+msgid "View %s"
+msgstr ""
+
+#: includes/class-piklist.php:1573 includes/class-piklist.php:1625
+#, php-format
+msgid "Search %s"
+msgstr ""
+
+#: includes/class-piklist.php:1574 includes/class-piklist.php:1638
+#, php-format
+msgid "No %s found"
+msgstr ""
+
+#: includes/class-piklist.php:1575
+#, php-format
+msgid "No %s found in trash"
+msgstr ""
+
+#: includes/class-piklist.php:1576 includes/class-piklist.php:1628
+#, php-format
+msgid "Parent %s:"
+msgstr ""
+
+#: includes/class-piklist.php:1627
+#, php-format
+msgid "Parent %s"
+msgstr ""
+
+#: includes/class-piklist.php:1630
+#, php-format
+msgid "Update %s"
+msgstr ""
+
+#: includes/class-piklist.php:1633
+#, php-format
+msgid "Popular %s"
+msgstr ""
+
+#: includes/class-piklist.php:1634
+#, php-format
+msgid "New %s Name"
+msgstr ""
+
+#: includes/class-piklist.php:1635
+#, php-format
+msgid "Separate %s with commas"
+msgstr ""
+
+#: includes/class-piklist.php:1636
+#, php-format
+msgid "Add or remove %s"
+msgstr ""
+
+#: includes/class-piklist.php:1637
+#, php-format
+msgid "Choose from the most used %s"
+msgstr ""
+
+#: includes/class-piklist.php:3084
+#, php-format
+msgid ""
+"This page is using the old Piklist WorkFlow system. Please update your code "
+"to the %snew WorkFlow system%s."
+msgstr ""
+
+#: parts/admin-pages/welcome.php:9
+msgid "Welcome to Piklist"
+msgstr ""
+
+#. Description of the plugin/theme
+#: parts/admin-pages/welcome.php:11
+msgid "The most powerful framework available for WordPress."
+msgstr ""
+
+#: parts/admin-pages/welcome.php:14
+#, php-format
+msgid "%sP%sIKLIST%s"
+msgstr ""
+
+#: parts/admin-pages/welcome.php:15
+#, php-format
+msgid "Version %s"
+msgstr ""
+
+#: parts/admin-pages/welcome.php:22
+msgid "Currently Powered by Piklist on"
+msgstr ""
+
+#: parts/admin-pages/welcome.php:32
+msgid "Active Theme"
+msgstr ""
+
+#: parts/admin-pages/welcome.php:48
+msgid "Active Plugins"
+msgstr ""
+
+#: parts/admin-pages/welcome.php:75
+msgid "Now even more powerful than before."
+msgstr ""
+
+#: parts/admin-pages/welcome.php:81
+msgid "Post relationships"
+msgstr ""
+
+#: parts/admin-pages/welcome.php:82
+msgid "You'll wish all relationships were this easy."
+msgstr ""
+
+#: parts/admin-pages/welcome.php:83
+#, php-format
+msgid ""
+"Post relationships are standard with Piklist and easy to setup. Displaying "
+"them in your theme is even easier, since you can use the standard WordPress "
+"%sget_posts%s function."
+msgstr ""
+
+#: parts/admin-pages/welcome.php:96
+msgid "Add mores"
+msgstr ""
+
+#: parts/admin-pages/welcome.php:97
+msgid "The infinite repeater field."
+msgstr ""
+
+#: parts/admin-pages/welcome.php:98
+msgid ""
+"Piklist AddMore fields are the repeater field you always dreamed of. Group "
+"together as many fields as you want and make them repeat indefinitely. Or "
+"place an Add more within an Add more within an Add more..."
+msgstr ""
+
+#: parts/admin-pages/welcome.php:111
+msgid "WorkFlows"
+msgstr ""
+
+#: parts/admin-pages/welcome.php:112
+msgid "The tab system you never knew was possible."
+msgstr ""
+
+#: parts/admin-pages/welcome.php:113
+#, php-format
+msgid ""
+"Piklist WorkFlows allows you to place tabs anywhere... and with %sanything"
+"%s. Tabs can include content from any page or even custom views you create."
+msgstr ""
+
+#: parts/admin-pages/welcome.php:126
+msgid "Multiple user roles"
+msgstr ""
+
+#: parts/admin-pages/welcome.php:127
+msgid "Better security, more flexibility."
+msgstr ""
+
+#: parts/admin-pages/welcome.php:128
+msgid ""
+"Powerful web sites and applications require multiple user roles and Piklist "
+"supports this out of the box. Standard WordPress functions can be used to "
+"validate a user's permissions and provide appropriate access to data."
+msgstr ""
+
+#: parts/admin-pages/welcome.php:139
+msgid "Intelligent field system"
+msgstr ""
+
+#: parts/admin-pages/welcome.php:140
+msgid ""
+"Easily create powerful fields just the way you want... and place them "
+"wherever you want."
+msgstr ""
+
+#: parts/admin-pages/welcome.php:145
+msgid "Conditional Logic"
+msgstr ""
+
+#: parts/admin-pages/welcome.php:147
+msgid "Hide/show fields based on another fields value."
+msgstr ""
+
+#: parts/admin-pages/welcome.php:148
+msgid "Auto-update another field."
+msgstr ""
+
+#: parts/admin-pages/welcome.php:153
+msgid "Validate data"
+msgstr ""
+
+#: parts/admin-pages/welcome.php:155
+msgid "Built in validation rules."
+msgstr ""
+
+#: parts/admin-pages/welcome.php:156
+msgid "Easily add your own."
+msgstr ""
+
+#: parts/admin-pages/welcome.php:157
+msgid "Apply multiple rules."
+msgstr ""
+
+#: parts/admin-pages/welcome.php:162
+msgid "Sanitize before saving"
+msgstr ""
+
+#: parts/admin-pages/welcome.php:164
+msgid "Use WordPress sanitization functions."
+msgstr ""
+
+#: parts/admin-pages/welcome.php:165
+msgid "Create your own."
+msgstr ""
+
+#: parts/admin-pages/welcome.php:178
+msgid "Customize everything in WordPress."
+msgstr ""
+
+#: parts/admin-pages/welcome.php:179
+msgid ""
+"Post Types, Taxonomies, User Profiles, Settings, Admin Pages, Widgets, "
+"Dashboard, Contextual Help, and more..."
+msgstr ""
+
+#: parts/admin-pages/welcome.php:184
+msgid "Fields"
+msgstr ""
+
+#: parts/admin-pages/welcome.php:186
+msgid "Lock field values."
+msgstr ""
+
+#: parts/admin-pages/welcome.php:187
+msgid "Define field scopes."
+msgstr ""
+
+#: parts/admin-pages/welcome.php:188
+msgid "Add Tooltip Help."
+msgstr ""
+
+#: parts/admin-pages/welcome.php:189
+msgid "Customize field templates."
+msgstr ""
+
+#: parts/admin-pages/welcome.php:194
+msgid "Meta Boxes"
+msgstr ""
+
+#: parts/admin-pages/welcome.php:196
+msgid "Lock meta boxes"
+msgstr ""
+
+#: parts/admin-pages/welcome.php:197
+msgid "Show/hide by user capability or role"
+msgstr ""
+
+#: parts/admin-pages/welcome.php:198
+msgid "Set the order of meta boxes"
+msgstr ""
+
+#: parts/admin-pages/welcome.php:199
+msgid "Hide meta box when creating a new post/term"
+msgstr ""
+
+#: parts/admin-pages/welcome.php:204
+msgid "Post Types"
+msgstr ""
+
+#: parts/admin-pages/welcome.php:206
+msgid "Create custom post statuses"
+msgstr ""
+
+#: parts/admin-pages/welcome.php:207
+msgid "Change the \"Enter title here\" text"
+msgstr ""
+
+#: parts/admin-pages/welcome.php:208
+msgid "Custom admin body classes"
+msgstr ""
+
+#: parts/admin-pages/welcome.php:209
+msgid "Hide meta boxes"
+msgstr ""
+
+#: parts/admin-pages/welcome.php:218
+msgid "List Tables"
+msgstr ""
+
+#: parts/admin-pages/welcome.php:220
+msgid "Change column headings"
+msgstr ""
+
+#: parts/admin-pages/welcome.php:221
+msgid "Show post states"
+msgstr ""
+
+#: parts/admin-pages/welcome.php:222
+msgid "Hide the post row actions"
+msgstr ""
+
+#: parts/admin-pages/welcome.php:227
+msgid "User Profiles"
+msgstr ""
+
+#: parts/admin-pages/welcome.php:229
+msgid "Profiles can taken advantage of any Piklist field"
+msgstr ""
+
+#: parts/admin-pages/welcome.php:230
+msgid "Show/hide fields by user capability or role"
+msgstr ""
+
+#: parts/admin-pages/welcome.php:231
+msgid "Easily add User Taxonomies"
+msgstr ""
+
+#: parts/admin-pages/welcome.php:236
+msgid "Widgets, Dashboard & Help"
+msgstr ""
+
+#: parts/admin-pages/welcome.php:238
+msgid "Simply create complex widgets"
+msgstr ""
+
+#: parts/admin-pages/welcome.php:239
+msgid "No object oriented programming required"
+msgstr ""
+
+#: parts/admin-pages/welcome.php:240
+msgid "No help needed to create contextual help"
+msgstr ""
+
+#: parts/admin-pages/welcome.php:253
+msgid "Get Started"
+msgstr ""
+
+#: parts/admin-pages/welcome.php:254
+msgid ""
+"The built in demos are a great way to see what Piklist can do, and comes "
+"with tons of sample code."
+msgstr ""
+
+#: parts/admin-pages/welcome.php:255
+#, php-format
+msgid "Activate Demos %s"
+msgstr ""
+
+#: parts/admin-pages/welcome.php:258
+msgid "Get Help"
+msgstr ""
+
+#: parts/admin-pages/welcome.php:259
+msgid ""
+"Visit the Piklist community forums to get answers to your questions, and "
+"suggest new features."
+msgstr ""
+
+#: parts/admin-pages/welcome.php:260
+#, php-format
+msgid "Visit Forums %s"
+msgstr ""
+
+#: parts/admin-pages/welcome.php:263
+msgid "Get News"
+msgstr ""
+
+#: parts/admin-pages/welcome.php:264
+msgid "Piklist updates in your inbox."
+msgstr ""
+
+#: parts/admin-pages/welcome.php:267
+msgid "Send to:"
+msgstr ""
+
+#: parts/admin-pages/welcome.php:272
+msgid "Subscribe"
+msgstr ""
+
+#: parts/admin-pages/welcome.php:283
+msgid "Piklist is created by a team of passionate individuals."
+msgstr ""
+
+#: parts/admin-pages/welcome.php:286
+msgid "Project Leaders"
+msgstr ""
+
+#: parts/admin-pages/welcome.php:295 parts/admin-pages/welcome.php:303
+msgid "Lead Developer"
+msgstr ""
+
+#: parts/admin-pages/welcome.php:308
+msgid "Contributing Developers"
+msgstr ""
+
+#: parts/admin-pages/welcome.php:340
+msgid "Follow Piklist"
+msgstr ""
+
+#: parts/dashboard/dashboard-right-now.php:54
+msgid "_right_now"
+msgstr ""
+
+#: parts/dashboard/dashboard-right-now.php:76
+msgid "Organization"
+msgstr ""
+
+#: parts/dashboard/dashboard-right-now.php:104
+msgid "Comment(s)"
+msgstr ""
+
+#: parts/dashboard/dashboard-right-now.php:114
+msgid "Approved"
+msgstr ""
+
+#: parts/dashboard/dashboard-right-now.php:124
+msgid "Pending"
+msgstr ""
+
+#: parts/dashboard/dashboard-right-now.php:134
+msgid "Spam"
+msgstr ""
+
+#: parts/dashboard/dashboard-right-now.php:146
+msgid "User(s)"
+msgstr ""
+
+#: parts/dashboard/dashboard-right-now.php:199
+#, php-format
+msgid "WordPress %1$s running %2$s theme in %3$s."
+msgstr ""
+
+#: parts/dashboard/dashboard-right-now.php:205
+msgid "Your site is asking search engines not to index its content"
+msgstr ""
+
+#: parts/dashboard/dashboard-right-now.php:207
+msgid "Search Engines Discouraged"
+msgstr ""
+
+#: parts/fields/add-ons.php:39
+msgid "Disable"
+msgstr ""
+
+#: parts/fields/add-ons.php:39
+msgid "Activate"
+msgstr ""
+
+#: parts/fields/file.php:153 parts/fields/file.php:180
+msgid "Deselect"
+msgstr ""
+
+#: parts/forms/shortcode.php:84
+msgid "Shortcode Content"
+msgstr ""
+
+#: parts/forms/shortcode.php:85
+msgid "This is the content that the shortcode is wrapped around."
+msgstr ""
+
+#: parts/forms/shortcode.php:115
+msgid "insert"
+msgstr ""
+
+#: parts/forms/shortcode.php:124
+msgid "Back"
+msgstr ""
+
+#: parts/pointers/demos.php:10
+#, php-format
+msgid ""
+"The built-in Demos highlight many Piklist features, and include code "
+"snippets you can copy and paste. Activate the Demos at %1$sPiklist > Add-ons"
+"%2$s"
+msgstr ""
+
+#: parts/settings/add-ons.php:10
+#, php-format
+msgid ""
+"%1$sAdd-ons are Piklist plugins%2$s that are included with Piklist core, "
+"another Piklist plugin or your theme. They allow you to turn on additional "
+"functionality."
+msgstr ""
+
+#: parts/settings/add-ons.php:19
+msgid "Plugin Add-ons"
+msgstr ""
+
+#: parts/settings/dashboard.php:13
+msgid "\"At A Glance\" Widget"
+msgstr ""
+
+#: parts/settings/dashboard.php:15
+msgid "Use Piklist version"
+msgstr ""
+
+#: parts/settings/enhancements.php:13
+msgid "Accelerate meta queries"
+msgstr ""
+
+#: parts/settings/enhancements.php:14
+msgid "May conflict with certain plugins"
+msgstr ""
+
+#: parts/settings/enhancements.php:15
+msgid "Allow Piklist to speed up all meta queries in WordPress or any plugin."
+msgstr ""
+
+#: parts/settings/enhancements.php:17 parts/settings/forms.php:16
+#: parts/settings/users.php:17
+msgid "Allow"
+msgstr ""
+
+#: parts/settings/forms.php:13
+msgid "Javascript Validation"
+msgstr ""
+
+#: parts/settings/forms.php:14
+msgid ""
+"Allow forms to use client side validation using the same rules and methods "
+"as the built in server side validation."
+msgstr ""
+
+#: parts/settings/shortcodes.php:13
+msgid "Allow Shortcode UI"
+msgstr ""
+
+#: parts/settings/users.php:13
+msgid "Multiple User Roles"
+msgstr ""
+
+#: parts/settings/users.php:14
+msgid "Users can be assigned multiple roles."
+msgstr ""
+
+#: parts/settings/users.php:15
+msgid "Changes the user role dropdown to a select box."
+msgstr ""
+
+#: parts/shared/taxonomy-filter-meta-box.php:17
+msgid "Filter"
+msgstr ""
+
+#: parts/shared/taxonomy-filter-meta-box.php:19
+msgid "Reset"
+msgstr ""
+
+#: parts/shared/update-available.php:17
+msgid "Updating is recommended, here's why:"
+msgstr ""
+
+#: parts/shared/widget-select.php:8 parts/shared/widget-select.php:26
+msgid "Select a Widget"
+msgstr ""
+
+#: parts/shared/widget-select.php:83
+msgid "There are currently no Widgets available."
+msgstr ""
+
+#: parts/shared/widget-select.php:86
+msgid "Learn to make Widgets"
+msgstr ""
+
+#: parts/shared/widget-select.php:89
+msgid ""
+"Check out the documentation for how to easily build your own custom widgets!"
+msgstr ""
+
+#: parts/shortcodes/form-form.php:32
+msgid "Add-on"
+msgstr ""
+
+#: parts/updates/0.9.9.php:48
+msgid "IMPORTANT MESSAGE FROM PIKLIST"
+msgstr ""
+
+#: parts/updates/0.9.9.php:51
+msgid ""
+"The data structure for Piklist Add-More and Workflow tabs have changed in "
+"this version and require an update."
+msgstr ""
+
+#: parts/updates/0.9.9.php:52
+msgid ""
+"Your repeater field output and WorkFlow tabs will not work after you run "
+"this upgrade, unless you make the neccessary updates."
+msgstr ""
+
+#: parts/updates/0.9.9.php:53
+msgid "Do not save any Piklist data until you run this update."
+msgstr ""
+
+#: parts/updates/0.9.9.php:56
+msgid "Here are your choices:"
+msgstr ""
+
+#: parts/updates/0.9.9.php:58
+#, php-format
+msgid ""
+"1. Run the upgrade script and then make changes to your files. You can learn "
+"more about the changes needed %1$s on our website.%2$s"
+msgstr ""
+
+#: parts/updates/0.9.9.php:59
+#, php-format
+msgid ""
+"2. If you are not ready to make these changes, then STOP. Delete this "
+"version of Piklist, %1$s download the old version%2$s from WordPress.org, "
+"and install it. Use it until you are ready to do the upgrade."
+msgstr ""
+
+#: parts/updates/0.9.9.php:61
+msgid "IMPORTANT: Backup your database before running the upgrade."
+msgstr ""
+
+#: parts/updates/0.9.9.php:64
+msgid "Update Now"
+msgstr ""
+
+#: parts/updates/0.9.9.php:260
+msgid "Post Meta Updated..."
+msgstr ""
+
+#: parts/updates/0.9.9.php:260
+msgid "Media Meta Updated..."
+msgstr ""
+
+#: parts/updates/0.9.9.php:269
+msgid "User Meta Updated..."
+msgstr ""
+
+#: parts/updates/0.9.9.php:278
+msgid "Term Meta Updated..."
+msgstr ""
+
+#: parts/updates/0.9.9.php:331
+msgid "Settings Updated..."
+msgstr ""
+
+#: parts/updates/0.9.9.php:374
+msgid "Widgets Updated..."
+msgstr ""
+
+#: parts/updates/0.9.9.php:437
+msgid "Be sure to backup your database before running this update!"
+msgstr ""
+
+#: parts/updates/0.9.9.php:438
+msgid "This update is not reversible."
+msgstr ""
+
+#: parts/updates/0.9.9.php:441
+msgid ""
+"Only serialized field data created and saved by Piklist will be effected by "
+"this update."
+msgstr ""
+
+#: parts/updates/0.9.9.php:453
+msgid "Please Note"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+#. Author URI of the plugin/theme
+msgid "https://piklist.com"
+msgstr ""

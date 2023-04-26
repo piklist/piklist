@@ -1,27 +1,32 @@
-=== PIKLIST | Rapid development framework ===
+=== PIKLIST - Easily Build Fields, Forms, Settings, Widgets and More. ===
 Contributors: piklist, p51labs, sbruner, jason_the_adams
 Tested up to: 4.9
 Requires at least: 4.0
-Stable tag: 1.0.3
+Stable tag: 1.0.12
 Requires PHP: 5.3
+Tags: custom field, custom fields, forms, framework, flexible, content, meta boxes, post types, repeater, advanced
 Donate link: http://piklist.com/get-involved/
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Tags: piklist,framework,cms,admin,admin pages,settings,settings pages,content types,custom post types,post type,post type fields,custom taxonomies,taxonomy,taxonomy fields,term fields,custom comment type,comments,custom fields,widgets,help,help tabs,contextual help,media,media fields,admin notices,alerts,admin pointers,pointers,users,user profiles,user fields,validate,validation,field validation,field sanitization,sanitization,sanitize,tabs,tabbed sections,tabbed settings
 
 Piklist is the most powerful framework available for WordPress.
-Easy for beginners... built for developers. Piklist helps you build things - fast.
+Easy for beginners... built for developers.
+Easily Build Fields, Forms, Settings, Widgets and More.
 
 
 == Description ==
 
-= Piklist is the most powerful framework available for WordPress. =
-Easy for beginners... built for developers. Piklist helps you build things - fast.
+### Piklist is the most powerful framework available for WordPress.
+Easy for beginners... built for developers. Easily Build Fields, Forms, Settings, Widgets and More.
+
+> Piklist 2.0 is coming soon with full Gutenberg support. Until then, please use the [Classic Editor plugin](https://wordpress.org/plugins/classic-editor/) when using WordPress 5.0+. 
+
+[Stay up to date with Piklist news &rarr;](http://eepurl.com/lkbD9)
 
 Piklist is a rapid development framework for WordPress that will let you concentrate on the main focus of your plugin or theme, and let Piklist handle everything else.
 
-[Watch the Piklist presentation from WordCamp NYC >](http://wordpress.tv/2012/09/04/steve-bruner-and-kevin-miller-building-powerful-websites-and-web-applications-with-piklist/):
+[Watch the Piklist presentation from WordCamp NYC &rarr;](http://wordpress.tv/2012/09/04/steve-bruner-and-kevin-miller-building-powerful-websites-and-web-applications-with-piklist/):
 
 = Piklist makes it easy to: =
 *   Build Fields for Settings page, Widgets, Custom Post Types, Custom Taxonomies and User Profiles with minimal code.
@@ -105,7 +110,7 @@ Piklist is a rapid development framework for WordPress that will let you concent
 
 
 > #### Getting Started with Piklist is Easy.
-> <a href="https://piklist.com/user-guide/tutorials/getting-started-with-piklist/">Read our getting started tutorial.</a>
+> <a href="https://docs.piklist.com/getting-started/">Read our getting started tutorial.</a>
 
 == Installation ==
 
@@ -146,10 +151,59 @@ Thank you for wanting to contribute! It helps everyone out!
 
 == Changelog ==
 
-= 1.0.3 =
-Release Date: January 3, 2018
+= 1.0.12 =
+Release Date: December 20, 2021
 
-* ENHANCED: Do not show the “Published” post state on list tables.
+* ENHANCED: Remove custom dashicons. Not needed anymore.
+
+= 1.0.11 =
+Release Date: December 17, 2020
+
+* FIXED: PHP 7.4 notice for bool error
+
+= 1.0.10 =
+Release Date: September 9, 2020
+
+* FIXED: PHP 7.4 notice for Dashboard / CPT meta boxes
+
+= 1.0.9 =
+Release Date: July 6, 2020
+
+* FIXED: PHP 7.4 notice
+
+= 1.0.8 =
+Release Date: May 20, 2020
+
+* ENHANCED: Piklist "select" fields look better in newer versions of WordPress.
+
+= 1.0.7 =
+Release Date: April 23, 2020
+
+* FIXED: Workflow notice
+
+= 1.0.6 =
+Release Date: December 19, 2019
+
+* FIXED: Removed Post Status notices on menu screen in WordPress 5.3
+
+= 1.0.5 =
+Release Date: November 29, 2019
+
+* FIXED: Comment block titles are now translatable.
+* FIXED: Posts now saves if no TinyMCE is found on the page. (e.g. when using WPBakery Visual Composer Page editor) (props @xeiter)
+
+= 1.0.4 =
+Release Date: June 15, 2019
+
+* ENHANCED: Updated piklist::performance to check PHP version.
+* ENHANCED: safe_mode removed
+* ENHANCED: PHP 7.3 capability
+* FIXED: changed &$query to $query in class-piklist-wordpress.php
+
+= 1.0.3 =
+Release Date: January 3, 2019
+
+* ENHANCED: Do not show the "Published" post state on list tables.
 
 = 1.0.2 =
 Release Date: December 25, 2018
@@ -176,7 +230,7 @@ Release Date: June 11, 2018
 = 0.11.3 =
 Release Date: June 4, 2018
 
-* FIXED: Multiple images can be removed normally. (prop @alasdaircr)
+* FIXED: Multiple images can be removed normally. (props @alasdaircr)
 
 = 0.11.2 =
 Release Date: May 24, 2018

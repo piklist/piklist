@@ -498,46 +498,49 @@ class Piklist_Workflow
       $allowed = true;
     }
 
-    // Check Pages
-    $pages = $data['data']['page'];
-    if (!empty($pages))
-    {
-      $allowed = in_array($pagenow, $pages);
+	if (!empty($data))
+	{
+		// Check Pages
+		$pages = $data['data']['page'];
+		if (!empty($pages))
+		{
+			$allowed = in_array($pagenow, $pages);
 
-      if (isset($_REQUEST['page']))
-      {
-        $allowed = in_array($_REQUEST['page'], $pages);
-      }
-    }
+			if (isset($_REQUEST['page']))
+			{
+				$allowed = in_array($_REQUEST['page'], $pages);
+			}
+		}
 
-    // Check Post Types
-    if ($allowed && piklist_admin::is_post())
-    {
-      $post_types = $data['data']['post_type'];
-      $current_post_type = piklist_cpt::detect_post_type();
+		// Check Post Types
+		if ($allowed && piklist_admin::is_post())
+		{
+			$post_types = $data['data']['post_type'];
+			$current_post_type = piklist_cpt::detect_post_type();
 
-      if (!empty($post_types))
-      {
-        $allowed = in_array($current_post_type, $post_types);
-      }
-    }
+			if (!empty($post_types))
+			{
+				$allowed = in_array($current_post_type, $post_types);
+			}
+		}
 
-    // Check which mode we are on for the term pages
-    if ($is_term = piklist_admin::is_term())
-    {
-      if ($is_term === 'new')
-      {
-        $allowed = false;
-      }
+		// Check which mode we are on for the term pages
+		if ($is_term = piklist_admin::is_term())
+		{
+			if ($is_term === 'new')
+			{
+				$allowed = false;
+			}
 
-      $taxonomies = $data['data']['taxonomy'];
-      $current_taxonomy = isset($_REQUEST['taxonomy']) ? $_REQUEST['taxonomy'] : false;
+			$taxonomies = $data['data']['taxonomy'];
+			$current_taxonomy = isset($_REQUEST['taxonomy']) ? $_REQUEST['taxonomy'] : false;
 
-      if (!empty($taxonomies) && $current_taxonomy)
-      {
-        $allowed = in_array($current_taxonomy, $taxonomies);
-      }
-    }
+			if (!empty($taxonomies) && $current_taxonomy)
+			{
+				$allowed = in_array($current_taxonomy, $taxonomies);
+			}
+		}
+	}
 
     return $allowed;
   }

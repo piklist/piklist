@@ -2790,7 +2790,7 @@ class Piklist
    */
   public static function performance()
   {
-    if (!ini_get('safe_mode'))
+    if (version_compare(PHP_VERSION, '5.4.0', '>='))
     {
       ini_set('max_execution_time', -1);
       ini_set('memory_limit', -1);

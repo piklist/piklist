@@ -127,7 +127,6 @@
     .piklist-field select,
     .piklist-field textarea {
       margin: 0;
-      padding: 3px 4px;
       min-height: 1.9em;
       max-width: 100%;
       line-height: 1.3em;

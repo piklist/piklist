@@ -4357,7 +4357,7 @@ class Piklist_Form
 
         continue;
       }
-      elseif (!empty($value) && is_string($value) && (('{' == $value{0} && '}' == $value{strlen($value) - 1}) || ('[' == $value{0} && ']' == $value{strlen($value) - 1}) || preg_match('/^\(?function ?\(/', $value)))
+	  elseif (!empty($value) && is_string($value) && (('[' === $value[0] && ']' === $value[strlen($value) - 1]) || preg_match('/^\(?function ?\(/', $value)))
       {
         $new_settings[$key] = $value;
 
