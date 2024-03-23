@@ -944,7 +944,7 @@ class Piklist_CPT
    * @static
    * @since 1.0
    */
-  public static function pre_get_posts(&$query)
+  public static function pre_get_posts($query)
   {
     if ($query->is_main_query() && isset($_REQUEST) && (isset($_REQUEST[piklist::$prefix]['filter']) && strtolower($_REQUEST[piklist::$prefix]['filter']) == 'true') && isset($_REQUEST[piklist::$prefix]['fields']))
     {
@@ -1177,7 +1177,7 @@ class Piklist_CPT
    * @static
    * @since 1.0
    */
-  public static function posts_search($search, &$query)
+  public static function posts_search($search, $query)
   {
     global $wpdb;
 

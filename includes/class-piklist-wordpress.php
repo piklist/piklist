@@ -186,7 +186,7 @@ class Piklist_WordPress
    * @static
    * @since 1.0
    */
-  public static function pre_get_posts(&$query)
+  public static function pre_get_posts($query)
   {
     if (isset($query->query_vars['orderby']))
     {
@@ -212,7 +212,7 @@ class Piklist_WordPress
    * @static
    * @since 1.0
    */
-  public static function pre_user_query(&$query)
+  public static function pre_user_query($query)
   {
     global $wpdb;
 

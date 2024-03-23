@@ -1,3 +1,5 @@
+This fork of Piklist contains fixes for a few minor syntax and PHP "strict" errors that cause error messages to be generated. 
+
 # Piklist
 
 On June 12, 2012, at WordCampNYC, we announced Piklist. Developers were awed by its power, and beginners were amazed by how simple it was to use.
